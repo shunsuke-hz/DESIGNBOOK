@@ -18,6 +18,7 @@ class ProjectDetailController extends Controller
     public function select(int $project_id)
     {
       return Project::with([
+        'brands',
         'project_images.tags',
         'project_images.products.tags',
         'project_images.products.product_images',
