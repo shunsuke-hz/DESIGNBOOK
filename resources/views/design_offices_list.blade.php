@@ -4,8 +4,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <title>Laravel</title>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -21,9 +22,7 @@
                 margin: 0;
             }
 
-            .full-height {
-                height: 100vh;
-            }
+
 
             .flex-center {
                 align-items: center;
@@ -65,6 +64,38 @@
         </style>
     </head>
     <body>
+         {{-- 全ページ共通ナビゲーションバー --}}
+        <nav class="nav mt-3 mb-3">
+            <a href="http://localhost/"><img src="/storage/Logo.png" width="150px"></a>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://localhost/">
+                        <img src="/storage/home.png">検索
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/design-office-list/">
+                        <img src="/storage/search.png">設計事務所
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/manufacturers-list/">
+                        <img src="/storage/search.png">メーカー
+                    </a>
+                </li>
+                <li><img src="/storage/heart.png">お知らせ</li>
+                <li>
+                    <a href="http://localhost/design-office-mypage/">
+                        <img src="/storage/property.png">マイページ
+                    </a>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="キーワード">
+                </div>
+            </form>
+        </nav>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -79,12 +110,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <?php echo $message; ?>
                 </div>
-                <div id="app">
-                    <example-component></example-component>
-                </div>
-
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -96,5 +123,7 @@
         </div>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src=" {{ mix('js/app.js') }} "></script>
+
     </body>
-</html>
+    </html>
+    

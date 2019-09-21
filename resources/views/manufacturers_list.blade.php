@@ -4,8 +4,6 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
 
         <title>Laravel</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -23,6 +21,7 @@
                 height: 100vh;
                 margin: 0;
             }
+
 
 
             .flex-center {
@@ -65,6 +64,40 @@
         </style>
     </head>
     <body>
+        {{-- 全ページ共通ナビゲーションバー --}}
+        <nav class="nav mt-3 mb-3">
+            <a href="http://localhost/"><img src="/storage/Logo.png" width="150px"></a>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://localhost/">
+                        <img src="/storage/home.png">検索
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/design-office-list/">
+                        <img src="/storage/search.png">設計事務所
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost/manufacturers-list/">
+                        <img src="/storage/search.png">メーカー
+                    </a>
+                </li>
+                <li><img src="/storage/heart.png">お知らせ</li>
+                <li>
+                    <a href="http://localhost/design-office-mypage/">
+                        <img src="/storage/property.png">マイページ
+                    </a>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="キーワード">
+                </div>
+            </form>
+        </nav>
+
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -79,12 +112,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    DesignBook
-                </div>
-                <div class="container">
-                    <div id="app">
-                        <top-component></top-component>
-                    </div>
+                    <?php echo $message; ?>
                 </div>
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
@@ -97,7 +125,7 @@
         </div>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src=" {{ mix('js/app.js') }} "></script>
-        
+
     </body>
     </html>
     

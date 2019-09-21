@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // TopページのAPI
 Route::get('/', 'TopController@show');
+Route::get('/tags', 'TopController@tags');
 
 // 詳細ページのAPI
 Route::get('/project-detail/{project_id}', 'ProjectDetailController@select');
-
