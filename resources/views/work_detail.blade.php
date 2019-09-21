@@ -25,6 +25,7 @@
             }
 
 
+
             .flex-center {
                 align-items: center;
                 display: flex;
@@ -79,13 +80,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    DesignBook
+                    designbook
                 </div>
-                <div class="container">
+            <div class="container">
+
                     <div id="app">
-                        <top-component></top-component>
+                        <work-detail-component></work-detail-component>
                     </div>
-                </div>
+                
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -97,7 +99,7 @@
         </div>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src=" {{ mix('js/app.js') }} "></script>
-        
+
     </body>
     </html>
     

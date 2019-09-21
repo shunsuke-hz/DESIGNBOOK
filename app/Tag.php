@@ -8,5 +8,4 @@ class Tag extends Model
 {
     //
     protected $hidden = array('pivot');
-
 }

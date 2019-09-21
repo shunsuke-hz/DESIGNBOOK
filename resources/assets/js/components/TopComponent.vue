@@ -1,0 +1,77 @@
+<template>
+    <div class="container">
+        <div>
+            <input type="text" v-model="keyword" />
+        </div>
+        <div id="tag">
+            <label v-for="tag in tags" :key="tag.id">
+                <input type="checkbox" :value="tag.name" v-model="check" />
+                {{ tag.name }}
+            </label>
+        </div>
+
+        <div class="row">
+            <div class="photo lazy-wrap zoom-in">
+                <a
+                    class="col-md-4"
+                    :href="'/work-detail?work='+value.post_work_id"
+                    v-for="value in filter"
+                    :key="value.id"
+                >
+                    <img class="lazy" v-bind:src="'/storage/'+value.image" style="width: 300px" />
+                </a>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data: function() {
+        return {
+            keyword: "",
+            project: [],
+            tags: [],
+            images: [],
+            check: [],
+            result: [],
+            old_result: []
+        };
+    },
+
+    computed: {
+        // 検索機能
+        filter: function() {
+            this.result = [];
+            this.old_result = [];
+            for (let x = 0; x < this.project.length; x++) {
+                this.images = this.project[x].project_images;
+                for (let i in this.images) {
+                    let image = this.images[i];
+                    // console.log(image.image);
+
+                    for (let n = 0; n < image.tags.length; n++) {
+                        if (
+                            image.tags[n].name.indexOf(this.keyword) !== -1 &&
+                            image.tags[n].name.indexOf(this.check) !== -1
+                        ) {
+                            if (this.old_result == image) {
+                            } else {
+                                this.result.push(image);
+                                // console.log(image.tags[n].name);
+                            }
+                            this.old_result = image;
+                        }
+                    }
+                }
+            }
+            return this.result;
+        }
+    },
+
+    mounted: function() {
+        axios.get("/api/").then(response => (this.project = response.data));
+        axios.get("/api/tags").then(response => (this.tags = response.data));
+    }
+};
+</script>
