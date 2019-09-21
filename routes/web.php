@@ -11,6 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// TOPページ
+// Route::get('/', 'TopController@index');
+
+// 詳細ページ
+// Route::get('/work-detail', 'WorkDetailController@index');
+
+// 設計事務所一覧ページ
+// Route::get('/design-office-list', 'DesignOfficesListController@index');
+
+// メーカー一覧ページ
+// Route::get('/manufacturers-list', 'ManufacturersListController@index');
+
+// 設計事務所ページ
+// Route::get('/design-office-mypage', 'DesignOfficeMypageController@index');
