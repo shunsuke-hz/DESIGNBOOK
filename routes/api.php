@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// TopページのAPI
+Route::get('/', 'TopController@show');
+// 詳細ページのAPI
+// Route::get('/work-detail/{post_work_id}', 'WorkDetailController@select');
+
