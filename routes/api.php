@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // TopページのAPI
 Route::get('/', 'TopController@show');
+
 // 詳細ページのAPI
-// Route::get('/work-detail/{post_work_id}', 'WorkDetailController@select');
+Route::get('/project-detail/{project_id}', 'ProjectDetailController@select');
 

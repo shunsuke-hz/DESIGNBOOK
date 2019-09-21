@@ -16,10 +16,10 @@
 // });
 
 // TOPページ
-// Route::get('/', 'TopController@index');
+Route::get('/', 'TopController@index');
 
 // 詳細ページ
-// Route::get('/work-detail', 'WorkDetailController@index');
+Route::get('/project-detail', 'ProjectDetailController@index');
 
 // 設計事務所一覧ページ
 // Route::get('/design-office-list', 'DesignOfficesListController@index');

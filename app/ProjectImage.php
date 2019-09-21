@@ -11,4 +11,9 @@ class ProjectImage extends Model
     {
         return $this->belongsToMany('App\Tag');
     }
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Product');
+    }
 }
