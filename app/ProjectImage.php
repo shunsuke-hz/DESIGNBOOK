@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectImage extends Model
 {
     //
+    protected $hidden = array('pivot');
+
     public function tags()
     {
         return $this->belongsToMany('App\Tag');
+    }
+
+    public function projects()
+    {
+        return $this->belongsTo('App\Project', 'project_id');
     }
 
     public function products()

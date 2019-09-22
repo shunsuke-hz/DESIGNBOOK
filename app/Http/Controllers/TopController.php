@@ -15,7 +15,7 @@ class TopController extends Controller
     return view('top');
   }
 
-  // 投稿データ全件をJSONで返す処理
+  // プロジェクトデータ全件をJSONで返す処理
   public function show()
   {
     return Project::with(['project_images.tags'])->get();

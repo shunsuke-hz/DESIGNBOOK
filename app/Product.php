@@ -15,6 +15,11 @@ class Product extends Model
         return $this->hasMany('App\ProductImage');
     }
 
+    public function project_images()
+    {
+        return $this->belongsToMany('App\ProjectImage');
+    }
+
     public function tags()
     {
         return $this->belongsToMany('App\Tag');
