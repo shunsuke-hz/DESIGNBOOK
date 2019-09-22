@@ -16,8 +16,8 @@ window.Vue = require("vue");
 
 Vue.component("top-component", require("./components/TopComponent.vue"));
 Vue.component(
-    "work-detail-component",
-    require("./components/WorkDetailComponent.vue")
+    "project-detail-component",
+    require("./components/ProjectDetailComponent.vue")
 );
 
 const app = new Vue({

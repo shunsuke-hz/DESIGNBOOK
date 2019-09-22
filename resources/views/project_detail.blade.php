@@ -4,8 +4,10 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -19,10 +21,6 @@
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
             }
 
             .flex-center {
@@ -81,6 +79,11 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+                <div class="container">
+                    <div id="app">
+                        <project-detail-component></project-detail-component>
+                    </div>
+                </div>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
@@ -91,5 +94,7 @@
                 </div>
             </div>
         </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src=" {{ mix('js/app.js') }} "></script>
     </body>
 </html>

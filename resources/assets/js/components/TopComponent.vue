@@ -14,7 +14,7 @@
             <div class="photo lazy-wrap zoom-in">
                 <a
                     class="col-md-4"
-                    :href="'/work-detail?work='+value.post_work_id"
+                    :href="'/project-detail?work='+value.project_id"
                     v-for="value in filter"
                     :key="value.id"
                 >
@@ -48,7 +48,6 @@ export default {
                 this.images = this.project[x].project_images;
                 for (let i in this.images) {
                     let image = this.images[i];
-                    // console.log(image.image);
 
                     for (let n = 0; n < image.tags.length; n++) {
                         if (
@@ -58,7 +57,6 @@ export default {
                             if (this.old_result == image) {
                             } else {
                                 this.result.push(image);
-                                // console.log(image.tags[n].name);
                             }
                             this.old_result = image;
                         }

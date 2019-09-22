@@ -15,7 +15,7 @@ export default {
         return {
             url: "",
             id: "",
-            works: [],
+            project: [],
             items: [],
             photos: [],
             thumbneil: [],
@@ -47,10 +47,10 @@ export default {
         let index = this.url.indexOf("=");
         this.id = this.url.slice(index + 1);
         await axios
-            .get("/api/work-detail/" + this.id)
-            .then(response => (this.works = response.data));
+            .get("/api/project-detail/" + this.id)
+            .then(response => (this.project = response.data));
 
-        this.items = this.works.post_work_images;
+        this.items = this.project.project_images;
         for (let i = 0; i < this.items.length; i++) {
             this.photos.push(this.items[i].image);
         }
