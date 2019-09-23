@@ -29,3 +29,7 @@ Route::get('/project-detail', 'ProjectDetailController@index');
 
 // 設計事務所ページ
 // Route::get('/design-office-mypage', 'DesignOfficeMypageController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
