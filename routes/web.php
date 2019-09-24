@@ -18,8 +18,14 @@
 // TOPページ
 Route::get('/', 'TopController@index');
 
-// 詳細ページ
+// プロジェクト詳細ページ
 Route::get('/project-detail', 'ProjectDetailController@index');
+
+// プロダクト一覧ページ
+Route::get('/product', 'ProductController@index');
+
+// プロダクト詳細ページ
+Route::get('/product-detail', 'ProductDetailController@index');
 
 // 設計事務所一覧ページ
 // Route::get('/design-office-list', 'DesignOfficesListController@index');

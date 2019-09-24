@@ -115,10 +115,9 @@
                 <div class="title m-b-md">
                     DesignBook
                 </div>
-                <a href="{{ url('/product') }}">プロダクト一覧</a>
                 <div class="container">
                     <div id="app">
-                        <top-component></top-component>
+                        <product-component></product-component>
                     </div>
                 </div>
                 <div class="links">

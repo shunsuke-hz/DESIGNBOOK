@@ -19,6 +19,14 @@ Vue.component(
     "project-detail-component",
     require("./components/ProjectDetailComponent.vue")
 );
+Vue.component(
+    "product-component",
+    require("./components/ProductComponent.vue")
+);
+Vue.component(
+    "product-detail-component",
+    require("./components/ProductDetailComponent.vue")
+);
 
 const app = new Vue({
     el: "#app"

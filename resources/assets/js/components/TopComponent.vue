@@ -30,7 +30,7 @@ export default {
     data: function() {
         return {
             keyword: "",
-            project: [],
+            projects: [],
             tags: [],
             images: [],
             check: [],
@@ -44,8 +44,8 @@ export default {
         filter: function() {
             this.result = [];
             this.old_result = [];
-            for (let x = 0; x < this.project.length; x++) {
-                this.images = this.project[x].project_images;
+            for (let x = 0; x < this.projects.length; x++) {
+                this.images = this.projects[x].project_images;
                 for (let i in this.images) {
                     let image = this.images[i];
 
@@ -68,8 +68,11 @@ export default {
     },
 
     mounted: function() {
-        axios.get("/api/").then(response => (this.project = response.data));
+        axios.get("/api/").then(response => (this.projects = response.data));
         axios.get("/api/tags").then(response => (this.tags = response.data));
     }
 };
 </script>
+
+<style>
+</style>

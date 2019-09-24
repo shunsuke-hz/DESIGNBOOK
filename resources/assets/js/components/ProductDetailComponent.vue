@@ -15,30 +15,17 @@ export default {
         return {
             url: "",
             id: "",
-            project: [],
-            items: [],
-            images: [],
             thumbneil: [],
             products: [],
-            member: [],
-            manufacture: []
+            images: []
         };
     },
-
     methods: {
         // ホバーでサムネイル切り替え
         changeImage: function(e) {
             let getUrl = e.target.getAttribute("src").replace("/storage/", "");
             this.thumbneil.shift();
             this.thumbneil.push(getUrl);
-
-            // for (let x = 0; x < this.items.products.length; x++) {
-            //   this.products.push(this.items.products[x]);
-            //   this.member.push(this.items.products[x].manufacturer_member);
-            //   this.manufacture.push(
-            //     this.items.products[x].manufacturer_member.manufacturer
-            //   );
-            // }
         }
     },
 
@@ -47,15 +34,12 @@ export default {
         let index = this.url.indexOf("=");
         this.id = this.url.slice(index + 1);
         await axios
-            .get("/api/project-detail/" + this.id)
-            .then(response => (this.project = response.data));
+            .get("/api/product-detail/" + this.id)
+            .then(response => (this.products = response.data));
 
-        this.items = this.project.project_images;
-        for (let i = 0; i < this.items.length; i++) {
-            this.images.push(this.items[i].image);
+        for (let i = 0; i < this.products.product_images.length; i++) {
+            this.images.push(this.products.product_images[i].image);
         }
-
-        this.thumbneil.push(this.images[0]);
     }
 };
 </script>
