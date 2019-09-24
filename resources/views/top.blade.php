@@ -65,39 +65,41 @@
         </style>
     </head>
     <body>{{-- 全ページ共通ナビゲーションバー --}}
-        <nav class="nav mt-3 mb-3">
-            <a href="http://localhost/"><img src="/storage/Logo.png" width="150px"></a>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="http://localhost/">
-                        <img src="/storage/home.png">検索
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/design-office-list/">
-                        <img src="/storage/search.png">設計事務所
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost/manufacturers-list/">
-                        <img src="/storage/search.png">メーカー
-                    </a>
-                </li>
-                <li><a href="">
-                        <img src="/storage/heart.png">お知らせ</li>
-                    </a>
-                <li>
-                    <a href="http://localhost/design-office-mypage/">
-                        <img src="/storage/property.png">マイページ
-                    </a>
-                </li>
-            </ul>
-            <form class="navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="キーワード">
-                </div>
-            </form>
-        </nav>
+        <header>
+            <nav class="nav mt-3 mb-3">
+                <a href="http://localhost/"><img src="/storage/Logo.png" width="150px"></a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="http://localhost/">
+                            <img src="/storage/home.png">検索
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost/design-office-list/">
+                            <img src="/storage/search.png">設計事務所
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost/manufacturers-list/">
+                            <img src="/storage/search.png">メーカー
+                        </a>
+                    </li>
+                    <li><a href="">
+                            <img src="/storage/heart.png">お知らせ</li>
+                        </a>
+                    <li>
+                        <a href="http://localhost/design-office-mypage/">
+                            <img src="/storage/property.png">マイページ
+                        </a>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="キーワード">
+                    </div>
+                </form>
+            </nav>
+        </header>
         
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -110,25 +112,26 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    DesignBook
-                </div>
-                <a href="{{ url('/product') }}">プロダクト一覧</a>
-                <div class="container">
-                    <div id="app">
-                        <top-component></top-component>
+            <main role="main">
+                <div class="content">
+                    <div class="title m-b-md">
+                        DesignBook
+                    </div>
+                    <a href="{{ url('/product') }}">プロダクト一覧</a>
+                    <div class="container">
+                        <div id="app">
+                            <top-component></top-component>
+                        </div>
+                    </div>
+                    <div class="links">
+                        <a href="https://laravel.com/docs">Documentation</a>
+                        <a href="https://laracasts.com">Laracasts</a>
+                        <a href="https://laravel-news.com">News</a>
+                        <a href="https://forge.laravel.com">Forge</a>
+                        <a href="https://github.com/laravel/laravel">GitHub</a>
                     </div>
                 </div>
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+            </main>
         </div>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src=" {{ mix('js/app.js') }} "></script>
