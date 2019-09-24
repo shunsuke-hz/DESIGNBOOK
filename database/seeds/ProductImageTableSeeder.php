@@ -44,7 +44,7 @@ class ProductImageTableSeeder extends Seeder
         'product_id' => '2',
       ],
       [
-        'image' => 'ps4.png',
+        'image' => 'ps4.jpg',
         'title' => '天井2',
         'explain' => 'テストです',
         'product_id' => '2',

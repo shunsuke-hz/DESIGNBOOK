@@ -54,11 +54,13 @@ export default {
                             image.tags[n].name.indexOf(this.keyword) !== -1 &&
                             image.tags[n].name.indexOf(this.check) !== -1
                         ) {
-                            if (this.old_result == image) {
+                            if (this.old_result == this.images[0]) {
                             } else {
-                                this.result.push(image);
+                                // this.result.push(image);
+                                this.result.push(this.images[0]);
                             }
-                            this.old_result = image;
+                            // this.old_result = image;
+                            this.old_result = this.images[0];
                         }
                     }
                 }

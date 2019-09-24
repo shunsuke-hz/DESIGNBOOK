@@ -44723,10 +44723,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                     for (var n = 0; n < image.tags.length; n++) {
                         if (image.tags[n].name.indexOf(this.keyword) !== -1 && image.tags[n].name.indexOf(this.check) !== -1) {
-                            if (this.old_result == image) {} else {
-                                this.result.push(image);
+                            if (this.old_result == this.images[0]) {} else {
+                                // this.result.push(image);
+                                this.result.push(this.images[0]);
                             }
-                            this.old_result = image;
+                            // this.old_result = image;
+                            this.old_result = this.images[0];
                         }
                     }
                 }
@@ -46268,7 +46270,7 @@ exports = module.exports = __webpack_require__(52)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -46359,7 +46361,7 @@ exports = module.exports = __webpack_require__(52)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -46431,7 +46433,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.images.push(this.products.product_images[i].image);
                             }
 
-                        case 6:
+                            this.thumbneil.push(this.images[0]);
+
+                        case 7:
                         case "end":
                             return _context.stop();
                     }

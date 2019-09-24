@@ -40,6 +40,8 @@ export default {
         for (let i = 0; i < this.products.product_images.length; i++) {
             this.images.push(this.products.product_images[i].image);
         }
+
+        this.thumbneil.push(this.images[0]);
     }
 };
 </script>
