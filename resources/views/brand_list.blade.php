@@ -64,13 +64,14 @@
             }
         </style>
     </head>
-    <body>{{-- 全ページ共通ナビゲーションバー --}}
+    <body>
+        {{-- 全ページ共通ナビゲーションバー --}}
         <nav class="nav mt-3 mb-3">
             <a href="http://localhost/"><img src="/storage/Logo.png" width="150px"></a>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="http://localhost/">
-                        <img src="/storage/search.png">プロジェクト検索
+                        <img src="/storage/home.png">プロジェクト検索
                     </a>
                 </li>
                 <li>
@@ -80,14 +81,12 @@
                 </li>
                 <li>
                     <a href="http://localhost/brands-list">
-                        <img src="/storage/home.png">ブランド一覧
+                        <img src="/storage/search.png">ブランド一覧
                     </a>
                 </li>
-                <li>
-                    <a href="http://localhost/">
-                        <img src="/storage/heart.png">お知らせ
+                <li><a href="http://localhost/">
+                        <img src="/storage/heart.png">お知らせ</li>
                     </a>
-                </li>
                 <li>
                     <a href="http://localhost/mypage">
                         <img src="/storage/property.png">マイページ
@@ -102,26 +101,9 @@
         </nav>
         
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
                 <div class="title m-b-md">
-                    DesignBook
-                </div>
-                <a href="{{ url('/product') }}">プロダクト一覧</a>
-                <div class="container">
-                    <div id="app">
-                        <top-component></top-component>
-                    </div>
+                    Brand List
                 </div>
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
