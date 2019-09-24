@@ -21,7 +21,8 @@ export default {
             thumbneil: [],
             products: [],
             member: [],
-            manufacture: []
+            manufacture: [],
+            test: []
         };
     },
 

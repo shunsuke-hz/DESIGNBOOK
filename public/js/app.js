@@ -42430,7 +42430,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -42529,19 +42529,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         filter: function filter() {
             this.result = [];
             this.old_result = [];
-            for (var x = 0; x < this.projects.length; x++) {
-                this.images = this.projects[x].project_images;
+            for (var a in this.projects) {
+                var project = this.projects[a];
+
+                this.images = project.project_images;
                 for (var i in this.images) {
                     var image = this.images[i];
 
                     for (var n = 0; n < image.tags.length; n++) {
                         if (image.tags[n].name.indexOf(this.keyword) !== -1 && image.tags[n].name.indexOf(this.check) !== -1) {
-                            if (this.old_result == this.images[0]) {} else {
-                                // this.result.push(image);
-                                this.result.push(this.images[0]);
+                            if (this.old_result == project) {} else {
+                                this.result.push(project);
                             }
-                            // this.old_result = image;
-                            this.old_result = this.images[0];
+
+                            this.old_result = project;
                         }
                     }
                 }
@@ -42652,15 +42653,13 @@ var render = function() {
                 _c("div", { staticClass: "image" }, [
                   _c(
                     "a",
-                    {
-                      attrs: {
-                        href: "/project-detail?work=" + value.project_id
-                      }
-                    },
+                    { attrs: { href: "/project-detail?work=" + value.id } },
                     [
                       _c("img", {
                         staticClass: "img img-thumbnail",
-                        attrs: { src: "/storage/" + value.image }
+                        attrs: {
+                          src: "/storage/" + value.project_images[0].image
+                        }
                       })
                     ]
                   )
@@ -42780,7 +42779,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -42820,7 +42819,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             thumbneil: [],
             products: [],
             member: [],
-            manufacture: []
+            manufacture: [],
+            test: []
         };
     },
 
@@ -43786,7 +43786,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -43824,21 +43824,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            keyword: "",
             products: [],
-            images: []
+            tags: [],
+            images: [],
+            check: [],
+            result: [],
+            old_result: []
         };
     },
     computed: {
+        // 検索機能
         filter: function filter() {
-            for (var i in this.products) {
-                var product = this.products[i];
-                this.images.push(product.product_images[0]);
+            this.result = [];
+            this.old_result = [];
+
+            for (var a in this.products) {
+                var product = this.products[a];
+
+                for (var n = 0; n < product.tags.length; n++) {
+                    if (product.tags[n].name.indexOf(this.keyword) !== -1 && product.tags[n].name.indexOf(this.check) !== -1) {
+                        if (this.old_result == product) {} else {
+                            this.result.push(product);
+                        }
+                        this.old_result = product;
+                    }
+                }
             }
-            return this.images;
+            return this.result;
         }
     },
 
@@ -43860,6 +43880,29 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("div", [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.keyword,
+            expression: "keyword"
+          }
+        ],
+        attrs: { type: "text" },
+        domProps: { value: _vm.keyword },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.keyword = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "album py-5 bg-light" }, [
       _c("div", { staticClass: "container" }, [
         _c(
@@ -43871,15 +43914,13 @@ var render = function() {
                 _c("div", { staticClass: "image" }, [
                   _c(
                     "a",
-                    {
-                      attrs: {
-                        href: "/product-detail?work=" + value.product_id
-                      }
-                    },
+                    { attrs: { href: "/product-detail?work=" + value.id } },
                     [
                       _c("img", {
                         staticClass: "img img-thumbnail",
-                        attrs: { src: "/storage/" + value.image }
+                        attrs: {
+                          src: "/storage/" + value.product_images[0].image
+                        }
                       })
                     ]
                   )
