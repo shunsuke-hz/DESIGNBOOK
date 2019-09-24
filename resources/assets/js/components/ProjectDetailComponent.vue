@@ -1,10 +1,19 @@
 <template>
     <div class="container">
-        <div>
-            <img :src="'/storage/'+thumbneil" style="width: 200px" />
+        <p>{{ project.title }}</p>
+        <p>{{ project.explain }}</p>
+        <div v-if="display">
+            <img :src="'/storage/'+items[num].image" style="width: 200px" />
+            {{ items[num].title }}
+            {{ items[num].explain }}
         </div>
-        <span v-for="image in images" :key="image">
-            <img @mouseover="changeImage" :src="'/storage/'+image" style="width: 100px" />
+        <span v-for="(item,key) in items" :key="key">
+            <img
+                @mouseover="changeImage"
+                :src="'/storage/'+item.image"
+                :value="key"
+                style="width: 100px"
+            />
         </span>
     </div>
 </template>
@@ -13,33 +22,20 @@
 export default {
     data: function() {
         return {
+            display: false,
             url: "",
             id: "",
+            num: "0",
             project: [],
-            items: [],
-            images: [],
-            thumbneil: [],
-            products: [],
-            member: [],
-            manufacture: [],
-            test: []
+            items: []
         };
     },
 
     methods: {
         // ホバーでサムネイル切り替え
         changeImage: function(e) {
-            let getUrl = e.target.getAttribute("src").replace("/storage/", "");
-            this.thumbneil.shift();
-            this.thumbneil.push(getUrl);
-
-            // for (let x = 0; x < this.items.products.length; x++) {
-            //   this.products.push(this.items.products[x]);
-            //   this.member.push(this.items.products[x].manufacturer_member);
-            //   this.manufacture.push(
-            //     this.items.products[x].manufacturer_member.manufacturer
-            //   );
-            // }
+            let getValue = e.target.getAttribute("value");
+            this.num = getValue;
         }
     },
 
@@ -52,11 +48,7 @@ export default {
             .then(response => (this.project = response.data));
 
         this.items = this.project.project_images;
-        for (let i = 0; i < this.items.length; i++) {
-            this.images.push(this.items[i].image);
-        }
-
-        this.thumbneil.push(this.images[0]);
+        this.display = true;
     }
 };
 </script>
