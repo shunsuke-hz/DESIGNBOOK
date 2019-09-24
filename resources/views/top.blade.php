@@ -64,8 +64,9 @@
             }
         </style>
     </head>
-    <body>{{-- 全ページ共通ナビゲーションバー --}}
-<<<<<<< HEAD
+
+    <body>
+        {{-- 全ページ共通ナビゲーションバー --}}
         <nav class="nav mt-3 mb-3">
             <a href="http://localhost/"><img src="/storage/Logo.png" width="150px"></a>
             <ul class="nav navbar-nav navbar-right">
@@ -101,44 +102,7 @@
                 </div>
             </form>
         </nav>
-=======
-        <header>
-            <nav class="nav mt-3 mb-3">
-                <a href="http://localhost/"><img src="/storage/Logo.png" width="150px"></a>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="http://localhost/">
-                            <img src="/storage/home.png">検索
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/design-office-list/">
-                            <img src="/storage/search.png">設計事務所
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/manufacturers-list/">
-                            <img src="/storage/search.png">メーカー
-                        </a>
-                    </li>
-                    <li><a href="">
-                            <img src="/storage/heart.png">お知らせ</li>
-                        </a>
-                    <li>
-                        <a href="http://localhost/design-office-mypage/">
-                            <img src="/storage/property.png">マイページ
-                        </a>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="キーワード">
-                    </div>
-                </form>
-            </nav>
-        </header>
->>>>>>> 0243b09671a42637e59e989970e8a667a745a88c
-        
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
