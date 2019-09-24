@@ -12,6 +12,7 @@ class ProductDetailController extends Controller
   {
     return view('product_detail');
   }
+  
   // クリックされた画像の詳細データをJSONで返す処理
   public function select(int $product_id)
   {

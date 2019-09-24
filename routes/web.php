@@ -27,15 +27,15 @@ Route::get('/product', 'ProductController@index');
 // プロダクト詳細ページ
 Route::get('/product-detail', 'ProductDetailController@index');
 
-// 設計事務所一覧ページ
-// Route::get('/design-office-list', 'DesignOfficesListController@index');
+// （仮）ブランド一覧ページ
+Route::get('/brands-list', 'BrandsListController@index');
 
-// メーカー一覧ページ
-// Route::get('/manufacturers-list', 'ManufacturersListController@index');
+// （仮）マイページ
+Route::get('/mypage', 'MypageController@index');
 
-// 設計事務所ページ
-// Route::get('/design-office-mypage', 'DesignOfficeMypageController@index');
 
+
+// 認証系
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

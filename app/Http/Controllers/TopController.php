@@ -20,6 +20,7 @@ class TopController extends Controller
   {
     return Project::with(['project_images.tags'])->get();
   }
+  
   // タグデータ全件をJSONで返す処理
   public function tags()
   {
