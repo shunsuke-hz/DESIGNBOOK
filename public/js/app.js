@@ -42660,14 +42660,21 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "img img-thumbnail",
-                        staticStyle: { width: "300px" },
                         attrs: { src: "/storage/" + value.image }
                       })
                     ]
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(0, true)
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(value.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(value.explain))
+                  ])
+                ])
               ])
             ])
           }),
@@ -42677,16 +42684,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _c("p", { staticClass: "card-text" }, [_vm._v("てすと")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -43788,7 +43786,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -43799,6 +43797,16 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43852,29 +43860,46 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "photo lazy-wrap zoom-in" },
-        _vm._l(_vm.filter, function(value) {
-          return _c(
-            "a",
-            {
-              key: value.id,
-              staticClass: "col-md-4",
-              attrs: { href: "/product-detail?work=" + value.product_id }
-            },
-            [
-              _c("img", {
-                staticClass: "lazy",
-                staticStyle: { width: "300px" },
-                attrs: { src: "/storage/" + value.image }
-              })
-            ]
-          )
-        }),
-        0
-      )
+    _c("div", { staticClass: "album py-5 bg-light" }, [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.filter, function(value) {
+            return _c("div", { key: value.id, staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "card mb-4 shadow-sm" }, [
+                _c("div", { staticClass: "image" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "/product-detail?work=" + value.product_id
+                      }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "img img-thumbnail",
+                        attrs: { src: "/storage/" + value.image }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(value.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(value.explain))
+                  ])
+                ])
+              ])
+            ])
+          }),
+          0
+        )
+      ])
     ])
   ])
 }

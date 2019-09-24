@@ -19,12 +19,12 @@
                                     <img
                                         class="img img-thumbnail"
                                         v-bind:src="'/storage/'+value.image"
-                                        style="width: 300px"
                                     />
                                 </a>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">てすと</p>
+                                <p class="card-text">{{ value.title }}</p>
+                                <p class="card-text">{{ value.explain }}</p>
                             </div>
                         </div>
                     </div>
