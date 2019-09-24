@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div>
         <div>
             <input type="text" v-model="keyword" />
         </div>
@@ -9,17 +9,26 @@
                 {{ tag.name }}
             </label>
         </div>
-
-        <div class="row">
-            <div class="photo lazy-wrap zoom-in">
-                <a
-                    class="col-md-4"
-                    :href="'/project-detail?work='+value.project_id"
-                    v-for="value in filter"
-                    :key="value.id"
-                >
-                    <img class="lazy" v-bind:src="'/storage/'+value.image" style="width: 300px" />
-                </a>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4" v-for="value in filter" :key="value.id">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="image">
+                                <a :href="'/project-detail?work='+value.project_id">
+                                    <img
+                                        class="img img-thumbnail"
+                                        v-bind:src="'/storage/'+value.image"
+                                        style="width: 300px"
+                                    />
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">てすと</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
