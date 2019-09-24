@@ -68,7 +68,7 @@
     <body>
         {{-- 全ページ共通ナビゲーションバー --}}
         <nav class="nav mt-3 mb-3">
-            <a href="http://localhost/"><img src="/storage/Logo.png" width="150px"></a>
+            <a href="http://localhost/"><img src="/storage/Logo.png" width="200px"></a>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="http://localhost/">
