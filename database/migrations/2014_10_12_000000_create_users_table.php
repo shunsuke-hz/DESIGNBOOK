@@ -18,9 +18,17 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('api_token', 60)->unique();
+            $table->integer('sex')->nullable();
+            $table->string('phone_number', 45)->nullable();
+            $table->date('birthday')->nullable();
+            $table->string('belonging_to', 255)->nullable();
+            $table->text('profile_image', 9999)->nullable();
+            $table->integer('admin_user')->default('1');
+            $table->integer('brand_id')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('brand_id')->references('id')->on('brands');
+
         });
     }
 
