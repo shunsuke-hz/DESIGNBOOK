@@ -1,10 +1,19 @@
 <template>
     <div class="container">
-        <div>
-            <img :src="'/storage/'+thumbneil" style="width: 200px" />
+        <p>{{ product.title }}</p>
+        <p>{{ product.explain }}</p>
+        <div v-if="display">
+            <img :src="'/storage/'+items[num].image" style="width: 200px" />
+            {{ items[num].title }}
+            {{ items[num].explain }}
         </div>
-        <span v-for="image in images" :key="image">
-            <img @mouseover="changeImage" :src="'/storage/'+image" style="width: 100px" />
+        <span v-for="(item,key) in items" :key="key">
+            <img
+                @mouseover="changeImage"
+                :src="'/storage/'+item.image"
+                :value="key"
+                style="width: 100px"
+            />
         </span>
     </div>
 </template>
@@ -13,19 +22,19 @@
 export default {
     data: function() {
         return {
+            display: false,
             url: "",
             id: "",
-            thumbneil: [],
-            products: [],
-            images: []
+            num: "0",
+            product: [],
+            items: []
         };
     },
     methods: {
         // ホバーでサムネイル切り替え
         changeImage: function(e) {
-            let getUrl = e.target.getAttribute("src").replace("/storage/", "");
-            this.thumbneil.shift();
-            this.thumbneil.push(getUrl);
+            let getValue = e.target.getAttribute("value");
+            this.num = getValue;
         }
     },
 
@@ -35,13 +44,10 @@ export default {
         this.id = this.url.slice(index + 1);
         await axios
             .get("/api/product-detail/" + this.id)
-            .then(response => (this.products = response.data));
+            .then(response => (this.product = response.data));
 
-        for (let i = 0; i < this.products.product_images.length; i++) {
-            this.images.push(this.products.product_images[i].image);
-        }
-
-        this.thumbneil.push(this.images[0]);
+        this.items = this.product.product_images;
+        this.display = true;
     }
 };
 </script>

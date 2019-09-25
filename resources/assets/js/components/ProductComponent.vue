@@ -1,15 +1,28 @@
 <template>
     <div>
-        <div class="row">
-            <div class="photo lazy-wrap zoom-in">
-                <a
-                    class="col-md-4"
-                    :href="'/product-detail?work='+value.product_id"
-                    v-for="value in filter"
-                    :key="value.id"
-                >
-                    <img class="lazy" v-bind:src="'/storage/'+value.image" style="width: 300px" />
-                </a>
+        <div>
+            <input type="text" v-model="keyword" />
+        </div>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4" v-for="value in filter" :key="value.id">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="image">
+                                <a :href="'/product-detail?work='+value.id">
+                                    <img
+                                        class="img img-thumbnail"
+                                        v-bind:src="'/storage/'+value.product_images[0].image"
+                                    />
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{ value.title }}</p>
+                                <p class="card-text">{{ value.explain }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -19,17 +32,38 @@
 export default {
     data: function() {
         return {
+            keyword: "",
             products: [],
-            images: []
+            tags: [],
+            images: [],
+            check: [],
+            result: [],
+            old_result: []
         };
     },
     computed: {
+        // 検索機能
         filter: function() {
-            for (let i in this.products) {
-                let product = this.products[i];
-                this.images.push(product.product_images[0]);
+            this.result = [];
+            this.old_result = [];
+
+            for (let a in this.products) {
+                let product = this.products[a];
+
+                for (let n = 0; n < product.tags.length; n++) {
+                    if (
+                        product.tags[n].name.indexOf(this.keyword) !== -1 &&
+                        product.tags[n].name.indexOf(this.check) !== -1
+                    ) {
+                        if (this.old_result == product) {
+                        } else {
+                            this.result.push(product);
+                        }
+                        this.old_result = product;
+                    }
+                }
             }
-            return this.images;
+            return this.result;
         }
     },
 

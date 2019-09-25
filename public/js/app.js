@@ -42430,7 +42430,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -42529,19 +42529,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         filter: function filter() {
             this.result = [];
             this.old_result = [];
-            for (var x = 0; x < this.projects.length; x++) {
-                this.images = this.projects[x].project_images;
+            for (var a in this.projects) {
+                var project = this.projects[a];
+
+                this.images = project.project_images;
                 for (var i in this.images) {
                     var image = this.images[i];
 
                     for (var n = 0; n < image.tags.length; n++) {
                         if (image.tags[n].name.indexOf(this.keyword) !== -1 && image.tags[n].name.indexOf(this.check) !== -1) {
-                            if (this.old_result == this.images[0]) {} else {
-                                // this.result.push(image);
-                                this.result.push(this.images[0]);
+                            if (this.old_result == project) {} else {
+                                this.result.push(project);
                             }
-                            // this.old_result = image;
-                            this.old_result = this.images[0];
+
+                            this.old_result = project;
                         }
                     }
                 }
@@ -42652,22 +42653,27 @@ var render = function() {
                 _c("div", { staticClass: "image" }, [
                   _c(
                     "a",
-                    {
-                      attrs: {
-                        href: "/project-detail?work=" + value.project_id
-                      }
-                    },
+                    { attrs: { href: "/project-detail?work=" + value.id } },
                     [
                       _c("img", {
                         staticClass: "img img-thumbnail",
-                        staticStyle: { width: "300px" },
-                        attrs: { src: "/storage/" + value.image }
+                        attrs: {
+                          src: "/storage/" + value.project_images[0].image
+                        }
                       })
                     ]
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(0, true)
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(value.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(value.explain))
+                  ])
+                ])
               ])
             ])
           }),
@@ -42677,16 +42683,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _c("p", { staticClass: "card-text" }, [_vm._v("てすと")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -42782,7 +42779,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -42810,36 +42807,33 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            display: false,
             url: "",
             id: "",
+            num: "0",
             project: [],
-            items: [],
-            images: [],
-            thumbneil: [],
-            products: [],
-            member: [],
-            manufacture: []
+            items: []
         };
     },
 
     methods: {
         // ホバーでサムネイル切り替え
         changeImage: function changeImage(e) {
-            var getUrl = e.target.getAttribute("src").replace("/storage/", "");
-            this.thumbneil.shift();
-            this.thumbneil.push(getUrl);
-
-            // for (let x = 0; x < this.items.products.length; x++) {
-            //   this.products.push(this.items.products[x]);
-            //   this.member.push(this.items.products[x].manufacturer_member);
-            //   this.manufacture.push(
-            //     this.items.products[x].manufacturer_member.manufacturer
-            //   );
-            // }
+            var getValue = e.target.getAttribute("value");
+            this.num = getValue;
         }
     },
 
@@ -42847,7 +42841,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
             var _this = this;
 
-            var index, i;
+            var index;
             return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                 while (1) {
                     switch (_context.prev = _context.next) {
@@ -42864,13 +42858,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         case 5:
 
                             this.items = this.project.project_images;
-                            for (i = 0; i < this.items.length; i++) {
-                                this.images.push(this.items[i].image);
-                            }
+                            this.display = true;
 
-                            this.thumbneil.push(this.images[0]);
-
-                        case 8:
+                        case 7:
                         case "end":
                             return _context.stop();
                     }
@@ -43672,18 +43662,31 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("div", [
-        _c("img", {
-          staticStyle: { width: "200px" },
-          attrs: { src: "/storage/" + _vm.thumbneil }
-        })
-      ]),
+      _c("p", [_vm._v(_vm._s(_vm.project.title))]),
       _vm._v(" "),
-      _vm._l(_vm.images, function(image) {
-        return _c("span", { key: image }, [
+      _c("p", [_vm._v(_vm._s(_vm.project.explain))]),
+      _vm._v(" "),
+      _vm.display
+        ? _c("div", [
+            _c("img", {
+              staticStyle: { width: "200px" },
+              attrs: { src: "/storage/" + _vm.items[_vm.num].image }
+            }),
+            _vm._v(
+              "\n        " +
+                _vm._s(_vm.items[_vm.num].title) +
+                "\n        " +
+                _vm._s(_vm.items[_vm.num].explain) +
+                "\n    "
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.items, function(item, key) {
+        return _c("span", { key: key }, [
           _c("img", {
             staticStyle: { width: "100px" },
-            attrs: { src: "/storage/" + image },
+            attrs: { src: "/storage/" + item.image, value: key },
             on: { mouseover: _vm.changeImage }
           })
         ])
@@ -43788,7 +43791,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -43816,21 +43819,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            keyword: "",
             products: [],
-            images: []
+            tags: [],
+            images: [],
+            check: [],
+            result: [],
+            old_result: []
         };
     },
     computed: {
+        // 検索機能
         filter: function filter() {
-            for (var i in this.products) {
-                var product = this.products[i];
-                this.images.push(product.product_images[0]);
+            this.result = [];
+            this.old_result = [];
+
+            for (var a in this.products) {
+                var product = this.products[a];
+
+                for (var n = 0; n < product.tags.length; n++) {
+                    if (product.tags[n].name.indexOf(this.keyword) !== -1 && product.tags[n].name.indexOf(this.check) !== -1) {
+                        if (this.old_result == product) {} else {
+                            this.result.push(product);
+                        }
+                        this.old_result = product;
+                    }
+                }
             }
-            return this.images;
+            return this.result;
         }
     },
 
@@ -43852,29 +43885,67 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "photo lazy-wrap zoom-in" },
-        _vm._l(_vm.filter, function(value) {
-          return _c(
-            "a",
-            {
-              key: value.id,
-              staticClass: "col-md-4",
-              attrs: { href: "/product-detail?work=" + value.product_id }
-            },
-            [
-              _c("img", {
-                staticClass: "lazy",
-                staticStyle: { width: "300px" },
-                attrs: { src: "/storage/" + value.image }
-              })
-            ]
-          )
-        }),
-        0
-      )
+    _c("div", [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.keyword,
+            expression: "keyword"
+          }
+        ],
+        attrs: { type: "text" },
+        domProps: { value: _vm.keyword },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.keyword = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "album py-5 bg-light" }, [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.filter, function(value) {
+            return _c("div", { key: value.id, staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "card mb-4 shadow-sm" }, [
+                _c("div", { staticClass: "image" }, [
+                  _c(
+                    "a",
+                    { attrs: { href: "/product-detail?work=" + value.id } },
+                    [
+                      _c("img", {
+                        staticClass: "img img-thumbnail",
+                        attrs: {
+                          src: "/storage/" + value.product_images[0].image
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(value.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(value.explain))
+                  ])
+                ])
+              ])
+            ])
+          }),
+          0
+        )
+      ])
     ])
   ])
 }
@@ -43974,7 +44045,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -44002,23 +44073,32 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            display: false,
             url: "",
             id: "",
-            thumbneil: [],
-            products: [],
-            images: []
+            num: "0",
+            product: [],
+            items: []
         };
     },
     methods: {
         // ホバーでサムネイル切り替え
         changeImage: function changeImage(e) {
-            var getUrl = e.target.getAttribute("src").replace("/storage/", "");
-            this.thumbneil.shift();
-            this.thumbneil.push(getUrl);
+            var getValue = e.target.getAttribute("value");
+            this.num = getValue;
         }
     },
 
@@ -44026,7 +44106,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
             var _this = this;
 
-            var index, i;
+            var index;
             return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                 while (1) {
                     switch (_context.prev = _context.next) {
@@ -44037,16 +44117,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             this.id = this.url.slice(index + 1);
                             _context.next = 5;
                             return axios.get("/api/product-detail/" + this.id).then(function (response) {
-                                return _this.products = response.data;
+                                return _this.product = response.data;
                             });
 
                         case 5:
 
-                            for (i = 0; i < this.products.product_images.length; i++) {
-                                this.images.push(this.products.product_images[i].image);
-                            }
-
-                            this.thumbneil.push(this.images[0]);
+                            this.items = this.product.product_images;
+                            this.display = true;
 
                         case 7:
                         case "end":
@@ -44076,18 +44153,31 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("div", [
-        _c("img", {
-          staticStyle: { width: "200px" },
-          attrs: { src: "/storage/" + _vm.thumbneil }
-        })
-      ]),
+      _c("p", [_vm._v(_vm._s(_vm.product.title))]),
       _vm._v(" "),
-      _vm._l(_vm.images, function(image) {
-        return _c("span", { key: image }, [
+      _c("p", [_vm._v(_vm._s(_vm.product.explain))]),
+      _vm._v(" "),
+      _vm.display
+        ? _c("div", [
+            _c("img", {
+              staticStyle: { width: "200px" },
+              attrs: { src: "/storage/" + _vm.items[_vm.num].image }
+            }),
+            _vm._v(
+              "\n        " +
+                _vm._s(_vm.items[_vm.num].title) +
+                "\n        " +
+                _vm._s(_vm.items[_vm.num].explain) +
+                "\n    "
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.items, function(item, key) {
+        return _c("span", { key: key }, [
           _c("img", {
             staticStyle: { width: "100px" },
-            attrs: { src: "/storage/" + image },
+            attrs: { src: "/storage/" + item.image, value: key },
             on: { mouseover: _vm.changeImage }
           })
         ])

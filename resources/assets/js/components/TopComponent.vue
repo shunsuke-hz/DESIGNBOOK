@@ -15,16 +15,16 @@
                     <div class="col-md-4" v-for="value in filter" :key="value.id">
                         <div class="card mb-4 shadow-sm">
                             <div class="image">
-                                <a :href="'/project-detail?work='+value.project_id">
+                                <a :href="'/project-detail?work='+value.id">
                                     <img
                                         class="img img-thumbnail"
-                                        v-bind:src="'/storage/'+value.image"
-                                        style="width: 300px"
+                                        v-bind:src="'/storage/'+value.project_images[0].image"
                                     />
                                 </a>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">てすと</p>
+                                <p class="card-text">{{ value.title }}</p>
+                                <p class="card-text">{{ value.explain }}</p>
                             </div>
                         </div>
                     </div>
@@ -53,8 +53,10 @@ export default {
         filter: function() {
             this.result = [];
             this.old_result = [];
-            for (let x = 0; x < this.projects.length; x++) {
-                this.images = this.projects[x].project_images;
+            for (let a in this.projects) {
+                let project = this.projects[a];
+
+                this.images = project.project_images;
                 for (let i in this.images) {
                     let image = this.images[i];
 
@@ -63,13 +65,12 @@ export default {
                             image.tags[n].name.indexOf(this.keyword) !== -1 &&
                             image.tags[n].name.indexOf(this.check) !== -1
                         ) {
-                            if (this.old_result == this.images[0]) {
+                            if (this.old_result == project) {
                             } else {
-                                // this.result.push(image);
-                                this.result.push(this.images[0]);
+                                this.result.push(project);
                             }
-                            // this.old_result = image;
-                            this.old_result = this.images[0];
+
+                            this.old_result = project;
                         }
                     }
                 }

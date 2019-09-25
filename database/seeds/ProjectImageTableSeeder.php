@@ -14,26 +14,26 @@ class ProjectImageTableSeeder extends Seeder
     DB::table('project_images')->insert([
       [
         'image' => 'home1.png',
-        'title' => '表参道ハウス',
-        'explain' => 'テストです',
+        'title' => 'リビング',
+        'explain' => 'テスト①',
         'project_id' => '1',
       ],
       [
         'image' => 'home2.png',
-        'title' => '表参道ハウス',
-        'explain' => 'テストです',
+        'title' => 'ダイニング',
+        'explain' => 'テスト②',
         'project_id' => '1',
       ],
       [
         'image' => 'home3.png',
-        'title' => '表参道ハウス',
-        'explain' => 'テストです',
+        'title' => 'エントランス',
+        'explain' => 'テスト③',
         'project_id' => '1',
       ],
       [
         'image' => 'home4.png',
-        'title' => '表参道ハウス',
-        'explain' => 'テストです',
+        'title' => 'バスルーム',
+        'explain' => 'テスト④',
         'project_id' => '1',
       ],
       [
