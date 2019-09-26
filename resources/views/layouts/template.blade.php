@@ -130,9 +130,12 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 </nav>--}}
-@yield('content')
-{{-- 時間のあるときにFooter作らなきゃ --}}
 
+
+@yield('content')
+
+
+{{-- 時間のあるときにFooter作らなきゃ --}}
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src=" {{ mix('js/app.js') }} "></script>
 
