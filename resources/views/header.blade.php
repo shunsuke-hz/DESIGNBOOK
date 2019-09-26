@@ -66,7 +66,7 @@
         </style>
     </head>
 
-    <body style="padding-top:4.5rem;">
+    <body style="padding-top:5rem;">
 
         {{-- ナビゲーションバー --}}
         @extends('navbar')
