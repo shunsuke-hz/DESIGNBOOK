@@ -18,9 +18,9 @@
                 <div id="app">
                     <top-component></top-component>
                 </div>
-            </div>
-        </div>
-    </main>
+            {{-- </div> --}}
+        {{-- </div> --}}
+    {{-- </main> --}}
 </div>
 @endsection
 
