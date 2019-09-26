@@ -3,16 +3,19 @@
         <p>{{ product.title }}</p>
         <p>{{ product.explain }}</p>
         <div v-if="display">
-            <img :src="'/storage/'+items[num].image" style="width: 200px" />
-            {{ items[num].title }}
-            {{ items[num].explain }}
+            <div class="thumbneil">
+                <img :src="'/storage/'+items[num].image" />
+            </div>
+            <p>{{ items[num].title }}</p>
+            <p>{{ items[num].explain }}</p>
+            <p>品番: {{ product.model_number }}</p>
         </div>
         <span v-for="(item,key) in items" :key="key">
             <img
                 @mouseover="changeImage"
                 :src="'/storage/'+item.image"
                 :value="key"
-                style="width: 100px"
+                style="width:100px"
             />
         </span>
     </div>
@@ -53,4 +56,8 @@ export default {
 </script>
 
 <style>
+.thumbneil img {
+    width: 350px;
+    height: 350px;
+}
 </style>

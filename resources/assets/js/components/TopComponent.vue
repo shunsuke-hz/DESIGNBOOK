@@ -24,7 +24,6 @@
                             </div>
                             <div class="card-body">
                                 <p class="card-text">{{ value.title }}</p>
-                                <p class="card-text">{{ value.explain }}</p>
                             </div>
                         </div>
                     </div>
@@ -53,25 +52,19 @@ export default {
         filter: function() {
             this.result = [];
             this.old_result = [];
-            for (let a in this.projects) {
-                let project = this.projects[a];
-
+            for (let i in this.projects) {
+                let project = this.projects[i];
                 this.images = project.project_images;
-                for (let i in this.images) {
-                    let image = this.images[i];
-
-                    for (let n = 0; n < image.tags.length; n++) {
-                        if (
-                            image.tags[n].name.indexOf(this.keyword) !== -1 &&
-                            image.tags[n].name.indexOf(this.check) !== -1
-                        ) {
-                            if (this.old_result == project) {
-                            } else {
-                                this.result.push(project);
-                            }
-
-                            this.old_result = project;
+                for (let n in this.images) {
+                    let image = this.images[n];
+                    let tagArray = image.tags.map(obj => obj.name);
+                    let checkArray = this.check;
+                    if (checkArray.every(v => tagArray.includes(v)) == true) {
+                        if (this.old_result == project) {
+                        } else {
+                            this.result.push(project);
                         }
+                        this.old_result = project;
                     }
                 }
             }
@@ -87,4 +80,40 @@ export default {
 </script>
 
 <style>
+.card {
+    width: 264px;
+    height: 264px;
+    border: none;
+    border-radius: 0;
+}
+
+.image {
+    overflow: hidden;
+    width: 264px;
+    height: 210px;
+}
+
+.image img {
+    display: block;
+    transition-duration: 0.3s;
+    height: 100%;
+    border: none;
+    margin: auto;
+}
+
+.image img:hover {
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+}
+
+.img-thumbnail {
+    padding: 0;
+    border-radius: 0;
+}
+
+.card-body {
+    width: 264px;
+    height: 54px;
+    padding: 0.5rem;
+}
 </style>

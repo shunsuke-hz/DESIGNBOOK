@@ -12039,10 +12039,10 @@ window._ = __webpack_require__(17);
  */
 
 try {
-    window.$ = window.jQuery = __webpack_require__(6);
+  window.$ = window.jQuery = __webpack_require__(6);
 
-    // require('bootstrap-sass');
-    __webpack_require__(19);
+  // require('bootstrap-sass');
+  __webpack_require__(19);
 } catch (e) {}
 
 /**
@@ -12064,9 +12064,9 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-    console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 /**
@@ -49484,7 +49484,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
 
 // exports
 
@@ -49563,7 +49563,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -49581,24 +49580,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         // 検索機能
         filter: function filter() {
+            var _this = this;
+
             this.result = [];
             this.old_result = [];
-            for (var a in this.projects) {
-                var project = this.projects[a];
-
+            for (var i in this.projects) {
+                var project = this.projects[i];
                 this.images = project.project_images;
-                for (var i in this.images) {
-                    var image = this.images[i];
 
-                    for (var n = 0; n < image.tags.length; n++) {
-                        if (image.tags[n].name.indexOf(this.keyword) !== -1 && image.tags[n].name.indexOf(this.check) !== -1) {
-                            if (this.old_result == project) {} else {
-                                this.result.push(project);
-                            }
-
-                            this.old_result = project;
+                var _loop = function _loop(n) {
+                    var image = _this.images[n];
+                    var tagArray = image.tags.map(function (obj) {
+                        return obj.name;
+                    });
+                    var checkArray = _this.check;
+                    if (checkArray.every(function (v) {
+                        return tagArray.includes(v);
+                    }) == true) {
+                        if (_this.old_result == project) {} else {
+                            _this.result.push(project);
                         }
+                        _this.old_result = project;
                     }
+                };
+
+                for (var n in this.images) {
+                    _loop(n);
                 }
             }
             return this.result;
@@ -49606,13 +49613,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     mounted: function mounted() {
-        var _this = this;
+        var _this2 = this;
 
         axios.get("/api/").then(function (response) {
-            return _this.projects = response.data;
+            return _this2.projects = response.data;
         });
         axios.get("/api/tags").then(function (response) {
-            return _this.tags = response.data;
+            return _this2.tags = response.data;
         });
     }
 });
@@ -49722,10 +49729,6 @@ var render = function() {
                 _c("div", { staticClass: "card-body" }, [
                   _c("p", { staticClass: "card-text" }, [
                     _vm._v(_vm._s(value.title))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(_vm._s(value.explain))
                   ])
                 ])
               ])
@@ -49833,7 +49836,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350px;\n}\n", ""]);
 
 // exports
 
@@ -49850,6 +49853,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50722,17 +50742,15 @@ var render = function() {
       _vm._v(" "),
       _vm.display
         ? _c("div", [
-            _c("img", {
-              staticStyle: { width: "200px" },
-              attrs: { src: "/storage/" + _vm.items[_vm.num].image }
-            }),
-            _vm._v(
-              "\n        " +
-                _vm._s(_vm.items[_vm.num].title) +
-                "\n        " +
-                _vm._s(_vm.items[_vm.num].explain) +
-                "\n    "
-            )
+            _c("div", { staticClass: "thumbneil" }, [
+              _c("img", {
+                attrs: { src: "/storage/" + _vm.items[_vm.num].image }
+              })
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.items[_vm.num].title))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.items[_vm.num].explain))])
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -50744,7 +50762,35 @@ var render = function() {
             on: { mouseover: _vm.changeImage }
           })
         ])
-      })
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex justify-content-between align-items-center" },
+        [
+          _c(
+            "div",
+            { staticClass: "btn-group" },
+            _vm._l(_vm.items[_vm.num].tags, function(key) {
+              return _c(
+                "button",
+                {
+                  key: key.id,
+                  staticClass: "btn btn-sm btn-outline-secondary",
+                  attrs: { type: "button", "data-toggle": "modal" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-tag" }),
+                  _vm._v(
+                    "\n                " + _vm._s(key.name) + "\n            "
+                  )
+                ]
+              )
+            }),
+            0
+          )
+        ]
+      )
     ],
     2
   )
@@ -50845,7 +50891,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50856,7 +50902,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -50988,10 +51033,6 @@ var render = function() {
                 _c("div", { staticClass: "card-body" }, [
                   _c("p", { staticClass: "card-text" }, [
                     _vm._v(_vm._s(value.title))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(_vm._s(value.explain))
                   ])
                 ])
               ])
@@ -51099,7 +51140,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350px;\n}\n", ""]);
 
 // exports
 
@@ -51116,6 +51157,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
+//
 //
 //
 //
@@ -51213,17 +51257,17 @@ var render = function() {
       _vm._v(" "),
       _vm.display
         ? _c("div", [
-            _c("img", {
-              staticStyle: { width: "200px" },
-              attrs: { src: "/storage/" + _vm.items[_vm.num].image }
-            }),
-            _vm._v(
-              "\n        " +
-                _vm._s(_vm.items[_vm.num].title) +
-                "\n        " +
-                _vm._s(_vm.items[_vm.num].explain) +
-                "\n    "
-            )
+            _c("div", { staticClass: "thumbneil" }, [
+              _c("img", {
+                attrs: { src: "/storage/" + _vm.items[_vm.num].image }
+              })
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.items[_vm.num].title))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.items[_vm.num].explain))]),
+            _vm._v(" "),
+            _c("p", [_vm._v("品番: " + _vm._s(_vm.product.model_number))])
           ])
         : _vm._e(),
       _vm._v(" "),

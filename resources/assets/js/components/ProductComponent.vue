@@ -18,7 +18,6 @@
                             </div>
                             <div class="card-body">
                                 <p class="card-text">{{ value.title }}</p>
-                                <p class="card-text">{{ value.explain }}</p>
                             </div>
                         </div>
                     </div>
