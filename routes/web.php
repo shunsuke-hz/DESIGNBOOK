@@ -33,6 +33,7 @@ Route::get('/brands-list', 'BrandsListController@index');
 // （仮）マイページ
 Route::get('/mypage', 'MypageController@index');
 
+
 // 仮登録ページ
 Route::post('register/pre_check', 'Auth\RegisterController@pre_check')->name('register.pre_check');
 // 本登録ページ
