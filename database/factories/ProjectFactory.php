@@ -3,6 +3,8 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Project::class, function (Faker $faker) {
+    static $num = 1;
+
     return [
         'title'=> $faker->word(),
         'top_image'=> $faker->image,
@@ -13,5 +15,7 @@ $factory->define(App\Project::class, function (Faker $faker) {
         'address_url' => $faker->url,
         'is_accepted' => "1",
         'thumbnail_id' => "1",
+        'brand_id' => $num++
+
     ];
 });
