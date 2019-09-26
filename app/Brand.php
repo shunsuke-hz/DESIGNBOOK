@@ -6,8 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model
 {
-    public function getPrefectureNameAttribute() {
+    protected $guarded = array('id');
+    public static $rules = array(
+        'name' => 'required',
+        'url' => 'https://www.yahoo.co.jp/',
+        'postal_code' => '336-0967',
+        'prefecture' => '12',
+        'address' => 'さいたま市緑区1-1',
+        'address_url' => 'https://www.yahoo.co.jp/',
+        'mail_address' => 'jirudore@gmail.com',
+        'phone_number' => '090-2338-1234',
+        'logo_image' => 'home1.png',
+        'created_at' => '2019-09-25 02:36:31',
+        'updated_at' => '2019-09-25 02:36:32', 
+    );
 
+    public function getPrefectureNameAttribute() {
         $prefs = [
             '1' => '北海道',
             '2' => '青森県',
