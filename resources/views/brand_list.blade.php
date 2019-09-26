@@ -1,5 +1,6 @@
-@extends('header')
-        
+@extends('layouts.template')
+
+@section('content')
 <div class="container">
     <div class="row justify-content-center my-4">
         <p class="my-auto">ブランド一覧</p>
@@ -18,9 +19,7 @@
     </table>
 </div>
 
-
-@extends('footer')
-
+@endsection
 {{-- 
     今後改善したいこと
     1. S3からの画像表示

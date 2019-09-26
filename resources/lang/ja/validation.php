@@ -116,6 +116,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'account_name' => 'アカウント名',
+        'name' => '氏名',
+        'phone_number' => '電話番号',
+        'sex' => '性別',
+        'birth'=> '生年月日'
+
+    ],
 
 ];

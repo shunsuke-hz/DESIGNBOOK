@@ -1,7 +1,8 @@
-@extends('header')
+@extends('layouts.template')
 
+@section('content')
 <div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
+    <!-- @if (Route::has('login'))
         <div class="top-right links">
             @auth
                 <a href="{{ url('/home') }}">Home</a>
@@ -10,7 +11,7 @@
                 <a href="{{ route('register') }}">Register</a>
             @endauth
         </div>
-    @endif
+    @endif -->
     <main role="main">
         <div class="content">
             <div class="container">
@@ -21,5 +22,6 @@
         </div>
     </main>
 </div>
+@endsection
 
-@extends('footer')
+

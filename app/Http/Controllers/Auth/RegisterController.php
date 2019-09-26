@@ -61,7 +61,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             // 'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:8|confirmed',
         ]);
     }
 
@@ -130,22 +130,36 @@ class RegisterController extends Controller
 
     public function mainCheck(Request $request)
     {
+
+
+      $data = $request->all();
+      if ($data['birth_year'] && $data['birth_month'] && $data['birth_day']) {
+        $data['birth'] = $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_day'];
+       }
+      $request->replace($data);
+
       $request->validate([
-        // 'name' => 'required|string',
-        // 'name_pronunciation' => 'required|string',
-        // 'birth_year' => 'required|numeric',
-        // 'birth_month' => 'required|numeric',
-        // 'birth_day' => 'required|numeric',
+        'account_name' => 'required|string|unique:users',
+        'name' => 'nullable|string',
+        'phone_number' => 'regex:/^[0-9]{2,4}-?[0-9]{3,4}-?[0-9]{3,4}$/',
+        'sex' => 'required',
+        'birth' => 'required|date',        
+        'birth_year' => 'required|numeric',
+        'birth_month' => 'required|numeric',
+        'birth_day' => 'required|numeric',
       ]);
       //データ保持用
       $email_token = $request->email_token;
 
       $user = new User();
+      $user->account_name = $request->account_name;
       $user->name = $request->name;
-      // $user->name_pronunciation = $request->name_pronunciation;
-      // $user->birth_year = $request->birth_year;
-      // $user->birth_month = $request->birth_month;
-      // $user->birth_day = $request->birth_day;
+      $user->phone_number = $request->phone_number;
+      $user->sex = $request->sex;
+      $user->birth = $request->birth;
+      $user->birth_year = $request->birth_year;
+      $user->birth_month = $request->birth_month;
+      $user->birth_day = $request->birth_day;
 
       return view('auth.main.register_check', compact('user','email_token'));
     }
@@ -155,10 +169,11 @@ class RegisterController extends Controller
       $user = User::where('email_verify_token',$request->email_token)->first();
       $user->status = config('const.USER_STATUS.REGISTER');
       $user->name = $request->name;
-      // $user->name_pronunciation = $request->name_pronunciation;
-      // $user->birth_year = $request->birth_year;
-      // $user->birth_month = $request->birth_month;
-      // $user->birth_day = $request->birth_day;
+      $user->account_name = $request->account_name;
+      $user->name = $request->name;
+      $user->phone_number = $request->phone_number;
+      $user->sex = $request->sex;
+      $user->birthday = $request->birth;
       $user->save();
 
       return view('auth.main.registered');
