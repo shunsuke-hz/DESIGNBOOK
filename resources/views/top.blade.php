@@ -13,7 +13,6 @@
     @endif
     <main role="main">
         <div class="content">
-            <a href="{{ url('/product') }}">プロダクト一覧</a>
             <div class="container">
                 <div id="app">
                     <top-component></top-component>
