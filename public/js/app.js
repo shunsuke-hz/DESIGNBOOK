@@ -59162,12 +59162,17 @@ function getViewportOffsetRectRelativeToArtbitraryNode(element) {
   var scrollTop = !excludeScroll ? getScroll(html) : 0;
   var scrollLeft = !excludeScroll ? getScroll(html, 'left') : 0;
 
+<<<<<<< Updated upstream
   var offset = {
     top: scrollTop - relativeOffset.top + relativeOffset.marginTop,
     left: scrollLeft - relativeOffset.left + relativeOffset.marginLeft,
     width: width,
     height: height
   };
+=======
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+>>>>>>> Stashed changes
 
   return getClientRect(offset);
 }
@@ -59259,6 +59264,7 @@ function getBoundaries(popper, reference, padding, boundariesElement) {
           height = _getWindowSizes.height,
           width = _getWindowSizes.width;
 
+<<<<<<< Updated upstream
       boundaries.top += offsets.top - offsets.marginTop;
       boundaries.bottom = height + offsets.top;
       boundaries.left += offsets.left - offsets.marginLeft;
@@ -59276,6 +59282,45 @@ function getBoundaries(popper, reference, padding, boundariesElement) {
   boundaries.top += isPaddingNumber ? padding : padding.top || 0;
   boundaries.right -= isPaddingNumber ? padding : padding.right || 0;
   boundaries.bottom -= isPaddingNumber ? padding : padding.bottom || 0;
+=======
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+>>>>>>> Stashed changes
 
   return boundaries;
 }
@@ -59334,11 +59379,135 @@ function computeAutoPlacement(placement, refRect, popper, reference, boundariesE
     return b.area - a.area;
   });
 
+<<<<<<< Updated upstream
   var filteredAreas = sortedAreas.filter(function (_ref2) {
     var width = _ref2.width,
         height = _ref2.height;
     return width >= popper.clientWidth && height >= popper.clientHeight;
   });
+=======
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.keyword,
+            expression: "keyword"
+          }
+        ],
+        attrs: { type: "text" },
+        domProps: { value: _vm.keyword },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.keyword = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { attrs: { id: "tag" } },
+      _vm._l(_vm.tags, function(tag) {
+        return _c("label", { key: tag.id }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.check,
+                expression: "check"
+              }
+            ],
+            attrs: { type: "checkbox" },
+            domProps: {
+              value: tag.name,
+              checked: Array.isArray(_vm.check)
+                ? _vm._i(_vm.check, tag.name) > -1
+                : _vm.check
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.check,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = tag.name,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.check = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.check = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.check = $$c
+                }
+              }
+            }
+          }),
+          _vm._v("\n            " + _vm._s(tag.name) + "\n        ")
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "album py-5 bg-light" }, [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.filter, function(value) {
+            return _c("div", { key: value.id, staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "card mb-4 shadow-sm" }, [
+                _c("div", { staticClass: "image" }, [
+                  _c(
+                    "a",
+                    { attrs: { href: "/project-detail?work=" + value.id } },
+                    [
+                      _c("img", {
+                        staticClass: "img img-thumbnail",
+                        attrs: {
+                          src: "/storage/" + value.project_images[0].image
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(value.title))
+                  ])
+                ])
+              ])
+            ])
+          }),
+          0
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-cee92e42", module.exports)
+  }
+}
+>>>>>>> Stashed changes
 
   var computedPlacement = filteredAreas.length > 0 ? filteredAreas[0].key : sortedAreas[0].key;
 
