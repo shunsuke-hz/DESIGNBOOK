@@ -12039,10 +12039,10 @@ window._ = __webpack_require__(17);
  */
 
 try {
-    window.$ = window.jQuery = __webpack_require__(6);
+  window.$ = window.jQuery = __webpack_require__(6);
 
-    // require('bootstrap-sass');
-    __webpack_require__(19);
+  // require('bootstrap-sass');
+  __webpack_require__(19);
 } catch (e) {}
 
 /**
@@ -12064,9 +12064,9 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-    console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 /**
@@ -49484,7 +49484,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.sidebar {\r\n    display: none;\r\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n        position: fixed;\r\n        top: 0;\r\n        bottom: 0;\r\n        left: 0;\r\n        display: block;\r\n        overflow-x: hidden;\r\n        overflow-y: auto;\n}\n}\n.card {\r\n    width: 264px;\r\n    height: 264px;\r\n    border: none;\r\n    border-radius: 0;\n}\n.image {\r\n    overflow: hidden;\r\n    width: 264px;\r\n    height: 210px;\n}\n.image img {\r\n    display: block;\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\r\n    height: 100%;\r\n    border: none;\r\n    margin: auto;\n}\n.image img:hover {\r\n    -webkit-transform: scale(1.1);\r\n            transform: scale(1.1);\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n    padding: 0;\r\n    border-radius: 0;\n}\n.card-body {\r\n    width: 264px;\r\n    height: 54px;\r\n    padding: 0.5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        display: block;\n        overflow-x: hidden;\n        overflow-y: auto;\n}\n}\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
 
 // exports
 
@@ -59758,7 +59758,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\r\n    width: 350px;\r\n    height: 350px;\n}\r\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350px;\n}\n.thumbneil .images img {\n    cursor: pointer;\n    width: 100px;\n    height: 100px;\n}\n", ""]);
 
 // exports
 
@@ -59812,6 +59812,83 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -59821,7 +59898,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             id: "",
             num: "0",
             project: [],
-            items: []
+            items: [],
+            tab: "0"
         };
     },
 
@@ -59830,6 +59908,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         changeImage: function changeImage(e) {
             var getValue = e.target.getAttribute("value");
             this.num = getValue;
+        },
+
+        // タブ切り替え
+        changeTab: function changeTab(n) {
+            this.tab = n;
         }
     },
 
@@ -60654,70 +60737,196 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("p", [_vm._v(_vm._s(_vm.project.title))]),
-      _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.project.explain))]),
-      _vm._v(" "),
-      _vm.display
-        ? _c("div", [
-            _c("div", { staticClass: "thumbneil" }, [
-              _c("img", {
-                attrs: { src: "/storage/" + _vm.items[_vm.num].image }
-              })
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.items[_vm.num].title))]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.items[_vm.num].explain))])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(_vm.items, function(item, key) {
-        return _c("span", { key: key }, [
-          _c("img", {
-            staticStyle: { width: "100px" },
-            attrs: { src: "/storage/" + item.image, value: key },
-            on: { mouseover: _vm.changeImage }
-          })
-        ])
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "d-flex justify-content-between align-items-center" },
-        [
+  return _c("div", { staticClass: "container" }, [
+    _vm.display
+      ? _c("div", [
           _c(
             "div",
-            { staticClass: "btn-group" },
-            _vm._l(_vm.items[_vm.num].tags, function(key) {
-              return _c(
-                "button",
+            { staticClass: "card flex-md-row mb-4 box-shadow h-md-250" },
+            [
+              _c("div", { staticClass: "thumbneil" }, [
+                _c("img", {
+                  staticClass: "card-img-left flex-auto d-none d-md-block",
+                  attrs: {
+                    src: "/storage/" + _vm.items[_vm.num].image,
+                    alt: "Card image cap"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "d-flex" },
+                  _vm._l(_vm.items, function(item, key) {
+                    return _c("span", { key: key, staticClass: "images" }, [
+                      _c("img", {
+                        attrs: { src: "/storage/" + item.image, value: key },
+                        on: { click: _vm.changeImage }
+                      })
+                    ])
+                  }),
+                  0
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
                 {
-                  key: key.id,
-                  staticClass: "btn btn-sm btn-outline-secondary",
-                  attrs: { type: "button", "data-toggle": "modal" }
+                  staticClass: "card-body d-flex flex-column align-items-start"
                 },
                 [
-                  _c("i", { staticClass: "fas fa-tag" }),
-                  _vm._v(
-                    "\n                " + _vm._s(key.name) + "\n            "
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "strong",
+                      { staticClass: "d-inline-block text-primary" },
+                      [
+                        _c("a", { attrs: { href: "" } }, [
+                          _vm._v(_vm._s(_vm.project.brands.name))
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(0)
+                  ]),
+                  _vm._v(" "),
+                  _c("h3", { staticClass: "mb-0" }, [
+                    _c(
+                      "a",
+                      { staticClass: "text-dark", attrs: { href: "#" } },
+                      [_vm._v(_vm._s(_vm.project.title))]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mb-1 text-muted" }, [
+                    _vm._v("Nov 12")
+                  ]),
+                  _vm._v(" "),
+                  _vm.tab == "0"
+                    ? _c("div", { staticClass: "content container" }, [
+                        _c("p", { staticClass: "card-text mb-auto" }, [
+                          _vm._v(_vm._s(_vm.project.explain))
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.tab == "1"
+                    ? _c(
+                        "table",
+                        { staticClass: "content container" },
+                        [
+                          _vm._m(1),
+                          _vm._v(" "),
+                          _vm._l(_vm.items[_vm.num].products, function(
+                            product,
+                            key
+                          ) {
+                            return _c("tr", { key: key.id }, [
+                              _c("td", [_vm._v(_vm._s(product.title))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(product.brands.name))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(product.model_number))])
+                            ])
+                          })
+                        ],
+                        2
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm.tab == "1"
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-secondary d-block mx-auto",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.changeTab(0)
+                            }
+                          }
+                        },
+                        [_vm._v("製品詳細へ")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.tab == "0"
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-secondary d-block mx-auto",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.changeTab(1)
+                            }
+                          }
+                        },
+                        [_vm._v("プロジェクト詳細へ")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "btn-group d-block mx-auto" },
+                    _vm._l(_vm.items[_vm.num].tags, function(key) {
+                      return _c(
+                        "button",
+                        {
+                          key: key.id,
+                          staticClass: "btn btn-sm btn-outline-secondary",
+                          attrs: { type: "button", "data-toggle": "modal" }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-tag" }),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(key.name) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    }),
+                    0
                   )
                 ]
               )
-            }),
-            0
+            ]
           )
-        ]
-      )
-    ],
-    2
-  )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "content" })
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("follow")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("製品名")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("ブランド")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("品番")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -61062,7 +61271,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\r\n    width: 350px;\r\n    height: 350px;\n}\r\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350px;\n}\n.images img {\n    cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -61194,11 +61403,11 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _vm._l(_vm.items, function(item, key) {
-        return _c("span", { key: key }, [
+        return _c("span", { key: key, staticClass: "images" }, [
           _c("img", {
             staticStyle: { width: "100px" },
             attrs: { src: "/storage/" + item.image, value: key },
-            on: { mouseover: _vm.changeImage }
+            on: { click: _vm.changeImage }
           })
         ])
       })
