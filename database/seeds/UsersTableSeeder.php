@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
                 'account_name' => null,
                 'name' => 'テスト太郎',
                 'email' => 'designbook13@gmail.com',
+                'pre_email' => 'designbook13@gmail.com',
                 'password' => '$2y$10$70zGNsvVqzE713j2VLDyhO6fRJNPuH.Q0umZUi.AiTD.H6VVBSN36',
                 'sex' => '1',
                 'phone_number' => '090-1234-5678',

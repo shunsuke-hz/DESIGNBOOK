@@ -151,7 +151,7 @@ class RegisterController extends Controller
       $request->validate([
         'account_name' => 'required|string|unique:users',
         'name' => 'nullable|string',
-        'phone_number' => 'regex:/^[0-9]{2,4}-?[0-9]{3,4}-?[0-9]{3,4}$/',
+        'phone_number' => 'nullable|regex:/^[0-9]{2,4}-?[0-9]{3,4}-?[0-9]{3,4}$/',
         'sex' => 'required',
         'birth' => 'required|date',        
         'birth_year' => 'required|numeric',
