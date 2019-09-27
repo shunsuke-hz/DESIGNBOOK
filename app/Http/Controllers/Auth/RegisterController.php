@@ -74,13 +74,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'email' => $data['email'],
+            'pre_email' => $data['email'],
             'password' => Hash::make($data['password']),
             'email_verify_token' => base64_encode($data['email']),
         ]);
 
         $email = new EmailVerification($user);
-        Mail::to($user->email)->send($email);
+        Mail::to($user->pre_email)->send($email);
 
         return $user;
     }
@@ -178,6 +178,7 @@ class RegisterController extends Controller
     {
       $user = User::where('email_verify_token',$request->email_token)->first();
       $user->status = config('const.USER_STATUS.REGISTER');
+      $user->email = $user->pre_email;
       $user->name = $request->name;
       $user->account_name = $request->account_name;
       $user->name = $request->name;

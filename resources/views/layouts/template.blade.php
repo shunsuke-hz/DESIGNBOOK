@@ -91,6 +91,25 @@
               @auth
               <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="http://localhost/"><i class="far fa-bell fa-lg"></i></a></li>
               <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="http://localhost/mypage"><i class="far fa-user fa-lg"></i></a></li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#"
+                      id="navbarDropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      {{ Auth::user()->name }}
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                          ログアウト
+                      </a>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                            style="display: none;">
+                          {{ csrf_field() }}
+                      </form>
+                  </div>
+              </li>
+              
               @else
               <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"><button class="btn btn-outline-dark my-2 my-sm-0">Sign in</button></a></li>
               <li class="nav-item"><a class="nav-link" href="{{ route('register') }}"><button class="btn btn-outline-primary my-2 my-sm-0">Sign Up Free</button></a></li>
@@ -104,6 +123,8 @@
       </button>
     
     </nav>
+
+
 
 
 {{-- 保険で一応残しておきます --}}
