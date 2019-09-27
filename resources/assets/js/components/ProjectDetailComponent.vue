@@ -9,30 +9,24 @@
                         alt="Card image cap"
                     />
 
+                    <br />
                     <div class="d-flex">
                         <span class="images" v-for="(item,key) in items" :key="key">
                             <img @click="changeImage" :src="'/storage/'+item.image" :value="key" />
                         </span>
                     </div>
-                    <!-- <div id="carousel-card" class="carousel slide">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-card" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-card" data-slide-to="1"></li>
-                            <li data-target="#carousel-card" data-slide-to="2"></li>
-                        </ol>
-                    </div>-->
                 </div>
                 <div class="card-body d-flex flex-column align-items-start">
                     <div class="row">
                         <strong class="d-inline-block text-primary">
                             <a href>{{project.brands.name}}</a>
                         </strong>
-                        <!-- <td class="align-middle"> -->
+
                         <div class="col-md-4">
                             <button type="button" class="btn btn-primary">follow</button>
                         </div>
                     </div>
-                    <!-- </td> -->
+
                     <h3 class="mb-0">
                         <a class="text-dark" href="#">{{project.title}}</a>
                     </h3>
@@ -69,7 +63,6 @@
                         @click="changeTab(1)"
                     >プロジェクト詳細へ</button>
 
-                    <!-- <a href="#">Continue reading</a> -->
                     <br />
                     <div class="btn-group d-block mx-auto">
                         <button
@@ -86,29 +79,6 @@
                 </div>
             </div>
         </div>
-        <!-- <span class="images" v-for="(item,key) in items" :key="key">
-            <img
-                @click="changeImage"
-                :src="'/storage/'+item.image"
-                :value="key"
-                style="width:100px"
-            />
-        </span>-->
-        <div class="content">
-            <!-- <div class="btn-group">
-                <button
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
-                    data-toggle="modal"
-                    v-for="key in items[num].tags"
-                    :key="key.id"
-                >
-                    <i class="fas fa-tag"></i>
-                    {{ key.name }}
-                </button>
-            </div>-->
-        </div>
-        <!-- <div v-if="display">{{ items[num]. }}</div> -->
     </div>
 </template>
 
@@ -163,5 +133,9 @@ export default {
     cursor: pointer;
     width: 100px;
     height: 100px;
+}
+
+.card {
+    border: none;
 }
 </style>

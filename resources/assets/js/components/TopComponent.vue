@@ -1,7 +1,5 @@
 <template>
-    <!-- <div class="flex-center position-ref row"> -->
     <div class="row">
-        <!-- <div class="row"> -->
         <div class="sidebar col-sm-3 hidden-xs">
             <label>
                 <input type="checkbox" v-model="check" value="住宅" />住宅
@@ -893,12 +891,7 @@
                 <div>
                     <input type="text" v-model="keyword" />
                 </div>
-                <!-- <div id="tag">
-                    <label v-for="tag in tags" :key="tag.id">
-                        <input type="checkbox" :value="tag.name" v-model="check" />
-                        {{ tag.name }}
-                    </label>
-                </div>-->
+
                 <div class="album py-5 bg-light">
                     <div class="container">
                         <div class="row">
