@@ -106,17 +106,27 @@ class RegisterController extends Controller
 
     public function showForm($email_token)
     {
-        // 使用可能なトークンか
+      
+        // パラメータのトークンがユーザーテーブルに存在するか
         if ( !User::where('email_verify_token',$email_token)->exists() )
         {
             return view('auth.main.register')->with('message', '無効なトークンです。');
         } else {
+            // パラメータのトークンと一致するユーザーの取得
             $user = User::where('email_verify_token', $email_token)->first();
+            // ユーザーの作成日時の取得
+            $dt_now = new Carbon();
+            $dt_create = new Carbon($user->created_at);
+            $dt_limit = $dt_create->addHour();
             // 本登録済みユーザーか
             if ($user->status == config('const.USER_STATUS.REGISTER')) //REGISTER=1
             {
                 logger("status". $user->status );
                 return view('auth.main.register')->with('message', 'すでに本登録されています。ログインして利用してください。');
+            }
+            // トークン発行から1時間以上経過してるか
+            if ($dt_now->gt($dt_limit) ){
+              return view('auth.main.register')->with('message', 'メール認証の発行から一時間以上経過しています。新規アカウントを作成して下さい');
             }
             // ユーザーステータス更新
             $user->status = config('const.USER_STATUS.MAIL_AUTHED');
@@ -175,7 +185,8 @@ class RegisterController extends Controller
       $user->sex = $request->sex;
       $user->birthday = $request->birth;
       $user->save();
-
+      // ログイン状態にする
+      $this->guard()->login($user);
       return view('auth.main.registered');
     }
 
