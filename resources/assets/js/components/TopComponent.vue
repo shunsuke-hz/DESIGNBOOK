@@ -887,29 +887,23 @@
             <br />
         </div>
         <div class="col-sm-9 offset-sm-3">
-            <div class="container">
-                <div>
-                    <input type="text" v-model="keyword" />
-                </div>
+            <div>
+                <input type="text" v-model="keyword" />
+            </div>
 
-                <div class="album py-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4" v-for="value in filter" :key="value.id">
-                                <div class="card m-auto shadow-sm">
-                                    <div class="image">
-                                        <a :href="'/project-detail?work='+value.id">
-                                            <img
-                                                class="img img-thumbnail"
-                                                v-bind:src="'/storage/'+value.project_images[0].image"
-                                            />
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text">{{ value.title }}</p>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="album py-5">
+                <div class="row">
+                    <div class="card m-2 shadow-sm" v-for="value in filter" :key="value.id">
+                        <div class="image">
+                            <a :href="'/project-detail?work='+value.id">
+                                <img
+                                    class="img img-thumbnail"
+                                    v-bind:src="'/storage/'+value.project_images[0].image"
+                                />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ value.title }}</p>
                         </div>
                     </div>
                 </div>
@@ -998,6 +992,7 @@ export default {
     height: 264px;
     border: none;
     border-radius: 0;
+    margin: 1rem;
 }
 
 .image {

@@ -38,12 +38,16 @@
                             <th>品番</th>
                         </tr>
                         <tr v-for="(product,key) in items[num].products" :key="key.id">
-                            <td
-                                class="text-primary"
-                                style="cursor: pointer"
-                                @click="changeProduct"
-                                :value="key"
-                            >{{ product.title }}</td>
+                            <td>
+                                <a
+                                    href="#"
+                                    v-scroll-to="toBottom"
+                                    class="text-primary"
+                                    style="cursor: pointer"
+                                    @click="changeProduct"
+                                    :value="key"
+                                >{{ product.title }}</a>
+                            </td>
                             <td>{{ product.brands.name }}</td>
                             <td>{{ product.model_number }}</td>
                         </tr>
@@ -83,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="products_info card flex-md-row mb-4 box-shadow h-md-250 border">
+            <div id="bottom" class="products_info card flex-md-row mb-4 box-shadow h-md-250 border">
                 <div
                     class="card-body d-flex flex-column align-items-start"
                     :model="items[num].products"
@@ -98,6 +102,7 @@
                 >
                     <p>{{ items[num].products[product_num].brands.name }}</p>
                     <p>{{ items[num].products[product_num].brands.url }}</p>
+                    <p>{{ items[num].products[product_num].brands.mail_address }}</p>
                     <p>{{ items[num].products[product_num].brands.address }}</p>
                 </div>
             </div>
@@ -116,7 +121,8 @@ export default {
             project: [],
             items: [],
             tab: "0",
-            product_num: "0"
+            product_num: "0",
+            toBottom: "#bottom"
         };
     },
 
