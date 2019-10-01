@@ -50479,14 +50479,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     var tagArray = image.tags.map(function (obj) {
                         return obj.name;
                     });
-                    var checkArray = _this.check;
 
-                    if (checkArray.every(function (v) {
+                    // 検索窓 スペースで配列化
+                    // if (this.keyword !== null) {
+                    //     let key = this.keyword.match(/[^\s]+/g);
+                    //     this.check.push(key);
+                    //     this.check.filter(z => z);
+                    //     console.log(this.check);
+                    // }
+
+                    if (_this.check.every(function (v) {
                         return tagArray.includes(v);
                     }) == true) {
                         if (_this.old_result == project) {} else {
                             _this.result.push(project);
                         }
+
                         _this.old_result = project;
                     }
                 };
@@ -59616,14 +59624,14 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "album py-5 bg-light" }, [
+        _c("div", { staticClass: "album py-5" }, [
           _c("div", { staticClass: "container" }, [
             _c(
               "div",
               { staticClass: "row" },
               _vm._l(_vm.filter, function(value) {
                 return _c("div", { key: value.id, staticClass: "col-md-4" }, [
-                  _c("div", { staticClass: "card mb-4 shadow-sm" }, [
+                  _c("div", { staticClass: "card m-auto shadow-sm" }, [
                     _c("div", { staticClass: "image" }, [
                       _c(
                         "a",
@@ -59751,7 +59759,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350px;\n}\n.thumbneil .images img {\n    cursor: pointer;\n    width: 100px;\n    height: 100px;\n}\n.card {\n    border: none;\n}\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350px;\n}\n.thumbneil .images img {\n    cursor: pointer;\n    width: 100px;\n    height: 100px;\n}\n.card {\n    border: none;\n}\n.products_info img {\n    width: 250px;\n    height: 250px;\n}\n", ""]);
 
 // exports
 
@@ -59852,6 +59860,29 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -59862,7 +59893,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             num: "0",
             project: [],
             items: [],
-            tab: "0"
+            tab: "0",
+            product_num: "0"
         };
     },
 
@@ -59876,6 +59908,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         // タブ切り替え
         changeTab: function changeTab(n) {
             this.tab = n;
+        },
+
+        // プロダクト切り替え
+        changeProduct: function changeProduct(e) {
+            var getValue = e.target.getAttribute("value");
+            this.product_num = getValue;
         }
     },
 
@@ -60710,10 +60748,7 @@ var render = function() {
               _c("div", { staticClass: "thumbneil" }, [
                 _c("img", {
                   staticClass: "card-img-left flex-auto d-none d-md-block",
-                  attrs: {
-                    src: "/storage/" + _vm.items[_vm.num].image,
-                    alt: "Card image cap"
-                  }
+                  attrs: { src: "/storage/" + _vm.items[_vm.num].image }
                 }),
                 _vm._v(" "),
                 _c("br"),
@@ -60766,14 +60801,6 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _vm.tab == "0"
-                    ? _c("div", { staticClass: "content container" }, [
-                        _c("p", { staticClass: "card-text mb-auto" }, [
-                          _vm._v(_vm._s(_vm.project.explain))
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tab == "1"
                     ? _c(
                         "table",
                         { staticClass: "content container" },
@@ -60785,7 +60812,16 @@ var render = function() {
                             key
                           ) {
                             return _c("tr", { key: key.id }, [
-                              _c("td", [_vm._v(_vm._s(product.title))]),
+                              _c(
+                                "td",
+                                {
+                                  staticClass: "text-primary",
+                                  staticStyle: { cursor: "pointer" },
+                                  attrs: { value: key },
+                                  on: { click: _vm.changeProduct }
+                                },
+                                [_vm._v(_vm._s(product.title))]
+                              ),
                               _vm._v(" "),
                               _c("td", [_vm._v(_vm._s(product.brands.name))]),
                               _vm._v(" "),
@@ -60797,23 +60833,15 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
                   _vm.tab == "1"
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-secondary d-block mx-auto",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.changeTab(0)
-                            }
-                          }
-                        },
-                        [_vm._v("製品詳細へ")]
-                      )
+                    ? _c("div", { staticClass: "content container" }, [
+                        _c("p", { staticClass: "card-text mb-auto" }, [
+                          _vm._v(_vm._s(_vm.project.explain))
+                        ])
+                      ])
                     : _vm._e(),
+                  _vm._v(" "),
+                  _c("br"),
                   _vm._v(" "),
                   _vm.tab == "0"
                     ? _c(
@@ -60828,6 +60856,22 @@ var render = function() {
                           }
                         },
                         [_vm._v("プロジェクト詳細へ")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.tab == "1"
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-secondary d-block mx-auto",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.changeTab(0)
+                            }
+                          }
+                        },
+                        [_vm._v("製品詳細へ")]
                       )
                     : _vm._e(),
                   _vm._v(" "),
@@ -60856,6 +60900,67 @@ var render = function() {
                     }),
                     0
                   )
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "products_info card flex-md-row mb-4 box-shadow h-md-250 border"
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-body d-flex flex-column align-items-start",
+                  attrs: { model: _vm.items[_vm.num].products }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src:
+                        "/storage/" +
+                        _vm.items[_vm.num].products[_vm.product_num]
+                          .product_images[0].image
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "card-body d-flex flex-column align-items-start",
+                  attrs: { model: _vm.items[_vm.num].products }
+                },
+                [
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.items[_vm.num].products[_vm.product_num].brands.name
+                      )
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.items[_vm.num].products[_vm.product_num].brands.url
+                      )
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.items[_vm.num].products[_vm.product_num].brands
+                          .address
+                      )
+                    )
+                  ])
                 ]
               )
             ]

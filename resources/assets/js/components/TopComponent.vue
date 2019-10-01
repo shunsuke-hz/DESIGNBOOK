@@ -892,11 +892,11 @@
                     <input type="text" v-model="keyword" />
                 </div>
 
-                <div class="album py-5 bg-light">
+                <div class="album py-5">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4" v-for="value in filter" :key="value.id">
-                                <div class="card mb-4 shadow-sm">
+                                <div class="card m-auto shadow-sm">
                                     <div class="image">
                                         <a :href="'/project-detail?work='+value.id">
                                             <img
@@ -945,13 +945,21 @@ export default {
                 for (let n in this.images) {
                     let image = this.images[n];
                     let tagArray = image.tags.map(obj => obj.name);
-                    let checkArray = this.check;
 
-                    if (checkArray.every(v => tagArray.includes(v)) == true) {
+                    // 検索窓 スペースで配列化
+                    // if (this.keyword !== null) {
+                    //     let key = this.keyword.match(/[^\s]+/g);
+                    //     this.check.push(key);
+                    //     this.check.filter(z => z);
+                    //     console.log(this.check);
+                    // }
+
+                    if (this.check.every(v => tagArray.includes(v)) == true) {
                         if (this.old_result == project) {
                         } else {
                             this.result.push(project);
                         }
+
                         this.old_result = project;
                     }
                 }
