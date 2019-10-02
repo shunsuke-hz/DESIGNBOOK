@@ -1,7 +1,5 @@
 <template>
-    <!-- <div class="flex-center position-ref row"> -->
     <div class="row">
-        <!-- <div class="row"> -->
         <div class="sidebar col-sm-3 hidden-xs">
             <label>
                 <input type="checkbox" v-model="check" value="住宅" />住宅
@@ -889,34 +887,23 @@
             <br />
         </div>
         <div class="col-sm-9 offset-sm-3">
-            <div class="container">
-                <div>
-                    <input type="text" v-model="keyword" />
-                </div>
-                <!-- <div id="tag">
-                    <label v-for="tag in tags" :key="tag.id">
-                        <input type="checkbox" :value="tag.name" v-model="check" />
-                        {{ tag.name }}
-                    </label>
-                </div>-->
-                <div class="album py-5 bg-light">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4" v-for="value in filter" :key="value.id">
-                                <div class="card mb-4 shadow-sm">
-                                    <div class="image">
-                                        <a :href="'/project-detail?work='+value.id">
-                                            <img
-                                                class="img img-thumbnail"
-                                                v-bind:src="'/storage/'+value.project_images[0].image"
-                                            />
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text">{{ value.title }}</p>
-                                    </div>
-                                </div>
-                            </div>
+            <div>
+                <input type="text" v-model="keyword" />
+            </div>
+
+            <div class="album py-5">
+                <div class="row">
+                    <div class="card m-2 shadow-sm" v-for="value in filter" :key="value.id">
+                        <div class="image">
+                            <a :href="'/project-detail?work='+value.id">
+                                <img
+                                    class="img img-thumbnail"
+                                    v-bind:src="'/storage/'+value.project_images[0].image"
+                                />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ value.title }}</p>
                         </div>
                     </div>
                 </div>
@@ -952,13 +939,21 @@ export default {
                 for (let n in this.images) {
                     let image = this.images[n];
                     let tagArray = image.tags.map(obj => obj.name);
-                    let checkArray = this.check;
 
-                    if (checkArray.every(v => tagArray.includes(v)) == true) {
+                    // 検索窓 スペースで配列化
+                    // if (this.keyword !== "") {
+                        // let key = this.keyword.match(/[^\s]+/g);
+                        // this.check = key;
+                        // this.check.filter(z => z);
+                    // }
+                    // console.log(this.check);
+
+                    if (this.check.every(v => tagArray.includes(v)) == true) {
                         if (this.old_result == project) {
                         } else {
                             this.result.push(project);
                         }
+
                         this.old_result = project;
                     }
                 }
@@ -997,6 +992,7 @@ export default {
     height: 264px;
     border: none;
     border-radius: 0;
+    margin: 1rem;
 }
 
 .image {

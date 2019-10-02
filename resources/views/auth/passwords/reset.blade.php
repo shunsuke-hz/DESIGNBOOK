@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Reset Password</div>
+                <div class="card-header">パスワードリセット</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -20,7 +20,7 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="row form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 col-form-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 col-form-label">メールアドレス</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="row form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 col-form-label">Password</label>
+                            <label for="password" class="col-md-4 col-form-label">新しいパスワード</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="row form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 col-from-label">Confirm Password</label>
+                            <label for="password-confirm" class="col-md-4 col-from-label">パスワード再入力</label>
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 
@@ -63,7 +63,7 @@
                         <div class="row form-group">
                             <div class="col-md-8 ml-auto">
                                 <button type="submit" class="btn btn-primary">
-                                    Reset Password
+                                    パスワードを変更する
                                 </button>
                             </div>
                         </div>

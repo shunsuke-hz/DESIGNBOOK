@@ -11,7 +11,7 @@
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
-                    @endif
+                    @else
 
                     <form method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
@@ -38,6 +38,7 @@
                             </div>
                         </div>
                     </form>
+                    @endif
                 </div>
             </div>
         </div>

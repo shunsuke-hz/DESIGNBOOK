@@ -1,23 +1,53 @@
 <template>
     <div class="container">
-        <p>{{ product.title }}</p>
-        <p>{{ product.explain }}</p>
         <div v-if="display">
-            <div class="thumbneil">
-                <img :src="'/storage/'+items[num].image" />
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="thumbneil">
+                    <img
+                        class="card-img-left flex-auto d-none d-md-block"
+                        :src="'/storage/'+items[num].image"
+                    />
+
+                    <br />
+                    <div class="d-flex">
+                        <span class="images" v-for="(item,key) in items" :key="key">
+                            <img @click="changeImage" :src="'/storage/'+item.image" :value="key" />
+                        </span>
+                    </div>
+                </div>
+                <div class="card-body d-flex flex-column align-items-start">
+                    <div class="row">
+                        <strong class="d-inline-block text-primary">
+                            <a href>{{product.brands.name}}</a>
+                        </strong>
+
+                        <div class="col-me-4">
+                            <button type="button" class="btn btn-primary">follow</button>
+                        </div>
+                    </div>
+                    <h3 class="mb-0">
+                        <a class="text-dark" href="#">{{product.title}}</a>
+                    </h3>
+                    <div class="mb-1 text-muted">Nov 12</div>
+
+                    <div class="content container">
+                        <p class="card-text mb-auto">{{product.explain}}</p>
+                    </div>
+                    <div class="btn-group d-block mx-auto">
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-outline-secondary"
+                            data-toggle="modal"
+                            v-for="key in product.tags"
+                            :key="key.id"
+                        >
+                            <i class="fas fa-tag"></i>
+                            {{ key.name}}
+                        </button>
+                    </div>
+                </div>
             </div>
-            <p>{{ items[num].title }}</p>
-            <p>{{ items[num].explain }}</p>
-            <p>品番: {{ product.model_number }}</p>
         </div>
-        <span v-for="(item,key) in items" :key="key">
-            <img
-                @mouseover="changeImage"
-                :src="'/storage/'+item.image"
-                :value="key"
-                style="width:100px"
-            />
-        </span>
     </div>
 </template>
 
@@ -59,5 +89,15 @@ export default {
 .thumbneil img {
     width: 350px;
     height: 350px;
+}
+
+.images img {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+}
+
+.card {
+    border: none;
 }
 </style>
