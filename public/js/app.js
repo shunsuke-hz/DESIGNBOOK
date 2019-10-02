@@ -502,7 +502,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(47)
+var listToStyles = __webpack_require__(48)
 
 /*
 type StyleObject = {
@@ -11986,7 +11986,7 @@ module.exports = Cancel;
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(54);
+module.exports = __webpack_require__(55);
 
 
 /***/ }),
@@ -11994,7 +11994,7 @@ module.exports = __webpack_require__(54);
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(67);
+module.exports = __webpack_require__(68);
 
 
 /***/ }),
@@ -12011,7 +12011,7 @@ __webpack_require__(16);
 
 window.Vue = __webpack_require__(40);
 
-Vue.use(__webpack_require__(71));
+Vue.use(__webpack_require__(44));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -12019,10 +12019,10 @@ Vue.use(__webpack_require__(71));
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component("top-component", __webpack_require__(44));
-Vue.component("project-detail-component", __webpack_require__(50));
-Vue.component("product-component", __webpack_require__(57));
-Vue.component("product-detail-component", __webpack_require__(62));
+Vue.component("top-component", __webpack_require__(45));
+Vue.component("project-detail-component", __webpack_require__(51));
+Vue.component("product-component", __webpack_require__(58));
+Vue.component("product-detail-component", __webpack_require__(63));
 
 var app = new Vue({
     el: "#app"
@@ -49404,16 +49404,540 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/*!
+  * vue-scrollto v2.17.1
+  * (c) 2019 Randjelovic Igor
+  * @license MIT
+  */
+(function (global, factory) {
+   true ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global = global || self, global['vue-scrollto'] = factory());
+}(this, function () { 'use strict';
+
+  function _typeof(obj) {
+    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+      _typeof = function (obj) {
+        return typeof obj;
+      };
+    } else {
+      _typeof = function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+      };
+    }
+
+    return _typeof(obj);
+  }
+
+  function _extends() {
+    _extends = Object.assign || function (target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
+
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+
+      return target;
+    };
+
+    return _extends.apply(this, arguments);
+  }
+
+  /**
+   * https://github.com/gre/bezier-easing
+   * BezierEasing - use bezier curve for transition easing function
+   * by Gaëtan Renaudeau 2014 - 2015 – MIT License
+   */
+
+  // These values are established by empiricism with tests (tradeoff: performance VS precision)
+  var NEWTON_ITERATIONS = 4;
+  var NEWTON_MIN_SLOPE = 0.001;
+  var SUBDIVISION_PRECISION = 0.0000001;
+  var SUBDIVISION_MAX_ITERATIONS = 10;
+
+  var kSplineTableSize = 11;
+  var kSampleStepSize = 1.0 / (kSplineTableSize - 1.0);
+
+  var float32ArraySupported = typeof Float32Array === 'function';
+
+  function A (aA1, aA2) { return 1.0 - 3.0 * aA2 + 3.0 * aA1; }
+  function B (aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1; }
+  function C (aA1)      { return 3.0 * aA1; }
+
+  // Returns x(t) given t, x1, and x2, or y(t) given t, y1, and y2.
+  function calcBezier (aT, aA1, aA2) { return ((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT; }
+
+  // Returns dx/dt given t, x1, and x2, or dy/dt given t, y1, and y2.
+  function getSlope (aT, aA1, aA2) { return 3.0 * A(aA1, aA2) * aT * aT + 2.0 * B(aA1, aA2) * aT + C(aA1); }
+
+  function binarySubdivide (aX, aA, aB, mX1, mX2) {
+    var currentX, currentT, i = 0;
+    do {
+      currentT = aA + (aB - aA) / 2.0;
+      currentX = calcBezier(currentT, mX1, mX2) - aX;
+      if (currentX > 0.0) {
+        aB = currentT;
+      } else {
+        aA = currentT;
+      }
+    } while (Math.abs(currentX) > SUBDIVISION_PRECISION && ++i < SUBDIVISION_MAX_ITERATIONS);
+    return currentT;
+  }
+
+  function newtonRaphsonIterate (aX, aGuessT, mX1, mX2) {
+   for (var i = 0; i < NEWTON_ITERATIONS; ++i) {
+     var currentSlope = getSlope(aGuessT, mX1, mX2);
+     if (currentSlope === 0.0) {
+       return aGuessT;
+     }
+     var currentX = calcBezier(aGuessT, mX1, mX2) - aX;
+     aGuessT -= currentX / currentSlope;
+   }
+   return aGuessT;
+  }
+
+  function LinearEasing (x) {
+    return x;
+  }
+
+  var src = function bezier (mX1, mY1, mX2, mY2) {
+    if (!(0 <= mX1 && mX1 <= 1 && 0 <= mX2 && mX2 <= 1)) {
+      throw new Error('bezier x values must be in [0, 1] range');
+    }
+
+    if (mX1 === mY1 && mX2 === mY2) {
+      return LinearEasing;
+    }
+
+    // Precompute samples table
+    var sampleValues = float32ArraySupported ? new Float32Array(kSplineTableSize) : new Array(kSplineTableSize);
+    for (var i = 0; i < kSplineTableSize; ++i) {
+      sampleValues[i] = calcBezier(i * kSampleStepSize, mX1, mX2);
+    }
+
+    function getTForX (aX) {
+      var intervalStart = 0.0;
+      var currentSample = 1;
+      var lastSample = kSplineTableSize - 1;
+
+      for (; currentSample !== lastSample && sampleValues[currentSample] <= aX; ++currentSample) {
+        intervalStart += kSampleStepSize;
+      }
+      --currentSample;
+
+      // Interpolate to provide an initial guess for t
+      var dist = (aX - sampleValues[currentSample]) / (sampleValues[currentSample + 1] - sampleValues[currentSample]);
+      var guessForT = intervalStart + dist * kSampleStepSize;
+
+      var initialSlope = getSlope(guessForT, mX1, mX2);
+      if (initialSlope >= NEWTON_MIN_SLOPE) {
+        return newtonRaphsonIterate(aX, guessForT, mX1, mX2);
+      } else if (initialSlope === 0.0) {
+        return guessForT;
+      } else {
+        return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize, mX1, mX2);
+      }
+    }
+
+    return function BezierEasing (x) {
+      // Because JavaScript number are imprecise, we should guarantee the extremes are right.
+      if (x === 0) {
+        return 0;
+      }
+      if (x === 1) {
+        return 1;
+      }
+      return calcBezier(getTForX(x), mY1, mY2);
+    };
+  };
+
+  var easings = {
+    ease: [0.25, 0.1, 0.25, 1.0],
+    linear: [0.0, 0.0, 1.0, 1.0],
+    'ease-in': [0.42, 0.0, 1.0, 1.0],
+    'ease-out': [0.0, 0.0, 0.58, 1.0],
+    'ease-in-out': [0.42, 0.0, 0.58, 1.0]
+  };
+
+  // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
+  var supportsPassive = false;
+
+  try {
+    var opts = Object.defineProperty({}, 'passive', {
+      get: function get() {
+        supportsPassive = true;
+      }
+    });
+    window.addEventListener('test', null, opts);
+  } catch (e) {}
+
+  var _ = {
+    $: function $(selector) {
+      if (typeof selector !== 'string') {
+        return selector;
+      }
+
+      return document.querySelector(selector);
+    },
+    on: function on(element, events, handler) {
+      var opts = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
+        passive: false
+      };
+
+      if (!(events instanceof Array)) {
+        events = [events];
+      }
+
+      for (var i = 0; i < events.length; i++) {
+        element.addEventListener(events[i], handler, supportsPassive ? opts : false);
+      }
+    },
+    off: function off(element, events, handler) {
+      if (!(events instanceof Array)) {
+        events = [events];
+      }
+
+      for (var i = 0; i < events.length; i++) {
+        element.removeEventListener(events[i], handler);
+      }
+    },
+    cumulativeOffset: function cumulativeOffset(element) {
+      var top = 0;
+      var left = 0;
+
+      do {
+        top += element.offsetTop || 0;
+        left += element.offsetLeft || 0;
+        element = element.offsetParent;
+      } while (element);
+
+      return {
+        top: top,
+        left: left
+      };
+    }
+  };
+
+  var abortEvents = ['mousedown', 'wheel', 'DOMMouseScroll', 'mousewheel', 'keyup', 'touchmove'];
+  var defaults = {
+    container: 'body',
+    duration: 500,
+    easing: 'ease',
+    offset: 0,
+    force: true,
+    cancelable: true,
+    onStart: false,
+    onDone: false,
+    onCancel: false,
+    x: false,
+    y: true
+  };
+  function setDefaults(options) {
+    defaults = _extends({}, defaults, options);
+  }
+  var scroller = function scroller() {
+    var element; // element to scroll to
+
+    var container; // container to scroll
+
+    var duration; // duration of the scrolling
+
+    var easing; // easing to be used when scrolling
+
+    var offset; // offset to be added (subtracted)
+
+    var force; // force scroll, even if element is visible
+
+    var cancelable; // indicates if user can cancel the scroll or not.
+
+    var onStart; // callback when scrolling is started
+
+    var onDone; // callback when scrolling is done
+
+    var onCancel; // callback when scrolling is canceled / aborted
+
+    var x; // scroll on x axis
+
+    var y; // scroll on y axis
+
+    var initialX; // initial X of container
+
+    var targetX; // target X of container
+
+    var initialY; // initial Y of container
+
+    var targetY; // target Y of container
+
+    var diffX; // difference
+
+    var diffY; // difference
+
+    var abort; // is scrolling aborted
+
+    var abortEv; // event that aborted scrolling
+
+    var abortFn = function abortFn(e) {
+      if (!cancelable) return;
+      abortEv = e;
+      abort = true;
+    };
+
+    var easingFn;
+    var timeStart; // time when scrolling started
+
+    var timeElapsed; // time elapsed since scrolling started
+
+    var progress; // progress
+
+    function scrollTop(container) {
+      var scrollTop = container.scrollTop;
+
+      if (container.tagName.toLowerCase() === 'body') {
+        // in firefox body.scrollTop always returns 0
+        // thus if we are trying to get scrollTop on a body tag
+        // we need to get it from the documentElement
+        scrollTop = scrollTop || document.documentElement.scrollTop;
+      }
+
+      return scrollTop;
+    }
+
+    function scrollLeft(container) {
+      var scrollLeft = container.scrollLeft;
+
+      if (container.tagName.toLowerCase() === 'body') {
+        // in firefox body.scrollLeft always returns 0
+        // thus if we are trying to get scrollLeft on a body tag
+        // we need to get it from the documentElement
+        scrollLeft = scrollLeft || document.documentElement.scrollLeft;
+      }
+
+      return scrollLeft;
+    }
+
+    function step(timestamp) {
+      if (abort) return done();
+      if (!timeStart) timeStart = timestamp;
+      timeElapsed = timestamp - timeStart;
+      progress = Math.min(timeElapsed / duration, 1);
+      progress = easingFn(progress);
+      topLeft(container, initialY + diffY * progress, initialX + diffX * progress);
+      timeElapsed < duration ? window.requestAnimationFrame(step) : done();
+    }
+
+    function done() {
+      if (!abort) topLeft(container, targetY, targetX);
+      timeStart = false;
+
+      _.off(container, abortEvents, abortFn);
+
+      if (abort && onCancel) onCancel(abortEv, element);
+      if (!abort && onDone) onDone(element);
+    }
+
+    function topLeft(element, top, left) {
+      if (y) element.scrollTop = top;
+      if (x) element.scrollLeft = left;
+
+      if (element.tagName.toLowerCase() === 'body') {
+        // in firefox body.scrollTop doesn't scroll the page
+        // thus if we are trying to scrollTop on a body tag
+        // we need to scroll on the documentElement
+        if (y) document.documentElement.scrollTop = top;
+        if (x) document.documentElement.scrollLeft = left;
+      }
+    }
+
+    function scrollTo(target, _duration) {
+      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+      if (_typeof(_duration) === 'object') {
+        options = _duration;
+      } else if (typeof _duration === 'number') {
+        options.duration = _duration;
+      }
+
+      element = _.$(target);
+
+      if (!element) {
+        return console.warn('[vue-scrollto warn]: Trying to scroll to an element that is not on the page: ' + target);
+      }
+
+      container = _.$(options.container || defaults.container);
+      duration = options.duration || defaults.duration;
+      easing = options.easing || defaults.easing;
+      offset = options.offset || defaults.offset;
+      force = options.hasOwnProperty('force') ? options.force !== false : defaults.force;
+      cancelable = options.hasOwnProperty('cancelable') ? options.cancelable !== false : defaults.cancelable;
+      onStart = options.onStart || defaults.onStart;
+      onDone = options.onDone || defaults.onDone;
+      onCancel = options.onCancel || defaults.onCancel;
+      x = options.x === undefined ? defaults.x : options.x;
+      y = options.y === undefined ? defaults.y : options.y;
+
+      var cumulativeOffsetContainer = _.cumulativeOffset(container);
+
+      var cumulativeOffsetElement = _.cumulativeOffset(element);
+
+      if (typeof offset === 'function') {
+        offset = offset(element, container);
+      }
+
+      initialY = scrollTop(container);
+      targetY = cumulativeOffsetElement.top - cumulativeOffsetContainer.top + offset;
+      initialX = scrollLeft(container);
+      targetX = cumulativeOffsetElement.left - cumulativeOffsetContainer.left + offset;
+      abort = false;
+      diffY = targetY - initialY;
+      diffX = targetX - initialX;
+
+      if (!force) {
+        // When the container is the default (body) we need to use the viewport
+        // height, not the entire body height
+        var containerHeight = container.tagName.toLowerCase() === 'body' ? document.documentElement.clientHeight || window.innerHeight : container.offsetHeight;
+        var containerTop = initialY;
+        var containerBottom = containerTop + containerHeight;
+        var elementTop = targetY - offset;
+        var elementBottom = elementTop + element.offsetHeight;
+
+        if (elementTop >= containerTop && elementBottom <= containerBottom) {
+          // make sure to call the onDone callback even if there is no need to
+          // scroll the container. Fixes #111 (ref #118)
+          if (onDone) onDone(element);
+          return;
+        }
+      }
+
+      if (onStart) onStart(element);
+
+      if (!diffY && !diffX) {
+        if (onDone) onDone(element);
+        return;
+      }
+
+      if (typeof easing === 'string') {
+        easing = easings[easing] || easings['ease'];
+      }
+
+      easingFn = src.apply(src, easing);
+
+      _.on(container, abortEvents, abortFn, {
+        passive: true
+      });
+
+      window.requestAnimationFrame(step);
+      return function () {
+        abortEv = null;
+        abort = true;
+      };
+    }
+
+    return scrollTo;
+  };
+
+  var _scroller = scroller();
+
+  var bindings = []; // store binding data
+
+  function deleteBinding(el) {
+    for (var i = 0; i < bindings.length; ++i) {
+      if (bindings[i].el === el) {
+        bindings.splice(i, 1);
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  function findBinding(el) {
+    for (var i = 0; i < bindings.length; ++i) {
+      if (bindings[i].el === el) {
+        return bindings[i];
+      }
+    }
+  }
+
+  function getBinding(el) {
+    var binding = findBinding(el);
+
+    if (binding) {
+      return binding;
+    }
+
+    bindings.push(binding = {
+      el: el,
+      binding: {}
+    });
+    return binding;
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+    var ctx = getBinding(this).binding;
+
+    if (typeof ctx.value === 'string') {
+      return _scroller(ctx.value);
+    }
+
+    _scroller(ctx.value.el || ctx.value.element, ctx.value);
+  }
+
+  var VueScrollTo = {
+    bind: function bind(el, binding) {
+      getBinding(el).binding = binding;
+
+      _.on(el, 'click', handleClick);
+    },
+    unbind: function unbind(el) {
+      deleteBinding(el);
+
+      _.off(el, 'click', handleClick);
+    },
+    update: function update(el, binding) {
+      getBinding(el).binding = binding;
+    },
+    scrollTo: _scroller,
+    bindings: bindings
+  };
+
+  var install = function install(Vue, options) {
+    if (options) setDefaults(options);
+    Vue.directive('scroll-to', VueScrollTo);
+    Vue.prototype.$scrollTo = VueScrollTo.scrollTo;
+  };
+
+  if (typeof window !== 'undefined' && window.Vue) {
+    window.VueScrollTo = VueScrollTo;
+    window.VueScrollTo.setDefaults = setDefaults;
+    window.Vue.use(install);
+  }
+
+  VueScrollTo.install = install;
+
+  return VueScrollTo;
+
+}));
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(45)
+  __webpack_require__(46)
 }
 var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(48)
+var __vue_script__ = __webpack_require__(49)
 /* template */
-var __vue_template__ = __webpack_require__(49)
+var __vue_template__ = __webpack_require__(50)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -49452,13 +49976,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(46);
+var content = __webpack_require__(47);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -49478,7 +50002,7 @@ if(false) {
 }
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -49492,7 +50016,7 @@ exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports) {
 
 /**
@@ -49525,7 +50049,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50477,12 +51001,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     });
 
                     // 検索窓 スペースで配列化
-                    // if (this.keyword !== null) {
-                    //     let key = this.keyword.match(/[^\s]+/g);
-                    //     this.check.push(key);
-                    //     this.check.filter(z => z);
-                    //     console.log(this.check);
+                    // if (this.keyword !== "") {
+                    // let key = this.keyword.match(/[^\s]+/g);
+                    // this.check = key;
+                    // this.check.filter(z => z);
                     // }
+                    // console.log(this.check);
 
                     if (_this.check.every(function (v) {
                         return tagArray.includes(v);
@@ -50516,7 +51040,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -59668,19 +60192,19 @@ if (false) {
 }
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(51)
+  __webpack_require__(52)
 }
 var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(53)
+var __vue_script__ = __webpack_require__(54)
 /* template */
-var __vue_template__ = __webpack_require__(56)
+var __vue_template__ = __webpack_require__(57)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -59719,13 +60243,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(52);
+var content = __webpack_require__(53);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -59745,7 +60269,7 @@ if(false) {
 }
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -59759,7 +60283,7 @@ exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350p
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59957,7 +60481,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -59982,7 +60506,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(55);
+module.exports = __webpack_require__(56);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -59998,7 +60522,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports) {
 
 /**
@@ -60731,7 +61255,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61025,19 +61549,19 @@ if (false) {
 }
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(58)
+  __webpack_require__(59)
 }
 var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(60)
+var __vue_script__ = __webpack_require__(61)
 /* template */
-var __vue_template__ = __webpack_require__(61)
+var __vue_template__ = __webpack_require__(62)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61076,13 +61600,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(59);
+var content = __webpack_require__(60);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -61102,7 +61626,7 @@ if(false) {
 }
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -61116,7 +61640,7 @@ exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -62083,7 +62607,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -71235,19 +71759,19 @@ if (false) {
 }
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(63)
+  __webpack_require__(64)
 }
 var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(65)
+var __vue_script__ = __webpack_require__(66)
 /* template */
-var __vue_template__ = __webpack_require__(66)
+var __vue_template__ = __webpack_require__(67)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -71286,13 +71810,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(64);
+var content = __webpack_require__(65);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -71312,7 +71836,7 @@ if(false) {
 }
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -71326,7 +71850,7 @@ exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350p
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71450,7 +71974,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -71580,537 +72104,10 @@ if (false) {
 }
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*!
-  * vue-scrollto v2.17.1
-  * (c) 2019 Randjelovic Igor
-  * @license MIT
-  */
-(function (global, factory) {
-   true ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global['vue-scrollto'] = factory());
-}(this, function () { 'use strict';
-
-  function _typeof(obj) {
-    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-      _typeof = function (obj) {
-        return typeof obj;
-      };
-    } else {
-      _typeof = function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-      };
-    }
-
-    return _typeof(obj);
-  }
-
-  function _extends() {
-    _extends = Object.assign || function (target) {
-      for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];
-
-        for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
-          }
-        }
-      }
-
-      return target;
-    };
-
-    return _extends.apply(this, arguments);
-  }
-
-  /**
-   * https://github.com/gre/bezier-easing
-   * BezierEasing - use bezier curve for transition easing function
-   * by Gaëtan Renaudeau 2014 - 2015 – MIT License
-   */
-
-  // These values are established by empiricism with tests (tradeoff: performance VS precision)
-  var NEWTON_ITERATIONS = 4;
-  var NEWTON_MIN_SLOPE = 0.001;
-  var SUBDIVISION_PRECISION = 0.0000001;
-  var SUBDIVISION_MAX_ITERATIONS = 10;
-
-  var kSplineTableSize = 11;
-  var kSampleStepSize = 1.0 / (kSplineTableSize - 1.0);
-
-  var float32ArraySupported = typeof Float32Array === 'function';
-
-  function A (aA1, aA2) { return 1.0 - 3.0 * aA2 + 3.0 * aA1; }
-  function B (aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1; }
-  function C (aA1)      { return 3.0 * aA1; }
-
-  // Returns x(t) given t, x1, and x2, or y(t) given t, y1, and y2.
-  function calcBezier (aT, aA1, aA2) { return ((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT; }
-
-  // Returns dx/dt given t, x1, and x2, or dy/dt given t, y1, and y2.
-  function getSlope (aT, aA1, aA2) { return 3.0 * A(aA1, aA2) * aT * aT + 2.0 * B(aA1, aA2) * aT + C(aA1); }
-
-  function binarySubdivide (aX, aA, aB, mX1, mX2) {
-    var currentX, currentT, i = 0;
-    do {
-      currentT = aA + (aB - aA) / 2.0;
-      currentX = calcBezier(currentT, mX1, mX2) - aX;
-      if (currentX > 0.0) {
-        aB = currentT;
-      } else {
-        aA = currentT;
-      }
-    } while (Math.abs(currentX) > SUBDIVISION_PRECISION && ++i < SUBDIVISION_MAX_ITERATIONS);
-    return currentT;
-  }
-
-  function newtonRaphsonIterate (aX, aGuessT, mX1, mX2) {
-   for (var i = 0; i < NEWTON_ITERATIONS; ++i) {
-     var currentSlope = getSlope(aGuessT, mX1, mX2);
-     if (currentSlope === 0.0) {
-       return aGuessT;
-     }
-     var currentX = calcBezier(aGuessT, mX1, mX2) - aX;
-     aGuessT -= currentX / currentSlope;
-   }
-   return aGuessT;
-  }
-
-  function LinearEasing (x) {
-    return x;
-  }
-
-  var src = function bezier (mX1, mY1, mX2, mY2) {
-    if (!(0 <= mX1 && mX1 <= 1 && 0 <= mX2 && mX2 <= 1)) {
-      throw new Error('bezier x values must be in [0, 1] range');
-    }
-
-    if (mX1 === mY1 && mX2 === mY2) {
-      return LinearEasing;
-    }
-
-    // Precompute samples table
-    var sampleValues = float32ArraySupported ? new Float32Array(kSplineTableSize) : new Array(kSplineTableSize);
-    for (var i = 0; i < kSplineTableSize; ++i) {
-      sampleValues[i] = calcBezier(i * kSampleStepSize, mX1, mX2);
-    }
-
-    function getTForX (aX) {
-      var intervalStart = 0.0;
-      var currentSample = 1;
-      var lastSample = kSplineTableSize - 1;
-
-      for (; currentSample !== lastSample && sampleValues[currentSample] <= aX; ++currentSample) {
-        intervalStart += kSampleStepSize;
-      }
-      --currentSample;
-
-      // Interpolate to provide an initial guess for t
-      var dist = (aX - sampleValues[currentSample]) / (sampleValues[currentSample + 1] - sampleValues[currentSample]);
-      var guessForT = intervalStart + dist * kSampleStepSize;
-
-      var initialSlope = getSlope(guessForT, mX1, mX2);
-      if (initialSlope >= NEWTON_MIN_SLOPE) {
-        return newtonRaphsonIterate(aX, guessForT, mX1, mX2);
-      } else if (initialSlope === 0.0) {
-        return guessForT;
-      } else {
-        return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize, mX1, mX2);
-      }
-    }
-
-    return function BezierEasing (x) {
-      // Because JavaScript number are imprecise, we should guarantee the extremes are right.
-      if (x === 0) {
-        return 0;
-      }
-      if (x === 1) {
-        return 1;
-      }
-      return calcBezier(getTForX(x), mY1, mY2);
-    };
-  };
-
-  var easings = {
-    ease: [0.25, 0.1, 0.25, 1.0],
-    linear: [0.0, 0.0, 1.0, 1.0],
-    'ease-in': [0.42, 0.0, 1.0, 1.0],
-    'ease-out': [0.0, 0.0, 0.58, 1.0],
-    'ease-in-out': [0.42, 0.0, 0.58, 1.0]
-  };
-
-  // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
-  var supportsPassive = false;
-
-  try {
-    var opts = Object.defineProperty({}, 'passive', {
-      get: function get() {
-        supportsPassive = true;
-      }
-    });
-    window.addEventListener('test', null, opts);
-  } catch (e) {}
-
-  var _ = {
-    $: function $(selector) {
-      if (typeof selector !== 'string') {
-        return selector;
-      }
-
-      return document.querySelector(selector);
-    },
-    on: function on(element, events, handler) {
-      var opts = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
-        passive: false
-      };
-
-      if (!(events instanceof Array)) {
-        events = [events];
-      }
-
-      for (var i = 0; i < events.length; i++) {
-        element.addEventListener(events[i], handler, supportsPassive ? opts : false);
-      }
-    },
-    off: function off(element, events, handler) {
-      if (!(events instanceof Array)) {
-        events = [events];
-      }
-
-      for (var i = 0; i < events.length; i++) {
-        element.removeEventListener(events[i], handler);
-      }
-    },
-    cumulativeOffset: function cumulativeOffset(element) {
-      var top = 0;
-      var left = 0;
-
-      do {
-        top += element.offsetTop || 0;
-        left += element.offsetLeft || 0;
-        element = element.offsetParent;
-      } while (element);
-
-      return {
-        top: top,
-        left: left
-      };
-    }
-  };
-
-  var abortEvents = ['mousedown', 'wheel', 'DOMMouseScroll', 'mousewheel', 'keyup', 'touchmove'];
-  var defaults = {
-    container: 'body',
-    duration: 500,
-    easing: 'ease',
-    offset: 0,
-    force: true,
-    cancelable: true,
-    onStart: false,
-    onDone: false,
-    onCancel: false,
-    x: false,
-    y: true
-  };
-  function setDefaults(options) {
-    defaults = _extends({}, defaults, options);
-  }
-  var scroller = function scroller() {
-    var element; // element to scroll to
-
-    var container; // container to scroll
-
-    var duration; // duration of the scrolling
-
-    var easing; // easing to be used when scrolling
-
-    var offset; // offset to be added (subtracted)
-
-    var force; // force scroll, even if element is visible
-
-    var cancelable; // indicates if user can cancel the scroll or not.
-
-    var onStart; // callback when scrolling is started
-
-    var onDone; // callback when scrolling is done
-
-    var onCancel; // callback when scrolling is canceled / aborted
-
-    var x; // scroll on x axis
-
-    var y; // scroll on y axis
-
-    var initialX; // initial X of container
-
-    var targetX; // target X of container
-
-    var initialY; // initial Y of container
-
-    var targetY; // target Y of container
-
-    var diffX; // difference
-
-    var diffY; // difference
-
-    var abort; // is scrolling aborted
-
-    var abortEv; // event that aborted scrolling
-
-    var abortFn = function abortFn(e) {
-      if (!cancelable) return;
-      abortEv = e;
-      abort = true;
-    };
-
-    var easingFn;
-    var timeStart; // time when scrolling started
-
-    var timeElapsed; // time elapsed since scrolling started
-
-    var progress; // progress
-
-    function scrollTop(container) {
-      var scrollTop = container.scrollTop;
-
-      if (container.tagName.toLowerCase() === 'body') {
-        // in firefox body.scrollTop always returns 0
-        // thus if we are trying to get scrollTop on a body tag
-        // we need to get it from the documentElement
-        scrollTop = scrollTop || document.documentElement.scrollTop;
-      }
-
-      return scrollTop;
-    }
-
-    function scrollLeft(container) {
-      var scrollLeft = container.scrollLeft;
-
-      if (container.tagName.toLowerCase() === 'body') {
-        // in firefox body.scrollLeft always returns 0
-        // thus if we are trying to get scrollLeft on a body tag
-        // we need to get it from the documentElement
-        scrollLeft = scrollLeft || document.documentElement.scrollLeft;
-      }
-
-      return scrollLeft;
-    }
-
-    function step(timestamp) {
-      if (abort) return done();
-      if (!timeStart) timeStart = timestamp;
-      timeElapsed = timestamp - timeStart;
-      progress = Math.min(timeElapsed / duration, 1);
-      progress = easingFn(progress);
-      topLeft(container, initialY + diffY * progress, initialX + diffX * progress);
-      timeElapsed < duration ? window.requestAnimationFrame(step) : done();
-    }
-
-    function done() {
-      if (!abort) topLeft(container, targetY, targetX);
-      timeStart = false;
-
-      _.off(container, abortEvents, abortFn);
-
-      if (abort && onCancel) onCancel(abortEv, element);
-      if (!abort && onDone) onDone(element);
-    }
-
-    function topLeft(element, top, left) {
-      if (y) element.scrollTop = top;
-      if (x) element.scrollLeft = left;
-
-      if (element.tagName.toLowerCase() === 'body') {
-        // in firefox body.scrollTop doesn't scroll the page
-        // thus if we are trying to scrollTop on a body tag
-        // we need to scroll on the documentElement
-        if (y) document.documentElement.scrollTop = top;
-        if (x) document.documentElement.scrollLeft = left;
-      }
-    }
-
-    function scrollTo(target, _duration) {
-      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-      if (_typeof(_duration) === 'object') {
-        options = _duration;
-      } else if (typeof _duration === 'number') {
-        options.duration = _duration;
-      }
-
-      element = _.$(target);
-
-      if (!element) {
-        return console.warn('[vue-scrollto warn]: Trying to scroll to an element that is not on the page: ' + target);
-      }
-
-      container = _.$(options.container || defaults.container);
-      duration = options.duration || defaults.duration;
-      easing = options.easing || defaults.easing;
-      offset = options.offset || defaults.offset;
-      force = options.hasOwnProperty('force') ? options.force !== false : defaults.force;
-      cancelable = options.hasOwnProperty('cancelable') ? options.cancelable !== false : defaults.cancelable;
-      onStart = options.onStart || defaults.onStart;
-      onDone = options.onDone || defaults.onDone;
-      onCancel = options.onCancel || defaults.onCancel;
-      x = options.x === undefined ? defaults.x : options.x;
-      y = options.y === undefined ? defaults.y : options.y;
-
-      var cumulativeOffsetContainer = _.cumulativeOffset(container);
-
-      var cumulativeOffsetElement = _.cumulativeOffset(element);
-
-      if (typeof offset === 'function') {
-        offset = offset(element, container);
-      }
-
-      initialY = scrollTop(container);
-      targetY = cumulativeOffsetElement.top - cumulativeOffsetContainer.top + offset;
-      initialX = scrollLeft(container);
-      targetX = cumulativeOffsetElement.left - cumulativeOffsetContainer.left + offset;
-      abort = false;
-      diffY = targetY - initialY;
-      diffX = targetX - initialX;
-
-      if (!force) {
-        // When the container is the default (body) we need to use the viewport
-        // height, not the entire body height
-        var containerHeight = container.tagName.toLowerCase() === 'body' ? document.documentElement.clientHeight || window.innerHeight : container.offsetHeight;
-        var containerTop = initialY;
-        var containerBottom = containerTop + containerHeight;
-        var elementTop = targetY - offset;
-        var elementBottom = elementTop + element.offsetHeight;
-
-        if (elementTop >= containerTop && elementBottom <= containerBottom) {
-          // make sure to call the onDone callback even if there is no need to
-          // scroll the container. Fixes #111 (ref #118)
-          if (onDone) onDone(element);
-          return;
-        }
-      }
-
-      if (onStart) onStart(element);
-
-      if (!diffY && !diffX) {
-        if (onDone) onDone(element);
-        return;
-      }
-
-      if (typeof easing === 'string') {
-        easing = easings[easing] || easings['ease'];
-      }
-
-      easingFn = src.apply(src, easing);
-
-      _.on(container, abortEvents, abortFn, {
-        passive: true
-      });
-
-      window.requestAnimationFrame(step);
-      return function () {
-        abortEv = null;
-        abort = true;
-      };
-    }
-
-    return scrollTo;
-  };
-
-  var _scroller = scroller();
-
-  var bindings = []; // store binding data
-
-  function deleteBinding(el) {
-    for (var i = 0; i < bindings.length; ++i) {
-      if (bindings[i].el === el) {
-        bindings.splice(i, 1);
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  function findBinding(el) {
-    for (var i = 0; i < bindings.length; ++i) {
-      if (bindings[i].el === el) {
-        return bindings[i];
-      }
-    }
-  }
-
-  function getBinding(el) {
-    var binding = findBinding(el);
-
-    if (binding) {
-      return binding;
-    }
-
-    bindings.push(binding = {
-      el: el,
-      binding: {}
-    });
-    return binding;
-  }
-
-  function handleClick(e) {
-    e.preventDefault();
-    var ctx = getBinding(this).binding;
-
-    if (typeof ctx.value === 'string') {
-      return _scroller(ctx.value);
-    }
-
-    _scroller(ctx.value.el || ctx.value.element, ctx.value);
-  }
-
-  var VueScrollTo = {
-    bind: function bind(el, binding) {
-      getBinding(el).binding = binding;
-
-      _.on(el, 'click', handleClick);
-    },
-    unbind: function unbind(el) {
-      deleteBinding(el);
-
-      _.off(el, 'click', handleClick);
-    },
-    update: function update(el, binding) {
-      getBinding(el).binding = binding;
-    },
-    scrollTo: _scroller,
-    bindings: bindings
-  };
-
-  var install = function install(Vue, options) {
-    if (options) setDefaults(options);
-    Vue.directive('scroll-to', VueScrollTo);
-    Vue.prototype.$scrollTo = VueScrollTo.scrollTo;
-  };
-
-  if (typeof window !== 'undefined' && window.Vue) {
-    window.VueScrollTo = VueScrollTo;
-    window.VueScrollTo.setDefaults = setDefaults;
-    window.Vue.use(install);
-  }
-
-  VueScrollTo.install = install;
-
-  return VueScrollTo;
-
-}));
-
 
 /***/ })
 /******/ ]);

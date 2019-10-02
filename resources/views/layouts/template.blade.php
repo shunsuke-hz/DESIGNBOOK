@@ -73,24 +73,24 @@
       {{-- 左側のメニュー項目 --}}
       <div class="collapse navbar-collapse" id="Navber">
           <ul class="navbar-nav mr-auto">
-              <li class="nav-item d-flex align-items-center"><a class="nav-link" href="http://localhost/"><i class="fas fa-search fa-lg"></i></a></li>
-              <li class="nav-item"><a class="nav-link" href="http://localhost/">プロジェクト</a></li>
-              <li class="nav-item"><a class="nav-link" href="http://localhost/product">製品</a></li>
-              <li class="nav-item"><a class="nav-link" href="http://localhost/brands-list">ブランド</a></li>
+              <li class="nav-item d-flex align-items-center"><a class="nav-link" href="/"><i class="fas fa-search fa-lg"></i></a></li>
+              <li class="nav-item"><a class="nav-link" href="/">プロジェクト</a></li>
+              <li class="nav-item"><a class="nav-link" href="/product">製品</a></li>
+              <li class="nav-item"><a class="nav-link" href="/brands-list">ブランド</a></li>
           </ul>
       </div>
 
       {{-- ロゴ画像 --}}
       <div>
-          <a class="navbar-brand" href="http://localhost/"><img src="/storage/Logo.png" width="80px"></a>
+          <a class="navbar-brand" href="/"><img src="/storage/Logo.png" width="80px"></a>
       </div>
 
       {{-- 右側のメニュー項目 --}}
       <div class="collapse navbar-collapse" id="Navber">
           <ul class="navbar-nav ml-auto">
               @auth
-              <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="http://localhost/"><i class="far fa-bell fa-lg"></i></a></li>
-              <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="http://localhost/mypage"><i class="far fa-user fa-lg"></i></a></li>
+              <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="/"><i class="far fa-bell fa-lg"></i></a></li>
+              <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="/mypage"><i class="far fa-user fa-lg"></i></a></li>
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#"
                       id="navbarDropdownMenuLink" data-toggle="dropdown"

@@ -941,12 +941,12 @@ export default {
                     let tagArray = image.tags.map(obj => obj.name);
 
                     // 検索窓 スペースで配列化
-                    // if (this.keyword !== null) {
-                    //     let key = this.keyword.match(/[^\s]+/g);
-                    //     this.check.push(key);
-                    //     this.check.filter(z => z);
-                    //     console.log(this.check);
+                    // if (this.keyword !== "") {
+                        // let key = this.keyword.match(/[^\s]+/g);
+                        // this.check = key;
+                        // this.check.filter(z => z);
                     // }
+                    // console.log(this.check);
 
                     if (this.check.every(v => tagArray.includes(v)) == true) {
                         if (this.old_result == project) {
