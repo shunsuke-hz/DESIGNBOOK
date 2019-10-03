@@ -33,6 +33,13 @@ Route::get('/brands-list', 'BrandsListController@index');
 // （仮）マイページ
 Route::get('/mypage', 'MypageController@index');
 
+//  ユーザープロフィール編集
+Route::get('/users',  'UserController@edit')->name('users.edit');
+
+Route::post('/users/edit', 'UserController@update')->name('users.update');
+
+
+
 
 // 仮登録ページ
 Route::post('register/pre_check', 'Auth\RegisterController@pre_check')->name('register.pre_check');
@@ -49,7 +56,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
-Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
+// Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
 
 Route::post('/cropper', 'UserController@photo');

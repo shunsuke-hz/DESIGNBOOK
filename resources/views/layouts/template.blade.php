@@ -96,7 +96,7 @@
         <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="/mypage"><i class="far fa-user fa-lg"></i></a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ Auth::user()->name }}
+            {{ Auth::user()->account_name }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

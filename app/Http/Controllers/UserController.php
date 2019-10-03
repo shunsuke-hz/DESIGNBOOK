@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Image;
+use Illuminate\Validation\Rule;
+
 
 class UserController extends Controller
 {
@@ -23,19 +25,36 @@ class UserController extends Controller
 
   public function update(User $user, Request $request)
   {
-    $this->validate($request, [
-      'name' => 'required',
-      'email' => 'required|email|unique:users',
-      'password' => 'required|min:6|confirmed'
-    ]);
+    $data = $request->all();
+    if ($data['birth_year'] && $data['birth_month'] && $data['birth_day']) {
+      $data['birth'] = $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_day'];
+    }
+    $request->replace($data);
 
+    $account_name = Auth::user()->account_name;
+    $this->validate($request, [
+      // account_nameは自分以外で重複がチェック
+      'account_name' => ['required', 'string', Rule::unique('users')->ignore($account_name, 'account_name')],
+      'name' => 'nullable|string',
+      'phone_number' => 'nullable|regex:/^[0-9]{2,4}-?[0-9]{3,4}-?[0-9]{3,4}$/',
+      'sex' => 'required',
+      'belonging_to' => 'nullable|string|max:255',
+      'birth' => 'required|date',
+      'birth_year' => 'required|numeric',
+      'birth_month' => 'required|numeric',
+      'birth_day' => 'required|numeric',
+
+    ]);
+    $user = Auth::user();
+    $user->account_name = $request->input('account_name');
     $user->name = $request->input('name');
-    $user->email = $request->input('email');
-    $user->password = bcrypt($request->input('password'));
+    $user->phone_number = $request->input('phone_number');
     $user->belonging_to = $request->input('belonging_to');
+    $user->birthday = $request->birth;
+
     $user->save();
 
-    return back();
+    return view('users.uploaded');
   }
 
   public function photo(Request $request)
