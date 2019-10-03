@@ -41,8 +41,15 @@ Route::post('/users/edit', 'UserController@update')->name('users.update');
 Route::post('/cropper', 'UserController@photo');
 
 // プロジェクト投稿ページ
+Route::get('project-post', function () {
+  return view('project_post');
+});
 
-Route::get('/project-post',  'UserController@edit')->name('users.edit');
+Route::post('project-post', 'ProjectController@create');
+
+// Route::get('/project-post',  function () {
+//   return view('project_post');
+// });
 
 
 

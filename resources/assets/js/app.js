@@ -8,6 +8,11 @@ require("./bootstrap");
 
 window.Vue = require("vue");
 
+import store from './store/index';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+Vue.use(ElementUI);
 Vue.use(require("vue-scrollto"));
 
 /**
@@ -18,22 +23,32 @@ Vue.use(require("vue-scrollto"));
 
 Vue.component("top-component", require("./components/TopComponent.vue"));
 Vue.component(
-    "project-detail-component",
-    require("./components/ProjectDetailComponent.vue")
+  "project-detail-component",
+  require("./components/ProjectDetailComponent.vue")
 );
 Vue.component(
-    "product-component",
-    require("./components/ProductComponent.vue")
+  "product-component",
+  require("./components/ProductComponent.vue")
 );
 Vue.component(
-    "product-detail-component",
-    require("./components/ProductDetailComponent.vue")
+  "product-detail-component",
+  require("./components/ProductDetailComponent.vue")
 );
 Vue.component(
-    "brand-list-component",
-    require("./components/BrandListComponent.vue")
+  "brand-list-component",
+  require("./components/BrandListComponent.vue")
+);
+Vue.component(
+  "project-post-component",
+  require("./components/ProjectPostComponent.vue").default
+);
+
+Vue.component(
+  "create-post",
+  require("./components/CreatePost.vue")
 );
 
 const app = new Vue({
-    el: "#app"
+  store,
+  el: "#app"
 });
