@@ -29,3 +29,6 @@ Route::get('/product', 'ProductController@show');
 
 // Product詳細ページのAPI
 Route::get('/product-detail/{product_id}', 'ProductDetailController@select');
+
+// brands-listページのAPI
+Route::get('/brands-list', 'BrandsListController@show');

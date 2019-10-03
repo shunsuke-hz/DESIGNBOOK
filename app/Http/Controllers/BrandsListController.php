@@ -10,7 +10,12 @@ class BrandsListController extends Controller
   // brand_listブレードへ返す処理
   public function index()
   {
-    $brands = Brand::all();
-    return view('brand_list', ['brands' => $brands]);  
+
+    return view('brand_list');
+  }
+
+  public function show()
+  {
+    return Brand::all();
   }
 }

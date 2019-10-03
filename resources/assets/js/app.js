@@ -29,6 +29,10 @@ Vue.component(
     "product-detail-component",
     require("./components/ProductDetailComponent.vue")
 );
+Vue.component(
+    "brand-list-component",
+    require("./components/BrandListComponent.vue")
+);
 
 const app = new Vue({
     el: "#app"

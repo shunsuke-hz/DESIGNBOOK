@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center my-4">
         <p class="my-auto">ブランド一覧</p>
     </div>
@@ -17,7 +17,19 @@
             @endforeach
         </tbody>
     </table>
-</div>
+</div> --}}
+
+
+    <main role="main">
+        <div class="content">
+            <div class="container">
+                <div id="app">
+                    <brand-list-component></brand-list-component>
+                </div>
+            </div>
+        </div>
+    </main>
+
 
 @endsection
 {{-- 
