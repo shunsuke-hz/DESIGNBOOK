@@ -35,8 +35,14 @@ Route::get('/mypage', 'MypageController@index');
 
 //  ユーザープロフィール編集
 Route::get('/users',  'UserController@edit')->name('users.edit');
-
 Route::post('/users/edit', 'UserController@update')->name('users.update');
+
+// ユーザーアイコントリミング
+Route::post('/cropper', 'UserController@photo');
+
+// プロジェクト投稿ページ
+
+Route::get('/project-post',  'UserController@edit')->name('users.edit');
 
 
 
@@ -50,12 +56,7 @@ Route::post('register/main_check', 'Auth\RegisterController@mainCheck')->name('r
 // 本登録処理
 Route::post('register/main_register', 'Auth\RegisterController@mainRegister')->name('register.main.registered');
 
-
 // 認証系
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
-
-Route::post('/cropper', 'UserController@photo');
