@@ -898,7 +898,7 @@
                             <a :href="'/project-detail?work='+value.id">
                                 <img
                                     class="img img-thumbnail"
-                                    v-bind:src="'/storage/'+value.project_images[0].image"
+                                    :src="'/storage/'+value.project_images[0].image"
                                 />
                             </a>
                         </div>
@@ -942,9 +942,9 @@ export default {
 
                     // 検索窓 スペースで配列化
                     // if (this.keyword !== "") {
-                        // let key = this.keyword.match(/[^\s]+/g);
-                        // this.check = key;
-                        // this.check.filter(z => z);
+                    // let key = this.keyword.match(/[^\s]+/g);
+                    // this.check = key;
+                    // this.check.filter(z => z);
                     // }
                     // console.log(this.check);
 

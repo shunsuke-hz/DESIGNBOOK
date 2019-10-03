@@ -27,7 +27,7 @@ Route::get('/product', 'ProductController@index');
 // プロダクト詳細ページ
 Route::get('/product-detail', 'ProductDetailController@index');
 
-// （仮）ブランド一覧ページ
+// ブランド一覧ページ
 Route::get('/brands-list', 'BrandsListController@index');
 
 // （仮）マイページ

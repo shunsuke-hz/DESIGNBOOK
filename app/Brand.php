@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Brand extends Model
 {
     protected $guarded = array('id');
+    protected $appends = ['prefecture_name'];
     public static $rules = array(
         'name' => 'required',
         'url' => 'https://www.yahoo.co.jp/',
@@ -18,10 +19,11 @@ class Brand extends Model
         'phone_number' => '090-2338-1234',
         'logo_image' => 'home1.png',
         'created_at' => '2019-09-25 02:36:31',
-        'updated_at' => '2019-09-25 02:36:32', 
+        'updated_at' => '2019-09-25 02:36:32',
     );
 
-    public function getPrefectureNameAttribute() {
+    public function getPrefectureNameAttribute()
+    {
         $prefs = [
             '1' => '北海道',
             '2' => '青森県',

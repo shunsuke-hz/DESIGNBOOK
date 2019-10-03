@@ -14,7 +14,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.0.0/cropper.min.css">
+  {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.0.0/cropper.min.css"> --}}
+<link href="{{ mix('css/cropper.min.css') }}" rel="stylesheet">
+
   @yield('pageCss')
 
   <!-- Styles -->
@@ -158,7 +160,9 @@
   {{-- 時間のあるときにFooter作らなきゃ --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src=" {{ mix('js/app.js') }} "></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.0.0/cropper.min.js"></script>
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.0.0/cropper.min.js"></script> --}}
+<script src="{{ mix('js/cropper.min.js') }}"></script>
+
   @yield('pageJs')
 
 </body>
