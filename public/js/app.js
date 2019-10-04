@@ -4622,6 +4622,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -11726,7 +11731,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350px;\n}\n.thumbneil .images img {\n    cursor: pointer;\n    width: 100px;\n    height: 100px;\n}\n.card {\n    border: none;\n}\n.products_info img {\n    width: 250px;\n    height: 250px;\n}\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 320px;\n    height: 320px;\n}\n.thumbneil .images img {\n    cursor: pointer;\n    width: 80px;\n    height: 80px;\n}\n.card {\n    border: none;\n}\n.products_info img {\n    width: 250px;\n    height: 250px;\n}\n", ""]);
 
 // exports
 
@@ -101275,6 +101280,10 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _vm.display
       ? _c("div", [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
           _c(
             "div",
             { staticClass: "card flex-md-row mb-4 box-shadow h-md-250" },
@@ -101308,18 +101317,21 @@ var render = function() {
                   staticClass: "card-body d-flex flex-column align-items-start"
                 },
                 [
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "strong",
-                      { staticClass: "d-inline-block text-primary" },
-                      [
-                        _c("a", { attrs: { href: "" } }, [
-                          _vm._v(_vm._s(_vm.project.brands.name))
-                        ])
-                      ]
-                    ),
+                  _c("div", { staticClass: "d-flex" }, [
+                    _c("strong", { staticClass: "text-primary" }, [
+                      _c("a", { attrs: { href: "" } }, [
+                        _vm._v(_vm._s(_vm.project.brands.name))
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _vm._m(0)
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button" }
+                      },
+                      [_vm._v("follow")]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("h3", { staticClass: "mb-0" }, [
@@ -101334,127 +101346,109 @@ var render = function() {
                     _vm._v("Nov 12")
                   ]),
                   _vm._v(" "),
-                  _vm.tab == "0"
-                    ? _c("table", { staticClass: "content container" }, [
-                        _vm.items[_vm.num].products.length !== 0
-                          ? _c(
-                              "span",
-                              [
-                                _vm._m(1),
-                                _vm._v(" "),
-                                _vm._l(_vm.items[_vm.num].products, function(
-                                  product,
-                                  key
-                                ) {
-                                  return _c("tr", { key: key.id }, [
-                                    _c("td", [
-                                      _c(
-                                        "a",
-                                        {
-                                          directives: [
-                                            {
-                                              name: "scroll-to",
-                                              rawName: "v-scroll-to",
-                                              value: _vm.toBottom,
-                                              expression: "toBottom"
-                                            }
-                                          ],
-                                          staticClass: "text-primary",
-                                          staticStyle: { cursor: "pointer" },
-                                          attrs: { href: "#", value: key },
-                                          on: { click: _vm.changeProduct }
-                                        },
-                                        [_vm._v(_vm._s(product.title))]
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("td", [
-                                      _vm._v(_vm._s(product.brands.name))
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("td", [
-                                      _vm._v(_vm._s(product.model_number))
-                                    ])
+                  _c("div", { staticClass: "tab-content" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane active fade show",
+                        attrs: { id: "product" }
+                      },
+                      [
+                        _c("table", { staticClass: "content container" }, [
+                          _c(
+                            "span",
+                            [
+                              _vm._m(1),
+                              _vm._v(" "),
+                              _vm._l(_vm.items[_vm.num].products, function(
+                                product,
+                                key
+                              ) {
+                                return _c("tr", { key: key.id }, [
+                                  _c("td", [
+                                    _c(
+                                      "a",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "scroll-to",
+                                            rawName: "v-scroll-to",
+                                            value: _vm.toBottom,
+                                            expression: "toBottom"
+                                          }
+                                        ],
+                                        staticClass: "text-primary",
+                                        staticStyle: { cursor: "pointer" },
+                                        attrs: { href: "#", value: key },
+                                        on: { click: _vm.changeProduct }
+                                      },
+                                      [_vm._v(_vm._s(product.title))]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _vm._v(_vm._s(product.brands.name))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _vm._v(_vm._s(product.model_number))
                                   ])
-                                })
-                              ],
-                              2
-                            )
-                          : _vm._e()
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tab == "1"
-                    ? _c("div", { staticClass: "content container" }, [
+                                ])
+                              })
+                            ],
+                            2
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade",
+                        attrs: { id: "project" }
+                      },
+                      [
                         _c("p", { staticClass: "card-text mb-auto" }, [
                           _vm._v(_vm._s(_vm.project.explain))
                         ])
-                      ])
-                    : _vm._e(),
+                      ]
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _vm.tab == "0"
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-secondary d-block mx-auto",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.changeTab(1)
-                            }
-                          }
-                        },
-                        [_vm._v("プロジェクト詳細へ")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.tab == "1"
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-secondary d-block mx-auto",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.changeTab(0)
-                            }
-                          }
-                        },
-                        [_vm._v("製品詳細へ")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "btn-group d-block mx-auto" },
-                    _vm._l(_vm.items[_vm.num].tags, function(key) {
-                      return _c(
-                        "button",
-                        {
-                          key: key.id,
-                          staticClass: "btn btn-sm btn-outline-secondary",
-                          attrs: { type: "button", "data-toggle": "modal" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-tag" }),
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(key.name) +
-                              "\n                    "
-                          )
-                        ]
-                      )
-                    }),
-                    0
-                  )
+                  _c("br")
                 ]
               )
             ]
           ),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "btn-group d-block mx-auto" },
+              _vm._l(_vm.items[_vm.num].tags, function(key) {
+                return _c(
+                  "button",
+                  {
+                    key: key.id,
+                    staticClass: "btn btn-sm btn-outline-secondary",
+                    attrs: { type: "button", "data-toggle": "modal" }
+                  },
+                  [
+                    _c("i", { staticClass: "fas fa-tag" }),
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(key.name) +
+                        "\n                "
+                    )
+                  ]
+                )
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("br"),
           _vm._v(" "),
           _vm.items[_vm.num].products.length !== 0
             ? _c(
@@ -101526,7 +101520,19 @@ var render = function() {
                               .address
                           )
                         )
-                      ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              "../product-detail?work=" +
+                              _vm.items[_vm.num].products[_vm.product_num].id
+                          }
+                        },
+                        [_vm._v("この製品の詳細へ")]
+                      )
                     ]
                   )
                 ]
@@ -101541,12 +101547,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("follow")]
-      )
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "mx-auto" }, [
+        _c("ul", { staticClass: "nav nav-tabs" }, [
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link active",
+                attrs: { href: "#product", "data-toggle": "tab" }
+              },
+              [_vm._v("使用製品")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { href: "#project", "data-toggle": "tab" }
+              },
+              [_vm._v("プロジェクト")]
+            )
+          ])
+        ])
+      ])
     ])
   },
   function() {

@@ -82,6 +82,7 @@
         <li class="nav-item"><a class="nav-link" href="/">プロジェクト</a></li>
         <li class="nav-item"><a class="nav-link" href="/product">製品</a></li>
         <li class="nav-item"><a class="nav-link" href="/brands-list">ブランド</a></li>
+        <li class="nav-item"><a class="nav-link" href="/project-post">投稿</a></li>
       </ul>
     </div>
 
