@@ -1,4 +1,8 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=dae87bc31a0b3b4d3fc0",
+    "/css/app.css": "/css/app.css?id=c5449e644725fb30d33b",
+    "/css/cropper.min.css": "/css/cropper.min.css?id=f495bbc9b2cbe2f59efc",
+    "/js/cropper.min.js": "/js/cropper.min.js?id=84fe0287b83015f7d74b",
+    "/css/croppie.css": "/css/croppie.css?id=a88f9248ce6fd77a70dc",
+    "/js/croppie.js": "/js/croppie.js?id=7d4e3a1c30f02d93f280"
 }

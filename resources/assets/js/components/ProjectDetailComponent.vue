@@ -32,25 +32,28 @@
                     <div class="mb-1 text-muted">Nov 12</div>
 
                     <table class="content container" v-if="tab =='0'">
-                        <tr>
-                            <th>製品名</th>
-                            <th>ブランド</th>
-                            <th>品番</th>
-                        </tr>
-                        <tr v-for="(product,key) in items[num].products" :key="key.id">
-                            <td>
-                                <a
-                                    href="#"
-                                    v-scroll-to="toBottom"
-                                    class="text-primary"
-                                    style="cursor: pointer"
-                                    @click="changeProduct"
-                                    :value="key"
-                                >{{ product.title }}</a>
-                            </td>
-                            <td>{{ product.brands.name }}</td>
-                            <td>{{ product.model_number }}</td>
-                        </tr>
+                        <span v-if="items[num].products.length !== 0">
+                            <tr>
+                                <th>製品名</th>
+                                <th>ブランド</th>
+                                <th>品番</th>
+                            </tr>
+
+                            <tr v-for="(product,key) in items[num].products" :key="key.id">
+                                <td>
+                                    <a
+                                        href="#"
+                                        v-scroll-to="toBottom"
+                                        class="text-primary"
+                                        style="cursor: pointer"
+                                        @click="changeProduct"
+                                        :value="key"
+                                    >{{ product.title }}</a>
+                                </td>
+                                <td>{{ product.brands.name }}</td>
+                                <td>{{ product.model_number }}</td>
+                            </tr>
+                        </span>
                     </table>
 
                     <div class="content container" v-if="tab == '1'">
@@ -87,7 +90,11 @@
                 </div>
             </div>
 
-            <div id="bottom" class="products_info card flex-md-row mb-4 box-shadow h-md-250 border">
+            <div
+                v-if="items[num].products.length !== 0"
+                id="bottom"
+                class="products_info card flex-md-row mb-4 box-shadow h-md-250 border"
+            >
                 <div
                     class="card-body d-flex flex-column align-items-start"
                     :model="items[num].products"

@@ -67,3 +67,7 @@ Route::post('register/main_register', 'Auth\RegisterController@mainRegister')->n
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
+
+Route::post('/croppie', 'UserController@photo');

@@ -71,7 +71,7 @@ class UserController extends Controller
       $request->get('image')['width'],
       $request->get('image')['height'],
       $request->get('image')['x'],
-      $request->get('image')['y'],
+      $request->get('image')['y']
     )
       ->resize(256, 256) // 256 * 256にリサイズ
       // 画像の保存

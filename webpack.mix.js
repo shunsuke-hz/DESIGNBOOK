@@ -16,11 +16,18 @@ mix.js("resources/assets/js/app.js", "public/js").sass(
   "public/css"
 );
 
-// mix.copy(
-//     "node_modules/cropperjs/dist/cropper.min.css",
-//     "public/css/cropper.min.css"
-// ).version();
-// mix.copy(
-//     "node_modules/cropperjs/dist/cropper.min.js",
-//     "public/js/cropper.min.js"
-// ).version();
+mix.copy(
+    "node_modules/cropperjs/dist/cropper.min.css",
+    "public/css/cropper.min.css"
+).version();
+mix.copy(
+    "node_modules/cropperjs/dist/cropper.min.js",
+    "public/js/cropper.min.js"
+).version();
+
+mix.copy(
+    "node_modules/croppie/croppie.css",
+    "public/css/croppie.css"
+).version();
+
+mix.copy("node_modules/croppie/croppie.js", "public/js/croppie.js").version();

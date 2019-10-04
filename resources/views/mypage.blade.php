@@ -36,7 +36,7 @@
                       <div class="text-muted"><small>Last seen 2 hours ago</small></div>
 
 
-                      <div class="mt-2">
+                      {{-- <div class="mt-2">
                         <label>
                           <span class="btn btn-primary">
                             <i class="fa fa-fw fa-camera"></i>
@@ -57,7 +57,7 @@
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
-                              <div class="trimming-area">
+                              <div class="trimming-area croppie">
                                 <img src="" class="js-trimmingAreaImg">
                                 <!-- /.trimming-area -->
                               </div>
@@ -71,7 +71,12 @@
                           <!-- /.modal-dialog -->
                         </div>
                         <!-- /.modal -->
-                      </div>
+                      </div> --}}
+                      <input id="file-input" type="file" />
+                        <div>
+                          <input type="button" id="test" value="実行" />
+                        </div>
+                      <div id="result"></div>
 
 
                     </div>
@@ -95,7 +100,7 @@
                         <div class="col">
                           <div class="form-group">
                             <label>アカウント名</label>
-                            <input class="form-control" type="text" name="account_name" value="{{ Auth::user()->account_name }}">
+                            <p>{{ Auth::user()->account_name }}</p>
                           </div>
                         </div>
                       </div>
@@ -103,7 +108,7 @@
                         <div class="col">
                           <div class="form-group">
                             <label>氏名</label>
-                            <input class="form-control" type="text" name="name" value="{{ Auth::user()->name }}">
+                            <p>{{ Auth::user()->name }}</p>
                           </div>
                         </div>
                       </div>
@@ -111,7 +116,7 @@
                         <div class="col">
                           <div class="form-group">
                             <label>TEL</label>
-                            <input class="form-control" type="text" name="phone_number" value="{{ Auth::user()->phone_number }}">
+                            <p>{{ Auth::user()->phone_number }}</p>
                           </div>
                         </div>
                       </div>
@@ -119,7 +124,7 @@
                         <div class="col mb-3">
                           <div class="form-group">
                             <label>About</label>
-                            <textarea class="form-control" rows="5" name="belonging_to">{{ Auth::user()->belonging_to }}</textarea>
+                            <p>{{ Auth::user()->belonging_to }}</p>
                           </div>
                         </div>
                       </div>
