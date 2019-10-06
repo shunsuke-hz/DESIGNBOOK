@@ -1,56 +1,4 @@
 <template>
-<<<<<<< Updated upstream
-  <div class="container">
-    <div class="card mt-4">
-      <div class="card-header">New Post</div>
-      <div class="card-body">
-        <div
-          v-if="status_msg"
-          :class="{'alert-success': status, 'alert-danger': !status }"
-          class="alert"
-          role="alert"
-        >{{ status_msg }}</div>
-        <form>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Title</label>
-            <input
-              v-model="title"
-              type="text"
-              class="form-control"
-              id="title"
-              placeholder="Post Title"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Post Content</label>
-            <textarea v-model="body" class="form-control" id="post-content" rows="3" required></textarea>
-          </div>
-          <div class>
-            <el-upload
-              action="https://jsonplaceholder.typicode.com/posts/"
-              list-type="picture-card"
-              :on-preview="handlePictureCardPreview"
-              :on-change="updateImageList"
-              :on-remove="removeImageList"
-              :auto-upload="false"
-            >
-              <i class="el-icon-plus"></i>
-            </el-upload>
-            <el-dialog :visible.sync="dialogVisible">
-              <img width="100%" :src="dialogImageUrl" alt />
-            </el-dialog>
-          </div>
-        </form>
-      </div>
-      <div class="card-footer">
-        <button
-          type="button"
-          @click="createPost"
-          class="btn btn-success"
-        >{{ isCreatingPost ? 'Posting...' : 'Create Post' }}</button>
-      </div>
-=======
     <div class="container">
         <div class="card mt-4">
             <div class="card-header">New Post</div>
@@ -164,7 +112,6 @@
                 >{{ isCreatingPost ? 'Posting...' : 'Create Post' }}</button>
             </div>
         </div>
->>>>>>> Stashed changes
     </div>
 </template>
 
@@ -198,38 +145,6 @@
 import { setTimeout } from "timers";
 import { mapState, mapActions } from "vuex";
 export default {
-<<<<<<< Updated upstream
-  name: "create-post",
-  props: ["posts"],
-  data() {
-    return {
-      dialogImageUrl: "",
-      dialogVisible: false,
-      imageList: [],
-      status_msg: "",
-      status: "",
-      isCreatingPost: false,
-      title: "",
-      body: ""
-    };
-  },
-  //   computed: {
-  //     ...mapActions(['getAllPosts']),
-  //   },
-  mounted() {},
-  methods: {
-    updateImageList(file) {
-      this.imageList.push(file.raw);
-    },
-    removeImageList(file) {
-      var index = this.imageList.indexOf(file.raw);
-      this.imageList.splice(index, 1);
-    },
-    handlePictureCardPreview(file) {
-      this.dialogImageUrl = file.url;
-      this.imageList.push(file);
-      this.dialogVisible = true;
-=======
     name: "create-post",
     props: ["posts"],
     data() {
@@ -312,7 +227,6 @@ export default {
             },
             formLabelWidth: "120px"
         };
->>>>>>> Stashed changes
     },
 
     //   computed: {

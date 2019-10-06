@@ -3232,9 +3232,325 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /***/ }),
 
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/CreatePost.vue":
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token (201:0)\n\n\u001b[0m \u001b[90m 199 | \u001b[39m\u001b[36mimport\u001b[39m { mapState\u001b[33m,\u001b[39m mapActions } from \u001b[32m\"vuex\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 200 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 201 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mUpdated\u001b[39m upstream\n \u001b[90m     | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 202 | \u001b[39m  name\u001b[33m:\u001b[39m \u001b[32m\"create-post\"\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 203 | \u001b[39m  props\u001b[33m:\u001b[39m [\u001b[32m\"posts\"\u001b[39m]\u001b[33m,\u001b[39m\n \u001b[90m 204 | \u001b[39m  data() {\u001b[0m\n");
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_timers__ = __webpack_require__("./node_modules/timers-browserify/main.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_timers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_timers__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "create-post",
+    props: ["posts"],
+    data: function data() {
+        return {
+            dialogImageUrl: "",
+            dialogVisible: false,
+            imageList: [],
+            status_msg: "",
+            status: "",
+            isCreatingPost: false,
+            title: "",
+            body: "",
+            filterText: "",
+            image_tags: [],
+            tags: [{
+                id: 1,
+                tag_id: 1,
+                label: "住宅",
+                children: [{
+                    id: 3,
+                    tag_id: [1, 3],
+                    label: "寝室",
+                    children: [{
+                        id: 5,
+                        tag_id: [1, 3, 5],
+                        label: "ベッド"
+                    }, {
+                        id: 6,
+                        tag_id: [1, 3, 6],
+                        label: "床材"
+                    }]
+                }, {
+                    id: 4,
+                    tag_id: [1, 4],
+                    label: "リビング",
+                    children: [{
+                        id: 7,
+                        tag_id: [1, 4, 7],
+                        label: "テーブル"
+                    }, {
+                        id: 8,
+                        tag_id: [1, 4, 8],
+                        label: "床材"
+                    }]
+                }]
+            }, {
+                id: 2,
+                tag_id: 2,
+                label: "住宅リノベーション",
+                children: [{
+                    id: 5,
+                    tag_id: [2, 5],
+                    label: "天井"
+                }]
+            }],
+            dialogFormVisible: false,
+            form: {
+                name: "",
+                region: "",
+                date1: "",
+                date2: "",
+                delivery: false,
+                type: [],
+                resource: "",
+                desc: ""
+            },
+            formLabelWidth: "120px"
+        };
+    },
+
+
+    //   computed: {
+    //     ...mapActions(['getAllPosts']),
+    //   },
+    watch: {
+        filterText: function filterText(val) {
+            this.$refs.tree.filter(val);
+        }
+    },
+    mounted: function mounted() {},
+
+    methods: {
+        updateImageList: function updateImageList(file) {
+            // this.imageList.push(file.raw);
+            // this.dialogImageUrl = file.url;
+            this.imageList.push(file);
+            this.dialogVisible = true;
+        },
+        removeImageList: function removeImageList(file) {
+            var index = this.imageList.indexOf(file);
+            this.imageList.splice(index, 1);
+            // let num = this.imageList.length;
+            this.image_tags.splice(index, 1);
+        },
+        handlePictureCardPreview: function handlePictureCardPreview(file) {
+            this.dialogImageUrl = file.url;
+            // this.imageList.push(file);
+            this.dialogVisible = true;
+        },
+        createPost: function createPost(e) {
+            var _this = this;
+
+            e.preventDefault();
+            if (!this.validateForm()) {
+                return false;
+            }
+            this.isCreatingPost = true;
+            var formData = new FormData();
+            formData.append("title", this.title);
+            formData.append("body", this.body);
+            $.each(this.imageList, function (key, image) {
+                formData.append("images[" + key + "]", image.raw);
+            });
+            axios.post("/project-post", formData, {
+                headers: { "Content-Type": "multipart/form-data" }
+            }).then(function (res) {
+                _this.title = _this.body = "";
+                _this.status = true;
+                _this.showNotification("Post Successfully Created");
+                _this.isCreatingPost = false;
+                //   this.getAllPosts();
+            });
+        },
+        validateForm: function validateForm() {
+            if (!this.title) {
+                this.status = false;
+                this.showNotification("Post title cannot be empty");
+                return false;
+            }
+            if (!this.body) {
+                this.status = false;
+                this.showNotification("Post body cannot be empty");
+                return false;
+            }
+            return true;
+        },
+        showNotification: function showNotification(message) {
+            var _this2 = this;
+
+            this.status_msg = message;
+            Object(__WEBPACK_IMPORTED_MODULE_0_timers__["setTimeout"])(function () {
+                _this2.status_msg = "";
+            }, 3000);
+        },
+        filterNode: function filterNode(value, data) {
+            if (!value) return true;
+            return data.label.indexOf(value) !== -1;
+        },
+        getCheckedNodes: function getCheckedNodes() {
+            for (var i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
+                this.image_tags.push(this.$refs.tree.getCheckedNodes()[i].tag_id);
+            }
+        },
+        resetChecked: function resetChecked() {
+            this.$refs.tree.setCheckedKeys([]);
+        },
+        tagsConfirm: function tagsConfirm() {
+            for (var i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
+                this.image_tags.push(this.$refs.tree.getCheckedNodes()[i].id);
+            }
+            this.$refs.tree.setCheckedKeys([]);
+            this.dialogVisible = false;
+        }
+    }
+});
 
 /***/ }),
 
@@ -110610,7 +110926,377 @@ if (false) {
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3f49df33\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/CreatePost.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "card mt-4" }, [
+      _c("div", { staticClass: "card-header" }, [_vm._v("New Post")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _vm.status_msg
+          ? _c(
+              "div",
+              {
+                staticClass: "alert",
+                class: {
+                  "alert-success": _vm.status,
+                  "alert-danger": !_vm.status
+                },
+                attrs: { role: "alert" }
+              },
+              [_vm._v(_vm._s(_vm.status_msg))]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("form", [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "exampleFormControlInput1" } }, [
+              _vm._v("Title")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.title,
+                  expression: "title"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "title",
+                placeholder: "Post Title",
+                required: ""
+              },
+              domProps: { value: _vm.title },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.title = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
+              _vm._v("Post Content")
+            ]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.body,
+                  expression: "body"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { id: "post-content", rows: "5", required: "" },
+              domProps: { value: _vm.body },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.body = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _c(
+                "el-upload",
+                {
+                  attrs: {
+                    action: "https://jsonplaceholder.typicode.com/posts/",
+                    "list-type": "picture-card",
+                    "on-preview": _vm.handlePictureCardPreview,
+                    "on-change": _vm.updateImageList,
+                    "on-remove": _vm.removeImageList,
+                    "auto-upload": false
+                  }
+                },
+                [_c("i", { staticClass: "el-icon-plus" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "el-dialog",
+                {
+                  attrs: {
+                    visible: _vm.dialogVisible,
+                    title: "関連するタグを選択"
+                  },
+                  on: {
+                    "update:visible": function($event) {
+                      _vm.dialogVisible = $event
+                    }
+                  }
+                },
+                [
+                  _c("el-input", {
+                    attrs: { placeholder: "Filter keyword" },
+                    model: {
+                      value: _vm.filterText,
+                      callback: function($$v) {
+                        _vm.filterText = $$v
+                      },
+                      expression: "filterText"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("el-button", { on: { click: _vm.getCheckedNodes } }, [
+                    _vm._v("get by node")
+                  ]),
+                  _vm._v(" "),
+                  _c("el-button", { on: { click: _vm.resetChecked } }, [
+                    _vm._v("reset")
+                  ]),
+                  _vm._v(" "),
+                  _c("el-tree", {
+                    ref: "tree",
+                    staticClass: "filter-tree",
+                    attrs: {
+                      data: _vm.tags,
+                      "show-checkbox": "",
+                      "node-key": "id",
+                      "filter-node-method": _vm.filterNode
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      staticClass: "dialog-footer",
+                      attrs: { slot: "footer" },
+                      slot: "footer"
+                    },
+                    [
+                      _c(
+                        "el-button",
+                        {
+                          on: {
+                            click: function($event) {
+                              _vm.dialogVisible = false
+                            }
+                          }
+                        },
+                        [_vm._v("Cancel")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-button",
+                        {
+                          attrs: { type: "primary" },
+                          on: { click: _vm.tagsConfirm }
+                        },
+                        [_vm._v("Confirm")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c(
+                "div",
+                [
+                  _c(
+                    "el-button",
+                    {
+                      attrs: { "list-type": "picture-card", type: "primary" },
+                      on: {
+                        click: function($event) {
+                          _vm.dialogFormVisible = true
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            画像アドレスでアップ\n                            "
+                      ),
+                      _c("i", { staticClass: "el-icon-upload el-icon-right" })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-dialog",
+                    {
+                      attrs: {
+                        title: "画像アドレスでアップロード",
+                        visible: _vm.dialogFormVisible
+                      },
+                      on: {
+                        "update:visible": function($event) {
+                          _vm.dialogFormVisible = $event
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "el-row",
+                        { attrs: { type: "flex", justify: "center" } },
+                        [
+                          _c("img", {
+                            staticStyle: { width: "80%" },
+                            attrs: { src: _vm.form.name, alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-form",
+                        { attrs: { model: _vm.form } },
+                        [
+                          _c(
+                            "el-form-item",
+                            {
+                              attrs: {
+                                label: "画像アドレス",
+                                "label-width": _vm.formLabelWidth
+                              }
+                            },
+                            [
+                              _c("el-input", {
+                                attrs: { autocomplete: "off" },
+                                model: {
+                                  value: _vm.form.name,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "name", $$v)
+                                  },
+                                  expression: "form.name"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "el-form-item",
+                            {
+                              attrs: {
+                                label: "Zones",
+                                "label-width": _vm.formLabelWidth
+                              }
+                            },
+                            [
+                              _c(
+                                "el-select",
+                                {
+                                  attrs: {
+                                    placeholder: "Please select a zone"
+                                  },
+                                  model: {
+                                    value: _vm.form.region,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "region", $$v)
+                                    },
+                                    expression: "form.region"
+                                  }
+                                },
+                                [
+                                  _c("el-option", {
+                                    attrs: {
+                                      label: "Zone No.1",
+                                      value: "shanghai"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("el-option", {
+                                    attrs: {
+                                      label: "Zone No.2",
+                                      value: "beijing"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "dialog-footer",
+                          attrs: { slot: "footer" },
+                          slot: "footer"
+                        },
+                        [
+                          _c(
+                            "el-button",
+                            {
+                              on: {
+                                click: function($event) {
+                                  _vm.dialogFormVisible = false
+                                }
+                              }
+                            },
+                            [_vm._v("Cancel")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "el-button",
+                            {
+                              attrs: { type: "primary" },
+                              on: {
+                                click: function($event) {
+                                  _vm.dialogFormVisible = false
+                                }
+                              }
+                            },
+                            [_vm._v("Confirm")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-footer" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-success",
+            attrs: { type: "button" },
+            on: { click: _vm.createPost }
+          },
+          [_vm._v(_vm._s(_vm.isCreatingPost ? "Posting..." : "Create Post"))]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
