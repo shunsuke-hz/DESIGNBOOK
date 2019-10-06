@@ -10,6 +10,8 @@
 
   <title>Laravel</title>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -72,7 +74,7 @@
 </head>
 
 <body style="padding-top:5rem;">
-
+<div id="app">
   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
 
     {{-- 左側のメニュー項目 --}}
@@ -157,12 +159,13 @@
 
   @yield('content')
 
-
+</div>
   {{-- 時間のあるときにFooter作らなきゃ --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src=" {{ mix('js/app.js') }} "></script>
   {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.0.0/cropper.min.js"></script> --}}
   <script src="{{ mix('js/croppie.js') }}"></script>
+  
 
   @yield('pageJs')
 

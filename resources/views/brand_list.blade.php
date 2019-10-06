@@ -23,9 +23,9 @@
     <main role="main">
         <div class="content">
             <div class="container">
-                <div id="app">
-                    <brand-list-component></brand-list-component>
-                </div>
+                
+                <brand-list-component></brand-list-component>
+            
             </div>
         </div>
     </main>

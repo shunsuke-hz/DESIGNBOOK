@@ -2,15 +2,16 @@
 
 @section('content')
 <div class="container">
-  <create-post class="row">
-    <create-post class="col-md-6">
-      <create-post id="app">
+  <div class="row">
+    <div class="col-md-6">
+      
         <create-post></create-post>
-      </create-post>
-    </create-post>
+
+      </div>
     <!-- <div class="col-md-6 posts-container" style="height: 35rem; overflow-y: scroll">
       <all-posts />
     </div> -->
 </div>
 </div>
 @endsection
+

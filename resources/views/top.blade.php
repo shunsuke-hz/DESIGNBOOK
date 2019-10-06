@@ -5,9 +5,9 @@
     <main role="main">
         <div class="content">
             <div class="container">
-                <div id="app">
-                    <top-component></top-component>
-                </div>
+                
+                <top-component></top-component>
+            
             </div>
         </div>
     </main>

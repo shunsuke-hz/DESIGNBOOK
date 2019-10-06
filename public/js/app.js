@@ -3232,175 +3232,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /***/ }),
 
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/CreatePost.vue":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_timers__ = __webpack_require__("./node_modules/timers-browserify/main.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_timers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_timers__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "create-post",
-  props: ["posts"],
-  data: function data() {
-    return {
-      dialogImageUrl: "",
-      dialogVisible: false,
-      imageList: [],
-      status_msg: "",
-      status: "",
-      isCreatingPost: false,
-      title: "",
-      body: ""
-    };
-  },
-
-  //   computed: {
-  //     ...mapActions(['getAllPosts']),
-  //   },
-  mounted: function mounted() {},
-
-  methods: {
-    updateImageList: function updateImageList(file) {
-      this.imageList.push(file.raw);
-    },
-    removeImageList: function removeImageList(file) {
-      var index = this.imageList.indexOf(file.raw);
-      this.imageList.splice(index, 1);
-    },
-    handlePictureCardPreview: function handlePictureCardPreview(file) {
-      this.dialogImageUrl = file.url;
-      this.imageList.push(file);
-      this.dialogVisible = true;
-    },
-    createPost: function createPost(e) {
-      var _this = this;
-
-      e.preventDefault();
-      if (!this.validateForm()) {
-        return false;
-      }
-      this.isCreatingPost = true;
-      var formData = new FormData();
-      formData.append("title", this.title);
-      formData.append("body", this.body);
-      $.each(this.imageList, function (key, image) {
-        formData.append("images[" + key + "]", image);
-      });
-      axios.post("/project-post", formData, {
-        headers: { "Content-Type": "multipart/form-data" }
-      }).then(function (res) {
-        _this.title = _this.body = "";
-        _this.status = true;
-        _this.showNotificaiton("Post Successfully Created");
-        _this.isCreatingPost = false;
-        //   this.getAllPosts();
-      });
-    },
-    validateForm: function validateForm() {
-      if (!this.title) {
-        this.status = false;
-        this.showNotificaiton("Post title cannot be empty");
-        return false;
-      }
-      if (!this.body) {
-        this.status = false;
-        this.showNotification("Post body cannot be empty");
-        return false;
-      }
-      return true;
-    },
-    showNotificaiton: function showNotificaiton(message) {
-      var _this2 = this;
-
-      this.status_msg = message;
-      Object(__WEBPACK_IMPORTED_MODULE_0_timers__["setTimeout"])(function () {
-        _this2.status_msg = "";
-      }, 3000);
-    }
-  }
-});
+throw new Error("Module build failed: SyntaxError: Unexpected token (201:0)\n\n\u001b[0m \u001b[90m 199 | \u001b[39m\u001b[36mimport\u001b[39m { mapState\u001b[33m,\u001b[39m mapActions } from \u001b[32m\"vuex\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 200 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 201 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mUpdated\u001b[39m upstream\n \u001b[90m     | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 202 | \u001b[39m  name\u001b[33m:\u001b[39m \u001b[32m\"create-post\"\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 203 | \u001b[39m  props\u001b[33m:\u001b[39m [\u001b[32m\"posts\"\u001b[39m]\u001b[33m,\u001b[39m\n \u001b[90m 204 | \u001b[39m  data() {\u001b[0m\n");
 
 /***/ }),
 
@@ -4741,6 +4575,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -11736,7 +11571,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\r\n    width: 320px;\r\n    height: 320px;\n}\n.thumbneil .images img {\r\n    cursor: pointer;\r\n    width: 80px;\r\n    height: 80px;\n}\n.card {\r\n    border: none;\n}\n.products_info img {\r\n    width: 250px;\r\n    height: 250px;\n}\r\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 320px;\n    height: 320px;\n}\n.thumbneil .images img {\n    cursor: pointer;\n    width: 80px;\n    height: 80px;\n}\n.card {\n    border: none;\n}\n.products_info img {\n    width: 250px;\n    height: 250px;\n}\n", ""]);
 
 // exports
 
@@ -11751,7 +11586,22 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\r\n    display: none;\r\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n        position: fixed;\r\n        top: 0;\r\n        bottom: 0;\r\n        left: 0;\r\n        display: block;\r\n        overflow-x: hidden;\r\n        overflow-y: auto;\n}\n}\n.card {\r\n    width: 264px;\r\n    height: 264px;\r\n    border: none;\r\n    border-radius: 0;\n}\n.image {\r\n    overflow: hidden;\r\n    width: 264px;\r\n    height: 210px;\n}\n.image img {\r\n    display: block;\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\r\n    height: 100%;\r\n    border: none;\r\n    margin: auto;\n}\n.image img:hover {\r\n    -webkit-transform: scale(1.1);\r\n            transform: scale(1.1);\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n    padding: 0;\r\n    border-radius: 0;\n}\n.card-body {\r\n    width: 264px;\r\n    height: 54px;\r\n    padding: 0.5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        display: block;\n        overflow-x: hidden;\n        overflow-y: auto;\n}\n}\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3f49df33\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/js/components/CreatePost.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.avatar-uploader .el-upload {\n    border: 1px dashed #d9d9d9;\n    border-radius: 6px;\n    cursor: pointer;\n    position: relative;\n    overflow: hidden;\n}\n.avatar-uploader .el-upload:hover {\n    border-color: #409eff;\n}\n.avatar-uploader-icon {\n    font-size: 28px;\n    color: #8c939d;\n    width: 178px;\n    height: 178px;\n    line-height: 178px;\n    text-align: center;\n}\n.avatar {\n    width: 178px;\n    height: 178px;\n    display: block;\n}\n", ""]);
 
 // exports
 
@@ -11766,7 +11616,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.brand-image {\r\n    width: 50px;\r\n    height: 50px;\n}\r\n", ""]);
+exports.push([module.i, "\n.brand-image {\n    width: 50px;\n    height: 50px;\n}\n", ""]);
 
 // exports
 
@@ -11781,7 +11631,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\r\n    width: 350px;\r\n    height: 350px;\n}\n.images img {\r\n    cursor: pointer;\r\n    width: 100px;\r\n    height: 100px;\n}\n.card {\r\n    border: none;\n}\r\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350px;\n}\n.images img {\n    cursor: pointer;\n    width: 100px;\n    height: 100px;\n}\n.card {\n    border: none;\n}\n", ""]);
 
 // exports
 
@@ -11796,7 +11646,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\r\n    display: none;\r\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n        position: fixed;\r\n        top: 0;\r\n        bottom: 0;\r\n        left: 0;\r\n        display: block;\r\n        overflow-x: hidden;\r\n        overflow-y: auto;\n}\n}\n.card {\r\n    width: 264px;\r\n    height: 264px;\r\n    border: none;\r\n    border-radius: 0;\r\n    margin: 1rem;\n}\n.image {\r\n    overflow: hidden;\r\n    width: 264px;\r\n    height: 210px;\n}\n.image img {\r\n    display: block;\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\r\n    height: 100%;\r\n    border: none;\r\n    margin: auto;\n}\n.image img:hover {\r\n    -webkit-transform: scale(1.1);\r\n            transform: scale(1.1);\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n    padding: 0;\r\n    border-radius: 0;\n}\n.card-body {\r\n    width: 264px;\r\n    height: 54px;\r\n    padding: 0.5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        display: block;\n        overflow-x: hidden;\n        overflow-y: auto;\n}\n}\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n    margin: 1rem;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
 
 // exports
 
@@ -110760,150 +110610,7 @@ if (false) {
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3f49df33\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/CreatePost.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "card mt-4" }, [
-      _c("div", { staticClass: "card-header" }, [_vm._v("New Post")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _vm.status_msg
-          ? _c(
-              "div",
-              {
-                staticClass: "alert",
-                class: {
-                  "alert-success": _vm.status,
-                  "alert-danger": !_vm.status
-                },
-                attrs: { role: "alert" }
-              },
-              [_vm._v(_vm._s(_vm.status_msg))]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("form", [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "exampleFormControlInput1" } }, [
-              _vm._v("Title")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.title,
-                  expression: "title"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "title",
-                placeholder: "Post Title",
-                required: ""
-              },
-              domProps: { value: _vm.title },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.title = $event.target.value
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-              _vm._v("Post Content")
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.body,
-                  expression: "body"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { id: "post-content", rows: "3", required: "" },
-              domProps: { value: _vm.body },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.body = $event.target.value
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {},
-            [
-              _c(
-                "el-upload",
-                {
-                  attrs: {
-                    action: "https://jsonplaceholder.typicode.com/posts/",
-                    "list-type": "picture-card",
-                    "on-preview": _vm.handlePictureCardPreview,
-                    "on-change": _vm.updateImageList,
-                    "on-remove": _vm.removeImageList,
-                    "auto-upload": false
-                  }
-                },
-                [_c("i", { staticClass: "el-icon-plus" })]
-              ),
-              _vm._v(" "),
-              _c(
-                "el-dialog",
-                {
-                  attrs: { visible: _vm.dialogVisible },
-                  on: {
-                    "update:visible": function($event) {
-                      _vm.dialogVisible = $event
-                    }
-                  }
-                },
-                [
-                  _c("img", {
-                    attrs: { width: "100%", src: _vm.dialogImageUrl, alt: "" }
-                  })
-                ]
-              )
-            ],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-footer" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-success",
-            attrs: { type: "button" },
-            on: { click: _vm.createPost }
-          },
-          [_vm._v(_vm._s(_vm.isCreatingPost ? "Posting..." : "Create Post"))]
-        )
-      ])
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
+module.exports={render:function(){},staticRenderFns:[]}
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
@@ -120901,6 +120608,33 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0efc3ff6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProductComponent.vue", function() {
      var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0efc3ff6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProductComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3f49df33\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/js/components/CreatePost.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3f49df33\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/js/components/CreatePost.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("cd91a682", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3f49df33\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CreatePost.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3f49df33\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CreatePost.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -134320,7 +134054,9 @@ window.Vue = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 
 
 
+// import Multiselect from "vue-multiselect";
 
+// Vue.use(Multiselect);
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_element_ui___default.a);
 Vue.use(__webpack_require__("./node_modules/vue-scrollto/vue-scrollto.js"));
 
@@ -134335,13 +134071,13 @@ Vue.component("project-detail-component", __webpack_require__("./resources/asset
 Vue.component("product-component", __webpack_require__("./resources/assets/js/components/ProductComponent.vue"));
 Vue.component("product-detail-component", __webpack_require__("./resources/assets/js/components/ProductDetailComponent.vue"));
 Vue.component("brand-list-component", __webpack_require__("./resources/assets/js/components/BrandListComponent.vue"));
-Vue.component("project-post-component", __webpack_require__("./resources/assets/js/components/ProjectPostComponent.vue").default);
+Vue.component("project-post-component", __webpack_require__("./resources/assets/js/components/ProjectPostComponent.vue"));
 
 Vue.component("create-post", __webpack_require__("./resources/assets/js/components/CreatePost.vue"));
 
 var app = new Vue({
-  store: __WEBPACK_IMPORTED_MODULE_0__store_index__["a" /* default */],
-  el: "#app"
+    store: __WEBPACK_IMPORTED_MODULE_0__store_index__["a" /* default */],
+    el: "#app"
 });
 
 /***/ }),
@@ -134358,10 +134094,10 @@ window._ = __webpack_require__("./node_modules/lodash/lodash.js");
  */
 
 try {
-    window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
+  window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 
-    // require('bootstrap-sass');
-    __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
+  // require('bootstrap-sass');
+  __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
 
 /**
@@ -134383,9 +134119,9 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-    console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 /**
@@ -134463,6 +134199,10 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3f49df33\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/js/components/CreatePost.vue")
+}
 var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/CreatePost.vue")
@@ -134471,7 +134211,7 @@ var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/templa
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -134775,25 +134515,29 @@ module.exports = Component.exports
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
 
-var debug = "development" !== 'production';
+var debug = "development" !== "production";
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
-  state: {
-    posts: []
-  },
+    state: {
+        posts: [],
+        tag: []
+    },
 
-  // actions: {
-  //   async getAllPosts({ commit }) {
-  //     return commit('setPosts', await api.get('/post/get_all'))
-  //   },
-  // },
+    // actions: {
+    //   async getAllPosts({ commit }) {
+    //     return commit('setPosts', await api.get('/post/get_all'))
+    //   },
+    // },
 
-  mutations: {
-    setPosts: function setPosts(state, response) {
-      state.posts = response.data.data;
-    }
-  },
-  strict: debug
+    mutations: {
+        setPosts: function setPosts(state, response) {
+            state.posts = response.data.data;
+        },
+        setTag: function setTag(state, response) {
+            state.tag = response.data.data;
+        }
+    },
+    strict: debug
 }));
 
 /***/ }),
