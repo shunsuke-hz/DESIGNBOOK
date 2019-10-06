@@ -268,6 +268,9 @@ export default {
             $.each(this.imageList, function(key, image) {
                 formData.append(`images[${key}]`, image.raw);
             });
+            $.each(this.image_tags, function(key, tag) {
+                formData.append(`tags[${key}]`, tag);
+            });
             axios
                 .post("/project-post", formData, {
                     headers: { "Content-Type": "multipart/form-data" }
@@ -315,7 +318,9 @@ export default {
         },
         tagsConfirm() {
             for (let i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
-                this.image_tags.push(this.$refs.tree.getCheckedNodes()[i].id);
+                this.image_tags.push(
+                    this.$refs.tree.getCheckedNodes()[i].tag_id
+                );
             }
             this.$refs.tree.setCheckedKeys([]);
             this.dialogVisible = false;
