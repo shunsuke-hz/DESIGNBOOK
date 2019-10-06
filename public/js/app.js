@@ -3316,6 +3316,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -3343,6 +3344,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     updateImageList: function updateImageList(file) {
       this.imageList.push(file.raw);
+    },
+    removeImageList: function removeImageList(file) {
+      var index = this.imageList.indexOf(file.raw);
+      this.imageList.splice(index, 1);
     },
     handlePictureCardPreview: function handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
@@ -11731,7 +11736,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\n    width: 320px;\n    height: 320px;\n}\n.thumbneil .images img {\n    cursor: pointer;\n    width: 80px;\n    height: 80px;\n}\n.card {\n    border: none;\n}\n.products_info img {\n    width: 250px;\n    height: 250px;\n}\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\r\n    width: 320px;\r\n    height: 320px;\n}\n.thumbneil .images img {\r\n    cursor: pointer;\r\n    width: 80px;\r\n    height: 80px;\n}\n.card {\r\n    border: none;\n}\n.products_info img {\r\n    width: 250px;\r\n    height: 250px;\n}\r\n", ""]);
 
 // exports
 
@@ -11746,7 +11751,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        display: block;\n        overflow-x: hidden;\n        overflow-y: auto;\n}\n}\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
+exports.push([module.i, "\n.sidebar {\r\n    display: none;\r\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n        position: fixed;\r\n        top: 0;\r\n        bottom: 0;\r\n        left: 0;\r\n        display: block;\r\n        overflow-x: hidden;\r\n        overflow-y: auto;\n}\n}\n.card {\r\n    width: 264px;\r\n    height: 264px;\r\n    border: none;\r\n    border-radius: 0;\n}\n.image {\r\n    overflow: hidden;\r\n    width: 264px;\r\n    height: 210px;\n}\n.image img {\r\n    display: block;\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\r\n    height: 100%;\r\n    border: none;\r\n    margin: auto;\n}\n.image img:hover {\r\n    -webkit-transform: scale(1.1);\r\n            transform: scale(1.1);\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n    padding: 0;\r\n    border-radius: 0;\n}\n.card-body {\r\n    width: 264px;\r\n    height: 54px;\r\n    padding: 0.5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -11761,7 +11766,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.brand-image {\n    width: 50px;\n    height: 50px;\n}\n", ""]);
+exports.push([module.i, "\n.brand-image {\r\n    width: 50px;\r\n    height: 50px;\n}\r\n", ""]);
 
 // exports
 
@@ -11776,7 +11781,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350px;\n}\n.images img {\n    cursor: pointer;\n    width: 100px;\n    height: 100px;\n}\n.card {\n    border: none;\n}\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\r\n    width: 350px;\r\n    height: 350px;\n}\n.images img {\r\n    cursor: pointer;\r\n    width: 100px;\r\n    height: 100px;\n}\n.card {\r\n    border: none;\n}\r\n", ""]);
 
 // exports
 
@@ -11791,7 +11796,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        display: block;\n        overflow-x: hidden;\n        overflow-y: auto;\n}\n}\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n    margin: 1rem;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
+exports.push([module.i, "\n.sidebar {\r\n    display: none;\r\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n        position: fixed;\r\n        top: 0;\r\n        bottom: 0;\r\n        left: 0;\r\n        display: block;\r\n        overflow-x: hidden;\r\n        overflow-y: auto;\n}\n}\n.card {\r\n    width: 264px;\r\n    height: 264px;\r\n    border: none;\r\n    border-radius: 0;\r\n    margin: 1rem;\n}\n.image {\r\n    overflow: hidden;\r\n    width: 264px;\r\n    height: 210px;\n}\n.image img {\r\n    display: block;\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\r\n    height: 100%;\r\n    border: none;\r\n    margin: auto;\n}\n.image img:hover {\r\n    -webkit-transform: scale(1.1);\r\n            transform: scale(1.1);\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n    padding: 0;\r\n    border-radius: 0;\n}\n.card-body {\r\n    width: 264px;\r\n    height: 54px;\r\n    padding: 0.5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -110853,6 +110858,7 @@ var render = function() {
                     "list-type": "picture-card",
                     "on-preview": _vm.handlePictureCardPreview,
                     "on-change": _vm.updateImageList,
+                    "on-remove": _vm.removeImageList,
                     "auto-upload": false
                   }
                 },
@@ -134352,10 +134358,10 @@ window._ = __webpack_require__("./node_modules/lodash/lodash.js");
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
+    window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 
-  // require('bootstrap-sass');
-  __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
+    // require('bootstrap-sass');
+    __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
 
 /**
@@ -134377,9 +134383,9 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+    window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+    console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 /**

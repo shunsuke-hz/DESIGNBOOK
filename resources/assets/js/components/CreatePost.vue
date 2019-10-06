@@ -31,6 +31,7 @@
               list-type="picture-card"
               :on-preview="handlePictureCardPreview"
               :on-change="updateImageList"
+              :on-remove="removeImageList"
               :auto-upload="false"
             >
               <i class="el-icon-plus"></i>
@@ -100,6 +101,10 @@ export default {
   methods: {
     updateImageList(file) {
       this.imageList.push(file.raw);
+    },
+    removeImageList(file) {
+      var index = this.imageList.indexOf(file.raw);
+      this.imageList.splice(index, 1);
     },
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
