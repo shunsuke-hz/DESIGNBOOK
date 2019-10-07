@@ -42,22 +42,61 @@
                         >
                             <i class="el-icon-plus"></i>
                         </el-upload>
-                        <el-dialog :visible.sync="dialogVisible" title="関連するタグを選択">
-                            <el-input placeholder="Filter keyword" v-model="filterText"></el-input>
-                            <br />
-                            <el-button @click="getCheckedNodes">get by node</el-button>
-                            <el-button @click="resetChecked">reset</el-button>
+                        <el-dialog :visible.sync="dialogVisible">
+                            <el-tabs v-model="activeName" @tab-click="handleClick">
+                                <el-tab-pane label="関連タグ選択" name="first">
+                                    <el-tree
+                                        class="filter-tree"
+                                        :data="tags"
+                                        show-checkbox
+                                        node-key="id"
+                                        :filter-node-method="filterNode"
+                                        ref="tree"
+                                    ></el-tree>
+                                </el-tab-pane>
+                                <el-tab-pane label="製品登録" name="second">
+                                    <p>製品登録テーブル</p>
+                                    <!-- <el-table :data="table" stripe="stripe">
+                                        <el-table-column prop="date" label="Date" editable></el-table-column>
+                                        <el-table-column prop="name" label="Name"></el-table-column>
+                                        <el-table-column prop="address" label="Address"></el-table-column>
+                                    </el-table>-->
+                                    <el-table :data="gridData" style="width: 100%" ref="table">
+                                        <el-table-column label="製品名" min-width="180">
+                                            <editable-cell
+                                                slot-scope="{row}"
+                                                :can-edit="editModeEnabled"
+                                                v-model="row.title"
+                                            >
+                                                <span slot="content">{{row.title}}</span>
+                                            </editable-cell>
+                                        </el-table-column>
 
-                            <el-tree
-                                class="filter-tree"
-                                :data="tags"
-                                show-checkbox
-                                node-key="id"
-                                :filter-node-method="filterNode"
-                                ref="tree"
-                            ></el-tree>
+                                        <el-table-column label="ブランド" min-width="180">
+                                            <editable-cell
+                                                slot-scope="{row}"
+                                                :can-edit="editModeEnabled"
+                                                v-model="row.brand"
+                                            >
+                                                <span slot="content">{{row.brand}}</span>
+                                            </editable-cell>
+                                        </el-table-column>
+
+                                        <el-table-column label="品番" min-width="180">
+                                            <editable-cell
+                                                slot-scope="{row}"
+                                                :can-edit="editModeEnabled"
+                                                v-model="row.model_number"
+                                            >
+                                                <span slot="content">{{row.model_number}}</span>
+                                            </editable-cell>
+                                        </el-table-column>
+                                    </el-table>
+                                </el-tab-pane>
+                            </el-tabs>
                             <span slot="footer" class="dialog-footer">
-                                <el-button @click="dialogVisible = false">Cancel</el-button>
+                                <!-- <el-button @click="dialogVisible = false">Cancel</el-button> -->
+                                <el-button @click="resetChecked">reset</el-button>
                                 <el-button type="primary" @click="tagsConfirm">Confirm</el-button>
                             </span>
                         </el-dialog>
@@ -75,14 +114,11 @@
                             </el-button>
 
                             <el-dialog title="画像アドレスでアップロード" :visible.sync="dialogFormVisible">
-                                <el-row type="flex" justify="center">
-                                    <img :src="form.name" alt style="width:80%" />
-                                </el-row>
                                 <el-form :model="form">
                                     <el-form-item label="画像アドレス" :label-width="formLabelWidth">
                                         <el-input v-model="form.name" autocomplete="off"></el-input>
                                     </el-form-item>
-                                    <el-form-item label="Zones" :label-width="formLabelWidth">
+                                    <!-- <el-form-item label="Zones" :label-width="formLabelWidth">
                                         <el-select
                                             v-model="form.region"
                                             placeholder="Please select a zone"
@@ -90,8 +126,11 @@
                                             <el-option label="Zone No.1" value="shanghai"></el-option>
                                             <el-option label="Zone No.2" value="beijing"></el-option>
                                         </el-select>
-                                    </el-form-item>
+                                    </el-form-item>-->
                                 </el-form>
+                                <el-row type="flex" justify="center">
+                                    <img :src="form.name" alt style="width:80%" />
+                                </el-row>
                                 <span slot="footer" class="dialog-footer">
                                     <el-button @click="dialogFormVisible = false">Cancel</el-button>
                                     <el-button
@@ -116,37 +155,32 @@
 </template>
 
 <style>
-.avatar-uploader .el-upload {
+.el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
 }
-.avatar-uploader .el-upload:hover {
+.el-upload:hover {
     border-color: #409eff;
 }
-.avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 178px;
-    height: 178px;
-    line-height: 178px;
-    text-align: center;
-}
-.avatar {
-    width: 178px;
-    height: 178px;
-    display: block;
+.edit-cell {
+    min-height: 35px;
+    cursor: pointer;
 }
 </style>
 
 <script>
 import { setTimeout } from "timers";
 import { mapState, mapActions } from "vuex";
+import EditableCell from "./EditableCell.vue";
 export default {
     name: "create-post",
     props: ["posts"],
+    components: {
+        EditableCell
+    },
     data() {
         return {
             dialogImageUrl: "",
@@ -157,8 +191,11 @@ export default {
             isCreatingPost: false,
             title: "",
             body: "",
-            filterText: "",
+            records: [],
+
             image_tags: [],
+            activeName: "first",
+
             tags: [
                 {
                     id: 1,
@@ -214,6 +251,28 @@ export default {
                     ]
                 }
             ],
+            table: [
+                {
+                    date: "2016-05-03",
+                    name: "Tom",
+                    address: "No. 189, Grove St, Los Angeles"
+                },
+                {
+                    date: "2016-05-02",
+                    name: "Tom",
+                    address: "No. 189, Grove St, Los Angeles"
+                },
+                {
+                    date: "2016-05-04",
+                    name: "Tom",
+                    address: "No. 189, Grove St, Los Angeles"
+                },
+                {
+                    date: "2016-05-01",
+                    name: "Tom",
+                    address: "No. 189, Grove St, Los Angeles"
+                }
+            ],
             dialogFormVisible: false,
             form: {
                 name: "",
@@ -225,18 +284,38 @@ export default {
                 resource: "",
                 desc: ""
             },
-            formLabelWidth: "120px"
+            formLabelWidth: "120px",
+            editModeEnabled: true,
+            productData: [],
+            gridData: [
+                {
+                    title: null,
+                    brand: null,
+                    model_number: null
+                },
+                {
+                    title: "",
+                    brand: "",
+                    model_number: ""
+                },
+                {
+                    title: "",
+                    brand: "",
+                    model_number: ""
+                },
+                {
+                    title: "",
+                    brand: "",
+                    model_number: ""
+                }
+            ]
         };
     },
 
     //   computed: {
     //     ...mapActions(['getAllPosts']),
     //   },
-    watch: {
-        filterText(val) {
-            this.$refs.tree.filter(val);
-        }
-    },
+
     mounted() {},
     methods: {
         updateImageList(file) {
@@ -270,6 +349,9 @@ export default {
             });
             $.each(this.image_tags, function(key, tag) {
                 formData.append(`tags[${key}]`, tag);
+            });
+            $.each(this.productData, function(key, productData) {
+                formData.append(`productData[${key}]`, productData);
             });
             axios
                 .post("/project-post", formData, {
@@ -317,13 +399,32 @@ export default {
             this.$refs.tree.setCheckedKeys([]);
         },
         tagsConfirm() {
+            this.records = [];
             for (let i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
                 this.image_tags.push(
                     this.$refs.tree.getCheckedNodes()[i].tag_id
                 );
             }
+            if (this.gridData[0].title.length !== 0) {
+                for (let n in this.gridData) {
+                    let record = this.gridData[n];
+
+                    if (record.title.length !== 0) {
+                        this.records.push(record);
+
+                        // this.records = [];
+                    }
+                    // let data = this.gridData[n].filter(v => v);
+                    // this.productData.push(this.data);
+                }
+                this.productData.push(this.records);
+            }
+
             this.$refs.tree.setCheckedKeys([]);
             this.dialogVisible = false;
+        },
+        handleClick(tab, event) {
+            // console.log(tab, event);
         }
     }
 };
