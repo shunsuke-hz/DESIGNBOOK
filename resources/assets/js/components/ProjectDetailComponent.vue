@@ -40,9 +40,9 @@
                     </h3>
                     <div class="mb-1 text-muted">Nov 12</div>
 
-                    <div class="tab-content">
+                    <div class="tab-content mx-auto" style="width:80%">
                         <div class="tab-pane active fade show" id="product">
-                            <table class="content container">
+                            <!-- <table class="content container">
                                 <span>
                                     <tr>
                                         <th>製品名</th>
@@ -65,7 +65,21 @@
                                         <td>{{ product.model_number }}</td>
                                     </tr>
                                 </span>
-                            </table>
+                            </table>-->
+
+                            <el-table :data="items[num].products" stripe="stripe">
+                                <el-table-column prop="title" label="製品名" contenteditable="true"></el-table-column>
+                                <el-table-column
+                                    prop="brands.name"
+                                    label="ブランド"
+                                    contenteditable="true"
+                                ></el-table-column>
+                                <el-table-column
+                                    prop="model_number"
+                                    label="品番"
+                                    contenteditable="true"
+                                ></el-table-column>
+                            </el-table>
                         </div>
                         <div class="tab-pane fade" id="project">
                             <p class="card-text mb-auto">{{project.explain }}</p>

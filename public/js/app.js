@@ -3239,6 +3239,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_timers__ = __webpack_require__("./node_modules/timers-browserify/main.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_timers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_timers__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__EditableCell_vue__ = __webpack_require__("./resources/assets/js/components/EditableCell.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__EditableCell_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__EditableCell_vue__);
 //
 //
 //
@@ -3382,12 +3384,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "create-post",
     props: ["posts"],
+    components: {
+        EditableCell: __WEBPACK_IMPORTED_MODULE_2__EditableCell_vue___default.a
+    },
     data: function data() {
         return {
             dialogImageUrl: "",
@@ -3398,8 +3434,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             isCreatingPost: false,
             title: "",
             body: "",
-            filterText: "",
+            records: [],
+
             image_tags: [],
+            activeName: "first",
+
             tags: [{
                 id: 1,
                 tag_id: 1,
@@ -3441,6 +3480,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     label: "天井"
                 }]
             }],
+            table: [{
+                date: "2016-05-03",
+                name: "Tom",
+                address: "No. 189, Grove St, Los Angeles"
+            }, {
+                date: "2016-05-02",
+                name: "Tom",
+                address: "No. 189, Grove St, Los Angeles"
+            }, {
+                date: "2016-05-04",
+                name: "Tom",
+                address: "No. 189, Grove St, Los Angeles"
+            }, {
+                date: "2016-05-01",
+                name: "Tom",
+                address: "No. 189, Grove St, Los Angeles"
+            }],
             dialogFormVisible: false,
             form: {
                 name: "",
@@ -3452,7 +3508,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 resource: "",
                 desc: ""
             },
-            formLabelWidth: "120px"
+            formLabelWidth: "120px",
+            editModeEnabled: true,
+            productData: [],
+            gridData: [{
+                title: null,
+                brand: null,
+                model_number: null
+            }, {
+                title: "",
+                brand: "",
+                model_number: ""
+            }, {
+                title: "",
+                brand: "",
+                model_number: ""
+            }, {
+                title: "",
+                brand: "",
+                model_number: ""
+            }]
         };
     },
 
@@ -3460,11 +3535,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     //   computed: {
     //     ...mapActions(['getAllPosts']),
     //   },
-    watch: {
-        filterText: function filterText(val) {
-            this.$refs.tree.filter(val);
-        }
-    },
+
     mounted: function mounted() {},
 
     methods: {
@@ -3501,6 +3572,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
             $.each(this.image_tags, function (key, tag) {
                 formData.append("tags[" + key + "]", tag);
+            });
+            $.each(this.productData, function (key, productData) {
+                formData.append("productData[" + key + "]", productData);
             });
             axios.post("/project-post", formData, {
                 headers: { "Content-Type": "multipart/form-data" }
@@ -3546,11 +3620,152 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$refs.tree.setCheckedKeys([]);
         },
         tagsConfirm: function tagsConfirm() {
+            this.records = [];
             for (var i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
                 this.image_tags.push(this.$refs.tree.getCheckedNodes()[i].tag_id);
             }
+            if (this.gridData[0].title.length !== 0) {
+                for (var n in this.gridData) {
+                    var record = this.gridData[n];
+
+                    if (record.title.length !== 0) {
+                        this.records.push(record);
+
+                        // this.records = [];
+                    }
+                    // let data = this.gridData[n].filter(v => v);
+                    // this.productData.push(this.data);
+                }
+                this.productData.push(this.records);
+            }
+
             this.$refs.tree.setCheckedKeys([]);
             this.dialogVisible = false;
+        },
+        handleClick: function handleClick(tab, event) {
+            // console.log(tab, event);
+        }
+    }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/EditableCell.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "editable-cell",
+    inheritAttrs: false,
+    props: {
+        value: {
+            type: String,
+            default: ""
+        },
+        toolTipContent: {
+            type: String,
+            default: "Click to edit"
+        },
+        toolTipDelay: {
+            type: Number,
+            default: 500
+        },
+        toolTipPlacement: {
+            type: String,
+            default: "top-start"
+        },
+        showInput: {
+            type: Boolean,
+            default: false
+        },
+        editableComponent: {
+            type: String,
+            default: "el-input"
+        },
+        closeEvent: {
+            type: String,
+            default: "blur"
+        },
+        canEdit: {
+            type: Boolean,
+            default: false
+        }
+    },
+    data: function data() {
+        return {
+            editMode: false
+        };
+    },
+
+    computed: {
+        model: {
+            get: function get() {
+                return this.value;
+            },
+            set: function set(val) {
+                this.$emit("input", val);
+            }
+        },
+        listeners: function listeners() {
+            return _extends(_defineProperty({}, this.closeEvent, this.onInputExit), this.$listeners);
+        }
+    },
+    methods: {
+        onFieldClick: function onFieldClick() {
+            var _this = this;
+
+            if (this.canEdit) {
+                this.editMode = true;
+                this.$nextTick(function () {
+                    var inputRef = _this.$refs.input;
+                    if (inputRef && inputRef.focus) {
+                        inputRef.focus();
+                    }
+                });
+            }
+        },
+        onInputExit: function onInputExit() {
+            this.editMode = false;
+        },
+        onInputChange: function onInputChange(val) {
+            this.$emit("input", val);
         }
     }
 });
@@ -4661,6 +4876,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -11912,6 +12141,21 @@ exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1a8bc89d\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/js/components/EditableCell.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.cell-content {\n    min-height: 40px;\n    padding-left: 5px;\n    padding-top: 5px;\n    border: 1px solid transparent;\n}\n.edit-enabled-cell {\n    border: 1px dashed #409eff;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3f49df33\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/js/components/CreatePost.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11920,7 +12164,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.avatar-uploader .el-upload {\n    border: 1px dashed #d9d9d9;\n    border-radius: 6px;\n    cursor: pointer;\n    position: relative;\n    overflow: hidden;\n}\n.avatar-uploader .el-upload:hover {\n    border-color: #409eff;\n}\n.avatar-uploader-icon {\n    font-size: 28px;\n    color: #8c939d;\n    width: 178px;\n    height: 178px;\n    line-height: 178px;\n    text-align: center;\n}\n.avatar {\n    width: 178px;\n    height: 178px;\n    display: block;\n}\n", ""]);
+exports.push([module.i, "\n.el-upload {\n    border: 1px dashed #d9d9d9;\n    border-radius: 6px;\n    cursor: pointer;\n    position: relative;\n    overflow: hidden;\n}\n.el-upload:hover {\n    border-color: #409eff;\n}\n.edit-cell {\n    min-height: 35px;\n    cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -101520,75 +101764,73 @@ var render = function() {
                     _vm._v("Nov 12")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "tab-content" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane active fade show",
-                        attrs: { id: "product" }
-                      },
-                      [
-                        _c("table", { staticClass: "content container" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-content mx-auto",
+                      staticStyle: { width: "80%" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane active fade show",
+                          attrs: { id: "product" }
+                        },
+                        [
                           _c(
-                            "span",
+                            "el-table",
+                            {
+                              attrs: {
+                                data: _vm.items[_vm.num].products,
+                                stripe: "stripe"
+                              }
+                            },
                             [
-                              _vm._m(1),
+                              _c("el-table-column", {
+                                attrs: {
+                                  prop: "title",
+                                  label: "製品名",
+                                  contenteditable: "true"
+                                }
+                              }),
                               _vm._v(" "),
-                              _vm._l(_vm.items[_vm.num].products, function(
-                                product,
-                                key
-                              ) {
-                                return _c("tr", { key: key.id }, [
-                                  _c("td", [
-                                    _c(
-                                      "a",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "scroll-to",
-                                            rawName: "v-scroll-to",
-                                            value: _vm.toBottom,
-                                            expression: "toBottom"
-                                          }
-                                        ],
-                                        staticClass: "text-primary",
-                                        staticStyle: { cursor: "pointer" },
-                                        attrs: { href: "#", value: key },
-                                        on: { click: _vm.changeProduct }
-                                      },
-                                      [_vm._v(_vm._s(product.title))]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    _vm._v(_vm._s(product.brands.name))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    _vm._v(_vm._s(product.model_number))
-                                  ])
-                                ])
+                              _c("el-table-column", {
+                                attrs: {
+                                  prop: "brands.name",
+                                  label: "ブランド",
+                                  contenteditable: "true"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("el-table-column", {
+                                attrs: {
+                                  prop: "model_number",
+                                  label: "品番",
+                                  contenteditable: "true"
+                                }
                               })
                             ],
-                            2
+                            1
                           )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade",
-                        attrs: { id: "project" }
-                      },
-                      [
-                        _c("p", { staticClass: "card-text mb-auto" }, [
-                          _vm._v(_vm._s(_vm.project.explain))
-                        ])
-                      ]
-                    )
-                  ]),
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade",
+                          attrs: { id: "project" }
+                        },
+                        [
+                          _c("p", { staticClass: "card-text mb-auto" }, [
+                            _vm._v(_vm._s(_vm.project.explain))
+                          ])
+                        ]
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("br")
                 ]
@@ -101747,18 +101989,6 @@ var staticRenderFns = [
           ])
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("製品名")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("ブランド")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("品番")])
     ])
   }
 ]
@@ -110926,6 +111156,107 @@ if (false) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1a8bc89d\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/EditableCell.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "edit-cell", on: { click: _vm.onFieldClick } },
+    [
+      !_vm.editMode && !_vm.showInput
+        ? _c(
+            "el-tooltip",
+            {
+              attrs: {
+                placement: _vm.toolTipPlacement,
+                "open-delay": _vm.toolTipDelay,
+                content: _vm.toolTipContent
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "cell-content",
+                  class: { "edit-enabled-cell": _vm.canEdit },
+                  attrs: { tabindex: "0" },
+                  on: {
+                    keyup: function($event) {
+                      if (
+                        !$event.type.indexOf("key") &&
+                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                      ) {
+                        return null
+                      }
+                      return _vm.onFieldClick($event)
+                    }
+                  }
+                },
+                [_vm._t("content")],
+                2
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.editMode || _vm.showInput
+        ? _c(
+            _vm.editableComponent,
+            _vm._g(
+              _vm._b(
+                {
+                  ref: "input",
+                  tag: "component",
+                  on: { focus: _vm.onFieldClick },
+                  nativeOn: {
+                    keyup: function($event) {
+                      if (
+                        !$event.type.indexOf("key") &&
+                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                      ) {
+                        return null
+                      }
+                      return _vm.onInputExit($event)
+                    }
+                  },
+                  model: {
+                    value: _vm.model,
+                    callback: function($$v) {
+                      _vm.model = $$v
+                    },
+                    expression: "model"
+                  }
+                },
+                "component",
+                _vm.$attrs,
+                false
+              ),
+              _vm.listeners
+            ),
+            [_vm._t("edit-component-slot")],
+            2
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1a8bc89d", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3f49df33\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/CreatePost.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -111036,10 +111367,7 @@ var render = function() {
               _c(
                 "el-dialog",
                 {
-                  attrs: {
-                    visible: _vm.dialogVisible,
-                    title: "関連するタグを選択"
-                  },
+                  attrs: { visible: _vm.dialogVisible },
                   on: {
                     "update:visible": function($event) {
                       _vm.dialogVisible = $event
@@ -111047,37 +111375,173 @@ var render = function() {
                   }
                 },
                 [
-                  _c("el-input", {
-                    attrs: { placeholder: "Filter keyword" },
-                    model: {
-                      value: _vm.filterText,
-                      callback: function($$v) {
-                        _vm.filterText = $$v
-                      },
-                      expression: "filterText"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("el-button", { on: { click: _vm.getCheckedNodes } }, [
-                    _vm._v("get by node")
-                  ]),
-                  _vm._v(" "),
-                  _c("el-button", { on: { click: _vm.resetChecked } }, [
-                    _vm._v("reset")
-                  ]),
-                  _vm._v(" "),
-                  _c("el-tree", {
-                    ref: "tree",
-                    staticClass: "filter-tree",
-                    attrs: {
-                      data: _vm.tags,
-                      "show-checkbox": "",
-                      "node-key": "id",
-                      "filter-node-method": _vm.filterNode
-                    }
-                  }),
+                  _c(
+                    "el-tabs",
+                    {
+                      on: { "tab-click": _vm.handleClick },
+                      model: {
+                        value: _vm.activeName,
+                        callback: function($$v) {
+                          _vm.activeName = $$v
+                        },
+                        expression: "activeName"
+                      }
+                    },
+                    [
+                      _c(
+                        "el-tab-pane",
+                        { attrs: { label: "関連タグ選択", name: "first" } },
+                        [
+                          _c("el-tree", {
+                            ref: "tree",
+                            staticClass: "filter-tree",
+                            attrs: {
+                              data: _vm.tags,
+                              "show-checkbox": "",
+                              "node-key": "id",
+                              "filter-node-method": _vm.filterNode
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-tab-pane",
+                        { attrs: { label: "製品登録", name: "second" } },
+                        [
+                          _c("p", [_vm._v("製品登録テーブル")]),
+                          _vm._v(" "),
+                          _c(
+                            "el-table",
+                            {
+                              ref: "table",
+                              staticStyle: { width: "100%" },
+                              attrs: { data: _vm.gridData }
+                            },
+                            [
+                              _c("el-table-column", {
+                                attrs: { label: "製品名", "min-width": "180" },
+                                scopedSlots: _vm._u([
+                                  {
+                                    key: "default",
+                                    fn: function(ref) {
+                                      var row = ref.row
+                                      return _c(
+                                        "editable-cell",
+                                        {
+                                          attrs: {
+                                            "can-edit": _vm.editModeEnabled
+                                          },
+                                          model: {
+                                            value: row.title,
+                                            callback: function($$v) {
+                                              _vm.$set(row, "title", $$v)
+                                            },
+                                            expression: "row.title"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              attrs: { slot: "content" },
+                                              slot: "content"
+                                            },
+                                            [_vm._v(_vm._s(row.title))]
+                                          )
+                                        ]
+                                      )
+                                    }
+                                  }
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _c("el-table-column", {
+                                attrs: {
+                                  label: "ブランド",
+                                  "min-width": "180"
+                                },
+                                scopedSlots: _vm._u([
+                                  {
+                                    key: "default",
+                                    fn: function(ref) {
+                                      var row = ref.row
+                                      return _c(
+                                        "editable-cell",
+                                        {
+                                          attrs: {
+                                            "can-edit": _vm.editModeEnabled
+                                          },
+                                          model: {
+                                            value: row.brand,
+                                            callback: function($$v) {
+                                              _vm.$set(row, "brand", $$v)
+                                            },
+                                            expression: "row.brand"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              attrs: { slot: "content" },
+                                              slot: "content"
+                                            },
+                                            [_vm._v(_vm._s(row.brand))]
+                                          )
+                                        ]
+                                      )
+                                    }
+                                  }
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _c("el-table-column", {
+                                attrs: { label: "品番", "min-width": "180" },
+                                scopedSlots: _vm._u([
+                                  {
+                                    key: "default",
+                                    fn: function(ref) {
+                                      var row = ref.row
+                                      return _c(
+                                        "editable-cell",
+                                        {
+                                          attrs: {
+                                            "can-edit": _vm.editModeEnabled
+                                          },
+                                          model: {
+                                            value: row.model_number,
+                                            callback: function($$v) {
+                                              _vm.$set(row, "model_number", $$v)
+                                            },
+                                            expression: "row.model_number"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              attrs: { slot: "content" },
+                                              slot: "content"
+                                            },
+                                            [_vm._v(_vm._s(row.model_number))]
+                                          )
+                                        ]
+                                      )
+                                    }
+                                  }
+                                ])
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c(
                     "span",
@@ -111087,17 +111551,9 @@ var render = function() {
                       slot: "footer"
                     },
                     [
-                      _c(
-                        "el-button",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.dialogVisible = false
-                            }
-                          }
-                        },
-                        [_vm._v("Cancel")]
-                      ),
+                      _c("el-button", { on: { click: _vm.resetChecked } }, [
+                        _vm._v("reset")
+                      ]),
                       _vm._v(" "),
                       _c(
                         "el-button",
@@ -111152,17 +111608,6 @@ var render = function() {
                     },
                     [
                       _c(
-                        "el-row",
-                        { attrs: { type: "flex", justify: "center" } },
-                        [
-                          _c("img", {
-                            staticStyle: { width: "80%" },
-                            attrs: { src: _vm.form.name, alt: "" }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
                         "el-form",
                         { attrs: { model: _vm.form } },
                         [
@@ -111187,53 +111632,20 @@ var render = function() {
                               })
                             ],
                             1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "el-form-item",
-                            {
-                              attrs: {
-                                label: "Zones",
-                                "label-width": _vm.formLabelWidth
-                              }
-                            },
-                            [
-                              _c(
-                                "el-select",
-                                {
-                                  attrs: {
-                                    placeholder: "Please select a zone"
-                                  },
-                                  model: {
-                                    value: _vm.form.region,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.form, "region", $$v)
-                                    },
-                                    expression: "form.region"
-                                  }
-                                },
-                                [
-                                  _c("el-option", {
-                                    attrs: {
-                                      label: "Zone No.1",
-                                      value: "shanghai"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("el-option", {
-                                    attrs: {
-                                      label: "Zone No.2",
-                                      value: "beijing"
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            ],
-                            1
                           )
                         ],
                         1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-row",
+                        { attrs: { type: "flex", justify: "center" } },
+                        [
+                          _c("img", {
+                            staticStyle: { width: "80%" },
+                            attrs: { src: _vm.form.name, alt: "" }
+                          })
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -121297,6 +121709,33 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0efc3ff6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProductComponent.vue", function() {
      var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0efc3ff6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProductComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1a8bc89d\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/js/components/EditableCell.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1a8bc89d\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/js/components/EditableCell.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("dfe9d05a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1a8bc89d\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditableCell.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1a8bc89d\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditableCell.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -134925,6 +135364,58 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-3f49df33", Component.options)
   } else {
     hotAPI.reload("data-v-3f49df33", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/EditableCell.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1a8bc89d\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/js/components/EditableCell.vue")
+}
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/EditableCell.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1a8bc89d\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/EditableCell.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/EditableCell.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1a8bc89d", Component.options)
+  } else {
+    hotAPI.reload("data-v-1a8bc89d", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
