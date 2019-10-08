@@ -15,6 +15,26 @@
 //     return view('welcome');
 // });
 
+// ログインしないと見れないページ
+Route::group(['middleware' => 'auth'], function () {
+  // （仮）マイページ
+  Route::get('/mypage', 'MypageController@index');
+
+  //  ユーザープロフィール編集
+  Route::get('/users',  'UserController@edit')->name('users.edit');
+  Route::post('/users/edit', 'UserController@update')->name('users.update');
+
+  // ユーザーアイコントリミング
+  Route::post('/cropper', 'UserController@photo');
+
+  // プロジェクト投稿ページ
+  Route::get('project-post', function () {
+    return view('project_post');
+  });
+
+  Route::post('project-post', 'ProjectController@create');
+});
+
 // TOPページ
 Route::get('/', 'TopController@index');
 
@@ -30,22 +50,7 @@ Route::get('/product-detail', 'ProductDetailController@index');
 // ブランド一覧ページ
 Route::get('/brands-list', 'BrandsListController@index');
 
-// （仮）マイページ
-Route::get('/mypage', 'MypageController@index');
 
-//  ユーザープロフィール編集
-Route::get('/users',  'UserController@edit')->name('users.edit');
-Route::post('/users/edit', 'UserController@update')->name('users.update');
-
-// ユーザーアイコントリミング
-Route::post('/cropper', 'UserController@photo');
-
-// プロジェクト投稿ページ
-Route::get('project-post', function () {
-  return view('project_post');
-});
-
-Route::post('project-post', 'ProjectController@create');
 
 // Route::get('/project-post',  function () {
 //   return view('project_post');

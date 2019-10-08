@@ -74,65 +74,65 @@
 </head>
 
 <body style="padding-top:5rem;">
-<div id="app">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <div id="app">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
 
-    {{-- 左側のメニュー項目 --}}
-    <div class="collapse navbar-collapse" id="Navber">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item d-flex align-items-center"><a class="nav-link" href="/"><i class="fas fa-search fa-lg"></i></a></li>
-        <li class="nav-item"><a class="nav-link" href="/">プロジェクト</a></li>
-        <li class="nav-item"><a class="nav-link" href="/product">製品</a></li>
-        <li class="nav-item"><a class="nav-link" href="/brands-list">ブランド</a></li>
-        <li class="nav-item"><a class="nav-link" href="/project-post">投稿</a></li>
-      </ul>
-    </div>
+      {{-- 左側のメニュー項目 --}}
+      <div class="collapse navbar-collapse" id="Navber">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item d-flex align-items-center"><a class="nav-link" href="/"><i class="fas fa-search fa-lg"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="/">プロジェクト</a></li>
+          <li class="nav-item"><a class="nav-link" href="/product">製品</a></li>
+          <li class="nav-item"><a class="nav-link" href="/brands-list">ブランド</a></li>
+          <li class="nav-item"><a class="nav-link" href="/project-post">投稿</a></li>
+        </ul>
+      </div>
 
-    {{-- ロゴ画像 --}}
-    <div>
-      <a class="navbar-brand" href="/"><img src="/storage/Logo.png" width="80px"></a>
-    </div>
+      {{-- ロゴ画像 --}}
+      <div>
+        <a class="navbar-brand" href="/"><img src="/storage/Logo.png" width="80px"></a>
+      </div>
 
-    {{-- 右側のメニュー項目 --}}
-    <div class="collapse navbar-collapse" id="Navber">
-      <ul class="navbar-nav ml-auto">
-        @auth
-        <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="/"><i class="far fa-bell fa-lg"></i></a></li>
-        <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="/mypage"><i class="far fa-user fa-lg"></i></a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ Auth::user()->account_name }}
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-              ログアウト
+      {{-- 右側のメニュー項目 --}}
+      <div class="collapse navbar-collapse" id="Navber">
+        <ul class="navbar-nav ml-auto">
+          @auth
+          <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="/" data-toggle="tooltip" data-placement="top" title="新着はありません"><i class="far fa-bell fa-lg"></i></a></li>
+          <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="/mypage"><i class="far fa-user fa-lg"></i></a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ Auth::user()->account_name }}
             </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                ログアウト
+              </a>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              {{ csrf_field() }}
-            </form>
-          </div>
-        </li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+              </form>
+            </div>
+          </li>
 
-        @else
-        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"><button class="btn btn-outline-dark my-2 my-sm-0">Sign in</button></a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}"><button class="btn btn-outline-primary my-2 my-sm-0">Sign Up Free</button></a></li>
-        @endauth
-      </ul>
-    </div>
+          @else
+          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"><button class="btn btn-outline-dark my-2 my-sm-0">Sign in</button></a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('register') }}"><button class="btn btn-outline-primary my-2 my-sm-0">Sign Up Free</button></a></li>
+          @endauth
+        </ul>
+      </div>
 
-    {{-- ハンバーガーメニュー、右側に配置 --}}
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      {{-- ハンバーガーメニュー、右側に配置 --}}
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  </nav>
-
-
+    </nav>
 
 
-  {{-- 保険で一応残しておきます --}}
-  {{-- <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+
+
+    {{-- 保険で一応残しておきます --}}
+    {{-- <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <ul class="collapse navbar-collapse navbar-nav mr-auto" id="Navber">
         <li class="nav-item d-flex align-items-center"><a class="nav-link" href="http://localhost/"><i class="fas fa-search fa-lg"></i></a></li>
         <li class="nav-item"><a class="nav-link" href="http://localhost/">プロジェクト</a></li>
@@ -157,15 +157,15 @@
 </nav>--}}
 
 
-  @yield('content')
+    @yield('content')
 
-</div>
+  </div>
   {{-- 時間のあるときにFooter作らなきゃ --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src=" {{ mix('js/app.js') }} "></script>
   {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.0.0/cropper.min.js"></script> --}}
   <script src="{{ mix('js/croppie.js') }}"></script>
-  
+
 
   @yield('pageJs')
 

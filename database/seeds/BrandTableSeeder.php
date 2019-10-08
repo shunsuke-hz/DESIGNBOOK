@@ -4,152 +4,23 @@ use Illuminate\Database\Seeder;
 
 class BrandTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        // FACTORYを使用したランダムでのテストデータ作成はテストしきれないので一旦凍結
-        // factory(App\Brand::class, 10)->create()->each(function ($brand){
+  /**
+   * Run the database seeds.
+   *
+   * @return void
+   */
+  public function run()
+  {
+    // FACTORYを使用したランダムでのテストデータ作成はテストしきれないので一旦凍結
+    // factory(App\Brand::class, 10)->create()->each(function ($brand){
 
-        // });
+    // });
 
-        // ロゴ画像表示のため手動でテストデータ作成
-        DB::table('brands')->insert([
-            [
-                'name' => '湯浅商事',
-                'url' => 'https://www.yahoo.co.jp/',
-                'postal_code' => '336-0967',
-                'prefecture' => '12',
-                'address' => 'さいたま市緑区1-1',
-                'address_url' => 'https://www.yahoo.co.jp/',
-                'mail_address' => 'jirudore@gmail.com',
-                'phone_number' => '090-2338-1234',
-                'logo_image' => 'home1.png',
-                'created_at' => '2019-09-25 02:36:31',
-                'updated_at' => '2019-09-25 02:36:32', 
-            ],
-            [
-                'name' => '湯浅商事2',
-                'url' => 'https://www.yahoo.co.jp/',
-                'postal_code' => '336-0967',
-                'prefecture' => '12',
-                'address' => 'さいたま市緑区1-1',
-                'address_url' => 'https://www.yahoo.co.jp/',
-                'mail_address' => 'jirudore2@gmail.com',
-                'phone_number' => '090-2338-1234',
-                'logo_image' => 'home2.png',
-                'created_at' => '2019-09-25 02:36:31',
-                'updated_at' => '2019-09-25 02:36:32', 
-            ],
-            [
-                'name' => '湯浅商事3',
-                'url' => 'https://www.yahoo.co.jp/',
-                'postal_code' => '336-0967',
-                'prefecture' => '12',
-                'address' => 'さいたま市緑区1-1',
-                'address_url' => 'https://www.yahoo.co.jp/',
-                'mail_address' => 'jirudore3@gmail.com',
-                'phone_number' => '090-2338-1234',
-                'logo_image' => 'home3.png',
-                'created_at' => '2019-09-25 02:36:31',
-                'updated_at' => '2019-09-25 02:36:32', 
-            ],
-            [
-                'name' => '湯浅商事4',
-                'url' => 'https://www.yahoo.co.jp/',
-                'postal_code' => '336-0967',
-                'prefecture' => '12',
-                'address' => 'さいたま市緑区1-1',
-                'address_url' => 'https://www.yahoo.co.jp/',
-                'mail_address' => 'jirudore4@gmail.com',
-                'phone_number' => '090-2338-1234',
-                'logo_image' => 'home4.png',
-                'created_at' => '2019-09-25 02:36:31',
-                'updated_at' => '2019-09-25 02:36:32', 
-            ],
-            [
-                'name' => '湯浅商事5',
-                'url' => 'https://www.yahoo.co.jp/',
-                'postal_code' => '336-0967',
-                'prefecture' => '12',
-                'address' => 'さいたま市緑区1-1',
-                'address_url' => 'https://www.yahoo.co.jp/',
-                'mail_address' => 'jirudore5@gmail.com',
-                'phone_number' => '090-2338-1234',
-                'logo_image' => 'home5.png',
-                'created_at' => '2019-09-25 02:36:31',
-                'updated_at' => '2019-09-25 02:36:32', 
-            ],
-            [
-                'name' => '湯浅商事6',
-                'url' => 'https://www.yahoo.co.jp/',
-                'postal_code' => '336-0967',
-                'prefecture' => '13',
-                'address' => 'さいたま市緑区1-1',
-                'address_url' => 'https://www.yahoo.co.jp/',
-                'mail_address' => 'jirudore6@gmail.com',
-                'phone_number' => '090-2338-1234',
-                'logo_image' => 'home1.png',
-                'created_at' => '2019-09-25 02:36:31',
-                'updated_at' => '2019-09-25 02:36:32', 
-            ],
-            [
-                'name' => '湯浅商事7',
-                'url' => 'https://www.yahoo.co.jp/',
-                'postal_code' => '336-0967',
-                'prefecture' => '11',
-                'address' => 'さいたま市緑区1-1',
-                'address_url' => 'https://www.yahoo.co.jp/',
-                'mail_address' => 'jirudore7@gmail.com',
-                'phone_number' => '090-2338-1234',
-                'logo_image' => 'home2.png',
-                'created_at' => '2019-09-25 02:36:31',
-                'updated_at' => '2019-09-25 02:36:32', 
-            ],
-            [
-                'name' => '湯浅商事8',
-                'url' => 'https://www.yahoo.co.jp/',
-                'postal_code' => '336-0967',
-                'prefecture' => '14',
-                'address' => 'さいたま市緑区1-1',
-                'address_url' => 'https://www.yahoo.co.jp/',
-                'mail_address' => 'jirudore8@gmail.com',
-                'phone_number' => '090-2338-1234',
-                'logo_image' => 'home4.png',
-                'created_at' => '2019-09-25 02:36:31',
-                'updated_at' => '2019-09-25 02:36:32', 
-            ],
-            [
-                'name' => '湯浅商事9',
-                'url' => 'https://www.yahoo.co.jp/',
-                'postal_code' => '336-0967',
-                'prefecture' => '12',
-                'address' => 'さいたま市緑区1-1',
-                'address_url' => 'https://www.yahoo.co.jp/',
-                'mail_address' => 'jirudore9@gmail.com',
-                'phone_number' => '090-2338-1234',
-                'logo_image' => 'home5.png',
-                'created_at' => '2019-09-25 02:36:31',
-                'updated_at' => '2019-09-25 02:36:32', 
-            ],
-            [
-                'name' => '湯浅商事10',
-                'url' => 'https://www.yahoo.co.jp/',
-                'postal_code' => '336-0967',
-                'prefecture' => '12',
-                'address' => 'さいたま市緑区1-1',
-                'address_url' => 'https://www.yahoo.co.jp/',
-                'mail_address' => 'jirudore10@gmail.com',
-                'phone_number' => '090-2338-1234',
-                'logo_image' => 'home6.png',
-                'created_at' => '2019-09-25 02:36:31',
-                'updated_at' => '2019-09-25 02:36:32', 
-            ],
-        ]);
-        factory(App\Project::class, 10)->create();
-        factory(App\Product::class, 10)->create();
-    }
+    // ロゴ画像表示のため手動でテストデータ作成
+    DB::table('brands')->insert([
+      ['name' => 'TYAA', 'url' => 'http://tyaa.com/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '101.png'], ['name' => 'Koheikudo&Associates', 'url' => 'http://koheykudo.com/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '102.png'], ['name' => 'oonk', 'url' => 'http://oonk.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '103.png'], ['name' => 'OfficeShogoOnodera', 'url' => 'http://www.shogoonodera.com/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '104.png'], ['name' => 'kttm', 'url' => 'https://www.kttm.co/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '105.png'], ['name' => 'SchemataArchitects', 'url' => 'http://schemata.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '106.png'], ['name' => 'BIG', 'url' => 'https://big.dk/#projects', 'postal_code' => "", 'prefecture' => '1', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '107.png'], ['name' => 'SpechtArchitects', 'url' => 'https://spechtarchitects.com/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '108.png'], ['name' => 'ThirdwayInteriors', 'url' => 'https://www.thirdwayinteriors.com/', 'postal_code' => "", 'prefecture' => '2', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '109.png'], ['name' => 'Vocon', 'url' => 'https://www.vocon.com/', 'postal_code' => "", 'prefecture' => '3', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '110.png'], ['name' => 'selgascano', 'url' => 'http://selgascano.net/', 'postal_code' => "", 'prefecture' => '4', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '111.png'], ['name' => 'TatoArchitects', 'url' => 'http://tat-o.com/', 'postal_code' => "", 'prefecture' => '28', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '112.png'], ['name' => 'NAP建築設計事務所', 'url' => 'http://www.nakam.info/jp/index.html', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '113.png'], ['name' => 'FIGRArchitectureStudio', 'url' => 'https://www.figr.com.au/SILHOUTTE-HYTTE', 'postal_code' => "", 'prefecture' => '5', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '114.png'], ['name' => 'KimuraMatsumotoarchitectsoffice', 'url' => 'http://www.kmrmtmt.com/index.html', 'postal_code' => "", 'prefecture' => '26', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '115.png'], ['name' => 'treetopsbyron', 'url' => 'https://www.treetopsbyronbay.com/', 'postal_code' => "", 'prefecture' => '6', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '116.png'], ['name' => '田島ルーフィング', 'url' => 'https://www.tajima.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '201.png'], ['name' => 'オカムラ', 'url' => 'http://www.okamura.co.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '202.png'], ['name' => 'Vitra', 'url' => 'https://www.vitra.com/ja-jp/home', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '203.png'], ['name' => 'CreationBauman', 'url' => 'https://www.creationbaumann.com/ja/index_ja.html', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '204.png'], ['name' => 'SanwaCompany', 'url' => 'https://www.sanwacompany.co.jp/shop/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '205.png'], ['name' => '東リ', 'url' => 'https://www.toli.co.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '206.png'], ['name' => 'FRITZHANSEN', 'url' => 'https://fritzhansen.com/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '207.png'], ['name' => 'ウッドワン', 'url' => 'https://www.woodone.co.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '208.png'], ['name' => 'Blar', 'url' => 'https://www.blur.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '209.png'], ['name' => '日鉄日新製鋼建材', 'url' => 'http://www.ac.nisshin.nipponsteel.com/index.htm', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '210.png'], ['name' => '大和重工株式会社', 'url' => 'https://www.daiwajuko.co.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '211.png'], ['name' => '大洋金物株式会社', 'url' => 'https://www.tform.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '212.png'], ['name' => 'Grohe', 'url' => 'https://www.grohe.co.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '213.png'], ['name' => '川島織物セルコン', 'url' => 'https://www.kawashimaselkon.co.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '214.gif'], ['name' => 'DAIKEN', 'url' => 'https://www.daiken.jp/', 'postal_code' => "", 'prefecture' => '13', 'address' => "", 'address_url' => "", 'mail_address' => "", 'phone_number' => "", 'logo_image' => '215.png'],
+    ]);
+    // factory(App\Project::class, 10)->create();
+    // factory(App\Product::class, 10)->create();
+  }
 }
