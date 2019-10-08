@@ -97,13 +97,13 @@ class ProjectImageTableSeeder extends Seeder
         'project_id' => '5',
       ],
       [
-        'image' => 'https://www.kttm.co/obm?lightbox=dataItem-itjww2fe',
+        'image' => 'https://static.wixstatic.com/media/047852_4401cddf05984efeb7ac26e797c3b466~mv2.png/v1/fill/w_955,h_667,al_c,q_90/047852_4401cddf05984efeb7ac26e797c3b466~mv2.webp',
         'title' => 'Oita Mirai Shinkin Bank',
         'explain' => '',
         'project_id' => '6',
       ],
       [
-        'image' => 'https://www.kttm.co/obm?lightbox=dataItem-itjww2f9',
+        'image' => 'https://static.wixstatic.com/media/047852_de860ecda4bd4ed9925bd855a63c81ba~mv2.png/v1/fill/w_626,h_886,al_c,q_90,usm_0.66_1.00_0.01/047852_de860ecda4bd4ed9925bd855a63c81ba~mv2.webp',
         'title' => 'Oita Mirai Shinkin Bank',
         'explain' => '',
         'project_id' => '6',
