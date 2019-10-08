@@ -4,23 +4,348 @@ use Illuminate\Database\Seeder;
 
 class TagTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        //
-        $tags = [['categoly'=>'110','name'=>'住宅'],['categoly'=>'110','name'=>'住宅リノベーション'],['categoly'=>'110','name'=>'オフィス'],['categoly'=>'110','name'=>'オフィスリノベーション'],['categoly'=>'110','name'=>'店舗'],['categoly'=>'110','name'=>'工場・倉庫'],['categoly'=>'110','name'=>'ホテル'],['categoly'=>'110','name'=>'商業施設'],['categoly'=>'110','name'=>'文化・交流'],['categoly'=>'110','name'=>'工場・倉庫'],['categoly'=>'110','name'=>'ランドスケープ'],['categoly'=>'110','name'=>'公共施設'],['categoly'=>'110','name'=>'その他'],['categoly'=>'210','name'=>'キッチン・ダイニング'],['categoly'=>'210','name'=>'バスルーム'],['categoly'=>'210','name'=>'トイレ・洗面'],['categoly'=>'210','name'=>'ベッドルーム'],['categoly'=>'210','name'=>'リビング'],['categoly'=>'210','name'=>'エクステリア・外構'],['categoly'=>'210','name'=>'外観'],['categoly'=>'210','name'=>'地下室'],['categoly'=>'210','name'=>'収納'],['categoly'=>'210','name'=>'玄関'],['categoly'=>'210','name'=>'ガレージ'],['categoly'=>'210','name'=>'収納・クローゼット'],['categoly'=>'210','name'=>'廊下'],['categoly'=>'210','name'=>'ランドリー'],['categoly'=>'210','name'=>'階段'],['categoly'=>'210','name'=>'子供部屋'],['categoly'=>'210','name'=>'和室'],['categoly'=>'210','name'=>'その他'],['categoly'=>'220','name'=>'外観'],['categoly'=>'220','name'=>'オフィススペース'],['categoly'=>'220','name'=>'ミーティングスペース'],['categoly'=>'220','name'=>'ラウンジ'],['categoly'=>'220','name'=>'休憩・食堂'],['categoly'=>'220','name'=>'受付'],['categoly'=>'220','name'=>'バックヤード'],['categoly'=>'220','name'=>'レクチャースペース'],['categoly'=>'220','name'=>'その他'],['categoly'=>'230','name'=>'店舗スペース'],['categoly'=>'230','name'=>'バックヤード'],['categoly'=>'231','name'=>'飲食'],['categoly'=>'231','name'=>'美容'],['categoly'=>'231','name'=>'アパレル'],['categoly'=>'231','name'=>'カフェ'],['categoly'=>'231','name'=>'本'],['categoly'=>'231','name'=>'小売'],['categoly'=>'310','name'=>'モダン'],['categoly'=>'310','name'=>'コンテンポラリー'],['categoly'=>'310','name'=>'トラディショナル'],['categoly'=>'310','name'=>'和風'],['categoly'=>'310','name'=>'北欧'],['categoly'=>'310','name'=>'トランジショナル（ホテル、ラグジュアリー）'],['categoly'=>'310','name'=>'アジアン'],['categoly'=>'310','name'=>'カントリー'],['categoly'=>'310','name'=>'ラスティック（田舎+現代ミックス）'],['categoly'=>'310','name'=>'インダストリアル'],['categoly'=>'310','name'=>'カジュアル'],['categoly'=>'310','name'=>'リゾート'],['categoly'=>'310','name'=>'ミッドセンチュリー'],['categoly'=>'310','name'=>'地中海'],['categoly'=>'310','name'=>'その他'],['categoly'=>'311','name'=>'大'],['categoly'=>'311','name'=>'中'],['categoly'=>'311','name'=>'小'],['categoly'=>'311','name'=>''],['categoly'=>'410','name'=>'壁紙'],['categoly'=>'410','name'=>'フィルム'],['categoly'=>'410','name'=>'化粧パネル'],['categoly'=>'410','name'=>'木質パネル'],['categoly'=>'410','name'=>'塗り壁'],['categoly'=>'410','name'=>'タイル'],['categoly'=>'410','name'=>'サイディング'],['categoly'=>'410','name'=>'人工大理石'],['categoly'=>'410','name'=>'グラスウール吸音板'],['categoly'=>'410','name'=>'金属板'],['categoly'=>'410','name'=>'内装用ガラス'],['categoly'=>'410','name'=>'鏡'],['categoly'=>'410','name'=>'腰壁'],['categoly'=>'410','name'=>'壁面装飾'],['categoly'=>'410','name'=>'その他'],['categoly'=>'420','name'=>'無垢フローリング'],['categoly'=>'420','name'=>'複合フローリング'],['categoly'=>'420','name'=>'竹フローリング'],['categoly'=>'420','name'=>'コルクフローリング'],['categoly'=>'420','name'=>'タイルカーペット'],['categoly'=>'420','name'=>'ロールカーペット'],['categoly'=>'420','name'=>'ビニル床シート'],['categoly'=>'420','name'=>'コルク床シート'],['categoly'=>'420','name'=>'ビニル床タイル'],['categoly'=>'420','name'=>'コルク床タイル'],['categoly'=>'420','name'=>'タイル'],['categoly'=>'420','name'=>'タタミ(畳)'],['categoly'=>'420','name'=>'塗床'],['categoly'=>'430','name'=>'せっこうボード'],['categoly'=>'430','name'=>'吸音せっこうボード'],['categoly'=>'430','name'=>'ロックウール吸音版'],['categoly'=>'430','name'=>'グラスウール吸音板'],['categoly'=>'430','name'=>'ケイカル板'],['categoly'=>'430','name'=>'塩ビ化粧合板'],['categoly'=>'430','name'=>'その他の化粧パネル'],['categoly'=>'430','name'=>'木質パネル(無垢材)'],['categoly'=>'430','name'=>'木質パネル(複合材)'],['categoly'=>'430','name'=>'コルク合板'],['categoly'=>'430','name'=>'膜天井'],['categoly'=>'440','name'=>'開き戸'],['categoly'=>'440','name'=>'引戸'],['categoly'=>'440','name'=>'折れ戸'],['categoly'=>'440','name'=>'吹抜窓'],['categoly'=>'440','name'=>'間仕切り壁'],['categoly'=>'440','name'=>'住宅用窓'],['categoly'=>'440','name'=>'ガラス'],['categoly'=>'440','name'=>'建具金物'],['categoly'=>'440','name'=>'家具収納金物'],['categoly'=>'440','name'=>'電設金物'],['categoly'=>'440','name'=>'手すり'],['categoly'=>'440','name'=>'外壁材'],['categoly'=>'440','name'=>'屋根材'],['categoly'=>'440','name'=>'断熱材'],['categoly'=>'440','name'=>'耐火被覆材'],['categoly'=>'440','name'=>'防水材'],['categoly'=>'440','name'=>'スラブ'],['categoly'=>'450','name'=>'キッチン家電'],['categoly'=>'450','name'=>'キッチン設備（シンク、水栓）'],['categoly'=>'450','name'=>'キッチン付属'],['categoly'=>'450','name'=>'キッチン家具'],['categoly'=>'460','name'=>'浴槽'],['categoly'=>'460','name'=>'シャワー'],['categoly'=>'460','name'=>'トイレ'],['categoly'=>'460','name'=>'洗面台'],['categoly'=>'460','name'=>'洗面ボウル'],['categoly'=>'460','name'=>'バスルーム水栓'],['categoly'=>'460','name'=>'バスルーム設備部品'],['categoly'=>'470','name'=>'無垢フローリング'],['categoly'=>'470','name'=>'複合フローリング'],['categoly'=>'470','name'=>'タイルカーペット'],['categoly'=>'470','name'=>'床・壁タイル'],['categoly'=>'470','name'=>'和室の床（畳・竹）'],['categoly'=>'470','name'=>'ラミネート'],['categoly'=>'480','name'=>'壁紙'],['categoly'=>'480','name'=>'塗装'],['categoly'=>'490','name'=>'ランプ'],['categoly'=>'510','name'=>'ホワイト'],['categoly'=>'510','name'=>'ブラウン'],['categoly'=>'510','name'=>'ベージュ'],['categoly'=>'510','name'=>'ブラック'],['categoly'=>'510','name'=>'グレー'],['categoly'=>'510','name'=>'レッド'],['categoly'=>'510','name'=>'ピンク'],['categoly'=>'510','name'=>'オレンジ'],['categoly'=>'510','name'=>'ブルー'],['categoly'=>'510','name'=>'グリーン'],['categoly'=>'510','name'=>'イエロー'],['categoly'=>'510','name'=>'パープル'],['categoly'=>'510','name'=>'ミラー'],['categoly'=>'510','name'=>'その他'],['categoly'=>'610','name'=>'無地'],['categoly'=>'610','name'=>'木目調'],['categoly'=>'610','name'=>'石目調'],['categoly'=>'610','name'=>'メタル調'],['categoly'=>'610','name'=>'モルタル・コンクリート調'],['categoly'=>'610','name'=>'レザー調'],['categoly'=>'610','name'=>'ストライプ柄'],['categoly'=>'610','name'=>'波柄'],['categoly'=>'610','name'=>'チェック・ブロック柄'],['categoly'=>'610','name'=>'幾何学模様'],['categoly'=>'610','name'=>'和柄'],['categoly'=>'610','name'=>'自然モチーフ'],['categoly'=>'610','name'=>'その他'],['categoly'=>'611','name'=>'ナラ/オーク (ブナ科 : 楢)'],['categoly'=>'611','name'=>'ウォールナット (クルミ科)'],['categoly'=>'611','name'=>'メープル (カエデ科)'],['categoly'=>'611','name'=>'チェリー (バラ科 : 桜)'],['categoly'=>'611','name'=>'カバ/バーチ (カバノキ科 : 樺)'],['categoly'=>'611','name'=>'アカシア (マメ科)'],['categoly'=>'611','name'=>'アサダ (カバノキ科)'],['categoly'=>'611','name'=>'アッシュ (モクセイ科)'],['categoly'=>'611','name'=>'アップル (バラ科)'],['categoly'=>'611','name'=>'ウェンジ (マメ科)'],['categoly'=>'611','name'=>'エボニー (カキノキ科 : 黒檀)'],['categoly'=>'611','name'=>'エルム (ニレ科)'],['categoly'=>'611','name'=>'オリーブ (モクセイ科)'],['categoly'=>'611','name'=>'カリン (マメ科 : 花梨)'],['categoly'=>'611','name'=>'キャスター (ウコギ科 : 栓)'],['categoly'=>'611','name'=>'キリ (キリ科 : 桐)'],['categoly'=>'611','name'=>'クスノキ (クスノキ科)'],['categoly'=>'611','name'=>'クロガキ (カキノキ科 : 黒柿)'],['categoly'=>'611','name'=>'ケヤキ (ニレ科)'],['categoly'=>'611','name'=>'サペリ (センダン科)'],['categoly'=>'611','name'=>'シカモア (カエデ科)'],['categoly'=>'611','name'=>'シダー (マツ科)'],['categoly'=>'611','name'=>'シナ (シナノキ科)'],['categoly'=>'611','name'=>'シロタガヤ (アオギリ科)'],['categoly'=>'611','name'=>'ゼブラウッド (マメ科)'],['categoly'=>'611','name'=>'タモ (モクセイ科 : 梻)'],['categoly'=>'611','name'=>'チーク (シソ科)'],['categoly'=>'611','name'=>'チェスナット (ブナ科 : 栗)'],['categoly'=>'611','name'=>'パイン (マツ科)'],['categoly'=>'611','name'=>'パリサンダー (マメ科)'],['categoly'=>'611','name'=>'バンブー (タケ亜科 : 竹)'],['categoly'=>'611','name'=>'ピーラ (マツ科 : 米松)'],['categoly'=>'611','name'=>'ヒッコリー (クルミ科)'],['categoly'=>'611','name'=>'ヒノキ (ヒノキ科 : 檜)'],['categoly'=>'611','name'=>'ブナ/ビーチ (ブナ科 : 楢)'],['categoly'=>'611','name'=>'プラム (バラ科)'],['categoly'=>'611','name'=>'スギ (ヒノキ科 : 杉)'],['categoly'=>'611','name'=>'ベイスギ (ヒノキ科 : 米杉)'],['categoly'=>'611','name'=>'マホガニー (センダン科)'],['categoly'=>'611','name'=>'ユーカリ (フトモモ科)'],['categoly'=>'611','name'=>'ローズウッド (マメ科 : 紫檀)'],['categoly'=>'611','name'=>'コルク'],['categoly'=>'611','name'=>'古木'],['categoly'=>'611','name'=>'その他の木目調'],['categoly'=>'612','name'=>'トラバーチン'],['categoly'=>'612','name'=>'スレート'],['categoly'=>'612','name'=>'マーブル'],['categoly'=>'612','name'=>'テラコッタ'],['categoly'=>'612','name'=>'砂岩'],['categoly'=>'612','name'=>'玄武岩'],['categoly'=>'612','name'=>'その他の石目調'],];
+  /**
+   * Run the database seeds.
+   *
+   * @return void
+   */
+  public function run()
+  {
+    //
+    $tags = [
+      ['category' => '110', 'name' => '住居'],
+      ['category' => '110', 'name' => '住宅'],
+      ['category' => '210', 'name' => '外観・ファサード'],  ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'キッチン・ダイニング'], ['category' => '210', 'name' => 'バスルーム'], ['category' => '210', 'name' => 'トイレ・洗面'], ['category' => '210', 'name' => 'ベッドルーム'], ['category' => '210', 'name' => 'リビング'], ['category' => '210', 'name' => '地下室'], ['category' => '210', 'name' => '玄関'], ['category' => '210', 'name' => 'ガレージ'], ['category' => '210', 'name' => '収納・クローゼット'], ['category' => '210', 'name' => '廊下'], ['category' => '210', 'name' => '階段'], ['category' => '210', 'name' => '子供部屋'], ['category' => '210', 'name' => '和室'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '集合住宅・共同住宅'],
+      ['category' => '210', 'name' => '外観・ファサード'],  ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'キッチン・ダイニング'], ['category' => '210', 'name' => 'バスルーム'], ['category' => '210', 'name' => 'トイレ・洗面'], ['category' => '210', 'name' => 'ベッドルーム'], ['category' => '210', 'name' => 'リビング'], ['category' => '210', 'name' => '地下室'], ['category' => '210', 'name' => '玄関'], ['category' => '210', 'name' => 'ガレージ'], ['category' => '210', 'name' => '収納・クローゼット'], ['category' => '210', 'name' => '廊下'], ['category' => '210', 'name' => '階段'], ['category' => '210', 'name' => '子供部屋'], ['category' => '210', 'name' => '和室'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '住宅リノベーション'],
+      ['category' => '210', 'name' => '外観・ファサード'],  ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'キッチン・ダイニング'], ['category' => '210', 'name' => 'バスルーム'], ['category' => '210', 'name' => 'トイレ・洗面'], ['category' => '210', 'name' => 'ベッドルーム'], ['category' => '210', 'name' => 'リビング'], ['category' => '210', 'name' => '地下室'], ['category' => '210', 'name' => '玄関'], ['category' => '210', 'name' => 'ガレージ'], ['category' => '210', 'name' => '収納・クローゼット'], ['category' => '210', 'name' => '廊下'], ['category' => '210', 'name' => '階段'], ['category' => '210', 'name' => '子供部屋'], ['category' => '210', 'name' => '和室'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '住宅その他'],
+      ['category' => '210', 'name' => '外観・ファサード'],  ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'キッチン・ダイニング'], ['category' => '210', 'name' => 'バスルーム'], ['category' => '210', 'name' => 'トイレ・洗面'], ['category' => '210', 'name' => 'ベッドルーム'], ['category' => '210', 'name' => 'リビング'], ['category' => '210', 'name' => '地下室'], ['category' => '210', 'name' => '玄関'], ['category' => '210', 'name' => 'ガレージ'], ['category' => '210', 'name' => '収納・クローゼット'], ['category' => '210', 'name' => '廊下'], ['category' => '210', 'name' => '階段'], ['category' => '210', 'name' => '子供部屋'], ['category' => '210', 'name' => '和室'], ['category' => '210', 'name' => 'その他'],
 
-        foreach($tags as $tag){
-          DB::table('tags')->insert([
-            
-                'categoly_id' => $tag['categoly'],
-                'name' => $tag['name'],      
-            
-          ]);
-        }
+      ['category' => '110', 'name' => 'オフィス'],
+      ['category' => '110', 'name' => 'オフィスビル'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '220', 'name' => 'オフィスエリア'], ['category' => '220', 'name' => 'ミーティング'], ['category' => '220', 'name' => 'ラウンジ'], ['category' => '220', 'name' => '休憩・食堂'], ['category' => '220', 'name' => '受付'], ['category' => '220', 'name' => 'バックヤード'], ['category' => '220', 'name' => 'レクチャースペース'], ['category' => '220', 'name' => 'レクリエーション'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'オフィスインテリア'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '220', 'name' => 'オフィスエリア'], ['category' => '220', 'name' => 'ミーティング'], ['category' => '220', 'name' => 'ラウンジ'], ['category' => '220', 'name' => '休憩・食堂'], ['category' => '220', 'name' => '受付'], ['category' => '220', 'name' => 'バックヤード'], ['category' => '220', 'name' => 'レクチャースペース'], ['category' => '220', 'name' => 'レクリエーション'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'オフィスリノベ'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '220', 'name' => 'オフィスエリア'], ['category' => '220', 'name' => 'ミーティング'], ['category' => '220', 'name' => 'ラウンジ'], ['category' => '220', 'name' => '休憩・食堂'], ['category' => '220', 'name' => '受付'], ['category' => '220', 'name' => 'バックヤード'], ['category' => '220', 'name' => 'レクチャースペース'], ['category' => '220', 'name' => 'レクリエーション'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'オフィスその他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '220', 'name' => 'オフィスエリア'], ['category' => '220', 'name' => 'ミーティング'], ['category' => '220', 'name' => 'ラウンジ'], ['category' => '220', 'name' => '休憩・食堂'], ['category' => '220', 'name' => '受付'], ['category' => '220', 'name' => 'バックヤード'], ['category' => '220', 'name' => 'レクチャースペース'], ['category' => '220', 'name' => 'レクリエーション'], ['category' => '210', 'name' => 'その他'],
+
+      ['category' => '110', 'name' => '商業'],
+      ['category' => '110', 'name' => '店舗'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '飲食店'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'ギャラリー'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'ポップアップ'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'ショッピングセンター'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'スーパーマーケット'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '銀行'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '商業リノベーション'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '商業その他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+
+      ['category' => '110', 'name' => 'レクリエーション'],
+      ['category' => '110', 'name' => '遊園地'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'バー/ナイトクラブ'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'ホテル'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'インフォメーションセンター'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '映画館'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'スポーツセンター'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'スタジアム'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '動物園/水族館'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'スパ'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'レクリエーションその他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+
+      ['category' => '110', 'name' => '文化'],
+      ['category' => '110', 'name' => '文化施設'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '美術館'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '展示施設'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'ホール/劇場'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '図書館'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '博物館'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '展望台'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'パビリオン'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '文化その他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+
+      ['category' => '110', 'name' => '教育'],
+      ['category' => '110', 'name' => '小・中学校'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '高校'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '大学'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '保育園'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'オーディトリアム'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '教育その他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+
+      ['category' => '110', 'name' => '行政・地域'],
+      ['category' => '110', 'name' => '市役所'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'コミュニティーセンター'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '領事館/大使館'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '裁判所/郵便局'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '消防署/警察署'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '行政・地域その他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+
+      ['category' => '110', 'name' => '医療・健康'],
+      ['category' => '110', 'name' => '病院'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '医療施設'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '老人・介護施設'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '医療・健康その他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+
+      ['category' => '110', 'name' => '産業'],
+      ['category' => '110', 'name' => '工場'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '農場'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '研究所'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '発電所'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '研究施設'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '倉庫'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '港湾施設'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'ワイナリー'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '産業その他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+
+      ['category' => '110', 'name' => '宗教'],
+      ['category' => '110', 'name' => '教会'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '寺院'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '火葬場'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '結婚式場'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '墓地'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '宗教その他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+
+      ['category' => '110', 'name' => 'インフラ'],
+      ['category' => '110', 'name' => '空港'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '駅'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '橋'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '港'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'インフラその他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+
+      ['category' => '110', 'name' => 'ランドスケープ・その他'],
+      ['category' => '110', 'name' => '公園'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '広場'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '庭園'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => '都市緑地'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'ランドスケープその他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'モニュメント'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'マスタープラン'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+      ['category' => '110', 'name' => 'その他'],
+      ['category' => '210', 'name' => '外観・ファサード'], ['category' => '210', 'name' => 'エクステリア'], ['category' => '210', 'name' => 'インテリア'], ['category' => '210', 'name' => 'その他'],
+
+
+      ['category' => '410', 'name' => '内壁・天井'],
+      ['category' => '410', 'name' => 'タイル'],
+      ['category' => '410', 'name' => 'セラミックタイル'], ['category' => '410', 'name' => '磁器タイル'], ['category' => '410', 'name' => 'テラコッタタイル'], ['category' => '410', 'name' => '石タイル'], ['category' => '410', 'name' => 'モザイクタイル'], ['category' => '410', 'name' => 'タイル付属品'], ['category' => '410', 'name' => 'タイルその他'],
+      ['category' => '410', 'name' => '壁装材'],
+      ['category' => '410', 'name' => '化粧パネル'], ['category' => '410', 'name' => 'ウッドパネル'], ['category' => '410', 'name' => '壁紙'], ['category' => '410', 'name' => '吸音板'], ['category' => '410', 'name' => '金属パネル'], ['category' => '410', 'name' => 'グリーンウォール'], ['category' => '410', 'name' => '壁装材その他'],
+      ['category' => '410', 'name' => '天井'],
+      ['category' => '410', 'name' => '壁紙天井'], ['category' => '410', 'name' => '吸音天井'], ['category' => '410', 'name' => '木天井'], ['category' => '410', 'name' => '装飾天井'], ['category' => '410', 'name' => 'ルーバー天井'], ['category' => '410', 'name' => '天井その他'],
+      ['category' => '410', 'name' => '塗料/石膏ボード'],
+      ['category' => '410', 'name' => '塗料'], ['category' => '410', 'name' => '石膏ボード'], ['category' => '410', 'name' => '塗料その他'],
+      ['category' => '410', 'name' => 'パーティション'], ['category' => '410', 'name' => 'ガラスパーティション'], ['category' => '410', 'name' => 'パーティションその他'], ['category' => '410', 'name' => 'システム壁・天井'],
+      ['category' => '410', 'name' => '壁下地'], ['category' => '410', 'name' => '天井下地'], ['category' => '410', 'name' => 'システム壁'], ['category' => '410', 'name' => 'システム天井'], ['category' => '410', 'name' => 'システム壁・天井その他'],
+      ['category' => '410', 'name' => '断熱材・被覆材'],
+      ['category' => '410', 'name' => '断熱材'], ['category' => '410', 'name' => '被覆材'],
+      ['category' => '410', 'name' => 'サイン/サイネージ'],
+      ['category' => '410', 'name' => '内壁・天井その他'],
+
+
+      ['category' => '420', 'name' => '床'],
+      ['category' => '420', 'name' => 'ウッドフローリング'],
+      ['category' => '420', 'name' => '無垢フローリング'], ['category' => '420', 'name' => '複合フローリング'], ['category' => '420', 'name' => 'エンジニアドウッドフローリング'], ['category' => '420', 'name' => 'ウッドラミネートフローリング'], ['category' => '420', 'name' => 'その他ウッドフローリング'],
+      ['category' => '420', 'name' => 'タイル床'],
+      ['category' => '420', 'name' => 'セラミック床タイル'], ['category' => '420', 'name' => '磁器石器床タイル'], ['category' => '420', 'name' => 'テラコッタ床タイル'], ['category' => '420', 'name' => '石床タイル'], ['category' => '420', 'name' => 'コンクリート床タイル'], ['category' => '420', 'name' => 'モザイク床タイル'], ['category' => '420', 'name' => 'キッチン床タイル'], ['category' => '420', 'name' => '浴室床タイル'], ['category' => '420', 'name' => 'プール床タイル'], ['category' => '420', 'name' => 'その他タイル床'],
+      ['category' => '420', 'name' => '床仕上材'],
+      ['category' => '420', 'name' => 'ビニル床'], ['category' => '420', 'name' => '置式ビニル床'], ['category' => '420', 'name' => 'ビニル床シート'], ['category' => '420', 'name' => 'リノリウム床'], ['category' => '420', 'name' => '樹脂・塗床'], ['category' => '420', 'name' => 'コンクリート・モルタル床'], ['category' => '420', 'name' => 'コルクフローリング'], ['category' => '420', 'name' => 'ラバーフローリング'], ['category' => '420', 'name' => '人工芝'], ['category' => '420', 'name' => 'その他床仕上材'],
+      ['category' => '420', 'name' => 'カーペット'],
+      ['category' => '420', 'name' => 'タイルカーペット'], ['category' => '420', 'name' => 'フロアカーペット'], ['category' => '420', 'name' => '玄関マット'],
+      ['category' => '420', 'name' => '舗装'],
+      ['category' => '420', 'name' => 'ウッド舗装'], ['category' => '420', 'name' => 'セラミック舗装'], ['category' => '420', 'name' => 'テラコッタ舗装'], ['category' => '420', 'name' => 'ストーン舗装'], ['category' => '420', 'name' => 'コンクリート舗装機'], ['category' => '420', 'name' => 'その他舗装'],
+      ['category' => '420', 'name' => '巾木'],
+      ['category' => '420', 'name' => '巾木'], ['category' => '420', 'name' => '廻縁'],
+      ['category' => '420', 'name' => '鋼製床・フロアシステム'], ['category' => '420', 'name' => '鋼製床'], ['category' => '420', 'name' => 'システムフロア'], ['category' => '420', 'name' => 'その他フロアシステム'],
+      ['category' => '420', 'name' => '床その他'],
+
+
+      ['category' => '430', 'name' => '階段・昇降設備'],
+      ['category' => '430', 'name' => '階段'],
+      ['category' => '430', 'name' => '直線階段'], ['category' => '430', 'name' => '螺旋階段'], ['category' => '430', 'name' => '屋内階段'], ['category' => '430', 'name' => '屋外階段'], ['category' => '430', 'name' => '非常階段'], ['category' => '430', 'name' => 'その他階段'], ['category' => '430', 'name' => '手すり'], ['category' => '430', 'name' => '階段付属品'],
+      ['category' => '430', 'name' => 'エレベーター/エスカレーター'], ['category' => '430', 'name' => 'エレベーター'], ['category' => '430', 'name' => 'ホームエレベーター'], ['category' => '430', 'name' => 'カーエレベーター'], ['category' => '430', 'name' => '動く歩道'], ['category' => '430', 'name' => 'エスカレーター'],
+      ['category' => '430', 'name' => '階段・昇降設備その他'],
+
+
+      ['category' => '440', 'name' => 'キッチン・サニタリー'],
+      ['category' => '440', 'name' => 'キッチン'],
+      ['category' => '440', 'name' => 'キッチン・シンク'], ['category' => '440', 'name' => 'システムキッチン'], ['category' => '440', 'name' => 'キッチン水栓'], ['category' => '440', 'name' => 'IHシステム'], ['category' => '440', 'name' => 'キッチン付属品'],
+      ['category' => '440', 'name' => 'サニタリー'],
+      ['category' => '440', 'name' => 'バスタブ'], ['category' => '440', 'name' => 'シャワー'], ['category' => '440', 'name' => 'トイレ'], ['category' => '440', 'name' => '洗面台'], ['category' => '440', 'name' => '洗面水栓'], ['category' => '440', 'name' => '浴室棚・キャビネット'], ['category' => '440', 'name' => '浴室付属品'], ['category' => '440', 'name' => 'バリアフリーバスルーム'], ['category' => '440', 'name' => 'ユニットシャワー'], ['category' => '440', 'name' => 'ユニットバス'],
+      ['category' => '440', 'name' => 'キッチン・サニタリーその他'],
+
+
+      ['category' => '450', 'name' => 'ファサード'],
+      ['category' => '450', 'name' => '外装仕上げ'],
+      ['category' => '450', 'name' => '金属'], ['category' => '450', 'name' => 'セラミック'], ['category' => '450', 'name' => 'コンクリート'], ['category' => '450', 'name' => 'プレキャストコンクリート'], ['category' => '450', 'name' => '石'], ['category' => '450', 'name' => '複合材料'], ['category' => '450', 'name' => 'サイディング'], ['category' => '450', 'name' => 'メタルメッシュ'], ['category' => '450', 'name' => '木'], ['category' => '450', 'name' => 'レンガ'],
+      ['category' => '450', 'name' => 'ファサードシステム'],
+      ['category' => '450', 'name' => 'カーテンウォール'], ['category' => '450', 'name' => 'コンクリートファサード'], ['category' => '450', 'name' => '連続ファサードシステム'], ['category' => '450', 'name' => 'ルーバー/日除け'], ['category' => '450', 'name' => 'グリーンファサード'], ['category' => '450', 'name' => 'ファサード支持構造'],
+      ['category' => '450', 'name' => 'ファサードその他'],
+
+
+      ['category' => '460', 'name' => '窓とドア'],
+      ['category' => '460', 'name' => 'サッシ'],
+      ['category' => '460', 'name' => 'アルミサッシ'], ['category' => '460', 'name' => '木製サッシ'], ['category' => '460', 'name' => '複合サッシ'], ['category' => '460', 'name' => 'サッシその他'],
+      ['category' => '460', 'name' => 'ウィンドウシステム'],
+      ['category' => '460', 'name' => 'フレーム'], ['category' => '460', 'name' => '窓台'], ['category' => '460', 'name' => '窓付属品'],
+      ['category' => '460', 'name' => 'トップライト'],
+      ['category' => '460', 'name' => 'ドア'],
+      ['category' => '460', 'name' => '室内ドア'], ['category' => '460', 'name' => '屋外ドア'], ['category' => '460', 'name' => 'レバーハンドル'], ['category' => '460', 'name' => 'ドアロック'], ['category' => '460', 'name' => 'レターボックス'], ['category' => '460', 'name' => 'ドア付属品'],
+      ['category' => '460', 'name' => 'ガラス'], ['category' => '460', 'name' => 'ペアガラス'], ['category' => '460', 'name' => '強化ガラス'], ['category' => '460', 'name' => '網入りガラス'], ['category' => '460', 'name' => '耐熱ガラス'], ['category' => '460', 'name' => '合わせガラス'], ['category' => '460', 'name' => 'ガラスブロック'], ['category' => '460', 'name' => 'ガラス付属品'], ['category' => '460', 'name' => 'ガラスその他'],
+      ['category' => '460', 'name' => 'ブラインド・日除け・フィルム'],
+      ['category' => '460', 'name' => 'ブラインド'], ['category' => '460', 'name' => 'カーテン'], ['category' => '460', 'name' => 'ロールスクリーン'], ['category' => '460', 'name' => 'カーテンレール'], ['category' => '460', 'name' => 'カーテン付属品'], ['category' => '460', 'name' => 'シェード'], ['category' => '460', 'name' => 'フィルム'], ['category' => '460', 'name' => 'シャッター'],
+      ['category' => '460', 'name' => '窓とドアその他'],
+
+
+      ['category' => '470', 'name' => '屋根'],
+      ['category' => '470', 'name' => '金属葺屋根'],
+      ['category' => '470', 'name' => 'アルミ屋根'], ['category' => '470', 'name' => 'ガルバリウム屋根'], ['category' => '470', 'name' => 'ステンレス屋根'], ['category' => '470', 'name' => 'スチール屋根'], ['category' => '470', 'name' => 'チタン屋根'], ['category' => '470', 'name' => '銅屋根'], ['category' => '470', 'name' => '金属葺屋根その他'],
+      ['category' => '470', 'name' => '葺屋根'],
+      ['category' => '470', 'name' => 'セラミック屋根'], ['category' => '470', 'name' => 'スレート屋根'], ['category' => '470', 'name' => 'コンクリート屋根'], ['category' => '470', 'name' => '瓦屋根'], ['category' => '470', 'name' => '葺屋根その他'],
+      ['category' => '470', 'name' => 'ルーフシステム'],
+      ['category' => '470', 'name' => '屋上緑化'], ['category' => '470', 'name' => 'ソーラーパネル'],
+      ['category' => '470', 'name' => '屋根構造'],
+      ['category' => '470', 'name' => '金属トラス'], ['category' => '470', 'name' => '木材トラス'], ['category' => '470', 'name' => 'プレハブ'],
+      ['category' => '470', 'name' => '防水'],
+      ['category' => '470', 'name' => '塗膜防水'], ['category' => '470', 'name' => 'シート防水'], ['category' => '470', 'name' => 'アスファルト防水'], ['category' => '470', 'name' => 'FRP防水'], ['category' => '470', 'name' => '防水その他'],
+      ['category' => '470', 'name' => '屋根要素'],
+      ['category' => '470', 'name' => '水切・笠木'], ['category' => '470', 'name' => '煙突'], ['category' => '470', 'name' => '雨樋'], ['category' => '470', 'name' => '屋根要素その他'],
+      ['category' => '470', 'name' => '庇'],
+      ['category' => '470', 'name' => 'アルミ庇'], ['category' => '470', 'name' => 'ステンレス庇'], ['category' => '470', 'name' => 'スチール庇'], ['category' => '470', 'name' => 'ガラス庇'], ['category' => '470', 'name' => '庇その他'],
+      ['category' => '470', 'name' => 'その他屋根'],
+
+
+      ['category' => '480', 'name' => '構造'],
+      ['category' => '480', 'name' => '鉄骨構造'], ['category' => '480', 'name' => '木造'], ['category' => '480', 'name' => 'コンクリート造'], ['category' => '480', 'name' => 'トラス構造'], ['category' => '480', 'name' => '梁・柱'], ['category' => '480', 'name' => 'ブレース'], ['category' => '480', 'name' => '組積造'], ['category' => '480', 'name' => '基礎'], ['category' => '480', 'name' => '免震'], ['category' => '480', 'name' => '構造その他'],
+
+
+      ['category' => '490', 'name' => '機械設備'],
+      ['category' => '490', 'name' => '空調ユニット'], ['category' => '490', 'name' => 'エアコン'], ['category' => '490', 'name' => '吹出口'], ['category' => '490', 'name' => '給水・給湯ユニット'], ['category' => '490', 'name' => '再生可能エネルギーシステム'], ['category' => '490', 'name' => 'モニタリングシステム'], ['category' => '490', 'name' => '防火・安全'], ['category' => '490', 'name' => '消音器'], ['category' => '490', 'name' => '機械設備その他'],
+
+
+      ['category' => '500', 'name' => '電気設備'],
+      ['category' => '500', 'name' => 'スイッチ'], ['category' => '500', 'name' => 'コンセント'], ['category' => '500', 'name' => 'ケーブルラック'], ['category' => '500', 'name' => '火災報知器・非常照明'], ['category' => '500', 'name' => 'スピーカー'], ['category' => '500', 'name' => '防犯カメラ'], ['category' => '500', 'name' => 'スクリーン'], ['category' => '500', 'name' => 'プロジェクター'], ['category' => '500', 'name' => 'スマートホーム'], ['category' => '500', 'name' => 'セキュリティ'], ['category' => '500', 'name' => 'AVシステム'], ['category' => '500', 'name' => 'ソフトウェア'], ['category' => '500', 'name' => '電気設備その他'],
+
+      ['category' => '510', 'name' => '照明'],
+      ['category' => '510', 'name' => 'インテリア照明'],
+      ['category' => '510', 'name' => 'シーリングライト'], ['category' => '510', 'name' => 'スポットライト'], ['category' => '510', 'name' => 'ペンダント'], ['category' => '510', 'name' => 'テーブルライト'], ['category' => '510', 'name' => 'フロアライト'], ['category' => '510', 'name' => 'ライン照明'], ['category' => '510', 'name' => 'レール照明システム'], ['category' => '510', 'name' => 'ネオン'], ['category' => '510', 'name' => 'インテリア照明付属品'], ['category' => '510', 'name' => 'インテリア照明その他'],
+      ['category' => '510', 'name' => '屋外照明'],
+      ['category' => '510', 'name' => '屋外ペンダントライト'], ['category' => '510', 'name' => '屋外スポットライト'], ['category' => '510', 'name' => '屋外シーリングライト'], ['category' => '510', 'name' => '屋外フロアライト'], ['category' => '510', 'name' => 'ファサードライト'], ['category' => '510', 'name' => '地下ライト'], ['category' => '510', 'name' => 'ボラードライト'], ['category' => '510', 'name' => '街路灯'], ['category' => '510', 'name' => 'ガーデンライト'], ['category' => '510', 'name' => 'アウトドアステップライト'], ['category' => '510', 'name' => '投光器'], ['category' => '510', 'name' => 'その他屋外照明'],
+      ['category' => '510', 'name' => '照明その他'],
+
+
+      ['category' => '520', 'name' => '家具'],
+      ['category' => '520', 'name' => '椅子'],
+      ['category' => '520', 'name' => 'アームチェア'], ['category' => '520', 'name' => 'フットレスト付きアームチェア'], ['category' => '520', 'name' => '折りたたみ椅子'], ['category' => '520', 'name' => 'スタッキングチェアー'], ['category' => '520', 'name' => 'ダイニングチェア'], ['category' => '520', 'name' => 'ロッキングチェア'], ['category' => '520', 'name' => 'バーチェア'], ['category' => '520', 'name' => 'チェアその他'],
+      ['category' => '520', 'name' => 'ソファ'],
+      ['category' => '520', 'name' => 'ストレートソファ'], ['category' => '520', 'name' => 'コーナーソファ'], ['category' => '520', 'name' => 'ユニットソファ'], ['category' => '520', 'name' => 'ソファベッド'], ['category' => '520', 'name' => '屋内デイベッド'], ['category' => '520', 'name' => 'ソファその他'], ['category' => '520', 'name' => 'ベンチ'], ['category' => '520', 'name' => 'ベンチその他'],
+      ['category' => '520', 'name' => 'テーブル'],
+      ['category' => '520', 'name' => 'カフェテーブル'], ['category' => '520', 'name' => 'ダイニングテーブル'], ['category' => '520', 'name' => 'バーテーブル'], ['category' => '520', 'name' => 'サイドテーブル'], ['category' => '520', 'name' => 'ネストテーブル'], ['category' => '520', 'name' => 'サイドボードテーブル'], ['category' => '520', 'name' => '住宅デスク'], ['category' => '520', 'name' => 'デスク'], ['category' => '520', 'name' => 'ドレッシングテーブル'], ['category' => '520', 'name' => 'テーブルその他'],
+      ['category' => '520', 'name' => 'ベッド'],
+      ['category' => '520', 'name' => 'シングルベッド'], ['category' => '520', 'name' => 'ダブルベッド'], ['category' => '520', 'name' => 'キングベッド'], ['category' => '520', 'name' => '二段ベッド'], ['category' => '520', 'name' => 'ヘッドボード'], ['category' => '520', 'name' => 'ベッド付属品'], ['category' => '520', 'name' => 'ベッドその他'],
+      ['category' => '520', 'name' => '収納・棚'], ['category' => '520', 'name' => '棚'], ['category' => '520', 'name' => 'TV /マルチメディアユニット'], ['category' => '520', 'name' => 'ワードローブ'], ['category' => '520', 'name' => '食器棚'], ['category' => '520', 'name' => '書棚'], ['category' => '520', 'name' => 'ラック'], ['category' => '520', 'name' => '陳列棚'], ['category' => '520', 'name' => 'ワードローブキャビネット'], ['category' => '520', 'name' => '靴ラック'], ['category' => '520', 'name' => '収納ボックス'], ['category' => '520', 'name' => '家具ハンドル・ノブ'], ['category' => '520', 'name' => '家具丁番'], ['category' => '520', 'name' => '収納・棚その他'],
+      ['category' => '520', 'name' => 'テキスタイル'],
+      ['category' => '520', 'name' => '壁テキスタイル'], ['category' => '520', 'name' => '室内装飾テキスタイル'], ['category' => '520', 'name' => 'テキスタイルその他'],
+      ['category' => '520', 'name' => '子供家具'],
+      ['category' => '520', 'name' => 'ベビーベッド'], ['category' => '520', 'name' => '子供椅子'], ['category' => '520', 'name' => '子供テーブル'], ['category' => '520', 'name' => '子供壁紙'], ['category' => '520', 'name' => '子供家具その他'],
+      ['category' => '520', 'name' => 'インテリア付属品'],
+      ['category' => '520', 'name' => '鏡'], ['category' => '520', 'name' => 'フリースタンディングミラー'], ['category' => '520', 'name' => 'テーブルミラー'], ['category' => '520', 'name' => 'ラグ'], ['category' => '520', 'name' => 'クッション'], ['category' => '520', 'name' => '壁掛けコートラック'], ['category' => '520', 'name' => 'コートフック'], ['category' => '520', 'name' => '時計'], ['category' => '520', 'name' => '絵画'], ['category' => '520', 'name' => '彫刻'], ['category' => '520', 'name' => '花瓶'], ['category' => '520', 'name' => 'インテリア付属品その他'],
+      ['category' => '520', 'name' => '家具その他'],
+
+
+      ['category' => '530', 'name' => 'オフィス家具'],
+      ['category' => '530', 'name' => 'オフィス'],
+      ['category' => '530', 'name' => 'オフィスデスク'], ['category' => '530', 'name' => 'オフィスワークステーション'], ['category' => '530', 'name' => 'オフィスチェア'], ['category' => '530', 'name' => 'エグゼクティブチェア'], ['category' => '530', 'name' => 'オフィススツール'], ['category' => '530', 'name' => 'その他オフィスチェア'], ['category' => '530', 'name' => 'オフィスブース'], ['category' => '530', 'name' => 'オフィスパーティション'], ['category' => '530', 'name' => 'ファイリングキャビネット'], ['category' => '530', 'name' => '書架'], ['category' => '530', 'name' => 'ミーティングテーブル'], ['category' => '530', 'name' => 'オフィスレセプションデスク'], ['category' => '530', 'name' => 'オフィス収納棚'], ['category' => '530', 'name' => 'オフィス引出ユニット'], ['category' => '530', 'name' => 'オフィス付属品'],
+      ['category' => '530', 'name' => 'パブリック'],
+      ['category' => '530', 'name' => 'ラウンジチェア'], ['category' => '530', 'name' => 'パブリックベンチ'], ['category' => '530', 'name' => '待合室ソファ'], ['category' => '530', 'name' => '待合椅子'], ['category' => '530', 'name' => 'ラウンジテーブル'], ['category' => '530', 'name' => 'パブリックデスク'], ['category' => '530', 'name' => 'レセプションデスク'], ['category' => '530', 'name' => 'ホール椅子'], ['category' => '530', 'name' => '教室椅子'], ['category' => '530', 'name' => 'ボール'], ['category' => '530', 'name' => 'セキュリティゲート'], ['category' => '530', 'name' => 'ロッカー'], ['category' => '530', 'name' => '金庫'], ['category' => '530', 'name' => 'ディスプレイケース'],
+      ['category' => '530', 'name' => 'ホスピタリティー'],
+      ['category' => '530', 'name' => 'レストラン椅子'], ['category' => '530', 'name' => 'レストランテーブル'], ['category' => '530', 'name' => 'バーカウンター'], ['category' => '530', 'name' => 'ハイスツール'], ['category' => '530', 'name' => 'レストランブース'], ['category' => '530', 'name' => 'ハイテーブル'], ['category' => '530', 'name' => 'ホテルベッド'], ['category' => '530', 'name' => 'ホテルソファ'], ['category' => '530', 'name' => 'ホテルデスク'], ['category' => '530', 'name' => 'ホテルベッドサイドテーブル'], ['category' => '530', 'name' => 'ホテルワードローブ'], ['category' => '530', 'name' => 'ユニットキッチン'], ['category' => '530', 'name' => 'ホテル家具付属品'],
+      ['category' => '530', 'name' => 'オフィス家具その他'],
+
+
+      ['category' => '540', 'name' => '屋外'],
+      ['category' => '540', 'name' => '屋外ウッドデッキ'], ['category' => '540', 'name' => '屋外用家具'], ['category' => '540', 'name' => '屋外暖炉・ヒーター'], ['category' => '540', 'name' => 'フェンス'], ['category' => '540', 'name' => '日除け'], ['category' => '540', 'name' => 'ガーデニング付属品'], ['category' => '540', 'name' => 'スイミングプール'], ['category' => '540', 'name' => '屋外シャワー'], ['category' => '540', 'name' => 'ストリートファーニチャー'], ['category' => '540', 'name' => '屋外その他'],
+    ];
+
+    foreach ($tags as $tag) {
+      DB::table('tags')->insert([
+
+        'category_id' => $tag['category'],
+        'name' => $tag['name'],
+
+      ]);
     }
+  }
 }
