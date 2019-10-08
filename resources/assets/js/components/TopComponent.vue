@@ -20,8 +20,14 @@
                         <div class="image">
                             <a :href="'/project-detail?work='+value.id">
                                 <img
+                                    v-if="value.project_images[0].image.indexOf('http') == -1"
                                     class="img img-thumbnail"
                                     :src="'/storage/'+value.project_images[0].image"
+                                />
+                                <img
+                                    v-if="value.project_images[0].image.indexOf('http') != -1"
+                                    class="img img-thumbnail"
+                                    :src="value.project_images[0].image"
                                 />
                             </a>
                         </div>
