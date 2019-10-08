@@ -22,8 +22,14 @@
                                 <div class="image">
                                     <a :href="'/product-detail?work='+value.id">
                                         <img
+                                            v-if="value.product_images[0].image.indexOf('http') == -1"
                                             class="img img-thumbnail"
-                                            v-bind:src="'/storage/'+value.product_images[0].image"
+                                            :src="'/storage/'+value.product_images[0].image"
+                                        />
+                                        <img
+                                            v-if="value.product_images[0].image.indexOf('http') != -1"
+                                            class="img img-thumbnail"
+                                            :src="value.product_images[0].image"
                                         />
                                     </a>
                                 </div>

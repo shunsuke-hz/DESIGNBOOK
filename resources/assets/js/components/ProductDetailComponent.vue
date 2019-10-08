@@ -4,14 +4,32 @@
             <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="thumbneil">
                     <img
+                        v-if="items[num].image.indexOf('http') == -1"
                         class="card-img-left flex-auto d-none d-md-block"
                         :src="'/storage/'+items[num].image"
+                    />
+                    <img
+                        v-if="items[num].image.indexOf('http') 
+                    != -1"
+                        class="card-img-left flex-auto d-none d-md-block"
+                        :src="items[num].image"
                     />
 
                     <br />
                     <div class="d-flex">
                         <span class="images" v-for="(item,key) in items" :key="key">
-                            <img @click="changeImage" :src="'/storage/'+item.image" :value="key" />
+                            <img
+                                v-if="item.image.indexOf('http') == -1"
+                                @click="changeImage"
+                                :src="'/storage/'+item.image"
+                                :value="key"
+                            />
+                            <img
+                                v-if="item.image.indexOf('http') != -1"
+                                @click="changeImage"
+                                :src="item.image"
+                                :value="key"
+                            />
                         </span>
                     </div>
                 </div>
