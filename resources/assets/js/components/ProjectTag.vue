@@ -5,6 +5,7 @@
 <script>
 export default {
     name: "product-tag",
+
     data: function() {
         return {
             tags: [
@@ -2146,11 +2147,6 @@ export default {
                 }
             ]
         };
-    },
-    methods: {
-        resetChecked() {
-            this.$refs.tree.setCheckedKeys([]);
-        }
     }
 };
 </script>
