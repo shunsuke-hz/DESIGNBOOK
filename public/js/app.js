@@ -3401,251 +3401,240 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "create-post",
-    props: ["posts"],
-    components: {
-        EditableCell: __WEBPACK_IMPORTED_MODULE_2__EditableCell_vue___default.a
+  name: "create-post",
+  props: ["posts"],
+  components: {
+    EditableCell: __WEBPACK_IMPORTED_MODULE_2__EditableCell_vue___default.a
+  },
+  data: function data() {
+    return {
+      dialogImageUrl: "",
+      dialogVisible: false,
+      imageList: [],
+      status_msg: "",
+      status: "",
+      isCreatingPost: false,
+      title: "",
+      body: "",
+      records: [],
+
+      image_tags: [],
+      activeName: "first",
+
+      tags: [{
+        id: 1,
+        tag_id: 1,
+        label: "住宅",
+        children: [{
+          id: 3,
+          tag_id: [1, 3],
+          label: "寝室",
+          children: [{
+            id: 5,
+            tag_id: [1, 3, 5],
+            label: "ベッド"
+          }, {
+            id: 6,
+            tag_id: [1, 3, 6],
+            label: "床材"
+          }]
+        }, {
+          id: 4,
+          tag_id: [1, 4],
+          label: "リビング",
+          children: [{
+            id: 7,
+            tag_id: [1, 4, 7],
+            label: "テーブル"
+          }, {
+            id: 8,
+            tag_id: [1, 4, 8],
+            label: "床材"
+          }]
+        }]
+      }, {
+        id: 2,
+        tag_id: 2,
+        label: "住宅リノベーション",
+        children: [{
+          id: 5,
+          tag_id: [2, 5],
+          label: "天井"
+        }]
+      }],
+      table: [{
+        date: "2016-05-03",
+        name: "Tom",
+        address: "No. 189, Grove St, Los Angeles"
+      }, {
+        date: "2016-05-02",
+        name: "Tom",
+        address: "No. 189, Grove St, Los Angeles"
+      }, {
+        date: "2016-05-04",
+        name: "Tom",
+        address: "No. 189, Grove St, Los Angeles"
+      }, {
+        date: "2016-05-01",
+        name: "Tom",
+        address: "No. 189, Grove St, Los Angeles"
+      }],
+      dialogFormVisible: false,
+      form: {
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: ""
+      },
+      formLabelWidth: "120px",
+      editModeEnabled: true,
+      productData: [],
+      testdata: [[{ test: "a", test2: "b" }, { test: "2", test2: "3" }], [{ test: "c", test2: "d" }, { test: "4", test2: "5" }]],
+      gridData: [{
+        title: null,
+        brand: null,
+        model_number: null
+      }, {
+        title: "",
+        brand: "",
+        model_number: ""
+      }, {
+        title: "",
+        brand: "",
+        model_number: ""
+      }, {
+        title: "",
+        brand: "",
+        model_number: ""
+      }]
+    };
+  },
+
+
+  //   computed: {
+  //     ...mapActions(['getAllPosts']),
+  //   },
+
+  mounted: function mounted() {},
+
+  methods: {
+    updateImageList: function updateImageList(file) {
+      // this.imageList.push(file.raw);
+      // this.dialogImageUrl = file.url;
+      this.imageList.push(file);
+      this.dialogVisible = true;
     },
-    data: function data() {
-        return {
-            dialogImageUrl: "",
-            dialogVisible: false,
-            imageList: [],
-            status_msg: "",
-            status: "",
-            isCreatingPost: false,
-            title: "",
-            body: "",
-            records: [],
-
-            image_tags: [],
-            activeName: "first",
-
-            tags: [{
-                id: 1,
-                tag_id: 1,
-                label: "住宅",
-                children: [{
-                    id: 3,
-                    tag_id: [1, 3],
-                    label: "寝室",
-                    children: [{
-                        id: 5,
-                        tag_id: [1, 3, 5],
-                        label: "ベッド"
-                    }, {
-                        id: 6,
-                        tag_id: [1, 3, 6],
-                        label: "床材"
-                    }]
-                }, {
-                    id: 4,
-                    tag_id: [1, 4],
-                    label: "リビング",
-                    children: [{
-                        id: 7,
-                        tag_id: [1, 4, 7],
-                        label: "テーブル"
-                    }, {
-                        id: 8,
-                        tag_id: [1, 4, 8],
-                        label: "床材"
-                    }]
-                }]
-            }, {
-                id: 2,
-                tag_id: 2,
-                label: "住宅リノベーション",
-                children: [{
-                    id: 5,
-                    tag_id: [2, 5],
-                    label: "天井"
-                }]
-            }],
-            table: [{
-                date: "2016-05-03",
-                name: "Tom",
-                address: "No. 189, Grove St, Los Angeles"
-            }, {
-                date: "2016-05-02",
-                name: "Tom",
-                address: "No. 189, Grove St, Los Angeles"
-            }, {
-                date: "2016-05-04",
-                name: "Tom",
-                address: "No. 189, Grove St, Los Angeles"
-            }, {
-                date: "2016-05-01",
-                name: "Tom",
-                address: "No. 189, Grove St, Los Angeles"
-            }],
-            dialogFormVisible: false,
-            form: {
-                name: "",
-                region: "",
-                date1: "",
-                date2: "",
-                delivery: false,
-                type: [],
-                resource: "",
-                desc: ""
-            },
-            formLabelWidth: "120px",
-            editModeEnabled: true,
-            productData: [],
-            gridData: [{
-                title: null,
-                brand: null,
-                model_number: null
-            }, {
-                title: "",
-                brand: "",
-                model_number: ""
-            }, {
-                title: "",
-                brand: "",
-                model_number: ""
-            }, {
-                title: "",
-                brand: "",
-                model_number: ""
-            }]
-        };
+    removeImageList: function removeImageList(file) {
+      var index = this.imageList.indexOf(file);
+      this.imageList.splice(index, 1);
+      // let num = this.imageList.length;
+      this.image_tags.splice(index, 1);
     },
+    handlePictureCardPreview: function handlePictureCardPreview(file) {
+      this.dialogImageUrl = file.url;
+      // this.imageList.push(file);
+      this.dialogVisible = true;
+    },
+    createPost: function createPost(e) {
+      var _this = this;
 
+      e.preventDefault();
+      if (!this.validateForm()) {
+        return false;
+      }
+      this.isCreatingPost = true;
+      var formData = new FormData();
+      formData.append("title", this.title);
+      formData.append("body", this.body);
+      $.each(this.imageList, function (key, image) {
+        formData.append("images[" + key + "]", image.raw);
+      });
+      $.each(this.image_tags, function (key, tag) {
+        formData.append("tags[" + key + "]", tag);
+      });
+      formData.append("productData", JSON.stringify(this.productData));
+      // $.each(this.productData, function(key, productData) {
+      //   formData.append(`productData[${key}]`, JSON.stringify(productData));
+      // });
+      axios.post("/project-post", formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+      }).then(function (res) {
+        _this.title = _this.body = "";
+        _this.status = true;
+        _this.showNotification("Post Successfully Created");
+        _this.isCreatingPost = false;
+        //   this.getAllPosts();
+      });
+    },
+    validateForm: function validateForm() {
+      if (!this.title) {
+        this.status = false;
+        this.showNotification("Post title cannot be empty");
+        return false;
+      }
+      if (!this.body) {
+        this.status = false;
+        this.showNotification("Post body cannot be empty");
+        return false;
+      }
+      return true;
+    },
+    showNotification: function showNotification(message) {
+      var _this2 = this;
 
-    //   computed: {
-    //     ...mapActions(['getAllPosts']),
-    //   },
+      this.status_msg = message;
+      Object(__WEBPACK_IMPORTED_MODULE_0_timers__["setTimeout"])(function () {
+        _this2.status_msg = "";
+      }, 3000);
+    },
+    filterNode: function filterNode(value, data) {
+      if (!value) return true;
+      return data.label.indexOf(value) !== -1;
+    },
+    getCheckedNodes: function getCheckedNodes() {
+      for (var i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
+        this.image_tags.push(this.$refs.tree.getCheckedNodes()[i].tag_id);
+      }
+    },
+    resetChecked: function resetChecked() {
+      this.$refs.tree.setCheckedKeys([]);
+    },
+    tagsConfirm: function tagsConfirm() {
+      this.records = [];
+      for (var i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
+        this.image_tags.push(this.$refs.tree.getCheckedNodes()[i].tag_id);
+      }
+      if (this.gridData[0].title.length !== 0) {
+        for (var n in this.gridData) {
+          var record = this.gridData[n];
 
-    mounted: function mounted() {},
+          if (record.title.length !== 0) {
+            this.records.push(record);
 
-    methods: {
-        updateImageList: function updateImageList(file) {
-            // this.imageList.push(file.raw);
-            // this.dialogImageUrl = file.url;
-            this.imageList.push(file);
-            this.dialogVisible = true;
-        },
-        removeImageList: function removeImageList(file) {
-            var index = this.imageList.indexOf(file);
-            this.imageList.splice(index, 1);
-            // let num = this.imageList.length;
-            this.image_tags.splice(index, 1);
-        },
-        handlePictureCardPreview: function handlePictureCardPreview(file) {
-            this.dialogImageUrl = file.url;
-            // this.imageList.push(file);
-            this.dialogVisible = true;
-        },
-        createPost: function createPost(e) {
-            var _this = this;
-
-            e.preventDefault();
-            if (!this.validateForm()) {
-                return false;
-            }
-            this.isCreatingPost = true;
-            var formData = new FormData();
-            formData.append("title", this.title);
-            formData.append("body", this.body);
-            $.each(this.imageList, function (key, image) {
-                formData.append("images[" + key + "]", image.raw);
-            });
-            $.each(this.image_tags, function (key, tag) {
-                formData.append("tags[" + key + "]", tag);
-            });
-            $.each(this.productData, function (key, productData) {
-                formData.append("productData[" + key + "]", productData);
-            });
-            axios.post("/project-post", formData, {
-                headers: { "Content-Type": "multipart/form-data" }
-            }).then(function (res) {
-                _this.title = _this.body = "";
-                _this.status = true;
-                _this.showNotification("Post Successfully Created");
-                _this.isCreatingPost = false;
-                //   this.getAllPosts();
-            });
-        },
-        validateForm: function validateForm() {
-            if (!this.title) {
-                this.status = false;
-                this.showNotification("Post title cannot be empty");
-                return false;
-            }
-            if (!this.body) {
-                this.status = false;
-                this.showNotification("Post body cannot be empty");
-                return false;
-            }
-            return true;
-        },
-        showNotification: function showNotification(message) {
-            var _this2 = this;
-
-            this.status_msg = message;
-            Object(__WEBPACK_IMPORTED_MODULE_0_timers__["setTimeout"])(function () {
-                _this2.status_msg = "";
-            }, 3000);
-        },
-        filterNode: function filterNode(value, data) {
-            if (!value) return true;
-            return data.label.indexOf(value) !== -1;
-        },
-        getCheckedNodes: function getCheckedNodes() {
-            for (var i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
-                this.image_tags.push(this.$refs.tree.getCheckedNodes()[i].tag_id);
-            }
-        },
-        resetChecked: function resetChecked() {
-            this.$refs.tree.setCheckedKeys([]);
-        },
-        tagsConfirm: function tagsConfirm() {
-            this.records = [];
-            for (var i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
-                this.image_tags.push(this.$refs.tree.getCheckedNodes()[i].tag_id);
-            }
-            if (this.gridData[0].title.length !== 0) {
-                for (var n in this.gridData) {
-                    var record = this.gridData[n];
-
-                    if (record.title.length !== 0) {
-                        this.records.push(record);
-
-                        // this.records = [];
-                    }
-                    // let data = this.gridData[n].filter(v => v);
-                    // this.productData.push(this.data);
-                }
-                this.productData.push(this.records);
-            }
-
-            this.$refs.tree.setCheckedKeys([]);
-            this.dialogVisible = false;
-        },
-        handleClick: function handleClick(tab, event) {
-            // console.log(tab, event);
+            // this.records = [];
+          }
+          // let data = this.gridData[n].filter(v => v);
+          // this.productData.push(this.data);
         }
+        this.productData.push(this.records);
+      }
+
+      this.$refs.tree.setCheckedKeys([]);
+      this.dialogVisible = false;
+    },
+    handleClick: function handleClick(tab, event) {
+      // console.log(tab, event);
     }
+  }
 });
 
 /***/ }),
@@ -5002,90 +4991,78 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            display: false,
-            url: "",
-            id: "",
-            num: "0",
-            project: [],
-            items: [],
-            tab: "0",
-            product_num: "0",
-            toBottom: "#bottom"
-        };
+  data: function data() {
+    return {
+      display: false,
+      url: "",
+      id: "",
+      num: "0",
+      project: [],
+      items: [],
+      tab: "0",
+      product_num: "0",
+      toBottom: "#bottom"
+    };
+  },
+
+  methods: {
+    // ホバーでサムネイル切り替え
+    changeImage: function changeImage(e) {
+      var getValue = e.target.getAttribute("value");
+      this.num = getValue;
     },
 
-    methods: {
-        // ホバーでサムネイル切り替え
-        changeImage: function changeImage(e) {
-            var getValue = e.target.getAttribute("value");
-            this.num = getValue;
-        },
-
-        // タブ切り替え
-        changeTab: function changeTab(n) {
-            this.tab = n;
-        },
-
-        // プロダクト切り替え
-        changeProduct: function changeProduct(e) {
-            var getValue = e.target.getAttribute("value");
-            this.product_num = getValue;
-        }
+    // タブ切り替え
+    changeTab: function changeTab(n) {
+      this.tab = n;
     },
 
-    mounted: function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-            var _this = this;
+    // プロダクト切り替え
+    changeProduct: function changeProduct(e) {
+      var getValue = e.target.getAttribute("value");
+      this.product_num = getValue;
+    }
+  },
 
-            var index;
-            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-                while (1) {
-                    switch (_context.prev = _context.next) {
-                        case 0:
-                            this.url = location.href;
-                            index = this.url.indexOf("=");
+  mounted: function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      var _this = this;
 
-                            this.id = this.url.slice(index + 1);
-                            _context.next = 5;
-                            return axios.get("/api/project-detail/" + this.id).then(function (response) {
-                                return _this.project = response.data;
-                            });
+      var index;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              this.url = location.href;
+              index = this.url.indexOf("=");
 
-                        case 5:
+              this.id = this.url.slice(index + 1);
+              _context.next = 5;
+              return axios.get("/api/project-detail/" + this.id).then(function (response) {
+                return _this.project = response.data;
+              });
 
-                            this.items = this.project.project_images;
-                            this.display = true;
+            case 5:
 
-                        case 7:
-                        case "end":
-                            return _context.stop();
-                    }
-                }
-            }, _callee, this);
-        }));
+              this.items = this.project.project_images;
+              this.display = true;
 
-        function mounted() {
-            return _ref.apply(this, arguments);
+            case 7:
+            case "end":
+              return _context.stop();
+          }
         }
+      }, _callee, this);
+    }));
 
-        return mounted;
-    }()
+    function mounted() {
+      return _ref.apply(this, arguments);
+    }
+
+    return mounted;
+  }()
 });
 
 /***/ }),
@@ -12119,7 +12096,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\n    width: 320px;\n    height: 320px;\n}\n.thumbneil .images img {\n    cursor: pointer;\n    width: 80px;\n    height: 80px;\n}\n.card {\n    border: none;\n}\n.products_info img {\n    width: 250px;\n    height: 250px;\n}\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\r\n  width: 320px;\r\n  height: 320px;\n}\n.thumbneil .images img {\r\n  cursor: pointer;\r\n  width: 80px;\r\n  height: 80px;\n}\n.card {\r\n  border: none;\n}\n.products_info img {\r\n  width: 250px;\r\n  height: 250px;\n}\r\n", ""]);
 
 // exports
 
@@ -12134,7 +12111,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        display: block;\n        overflow-x: hidden;\n        overflow-y: auto;\n}\n}\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
+exports.push([module.i, "\n.sidebar {\r\n    display: none;\r\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n        position: fixed;\r\n        top: 0;\r\n        bottom: 0;\r\n        left: 0;\r\n        display: block;\r\n        overflow-x: hidden;\r\n        overflow-y: auto;\n}\n}\n.card {\r\n    width: 264px;\r\n    height: 264px;\r\n    border: none;\r\n    border-radius: 0;\n}\n.image {\r\n    overflow: hidden;\r\n    width: 264px;\r\n    height: 210px;\n}\n.image img {\r\n    display: block;\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\r\n    height: 100%;\r\n    border: none;\r\n    margin: auto;\n}\n.image img:hover {\r\n    -webkit-transform: scale(1.1);\r\n            transform: scale(1.1);\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n    padding: 0;\r\n    border-radius: 0;\n}\n.card-body {\r\n    width: 264px;\r\n    height: 54px;\r\n    padding: 0.5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -12149,7 +12126,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.cell-content {\n    min-height: 40px;\n    padding-left: 5px;\n    padding-top: 5px;\n    border: 1px solid transparent;\n}\n.edit-enabled-cell {\n    border: 1px dashed #409eff;\n}\n", ""]);
+exports.push([module.i, "\n.cell-content {\r\n    min-height: 40px;\r\n    padding-left: 5px;\r\n    padding-top: 5px;\r\n    border: 1px solid transparent;\n}\n.edit-enabled-cell {\r\n    border: 1px dashed #409eff;\n}\r\n", ""]);
 
 // exports
 
@@ -12164,7 +12141,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.el-upload {\n    border: 1px dashed #d9d9d9;\n    border-radius: 6px;\n    cursor: pointer;\n    position: relative;\n    overflow: hidden;\n}\n.el-upload:hover {\n    border-color: #409eff;\n}\n.edit-cell {\n    min-height: 35px;\n    cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.el-upload {\r\n  border: 1px dashed #d9d9d9;\r\n  border-radius: 6px;\r\n  cursor: pointer;\r\n  position: relative;\r\n  overflow: hidden;\n}\n.el-upload:hover {\r\n  border-color: #409eff;\n}\n.edit-cell {\r\n  min-height: 35px;\r\n  cursor: pointer;\n}\r\n", ""]);
 
 // exports
 
@@ -12179,7 +12156,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.brand-image {\n    width: 50px;\n    height: 50px;\n}\n", ""]);
+exports.push([module.i, "\n.brand-image {\r\n    width: 50px;\r\n    height: 50px;\n}\r\n", ""]);
 
 // exports
 
@@ -12194,7 +12171,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350px;\n}\n.images img {\n    cursor: pointer;\n    width: 100px;\n    height: 100px;\n}\n.card {\n    border: none;\n}\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\r\n    width: 350px;\r\n    height: 350px;\n}\n.images img {\r\n    cursor: pointer;\r\n    width: 100px;\r\n    height: 100px;\n}\n.card {\r\n    border: none;\n}\r\n", ""]);
 
 // exports
 
@@ -12209,7 +12186,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        display: block;\n        overflow-x: hidden;\n        overflow-y: auto;\n}\n}\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n    margin: 1rem;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
+exports.push([module.i, "\n.sidebar {\r\n    display: none;\r\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n        position: fixed;\r\n        top: 0;\r\n        bottom: 0;\r\n        left: 0;\r\n        display: block;\r\n        overflow-x: hidden;\r\n        overflow-y: auto;\n}\n}\n.card {\r\n    width: 264px;\r\n    height: 264px;\r\n    border: none;\r\n    border-radius: 0;\r\n    margin: 1rem;\n}\n.image {\r\n    overflow: hidden;\r\n    width: 264px;\r\n    height: 210px;\n}\n.image img {\r\n    display: block;\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\r\n    height: 100%;\r\n    border: none;\r\n    margin: auto;\n}\n.image img:hover {\r\n    -webkit-transform: scale(1.1);\r\n            transform: scale(1.1);\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n    padding: 0;\r\n    border-radius: 0;\n}\n.card-body {\r\n    width: 264px;\r\n    height: 54px;\r\n    padding: 0.5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -101697,200 +101674,197 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _vm.display
-      ? _c("div", [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card flex-md-row mb-4 box-shadow h-md-250" },
-            [
-              _c("div", { staticClass: "thumbneil" }, [
-                _c("img", {
-                  staticClass: "card-img-left flex-auto d-none d-md-block",
-                  attrs: { src: "/storage/" + _vm.items[_vm.num].image }
-                }),
-                _vm._v(" "),
-                _c("br"),
+      ? _c(
+          "div",
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card flex-md-row mb-4 box-shadow h-md-250" },
+              [
+                _c("div", { staticClass: "thumbneil" }, [
+                  _c("img", {
+                    staticClass: "card-img-left flex-auto d-none d-md-block",
+                    attrs: { src: "/storage/" + _vm.items[_vm.num].image }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "d-flex" },
+                    _vm._l(_vm.items, function(item, key) {
+                      return _c("span", { key: key, staticClass: "images" }, [
+                        _c("img", {
+                          attrs: { src: "/storage/" + item.image, value: key },
+                          on: { click: _vm.changeImage }
+                        })
+                      ])
+                    }),
+                    0
+                  )
+                ]),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "d-flex" },
-                  _vm._l(_vm.items, function(item, key) {
-                    return _c("span", { key: key, staticClass: "images" }, [
-                      _c("img", {
-                        attrs: { src: "/storage/" + item.image, value: key },
-                        on: { click: _vm.changeImage }
-                      })
-                    ])
-                  }),
-                  0
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "card-body d-flex flex-column align-items-start"
-                },
-                [
-                  _c("div", { staticClass: "d-flex" }, [
-                    _c("strong", { staticClass: "text-primary" }, [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v(_vm._s(_vm.project.brands.name))
-                      ])
+                  {
+                    staticClass:
+                      "card-body d-flex flex-column align-items-start"
+                  },
+                  [
+                    _c("div", { staticClass: "d-flex" }, [
+                      _c("strong", { staticClass: "text-primary" }, [
+                        _c("a", { attrs: { href: "" } }, [
+                          _vm._v(_vm._s(_vm.project.brands.name))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "button" }
+                        },
+                        [_vm._v("follow")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "mb-0" }, [
+                      _c(
+                        "a",
+                        { staticClass: "text-dark", attrs: { href: "#" } },
+                        [_vm._v(_vm._s(_vm.project.title))]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mb-1 text-muted" }, [
+                      _vm._v("Nov 12")
                     ]),
                     _vm._v(" "),
                     _c(
-                      "button",
+                      "div",
                       {
-                        staticClass: "btn btn-primary",
-                        attrs: { type: "button" }
+                        staticClass: "tab-content mx-auto",
+                        staticStyle: { width: "80%" }
                       },
-                      [_vm._v("follow")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("h3", { staticClass: "mb-0" }, [
-                    _c(
-                      "a",
-                      { staticClass: "text-dark", attrs: { href: "#" } },
-                      [_vm._v(_vm._s(_vm.project.title))]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "mb-1 text-muted" }, [
-                    _vm._v("Nov 12")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tab-content mx-auto",
-                      staticStyle: { width: "80%" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "tab-pane active fade show",
-                          attrs: { id: "product" }
-                        },
-                        [
-                          _c(
-                            "el-table",
-                            {
-                              attrs: {
-                                data: _vm.items[_vm.num].products,
-                                stripe: "stripe"
-                              }
-                            },
-                            [
-                              _c("el-table-column", {
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane active fade show",
+                            attrs: { id: "product" }
+                          },
+                          [
+                            _c(
+                              "el-table",
+                              {
                                 attrs: {
-                                  prop: "title",
-                                  label: "製品名",
-                                  contenteditable: "true"
+                                  data: _vm.items[_vm.num].products,
+                                  stripe: "stripe"
                                 }
-                              }),
-                              _vm._v(" "),
-                              _c("el-table-column", {
-                                attrs: {
-                                  prop: "brands.name",
-                                  label: "ブランド",
-                                  contenteditable: "true"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("el-table-column", {
-                                attrs: {
-                                  prop: "model_number",
-                                  label: "品番",
-                                  contenteditable: "true"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "tab-pane fade",
-                          attrs: { id: "project" }
-                        },
-                        [
-                          _c("p", { staticClass: "card-text mb-auto" }, [
-                            _vm._v(_vm._s(_vm.project.explain))
-                          ])
-                        ]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("br")
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "btn-group d-block mx-auto" },
-              _vm._l(_vm.items[_vm.num].tags, function(key) {
-                return _c(
-                  "button",
-                  {
-                    key: key.id,
-                    staticClass: "btn btn-sm btn-outline-secondary",
-                    attrs: { type: "button", "data-toggle": "modal" }
-                  },
-                  [
-                    _c("i", { staticClass: "fas fa-tag" }),
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(key.name) +
-                        "\n                "
-                    )
+                              },
+                              [
+                                _c("el-table-column", {
+                                  attrs: {
+                                    prop: "title",
+                                    label: "製品名",
+                                    contenteditable: "true"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("el-table-column", {
+                                  attrs: {
+                                    prop: "brands.name",
+                                    label: "ブランド",
+                                    contenteditable: "true"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("el-table-column", {
+                                  attrs: {
+                                    prop: "model_number",
+                                    label: "品番",
+                                    contenteditable: "true"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade",
+                            attrs: { id: "project" }
+                          },
+                          [
+                            _c("p", { staticClass: "card-text mb-auto" }, [
+                              _vm._v(_vm._s(_vm.project.explain))
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("br")
                   ]
                 )
-              }),
-              0
-            )
-          ]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _vm.items[_vm.num].products.length !== 0
-            ? _c(
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "btn-group d-block mx-auto" },
+                _vm._l(_vm.items[_vm.num].tags, function(key) {
+                  return _c(
+                    "button",
+                    {
+                      key: key.id,
+                      staticClass: "btn btn-sm btn-outline-secondary",
+                      attrs: { type: "button", "data-toggle": "modal" }
+                    },
+                    [
+                      _c("i", { staticClass: "fas fa-tag" }),
+                      _vm._v("\n          " + _vm._s(key.name) + "\n        ")
+                    ]
+                  )
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _vm._l(_vm.items[_vm.num].products, function(product) {
+              return _c(
                 "div",
                 {
+                  key: product.id,
                   staticClass:
-                    "products_info card flex-md-row mb-4 box-shadow h-md-250 border",
-                  attrs: { id: "bottom" }
+                    "products_info card flex-md-row mb-4 box-shadow h-md-250 border"
                 },
                 [
                   _c(
                     "div",
                     {
                       staticClass:
-                        "card-body d-flex flex-column align-items-start",
-                      attrs: { model: _vm.items[_vm.num].products }
+                        "card-body d-flex flex-column align-items-start"
                     },
                     [
-                      _c("img", {
-                        attrs: {
-                          src:
-                            "/storage/" +
-                            _vm.items[_vm.num].products[_vm.product_num]
-                              .product_images[0].image
-                        }
-                      })
+                      product.product_images.length !== 0
+                        ? _c("img", {
+                            attrs: {
+                              src: "/storage/" + product.product_images[0].image
+                            }
+                          })
+                        : _vm._e()
                     ]
                   ),
                   _vm._v(" "),
@@ -101898,63 +101872,36 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "card-body d-flex flex-column align-items-start",
-                      attrs: { model: _vm.items[_vm.num].products }
+                        "card-body d-flex flex-column align-items-start"
                     },
                     [
-                      _c("p", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.items[_vm.num].products[_vm.product_num].brands
-                              .name
-                          )
-                        )
-                      ]),
+                      _c("p", [_vm._v(_vm._s(product.brands.name))]),
                       _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.items[_vm.num].products[_vm.product_num].brands
-                              .url
-                          )
-                        )
-                      ]),
+                      _c("p", [_vm._v(_vm._s(product.brands.url))]),
                       _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.items[_vm.num].products[_vm.product_num].brands
-                              .mail_address
-                          )
-                        )
-                      ]),
+                      _c("p", [_vm._v(_vm._s(product.brands.mail_address))]),
                       _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.items[_vm.num].products[_vm.product_num].brands
-                              .address
-                          )
-                        )
-                      ]),
+                      _c("p", [_vm._v(_vm._s(product.brands.address))]),
                       _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href:
-                              "../product-detail?work=" +
-                              _vm.items[_vm.num].products[_vm.product_num].id
-                          }
-                        },
-                        [_vm._v("この製品の詳細へ")]
-                      )
+                      product.product_images.length !== 0
+                        ? _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "../product-detail?work=" + product.id
+                              }
+                            },
+                            [_vm._v("この製品の詳細へ")]
+                          )
+                        : _vm._e()
                     ]
                   )
                 ]
               )
-            : _vm._e()
-        ])
+            })
+          ],
+          2
+        )
       : _vm._e()
   ])
 }
@@ -111587,7 +111534,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                            画像アドレスでアップ\n                            "
+                        "\n              画像アドレスでアップ\n              "
                       ),
                       _c("i", { staticClass: "el-icon-upload el-icon-right" })
                     ]
@@ -135222,10 +135169,10 @@ window._ = __webpack_require__("./node_modules/lodash/lodash.js");
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
+    window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 
-  // require('bootstrap-sass');
-  __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
+    // require('bootstrap-sass');
+    __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
 
 /**
@@ -135247,9 +135194,9 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+    window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+    console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 /**
