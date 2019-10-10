@@ -8,7 +8,8 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-  <title>Laravel</title>
+  <title>DESIGN BOOK</title>
+  <link rel="icon" type="image/gif" href="/storage/Logo.png">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
