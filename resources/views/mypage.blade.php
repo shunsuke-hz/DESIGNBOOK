@@ -24,8 +24,12 @@
                 <div class="row">
                   <div class="col-12 col-sm-auto mb-3">
                     <div class="mx-auto" style="width: 140px;">
-                      <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
-                        <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                      <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px;">
+                        @if( Auth::user()->profile_image == null)
+                        <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;  background-color: rgb(233, 236, 239);">140x140</span>
+                        @else
+                        <img class="profile_image" src="storage/upload/{{ Auth::user()->profile_image }}" alt="" style="max-width: 100%;">
+                        @endif
                       </div>
                     </div>
                   </div>
@@ -36,15 +40,15 @@
                       <div class="text-muted"><small>Last seen 2 hours ago</small></div>
 
 
-                      {{-- <div class="mt-2">
+                      <div class="mt-2">
                         <label>
                           <span class="btn btn-primary">
                             <i class="fa fa-fw fa-camera"></i>
-                            Change Photo
-                            <input type="file" accept="image/*" capture="camera" id="image-file" class="__input js-imageFile" style="display:none">
+                            プロフィール画像の変更
+                            <input type="file" accept="image/*" capture="camera" id="upload" class="__input js-imageFile" style="display:none">
 
                           </span>
-                          <p class="__file-name js-fileName" data-file-name="1">ファイルは選択されていません。</p>
+                          <!-- <p class="__file-name js-fileName" data-file-name="1">ファイルは選択されていません。</p> -->
 
                         </label>
                       </div>
@@ -53,30 +57,31 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h4 class="modal-title">トリミングしてください</h4>
+                              <h4 class="modal-title">トリミング</h4>
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
-                              <div class="trimming-area croppie">
-                                <img src="" class="js-trimmingAreaImg">
-                                <!-- /.trimming-area -->
-                              </div>
+                              <!-- <div class="trimming-area croppie"> -->
+                              <!-- <img src="" class="js-trimmingAreaImg"> -->
+                              <div id="upload-demo" style="max-width: 100%;"></div>
+                              <!-- /.trimming-area -->
+                              <!-- </div> -->
                               <!-- /.modal-body -->
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-danger js-trimmingBtn" data-option="">アップロード</button>
+                              <button type="button" class="btn btn-danger js-trimmingBtn" data-option="">変更</button>
                             </div>
                             <!-- /.modal-content -->
                           </div>
                           <!-- /.modal-dialog -->
                         </div>
                         <!-- /.modal -->
-                      </div> --}}
-                      <input id="file-input" type="file" />
-                        <div>
-                          <input type="button" id="test" value="実行" />
-                        </div>
-                      <div id="result"></div>
+                      </div>
+                      <!-- <input id="file-input" type="file" />
+                      <div>
+                        <input type="button" id="test" value="実行" />
+                      </div>
+                      <div id="result"></div> -->
 
 
                     </div>
@@ -172,9 +177,9 @@
 @endsection
 
 @section('pageCss')
-<link rel="stylesheet" href=" {{ asset('css/test.css') }} ">
+<!-- <link rel="stylesheet" href=" {{ asset('css/test.css') }} "> -->
 @endsection
 
 @section('pageJs')
-<script src=" {{ asset('js/test.js') }} "></script>
+<script src=" {{ asset('js/usericon.js') }} "></script>
 @endsection

@@ -75,4 +75,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
 
-Route::post('/croppie', 'UserController@photo');
+Route::post('/image-crop', 'UserController@photo');

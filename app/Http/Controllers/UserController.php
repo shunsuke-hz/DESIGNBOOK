@@ -59,25 +59,50 @@ class UserController extends Controller
 
   public function photo(Request $request)
   {
-    $str =  str_random(7);
-    $path = storage_path('app/public/img/');
-    // $crop =  value(function () use ($request, $str) {
 
-    // Laravelの場合は public_path()ヘルパー関数、Facadeが使えます
-    $image = Image::make($request->get('img_file'));
-    // $image = $request->all();
-    // return $image;
-    $image->crop(
-      $request->get('image')['width'],
-      $request->get('image')['height'],
-      $request->get('image')['x'],
-      $request->get('image')['y']
-    )
-      ->resize(256, 256) // 256 * 256にリサイズ
-      // 画像の保存
-      ->save($path . $str . '.jpg')
-      ->resize(128, 128) //サムネイル用にリサイズ
-      ->save($path . $str . '_t' . '.jpg');
+    $user = Auth::user();
+    //$dataの中身⇒data:image/png;base64,iVB・・・・
+    $data = $request->image;
+    \Debugbar::info($data);
+
+    //explode関数で;区切りで配列を作成、作成された配列をlist関数で変数($type,$data)に代入
+    list($type, $data) = explode(';', $data);
+    list(, $data)      = explode(',', $data);
+
+
+    $data = base64_decode($data);
+    $image_name = $user->id . '-' . time() . '.png';
+    $path = storage_path('app/public/upload/') . $image_name;
+
+
+    file_put_contents($path, $data);
+
+    $user->profile_image = $image_name;
+    $user->save();
+
+    return response()->json(['success' => 'done']);
+
+
+
+    // $str =  str_random(7);
+    // $path = storage_path('app/public/img/');
+    // // $crop =  value(function () use ($request, $str) {
+
+    // // Laravelの場合は public_path()ヘルパー関数、Facadeが使えます
+    // $image = Image::make($request->get('img_file'));
+    // // $image = $request->all();
+    // // return $image;
+    // $image->crop(
+    //   $request->get('image')['width'],
+    //   $request->get('image')['height'],
+    //   $request->get('image')['x'],
+    //   $request->get('image')['y']
+    // )
+    //   ->resize(256, 256) // 256 * 256にリサイズ
+    //   // 画像の保存
+    //   ->save($path . $str . '.jpg')
+    //   ->resize(128, 128) //サムネイル用にリサイズ
+    //   ->save($path . $str . '_t' . '.jpg');
 
 
     // 必要があれば元のファイルも消す
