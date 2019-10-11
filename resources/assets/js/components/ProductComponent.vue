@@ -11,7 +11,8 @@
                 node-key="id"
                 ref="tree"
                 accordion
-                check-strictly="true"
+                check-on-click-node
+                :check-strictly="true"
             ></el-tree>
         </div>
         <div class="col-sm-9 offset-sm-3">

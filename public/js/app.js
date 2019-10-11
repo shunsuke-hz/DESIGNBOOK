@@ -3455,6 +3455,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -5170,9 +5171,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         },
         tagsConfirm: function tagsConfirm() {
             this.records = [];
-            for (var i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
-                this.image_tags.push(this.$refs.tree.getCheckedNodes()[i].tag_id);
-            }
+
+            this.image_tags.push(this.$refs.tree.getCheckedKeys());
 
             if (this.gridData[0].title.length !== 0) {
                 for (var n in this.gridData) {
@@ -5327,6 +5327,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ProductTag_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ProductTag_vue__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -10152,6 +10153,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -11775,6 +11777,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         resetChecked: function resetChecked() {
             this.$refs.tree.setCheckedKeys([]);
             this.check = [];
+            // this.$refs.tree.setAttribute('default-expand-all') = false;
         },
         setCheck: function setCheck() {
             this.check = this.$refs.tree.getCheckedKeys();
@@ -107768,7 +107771,8 @@ var render = function() {
             "show-checkbox": "",
             "node-key": "id",
             accordion: "",
-            "check-strictly": "true"
+            "check-on-click-node": "",
+            "check-strictly": true
           }
         })
       ],
@@ -108078,8 +108082,9 @@ var render = function() {
                               data: _vm.tags,
                               "show-checkbox": "",
                               "node-key": "id",
-                              props: _vm.defaultProps,
-                              accordion: ""
+                              accordion: "",
+                              "check-on-click-node": "",
+                              "check-strictly": true
                             }
                           })
                         ],
@@ -109000,7 +109005,8 @@ var render = function() {
             "show-checkbox": "",
             "node-key": "id",
             accordion: "",
-            "check-strictly": "true"
+            "check-on-click-node": "",
+            "check-strictly": true
           }
         })
       ],
