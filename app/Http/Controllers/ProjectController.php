@@ -23,6 +23,8 @@ class ProjectController extends Controller
     $body = $request->body;
     $tags = $request->tags;
     $images = $request->images;
+    \Debugbar::info($images);
+
     $product_data = $request->productData;
     // $productData = mb_convert_encoding($productData, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
     $json_product_data = json_decode($product_data, true);
