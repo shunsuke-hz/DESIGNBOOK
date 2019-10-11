@@ -53,6 +53,7 @@
                                         ref="tree"
                                         :props="defaultProps"
                                         accordion
+                                        check-strictly="true"
                                     ></el-tree>
                                 </el-tab-pane>
                                 <el-tab-pane label="製品登録" name="second">

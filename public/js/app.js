@@ -3455,6 +3455,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -108079,7 +108080,8 @@ var render = function() {
                               "show-checkbox": "",
                               "node-key": "id",
                               props: _vm.defaultProps,
-                              accordion: ""
+                              accordion: "",
+                              "check-strictly": "true"
                             }
                           })
                         ],
