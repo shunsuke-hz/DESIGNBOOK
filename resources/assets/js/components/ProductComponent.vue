@@ -11,6 +11,7 @@
                 node-key="id"
                 ref="tree"
                 accordion
+                check-on-click-node
                 check-strictly="true"
             ></el-tree>
         </div>

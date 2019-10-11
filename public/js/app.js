@@ -3456,6 +3456,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -5328,6 +5329,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ProductTag_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ProductTag_vue__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -10109,6 +10111,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ProjectTag_vue__ = __webpack_require__("./resources/assets/js/components/ProjectTag.vue");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ProjectTag_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ProjectTag_vue__);
+//
 //
 //
 //
@@ -107769,6 +107772,7 @@ var render = function() {
             "show-checkbox": "",
             "node-key": "id",
             accordion: "",
+            "check-on-click-node": "",
             "check-strictly": "true"
           }
         })
@@ -108081,6 +108085,7 @@ var render = function() {
                               "node-key": "id",
                               props: _vm.defaultProps,
                               accordion: "",
+                              "check-on-click-node": "",
                               "check-strictly": "true"
                             }
                           })
@@ -109002,6 +109007,7 @@ var render = function() {
             "show-checkbox": "",
             "node-key": "id",
             accordion: "",
+            "check-on-click-node": "",
             "check-strictly": "true"
           }
         })

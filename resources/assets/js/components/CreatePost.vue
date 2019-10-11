@@ -53,6 +53,7 @@
                                         ref="tree"
                                         :props="defaultProps"
                                         accordion
+                                        check-on-click-node
                                         check-strictly="true"
                                     ></el-tree>
                                 </el-tab-pane>
