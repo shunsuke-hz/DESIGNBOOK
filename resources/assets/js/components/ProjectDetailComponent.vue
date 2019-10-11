@@ -27,7 +27,7 @@
                         :src="items[num].image"
                     />
                     <br />
-                    <div class="d-flex">
+                    <!-- <div class="d-flex">
                         <span class="images" v-for="(item,key) in items" :key="key">
                             <img
                                 v-if="item.image.indexOf('http') == -1"
@@ -42,7 +42,23 @@
                                 :value="key"
                             />
                         </span>
-                    </div>
+                    </div>-->
+                    <el-carousel :autoplay="false" type="card" height="150px">
+                        <el-carousel-item v-for="(item,key) in items" :key="key">
+                            <img
+                                v-if="item.image.indexOf('http') == -1"
+                                @click="changeImage"
+                                :src="'/storage/'+item.image"
+                                :value="key"
+                            />
+                            <img
+                                v-if="item.image.indexOf('http') != -1"
+                                @click="changeImage"
+                                :src="item.image"
+                                :value="key"
+                            />
+                        </el-carousel-item>
+                    </el-carousel>
                 </div>
                 <div class="card-body d-flex flex-column align-items-start">
                     <div class="d-flex">
@@ -181,13 +197,22 @@ export default {
         // タブ切り替え
         changeTab: function(n) {
             this.tab = n;
-        },
-
-        // プロダクト切り替え
-        changeProduct: function(e) {
-            let getValue = e.target.getAttribute("value");
-            this.product_num = getValue;
         }
+
+        // // プロダクト切り替え
+        // changeProduct: function(e) {
+        //     let getValue = e.target.getAttribute("value");
+        //     this.product_num = getValue;
+        // }
+    },
+
+    computed: {
+        // プロダクト切り替え
+        // activeImage: function(e) {
+        //     // let getClass = $(e).target.attr("class");
+        //     console.log(e.target.getAttribute);
+        //     // this.product_num = getValue;
+        // }
     },
 
     mounted: async function() {
@@ -210,11 +235,11 @@ export default {
     height: 320px;
 }
 
-.thumbneil .images img {
+/* .thumbneil .images img {
     cursor: pointer;
     width: 80px;
     height: 80px;
-}
+} */
 
 .card {
     border: none;
@@ -223,5 +248,19 @@ export default {
 .products_info img {
     width: 250px;
     height: 250px;
+}
+
+.el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+    background-color: #d3dce6;
+}
+
+.el-carousel__item img {
+    cursor: pointer;
+    width: 160px;
+    height: 150px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="card mt-4">
-            <div class="card-header">New Post</div>
+            <div class="card-header">プロジェクトの作成</div>
             <div class="card-body">
                 <div
                     v-if="status_msg"
@@ -11,18 +11,18 @@
                 >{{ status_msg }}</div>
                 <form>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Title</label>
+                        <label for="exampleFormControlInput1">タイトル</label>
                         <input
                             v-model="title"
                             type="text"
                             class="form-control"
                             id="title"
-                            placeholder="Post Title"
+                            placeholder
                             required
                         />
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Post Content</label>
+                        <label for="exampleFormControlTextarea1">プロジェクトの詳細</label>
                         <textarea
                             v-model="body"
                             class="form-control"
@@ -92,8 +92,8 @@
                             </el-tabs>
                             <span slot="footer" class="dialog-footer">
                                 <!-- <el-button @click="dialogVisible = false">Cancel</el-button> -->
-                                <el-button @click="resetChecked">reset</el-button>
-                                <el-button type="primary" @click="tagsConfirm">Confirm</el-button>
+                                <el-button @click="resetChecked">リセット</el-button>
+                                <el-button type="primary" @click="tagsConfirm">完了</el-button>
                             </span>
                         </el-dialog>
 
@@ -185,7 +185,7 @@
                     type="button"
                     @click="createPost"
                     class="btn btn-success"
-                >{{ isCreatingPost ? 'Posting...' : 'Create Post' }}</button>
+                >{{ isCreatingPost ? '投稿中...' : '投稿' }}</button>
             </div>
         </div>
     </div>

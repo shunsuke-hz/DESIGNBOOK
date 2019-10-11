@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row flex-lg-nowrap">
     <div class="col-12 col-lg-auto mb-3" style="width: 200px;">
-      <div class="card p-3">
+      {{-- <div class="card p-3">
         <div class="e-navlist e-navlist--active-bg">
           <ul class="nav">
             <li class="nav-item"><a class="nav-link px-2 active" href="./overview.html"><i class="fa fa-fw fa-bar-chart mr-1"></i><span>Overview</span></a></li>
@@ -12,7 +12,7 @@
             <li class="nav-item"><a class="nav-link px-2" href="./settings.html"><i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a></li>
           </ul>
         </div>
-      </div>
+      </div> --}}
     </div>
 
     <div class="col">
@@ -151,7 +151,7 @@
         </div>
 
         <div class="col-12 col-md-3 mb-3">
-          <div class="card mb-3">
+          {{-- <div class="card mb-3">
             <div class="card-body">
               <div class="px-xl-3">
                 <button class="btn btn-block btn-secondary">
@@ -167,13 +167,15 @@
               <p class="card-text">Get fast, free help from our friendly assistants.</p>
               <button type="button" class="btn btn-primary">Contact Us</button>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
 
     </div>
   </div>
 </div>
+
+
 @endsection
 
 @section('pageCss')

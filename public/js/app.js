@@ -5374,6 +5374,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -8393,6 +8394,22 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -8419,13 +8436,22 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         // タブ切り替え
         changeTab: function changeTab(n) {
             this.tab = n;
-        },
-
-        // プロダクト切り替え
-        changeProduct: function changeProduct(e) {
-            var getValue = e.target.getAttribute("value");
-            this.product_num = getValue;
         }
+
+        // // プロダクト切り替え
+        // changeProduct: function(e) {
+        //     let getValue = e.target.getAttribute("value");
+        //     this.product_num = getValue;
+        // }
+    },
+
+    computed: {
+        // プロダクト切り替え
+        // activeImage: function(e) {
+        //     // let getClass = $(e).target.attr("class");
+        //     console.log(e.target.getAttribute);
+        //     // this.product_num = getValue;
+        // }
     },
 
     mounted: function () {
@@ -10125,6 +10151,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -11717,7 +11744,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     var tagArray = image.tags.map(function (obj) {
                         return obj.id;
                     });
-                    console.log(tagArray);
+
                     // 検索窓 スペースで配列化
                     // if (this.keyword !== "") {
                     // let key = this.keyword.match(/[^\s]+/g);
@@ -17773,7 +17800,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\r\n    width: 320px;\r\n    height: 320px;\n}\n.thumbneil .images img {\r\n    cursor: pointer;\r\n    width: 80px;\r\n    height: 80px;\n}\n.card {\r\n    border: none;\n}\n.products_info img {\r\n    width: 250px;\r\n    height: 250px;\n}\r\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 320px;\n    height: 320px;\n}\n\n/* .thumbneil .images img {\n    cursor: pointer;\n    width: 80px;\n    height: 80px;\n} */\n.card {\n    border: none;\n}\n.products_info img {\n    width: 250px;\n    height: 250px;\n}\n.el-carousel__item:nth-child(2n) {\n    background-color: #99a9bf;\n}\n.el-carousel__item:nth-child(2n + 1) {\n    background-color: #d3dce6;\n}\n.el-carousel__item img {\n    cursor: pointer;\n    width: 160px;\n    height: 150px;\n}\n", ""]);
 
 // exports
 
@@ -17788,7 +17815,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\r\n    display: none;\r\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n        position: fixed;\r\n        top: 0;\r\n        bottom: 0;\r\n        left: 0;\r\n        display: block;\r\n        overflow-x: hidden;\r\n        overflow-y: auto;\n}\n}\n.card {\r\n    width: 264px;\r\n    height: 264px;\r\n    border: none;\r\n    border-radius: 0;\n}\n.image {\r\n    overflow: hidden;\r\n    width: 264px;\r\n    height: 210px;\n}\n.image img {\r\n    display: block;\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\r\n    height: 100%;\r\n    border: none;\r\n    margin: auto;\n}\n.image img:hover {\r\n    -webkit-transform: scale(1.1);\r\n            transform: scale(1.1);\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n    padding: 0;\r\n    border-radius: 0;\n}\n.card-body {\r\n    width: 264px;\r\n    height: 54px;\r\n    padding: 0.5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        display: block;\n        overflow-x: hidden;\n        overflow-y: auto;\n}\n}\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
 
 // exports
 
@@ -17803,7 +17830,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.cell-content {\r\n    min-height: 40px;\r\n    padding-left: 5px;\r\n    padding-top: 5px;\r\n    border: 1px solid transparent;\n}\n.edit-enabled-cell {\r\n    border: 1px dashed #409eff;\n}\r\n", ""]);
+exports.push([module.i, "\n.cell-content {\n    min-height: 40px;\n    padding-left: 5px;\n    padding-top: 5px;\n    border: 1px solid transparent;\n}\n.edit-enabled-cell {\n    border: 1px dashed #409eff;\n}\n", ""]);
 
 // exports
 
@@ -17818,7 +17845,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.el-upload {\r\n    border: 1px dashed #d9d9d9;\r\n    border-radius: 6px;\r\n    cursor: pointer;\r\n    position: relative;\r\n    overflow: hidden;\n}\n.el-upload:hover {\r\n    border-color: #409eff;\n}\n.edit-cell {\r\n    min-height: 35px;\r\n    cursor: pointer;\n}\r\n", ""]);
+exports.push([module.i, "\n.el-upload {\n    border: 1px dashed #d9d9d9;\n    border-radius: 6px;\n    cursor: pointer;\n    position: relative;\n    overflow: hidden;\n}\n.el-upload:hover {\n    border-color: #409eff;\n}\n.edit-cell {\n    min-height: 35px;\n    cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -17833,7 +17860,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.brand-image {\r\n    width: 50px;\r\n    height: 50px;\n}\r\n", ""]);
+exports.push([module.i, "\n.brand-image {\n    width: 50px;\n    height: 50px;\n}\n", ""]);
 
 // exports
 
@@ -17878,7 +17905,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\r\n    width: 350px;\r\n    height: 350px;\n}\n.images img {\r\n    cursor: pointer;\r\n    width: 100px;\r\n    height: 100px;\n}\n.card {\r\n    border: none;\n}\r\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 350px;\n    height: 350px;\n}\n.images img {\n    cursor: pointer;\n    width: 100px;\n    height: 100px;\n}\n.card {\n    border: none;\n}\n", ""]);
 
 // exports
 
@@ -17893,7 +17920,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\r\n    display: none;\r\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n        position: fixed;\r\n        top: 0;\r\n        bottom: 0;\r\n        left: 0;\r\n        display: block;\r\n        overflow-x: hidden;\r\n        overflow-y: auto;\n}\n}\n.card {\r\n    width: 264px;\r\n    height: 264px;\r\n    border: none;\r\n    border-radius: 0;\r\n    margin: 1rem;\n}\n.image {\r\n    overflow: hidden;\r\n    width: 264px;\r\n    height: 210px;\n}\n.image img {\r\n    display: block;\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\r\n    height: 100%;\r\n    border: none;\r\n    margin: auto;\n}\n.image img:hover {\r\n    -webkit-transform: scale(1.1);\r\n            transform: scale(1.1);\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n    padding: 0;\r\n    border-radius: 0;\n}\n.card-body {\r\n    width: 264px;\r\n    height: 54px;\r\n    padding: 0.5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        display: block;\n        overflow-x: hidden;\n        overflow-y: auto;\n}\n}\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n    margin: 1rem;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
 
 // exports
 
@@ -107392,51 +107419,62 @@ var render = function() {
               "div",
               { staticClass: "card flex-md-row mb-4 box-shadow h-md-250" },
               [
-                _c("div", { staticClass: "thumbneil" }, [
-                  _vm.items[_vm.num].image.indexOf("http") == -1
-                    ? _c("img", {
-                        staticClass:
-                          "card-img-left flex-auto d-none d-md-block",
-                        attrs: { src: "/storage/" + _vm.items[_vm.num].image }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.items[_vm.num].image.indexOf("http") != -1
-                    ? _c("img", {
-                        staticClass:
-                          "card-img-left flex-auto d-none d-md-block",
-                        attrs: { src: _vm.items[_vm.num].image }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "d-flex" },
-                    _vm._l(_vm.items, function(item, key) {
-                      return _c("span", { key: key, staticClass: "images" }, [
-                        item.image.indexOf("http") == -1
-                          ? _c("img", {
-                              attrs: {
-                                src: "/storage/" + item.image,
-                                value: key
-                              },
-                              on: { click: _vm.changeImage }
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        item.image.indexOf("http") != -1
-                          ? _c("img", {
-                              attrs: { src: item.image, value: key },
-                              on: { click: _vm.changeImage }
-                            })
-                          : _vm._e()
-                      ])
-                    }),
-                    0
-                  )
-                ]),
+                _c(
+                  "div",
+                  { staticClass: "thumbneil" },
+                  [
+                    _vm.items[_vm.num].image.indexOf("http") == -1
+                      ? _c("img", {
+                          staticClass:
+                            "card-img-left flex-auto d-none d-md-block",
+                          attrs: { src: "/storage/" + _vm.items[_vm.num].image }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.items[_vm.num].image.indexOf("http") != -1
+                      ? _c("img", {
+                          staticClass:
+                            "card-img-left flex-auto d-none d-md-block",
+                          attrs: { src: _vm.items[_vm.num].image }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "el-carousel",
+                      {
+                        attrs: {
+                          autoplay: false,
+                          type: "card",
+                          height: "150px"
+                        }
+                      },
+                      _vm._l(_vm.items, function(item, key) {
+                        return _c("el-carousel-item", { key: key }, [
+                          item.image.indexOf("http") == -1
+                            ? _c("img", {
+                                attrs: {
+                                  src: "/storage/" + item.image,
+                                  value: key
+                                },
+                                on: { click: _vm.changeImage }
+                              })
+                            : _vm._e(),
+                          _vm._v(" "),
+                          item.image.indexOf("http") != -1
+                            ? _c("img", {
+                                attrs: { src: item.image, value: key },
+                                on: { click: _vm.changeImage }
+                              })
+                            : _vm._e()
+                        ])
+                      }),
+                      1
+                    )
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -107729,7 +107767,8 @@ var render = function() {
             data: _vm.tags,
             "show-checkbox": "",
             "node-key": "id",
-            accordion: ""
+            accordion: "",
+            "check-strictly": "true"
           }
         })
       ],
@@ -107906,7 +107945,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "card mt-4" }, [
-      _c("div", { staticClass: "card-header" }, [_vm._v("New Post")]),
+      _c("div", { staticClass: "card-header" }, [_vm._v("プロジェクトの作成")]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _vm.status_msg
@@ -107927,7 +107966,7 @@ var render = function() {
         _c("form", [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "exampleFormControlInput1" } }, [
-              _vm._v("Title")
+              _vm._v("タイトル")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -107943,7 +107982,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 id: "title",
-                placeholder: "Post Title",
+                placeholder: "",
                 required: ""
               },
               domProps: { value: _vm.title },
@@ -107960,7 +107999,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-              _vm._v("Post Content")
+              _vm._v("プロジェクトの詳細")
             ]),
             _vm._v(" "),
             _c("textarea", {
@@ -108193,7 +108232,7 @@ var render = function() {
                     },
                     [
                       _c("el-button", { on: { click: _vm.resetChecked } }, [
-                        _vm._v("reset")
+                        _vm._v("リセット")
                       ]),
                       _vm._v(" "),
                       _c(
@@ -108202,7 +108241,7 @@ var render = function() {
                           attrs: { type: "primary" },
                           on: { click: _vm.tagsConfirm }
                         },
-                        [_vm._v("Confirm")]
+                        [_vm._v("完了")]
                       )
                     ],
                     1
@@ -108566,7 +108605,7 @@ var render = function() {
             attrs: { type: "button" },
             on: { click: _vm.createPost }
           },
-          [_vm._v(_vm._s(_vm.isCreatingPost ? "Posting..." : "Create Post"))]
+          [_vm._v(_vm._s(_vm.isCreatingPost ? "投稿中..." : "投稿"))]
         )
       ])
     ])
@@ -108960,7 +108999,8 @@ var render = function() {
             data: _vm.tags,
             "show-checkbox": "",
             "node-key": "id",
-            accordion: ""
+            accordion: "",
+            "check-strictly": "true"
           }
         })
       ],
@@ -123163,10 +123203,10 @@ window._ = __webpack_require__("./node_modules/lodash/lodash.js");
  */
 
 try {
-    window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
+  window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 
-    // require('bootstrap-sass');
-    __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
+  // require('bootstrap-sass');
+  __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
 
 /**
@@ -123188,9 +123228,9 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-    console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 /**

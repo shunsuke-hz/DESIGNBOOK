@@ -11,6 +11,7 @@
                 node-key="id"
                 ref="tree"
                 accordion
+                check-strictly="true"
             ></el-tree>
         </div>
         <div class="col-sm-9 offset-sm-3">
@@ -2210,7 +2211,7 @@ export default {
                 for (let n in this.images) {
                     let image = this.images[n];
                     let tagArray = image.tags.map(obj => obj.id);
-                    console.log(tagArray);
+
                     // 検索窓 スペースで配列化
                     // if (this.keyword !== "") {
                     // let key = this.keyword.match(/[^\s]+/g);

@@ -259,12 +259,12 @@ class ProjectImageTagTableSeeder extends Seeder
         'project_image_id' => '17',
       ],
       [
-        'tag_id' => '83',
+        'tag_id' => '95',
         'project_id' => '7',
         'project_image_id' => '17',
       ],
       [
-        'tag_id' => '86',
+        'tag_id' => '98',
         'project_id' => '7',
         'project_image_id' => '17',
       ],
@@ -274,12 +274,12 @@ class ProjectImageTagTableSeeder extends Seeder
         'project_image_id' => '18',
       ],
       [
-        'tag_id' => '83',
+        'tag_id' => '95',
         'project_id' => '8',
         'project_image_id' => '18',
       ],
       [
-        'tag_id' => '86',
+        'tag_id' => '98',
         'project_id' => '8',
         'project_image_id' => '18',
       ],
@@ -289,12 +289,12 @@ class ProjectImageTagTableSeeder extends Seeder
         'project_image_id' => '19',
       ],
       [
-        'tag_id' => '83',
+        'tag_id' => '95',
         'project_id' => '9',
         'project_image_id' => '19',
       ],
       [
-        'tag_id' => '86',
+        'tag_id' => '98',
         'project_id' => '9',
         'project_image_id' => '19',
       ],
@@ -304,12 +304,12 @@ class ProjectImageTagTableSeeder extends Seeder
         'project_image_id' => '20',
       ],
       [
-        'tag_id' => '83',
+        'tag_id' => '95',
         'project_id' => '10',
         'project_image_id' => '20',
       ],
       [
-        'tag_id' => '86',
+        'tag_id' => '98',
         'project_id' => '10',
         'project_image_id' => '20',
       ],
@@ -319,12 +319,12 @@ class ProjectImageTagTableSeeder extends Seeder
         'project_image_id' => '21',
       ],
       [
-        'tag_id' => '83',
+        'tag_id' => '95',
         'project_id' => '11',
         'project_image_id' => '21',
       ],
       [
-        'tag_id' => '86',
+        'tag_id' => '98',
         'project_id' => '11',
         'project_image_id' => '21',
       ],
@@ -334,12 +334,12 @@ class ProjectImageTagTableSeeder extends Seeder
         'project_image_id' => '22',
       ],
       [
-        'tag_id' => '83',
+        'tag_id' => '95',
         'project_id' => '12',
         'project_image_id' => '22',
       ],
       [
-        'tag_id' => '86',
+        'tag_id' => '98',
         'project_id' => '12',
         'project_image_id' => '22',
       ],
