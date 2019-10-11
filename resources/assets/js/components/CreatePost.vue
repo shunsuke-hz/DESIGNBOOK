@@ -51,10 +51,9 @@
                                         show-checkbox
                                         node-key="id"
                                         ref="tree"
-                                        :props="defaultProps"
                                         accordion
                                         check-on-click-node
-                                        check-strictly="true"
+                                        :check-strictly="true"
                                     ></el-tree>
                                 </el-tab-pane>
                                 <el-tab-pane label="製品登録" name="second">
@@ -2517,11 +2516,8 @@ export default {
         },
         tagsConfirm() {
             this.records = [];
-            for (let i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
-                this.image_tags.push(
-                    this.$refs.tree.getCheckedNodes()[i].tag_id
-                );
-            }
+
+            this.image_tags.push(this.$refs.tree.getCheckedKeys());
 
             if (this.gridData[0].title.length !== 0) {
                 for (let n in this.gridData) {

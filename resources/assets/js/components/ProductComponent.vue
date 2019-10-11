@@ -12,7 +12,7 @@
                 ref="tree"
                 accordion
                 check-on-click-node
-                check-strictly="true"
+                :check-strictly="true"
             ></el-tree>
         </div>
         <div class="col-sm-9 offset-sm-3">

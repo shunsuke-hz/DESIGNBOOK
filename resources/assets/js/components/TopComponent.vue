@@ -12,7 +12,7 @@
                 ref="tree"
                 accordion
                 check-on-click-node
-                check-strictly="true"
+                :check-strictly="true"
             ></el-tree>
         </div>
         <div class="col-sm-9 offset-sm-3">
@@ -2238,6 +2238,7 @@ export default {
         resetChecked() {
             this.$refs.tree.setCheckedKeys([]);
             this.check = [];
+            // this.$refs.tree.setAttribute('default-expand-all') = false;
         },
         setCheck() {
             this.check = this.$refs.tree.getCheckedKeys();

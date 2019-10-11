@@ -3456,7 +3456,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -5172,9 +5171,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         },
         tagsConfirm: function tagsConfirm() {
             this.records = [];
-            for (var i = 0; i < this.$refs.tree.getCheckedNodes().length; i++) {
-                this.image_tags.push(this.$refs.tree.getCheckedNodes()[i].tag_id);
-            }
+
+            this.image_tags.push(this.$refs.tree.getCheckedKeys());
 
             if (this.gridData[0].title.length !== 0) {
                 for (var n in this.gridData) {
@@ -11779,6 +11777,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         resetChecked: function resetChecked() {
             this.$refs.tree.setCheckedKeys([]);
             this.check = [];
+            // this.$refs.tree.setAttribute('default-expand-all') = false;
         },
         setCheck: function setCheck() {
             this.check = this.$refs.tree.getCheckedKeys();
@@ -107773,7 +107772,7 @@ var render = function() {
             "node-key": "id",
             accordion: "",
             "check-on-click-node": "",
-            "check-strictly": "true"
+            "check-strictly": true
           }
         })
       ],
@@ -108083,10 +108082,9 @@ var render = function() {
                               data: _vm.tags,
                               "show-checkbox": "",
                               "node-key": "id",
-                              props: _vm.defaultProps,
                               accordion: "",
                               "check-on-click-node": "",
-                              "check-strictly": "true"
+                              "check-strictly": true
                             }
                           })
                         ],
@@ -109008,7 +109006,7 @@ var render = function() {
             "node-key": "id",
             accordion: "",
             "check-on-click-node": "",
-            "check-strictly": "true"
+            "check-strictly": true
           }
         })
       ],
