@@ -40,7 +40,8 @@ $('#myModal').on('shown.bs.modal', function () {
 $('.js-trimmingBtn').on('click', function (ev) {
   $uploadCrop.croppie('result', {
     type: 'canvas',
-    size: 'viewport'
+    size: 'original',
+    // quality: 1
   }).then(function (resp) {
     $.ajax({
       url: "/image-crop",

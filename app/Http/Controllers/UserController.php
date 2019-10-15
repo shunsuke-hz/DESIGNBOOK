@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Image;
+use Validator;
 use Illuminate\Validation\Rule;
 
 
@@ -33,7 +34,7 @@ class UserController extends Controller
 
     $account_name = Auth::user()->account_name;
     $this->validate($request, [
-      // account_nameは自分以外で重複がチェック
+      // account_nameは自分以外で重複をチェック
       'account_name' => ['required', 'string', Rule::unique('users')->ignore($account_name, 'account_name')],
       'name' => 'nullable|string',
       'phone_number' => 'nullable|regex:/^[0-9]{2,4}-?[0-9]{3,4}-?[0-9]{3,4}$/',
@@ -59,6 +60,15 @@ class UserController extends Controller
 
   public function photo(Request $request)
   {
+    // $validator = Validator::make($request->all(), [
+    //   'image' => 'required|image|max:1000',
+    // ]);
+
+    // if ($validator->fails()) {
+
+    //   // return $validator->errors();
+    //   return redirect('/mypage')->withErrors($validator)->withInput();
+    // }
 
     $user = Auth::user();
     //$dataの中身⇒data:image/png;base64,iVB・・・・
