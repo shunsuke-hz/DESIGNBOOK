@@ -43,7 +43,7 @@
                             />
                         </span>
                     </div>-->
-                    <el-carousel :autoplay="false" type="card" height="150px">
+                    <el-carousel :autoplay="false" type="card" height="150px" @change="changeImage">
                         <el-carousel-item v-for="(item,key) in items" :key="key">
                             <img
                                 v-if="item.image.indexOf('http') == -1"
@@ -189,29 +189,32 @@ export default {
 
     methods: {
         // ホバーでサムネイル切り替え
-        changeImage: function(e) {
-            let getValue = e.target.getAttribute("value");
-            this.num = getValue;
-        },
+        changeImage: function() {
+            // let getValue = document
+            //     .getElementsByClassName("el-carousel__item is-active")[0]
+            //     .getElementsByTagName("img")[0]
+            //     .getAttribute("value");
+            // console.log(getValue);
+            // console.log(this);
 
-        // タブ切り替え
-        changeTab: function(n) {
-            this.tab = n;
+            setTimeout(
+                function() {
+                    let getValue = document
+                        .getElementsByClassName(
+                            "el-carousel__item is-active"
+                        )[0]
+                        .getElementsByTagName("img")[0]
+                        .getAttribute("value");
+                    this.num = getValue;
+                }.bind(this),
+                10
+            );
         }
 
         // // プロダクト切り替え
         // changeProduct: function(e) {
         //     let getValue = e.target.getAttribute("value");
         //     this.product_num = getValue;
-        // }
-    },
-
-    computed: {
-        // プロダクト切り替え
-        // activeImage: function(e) {
-        //     // let getClass = $(e).target.attr("class");
-        //     console.log(e.target.getAttribute);
-        //     // this.product_num = getValue;
         // }
     },
 

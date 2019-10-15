@@ -8429,29 +8429,24 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     methods: {
         // ホバーでサムネイル切り替え
-        changeImage: function changeImage(e) {
-            var getValue = e.target.getAttribute("value");
-            this.num = getValue;
-        },
+        changeImage: function changeImage() {
+            // let getValue = document
+            //     .getElementsByClassName("el-carousel__item is-active")[0]
+            //     .getElementsByTagName("img")[0]
+            //     .getAttribute("value");
+            // console.log(getValue);
+            // console.log(this);
 
-        // タブ切り替え
-        changeTab: function changeTab(n) {
-            this.tab = n;
+            setTimeout(function () {
+                var getValue = document.getElementsByClassName("el-carousel__item is-active")[0].getElementsByTagName("img")[0].getAttribute("value");
+                this.num = getValue;
+            }.bind(this), 10);
         }
 
         // // プロダクト切り替え
         // changeProduct: function(e) {
         //     let getValue = e.target.getAttribute("value");
         //     this.product_num = getValue;
-        // }
-    },
-
-    computed: {
-        // プロダクト切り替え
-        // activeImage: function(e) {
-        //     // let getClass = $(e).target.attr("class");
-        //     console.log(e.target.getAttribute);
-        //     // this.product_num = getValue;
         // }
     },
 
@@ -107451,7 +107446,8 @@ var render = function() {
                           autoplay: false,
                           type: "card",
                           height: "150px"
-                        }
+                        },
+                        on: { change: _vm.changeImage }
                       },
                       _vm._l(_vm.items, function(item, key) {
                         return _c("el-carousel-item", { key: key }, [
