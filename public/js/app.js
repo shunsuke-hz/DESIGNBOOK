@@ -5376,6 +5376,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6693,7 +6694,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         };
     },
     computed: {
-        // 検索機能
+        // タグ検索機能
         filter: function filter() {
             var _this = this;
 
@@ -6840,6 +6841,45 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -6854,9 +6894,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     },
     methods: {
         // ホバーでサムネイル切り替え
-        changeImage: function changeImage(e) {
-            var getValue = e.target.getAttribute("value");
-            this.num = getValue;
+        changeImage: function changeImage() {
+            setTimeout(function () {
+                var getValue = document.getElementsByClassName("el-carousel__item is-active")[0].getElementsByTagName("img")[0].getAttribute("value");
+                this.num = getValue;
+            }.bind(this), 10);
         }
     },
 
@@ -8411,6 +8453,37 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -8422,32 +8495,18 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             project: [],
             items: [],
             tab: "0",
-            product_num: "0",
-            toBottom: "#bottom"
+            product_num: "0"
         };
     },
 
     methods: {
-        // ホバーでサムネイル切り替え
+        // サムネイル切り替え
         changeImage: function changeImage() {
-            // let getValue = document
-            //     .getElementsByClassName("el-carousel__item is-active")[0]
-            //     .getElementsByTagName("img")[0]
-            //     .getAttribute("value");
-            // console.log(getValue);
-            // console.log(this);
-
             setTimeout(function () {
                 var getValue = document.getElementsByClassName("el-carousel__item is-active")[0].getElementsByTagName("img")[0].getAttribute("value");
                 this.num = getValue;
             }.bind(this), 10);
         }
-
-        // // プロダクト切り替え
-        // changeProduct: function(e) {
-        //     let getValue = e.target.getAttribute("value");
-        //     this.product_num = getValue;
-        // }
     },
 
     mounted: function () {
@@ -10149,6 +10208,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -11725,7 +11789,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     computed: {
-        // 検索機能
+        // タグ検索機能
         filter: function filter() {
             var _this = this;
 
@@ -11772,6 +11836,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         resetChecked: function resetChecked() {
             this.$refs.tree.setCheckedKeys([]);
             this.check = [];
+
             // this.$refs.tree.setAttribute('default-expand-all') = false;
         },
         setCheck: function setCheck() {
@@ -17798,7 +17863,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\r\n    width: 320px;\r\n    height: 320px;\n}\r\n\r\n/* .thumbneil .images img {\r\n    cursor: pointer;\r\n    width: 80px;\r\n    height: 80px;\r\n} */\n.card {\r\n    border: none;\n}\n.products_info img {\r\n    width: 250px;\r\n    height: 250px;\n}\n.el-carousel__item:nth-child(2n) {\r\n    background-color: #99a9bf;\n}\n.el-carousel__item:nth-child(2n + 1) {\r\n    background-color: #d3dce6;\n}\n.el-carousel__item img {\r\n    cursor: pointer;\r\n    width: 160px;\r\n    height: 150px;\n}\r\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 320px;\n    height: 320px;\n}\n\n/* .thumbneil .images img {\n    cursor: pointer;\n    width: 80px;\n    height: 80px;\n} */\n.card {\n    border: none;\n}\n.album .card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n    margin: 1rem;\n}\n.album .card img {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.album img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.album .card-body {\n    width: 264px;\n    height: 108px;\n    padding: 0.5rem;\n}\n.products-info img {\n    width: 250px;\n    height: 250px;\n}\n.el-carousel__item:nth-child(2n) {\n    background-color: #99a9bf;\n}\n.el-carousel__item:nth-child(2n + 1) {\n    background-color: #d3dce6;\n}\n.el-carousel__item img {\n    cursor: pointer;\n    width: 160px;\n    height: 150px;\n}\n", ""]);
 
 // exports
 
@@ -17813,7 +17878,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\r\n    display: none;\r\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n        position: fixed;\r\n        top: 0;\r\n        bottom: 0;\r\n        left: 0;\r\n        display: block;\r\n        overflow-x: hidden;\r\n        overflow-y: auto;\n}\n}\n.card {\r\n    width: 264px;\r\n    height: 264px;\r\n    border: none;\r\n    border-radius: 0;\n}\n.image {\r\n    overflow: hidden;\r\n    width: 264px;\r\n    height: 210px;\n}\n.image img {\r\n    display: block;\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\r\n    height: 100%;\r\n    border: none;\r\n    margin: auto;\n}\n.image img:hover {\r\n    -webkit-transform: scale(1.1);\r\n            transform: scale(1.1);\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n    padding: 0;\r\n    border-radius: 0;\n}\n.card-body {\r\n    width: 264px;\r\n    height: 54px;\r\n    padding: 0.5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        display: block;\n        overflow-x: hidden;\n        overflow-y: auto;\n}\n}\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
 
 // exports
 
@@ -17828,7 +17893,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.cell-content {\r\n    min-height: 40px;\r\n    padding-left: 5px;\r\n    padding-top: 5px;\r\n    border: 1px solid transparent;\n}\n.edit-enabled-cell {\r\n    border: 1px dashed #409eff;\n}\r\n", ""]);
+exports.push([module.i, "\n.cell-content {\n    min-height: 40px;\n    padding-left: 5px;\n    padding-top: 5px;\n    border: 1px solid transparent;\n}\n.edit-enabled-cell {\n    border: 1px dashed #409eff;\n}\n", ""]);
 
 // exports
 
@@ -17843,7 +17908,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.el-upload {\r\n    border: 1px dashed #d9d9d9;\r\n    border-radius: 6px;\r\n    cursor: pointer;\r\n    position: relative;\r\n    overflow: hidden;\n}\n.el-upload:hover {\r\n    border-color: #409eff;\n}\n.edit-cell {\r\n    min-height: 35px;\r\n    cursor: pointer;\n}\r\n", ""]);
+exports.push([module.i, "\n.el-upload {\n    border: 1px dashed #d9d9d9;\n    border-radius: 6px;\n    cursor: pointer;\n    position: relative;\n    overflow: hidden;\n}\n.el-upload:hover {\n    border-color: #409eff;\n}\n.edit-cell {\n    min-height: 35px;\n    cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -17858,7 +17923,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.brand-image {\r\n    width: 50px;\r\n    height: 50px;\n}\r\n", ""]);
+exports.push([module.i, "\n.brand-image {\n    width: 50px;\n    height: 50px;\n}\n", ""]);
 
 // exports
 
@@ -17903,7 +17968,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\r\n    width: 350px;\r\n    height: 350px;\n}\n.images img {\r\n    cursor: pointer;\r\n    width: 100px;\r\n    height: 100px;\n}\n.card {\r\n    border: none;\n}\r\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n    width: 320px;\n    height: 320px;\n}\n.images img {\n    width: 100px;\n    height: 100px;\n}\n.card {\n    border: none;\n}\n.el-carousel__item:nth-child(2n) {\n    background-color: #99a9bf;\n}\n.el-carousel__item:nth-child(2n + 1) {\n    background-color: #d3dce6;\n}\n.el-carousel__item img {\n    cursor: pointer;\n    width: 160px;\n    height: 150px;\n}\n", ""]);
 
 // exports
 
@@ -17918,7 +17983,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\r\n    display: none;\r\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n        position: fixed;\r\n        top: 0;\r\n        bottom: 0;\r\n        left: 0;\r\n        display: block;\r\n        overflow-x: hidden;\r\n        overflow-y: auto;\n}\n}\n.card {\r\n    width: 264px;\r\n    height: 264px;\r\n    border: none;\r\n    border-radius: 0;\r\n    margin: 1rem;\n}\n.image {\r\n    overflow: hidden;\r\n    width: 264px;\r\n    height: 210px;\n}\n.image img {\r\n    display: block;\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\r\n    height: 100%;\r\n    border: none;\r\n    margin: auto;\n}\n.image img:hover {\r\n    -webkit-transform: scale(1.1);\r\n            transform: scale(1.1);\r\n    -webkit-transition-duration: 0.3s;\r\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n    padding: 0;\r\n    border-radius: 0;\n}\n.card-body {\r\n    width: 264px;\r\n    height: 54px;\r\n    padding: 0.5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.sidebar {\n    display: none;\n    margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        display: block;\n        overflow-x: hidden;\n        overflow-y: auto;\n}\n}\n.card {\n    width: 264px;\n    height: 264px;\n    border: none;\n    border-radius: 0;\n    margin: 1rem;\n}\n.image {\n    overflow: hidden;\n    width: 264px;\n    height: 210px;\n}\n.image img {\n    display: block;\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n    height: 100%;\n    border: none;\n    margin: auto;\n}\n.image img:hover {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n    -webkit-transition-duration: 0.3s;\n            transition-duration: 0.3s;\n}\n.img-thumbnail {\n    padding: 0;\n    border-radius: 0;\n}\n.card-body {\n    width: 264px;\n    height: 54px;\n    padding: 0.5rem;\n}\n", ""]);
 
 // exports
 
@@ -107406,100 +107471,110 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _vm.display
-      ? _c(
-          "div",
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("br"),
+      ? _c("div", [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "mx-auto" },
+              [
+                _c(
+                  "el-tabs",
+                  {
+                    model: {
+                      value: _vm.tab,
+                      callback: function($$v) {
+                        _vm.tab = $$v
+                      },
+                      expression: "tab"
+                    }
+                  },
+                  [
+                    _c("el-tab-pane", {
+                      attrs: { label: "プロジェクト", name: "0" }
+                    }),
+                    _vm._v(" "),
+                    _c("el-tab-pane", {
+                      attrs: { label: "プロダクト詳細", name: "1" }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("div", { staticClass: "card flex-md-row mb-4" }, [
+            _c(
+              "div",
+              { staticClass: "thumbneil ml-5" },
+              [
+                _vm.items[_vm.num].image.indexOf("http") == -1
+                  ? _c("img", {
+                      staticClass: "card-img-left flex-auto d-none d-md-block",
+                      attrs: { src: "/storage/" + _vm.items[_vm.num].image }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.items[_vm.num].image.indexOf("http") != -1
+                  ? _c("img", {
+                      staticClass: "card-img-left flex-auto d-none d-md-block",
+                      attrs: { src: _vm.items[_vm.num].image }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "el-carousel",
+                  {
+                    attrs: { autoplay: false, type: "card", height: "150px" },
+                    on: { change: _vm.changeImage }
+                  },
+                  _vm._l(_vm.items, function(item, key) {
+                    return _c("el-carousel-item", { key: key }, [
+                      item.image.indexOf("http") == -1
+                        ? _c("img", {
+                            attrs: {
+                              src: "/storage/" + item.image,
+                              value: key
+                            },
+                            on: { click: _vm.changeImage }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      item.image.indexOf("http") != -1
+                        ? _c("img", {
+                            attrs: { src: item.image, value: key },
+                            on: { click: _vm.changeImage }
+                          })
+                        : _vm._e()
+                    ])
+                  }),
+                  1
+                )
+              ],
+              1
+            ),
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "card flex-md-row mb-4 box-shadow h-md-250" },
+              {
+                staticClass:
+                  "card-body d-flex flex-column align-items-start pt-0",
+                staticStyle: { "margin-left": "48px" }
+              },
               [
                 _c(
                   "div",
-                  { staticClass: "thumbneil" },
-                  [
-                    _vm.items[_vm.num].image.indexOf("http") == -1
-                      ? _c("img", {
-                          staticClass:
-                            "card-img-left flex-auto d-none d-md-block",
-                          attrs: { src: "/storage/" + _vm.items[_vm.num].image }
-                        })
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.items[_vm.num].image.indexOf("http") != -1
-                      ? _c("img", {
-                          staticClass:
-                            "card-img-left flex-auto d-none d-md-block",
-                          attrs: { src: _vm.items[_vm.num].image }
-                        })
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "el-carousel",
-                      {
-                        attrs: {
-                          autoplay: false,
-                          type: "card",
-                          height: "150px"
-                        },
-                        on: { change: _vm.changeImage }
-                      },
-                      _vm._l(_vm.items, function(item, key) {
-                        return _c("el-carousel-item", { key: key }, [
-                          item.image.indexOf("http") == -1
-                            ? _c("img", {
-                                attrs: {
-                                  src: "/storage/" + item.image,
-                                  value: key
-                                },
-                                on: { click: _vm.changeImage }
-                              })
-                            : _vm._e(),
-                          _vm._v(" "),
-                          item.image.indexOf("http") != -1
-                            ? _c("img", {
-                                attrs: { src: item.image, value: key },
-                                on: { click: _vm.changeImage }
-                              })
-                            : _vm._e()
-                        ])
-                      }),
-                      1
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
                   {
-                    staticClass:
-                      "card-body d-flex flex-column align-items-start"
+                    staticClass: "tab-content",
+                    staticStyle: { width: "100%" }
                   },
                   [
-                    _c("div", { staticClass: "d-flex" }, [
-                      _c("strong", { staticClass: "text-primary" }, [
-                        _c("a", { attrs: { href: "" } }, [
-                          _vm._v(_vm._s(_vm.project.brands.name))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: { type: "button" }
-                        },
-                        [_vm._v("follow")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("h3", { staticClass: "mb-0" }, [
+                    _c("h4", { staticClass: "mb-0" }, [
                       _c(
                         "a",
                         { staticClass: "text-dark", attrs: { href: "#" } },
@@ -107507,23 +107582,110 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "mb-1 text-muted" }, [
-                      _vm._v("Nov 12")
-                    ]),
+                    _vm.tab == 0
+                      ? _c("div", { staticClass: "project-tab" }, [
+                          _c(
+                            "p",
+                            {
+                              staticClass: "card-text mt-3 mb-auto",
+                              staticStyle: { "font-size": "0.8rem" }
+                            },
+                            [_vm._v(_vm._s(_vm.project.explain))]
+                          ),
+                          _vm._v(" "),
+                          _vm.tab == 0
+                            ? _c("div", { staticClass: "d-flex mt-5" }, [
+                                _c("div", [
+                                  _vm.project.brands.logo_image.indexOf(
+                                    "http"
+                                  ) == -1
+                                    ? _c("img", {
+                                        staticClass:
+                                          "rounded-circle d-block border",
+                                        staticStyle: {
+                                          height: "76px",
+                                          width: "76px"
+                                        },
+                                        attrs: {
+                                          src:
+                                            "/storage/" +
+                                            _vm.project.brands.logo_image
+                                        }
+                                      })
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _vm.project.brands.logo_image.indexOf(
+                                    "http"
+                                  ) != -1
+                                    ? _c("img", {
+                                        staticClass:
+                                          "rounded-circle d-block border",
+                                        staticStyle: {
+                                          height: "60px",
+                                          width: "60px"
+                                        },
+                                        attrs: {
+                                          src: _vm.project.brands.logo_image
+                                        }
+                                      })
+                                    : _vm._e()
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "ml-3" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "mb-3 d-flex justify-content-between"
+                                    },
+                                    [
+                                      _c("strong", { staticClass: "mt-1" }, [
+                                        _vm._v(_vm._s(_vm.project.brands.name))
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-primary ml-3",
+                                          staticStyle: { padding: "1px 9px" },
+                                          attrs: { type: "button" }
+                                        },
+                                        [_vm._v("follow")]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass: "card-text mb-auto",
+                                      staticStyle: { "font-size": "0.8rem" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Specht Architects was founded on the vision of creating elegant, comfortable, and timeless buildings that are rooted in the unique environments in which they exist, and shaped by the character of the people who will inhabit them."
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "card-text mb-auto",
+                                      attrs: { href: "project.brands.url" }
+                                    },
+                                    [_vm._v(_vm._s(_vm.project.brands.url))]
+                                  )
+                                ])
+                              ])
+                            : _vm._e()
+                        ])
+                      : _vm._e(),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-content mx-auto",
-                        staticStyle: { width: "80%" }
-                      },
-                      [
-                        _c(
+                    _vm.tab == 1
+                      ? _c(
                           "div",
-                          {
-                            staticClass: "tab-pane active fade show",
-                            attrs: { id: "product" }
-                          },
+                          { staticClass: "product-tab" },
                           [
                             _c(
                               "el-table",
@@ -107534,6 +107696,14 @@ var render = function() {
                                 }
                               },
                               [
+                                _c("el-table-column", {
+                                  attrs: {
+                                    prop: "tags[0].name",
+                                    label: "カテゴリ",
+                                    contenteditable: "true"
+                                  }
+                                }),
+                                _vm._v(" "),
                                 _c("el-table-column", {
                                   attrs: {
                                     prop: "title",
@@ -107562,170 +107732,123 @@ var render = function() {
                             )
                           ],
                           1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "tab-pane fade",
-                            attrs: { id: "project" }
-                          },
-                          [
-                            _c("p", { staticClass: "card-text mb-auto" }, [
-                              _vm._v(_vm._s(_vm.project.explain))
-                            ])
-                          ]
+                        )
+                      : _vm._e()
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "btn-group d-block mt-5" },
+                  _vm._l(_vm.items[_vm.num].tags, function(key) {
+                    return _c(
+                      "button",
+                      {
+                        key: key.id,
+                        staticClass: "btn btn-sm btn-outline-secondary",
+                        attrs: { type: "button", "data-toggle": "modal" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-tag" }),
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(key.name) +
+                            "\n                        "
                         )
                       ]
-                    ),
-                    _vm._v(" "),
-                    _c("br")
-                  ]
+                    )
+                  }),
+                  0
                 )
               ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "btn-group d-block mx-auto" },
-                _vm._l(_vm.items[_vm.num].tags, function(key) {
-                  return _c(
-                    "button",
-                    {
-                      key: key.id,
-                      staticClass: "btn btn-sm btn-outline-secondary",
-                      attrs: { type: "button", "data-toggle": "modal" }
-                    },
-                    [
-                      _c("i", { staticClass: "fas fa-tag" }),
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(key.name) +
-                          "\n                "
-                      )
-                    ]
-                  )
-                }),
-                0
-              )
-            ]),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _vm._l(_vm.items[_vm.num].products, function(product) {
-              return _c(
-                "div",
-                {
-                  key: product.id,
-                  staticClass:
-                    "products_info card flex-md-row mb-4 box-shadow h-md-250 border"
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "card-body d-flex flex-column align-items-start"
-                    },
-                    [
-                      product.product_images.length !== 0
-                        ? _c("div", [
-                            product.product_images[0].image.indexOf("http") ==
-                            -1
-                              ? _c("img", {
-                                  attrs: {
-                                    src:
-                                      "/storage/" +
-                                      product.product_images[0].image
-                                  }
-                                })
-                              : _vm._e(),
-                            _vm._v(" "),
-                            product.product_images[0].image.indexOf("http") !=
-                            -1
-                              ? _c("img", {
-                                  attrs: {
-                                    src: product.product_images[0].image
-                                  }
-                                })
-                              : _vm._e()
-                          ])
-                        : _vm._e()
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "card-body d-flex flex-column align-items-start"
-                    },
-                    [
-                      _c("p", [_vm._v(_vm._s(product.brands.name))]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(product.brands.url))]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(product.brands.mail_address))]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(product.brands.address))]),
-                      _vm._v(" "),
-                      product.product_images.length !== 0
-                        ? _c(
-                            "a",
-                            {
-                              attrs: {
-                                href: "../product-detail?work=" + product.id
-                              }
-                            },
-                            [_vm._v("この製品の詳細へ")]
-                          )
-                        : _vm._e()
-                    ]
-                  )
-                ]
-              )
-            })
-          ],
-          2
-        )
-      : _vm._e()
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "mx-auto" }, [
-        _c("ul", { staticClass: "nav nav-tabs" }, [
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link active",
-                attrs: { href: "#product", "data-toggle": "tab" }
-              },
-              [_vm._v("使用製品")]
             )
           ]),
           _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: { href: "#project", "data-toggle": "tab" }
-              },
-              [_vm._v("プロジェクト")]
-            )
-          ])
+          _c("br"),
+          _vm._v(" "),
+          _vm.tab == 1
+            ? _c("div", { staticClass: "album" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col row text-center justify-content-center m-0"
+                  },
+                  _vm._l(_vm.items[_vm.num].products, function(product) {
+                    return _c(
+                      "div",
+                      { key: product.id, staticClass: "card m-2" },
+                      [
+                        _c("div", { staticClass: "image" }, [
+                          product.product_images.length !== 0
+                            ? _c("div", [
+                                product.product_images[0].image.indexOf(
+                                  "http"
+                                ) == -1
+                                  ? _c("img", {
+                                      attrs: {
+                                        src:
+                                          "/storage/" +
+                                          product.product_images[0].image
+                                      }
+                                    })
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                product.product_images[0].image.indexOf(
+                                  "http"
+                                ) != -1
+                                  ? _c("img", {
+                                      attrs: {
+                                        src: product.product_images[0].image
+                                      }
+                                    })
+                                  : _vm._e()
+                              ])
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", [_vm._v(_vm._s(product.title))]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "mb-0" }, [
+                            _vm._v(_vm._s(product.brands.name))
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticStyle: { color: "#636B6E" },
+                              attrs: { href: "product.brands.url" }
+                            },
+                            [_vm._v(_vm._s(product.brands.url))]
+                          ),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          product.product_images.length !== 0
+                            ? _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href: "../product-detail?work=" + product.id
+                                  }
+                                },
+                                [_vm._v("この製品の詳細へ")]
+                              )
+                            : _vm._e()
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ])
+            : _vm._e()
         ])
-      ])
-    ])
-  }
-]
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -107750,14 +107873,21 @@ var render = function() {
       { staticClass: "sidebar col-sm-3 hidden-xs" },
       [
         _c(
-          "el-button",
-          { attrs: { type: "primary" }, on: { click: _vm.setCheck } },
-          [_vm._v("検索")]
+          "div",
+          { staticClass: "mb-4" },
+          [
+            _c(
+              "el-button",
+              { attrs: { type: "primary" }, on: { click: _vm.setCheck } },
+              [_vm._v("検索")]
+            ),
+            _vm._v(" "),
+            _c("el-button", { on: { click: _vm.resetChecked } }, [
+              _vm._v("リセット")
+            ])
+          ],
+          1
         ),
-        _vm._v(" "),
-        _c("el-button", { on: { click: _vm.resetChecked } }, [
-          _vm._v("リセット")
-        ]),
         _vm._v(" "),
         _c("el-tree", {
           ref: "tree",
@@ -107776,49 +107906,45 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "col-sm-9 offset-sm-3" }, [
-      _c("div", { staticClass: "album py-5 bg-light" }, [
-        _c("div", { staticClass: "container" }, [
-          _c(
-            "div",
-            { staticClass: "row" },
-            _vm._l(_vm.filter, function(value) {
-              return _c("div", { key: value.id, staticClass: "col-md-4" }, [
-                _c("div", { staticClass: "card mb-4 shadow-sm" }, [
-                  _c("div", { staticClass: "image" }, [
-                    _c(
-                      "a",
-                      { attrs: { href: "/product-detail?work=" + value.id } },
-                      [
-                        value.product_images[0].image.indexOf("http") == -1
-                          ? _c("img", {
-                              staticClass: "img img-thumbnail",
-                              attrs: {
-                                src: "/storage/" + value.product_images[0].image
-                              }
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        value.product_images[0].image.indexOf("http") != -1
-                          ? _c("img", {
-                              staticClass: "img img-thumbnail",
-                              attrs: { src: value.product_images[0].image }
-                            })
-                          : _vm._e()
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(value.title))
-                    ])
-                  ])
+      _c("div", { staticClass: "album py-5" }, [
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.filter, function(value) {
+            return _c("div", { key: value.id, staticClass: "card m-2" }, [
+              _c("div", { staticClass: "image" }, [
+                _c(
+                  "a",
+                  { attrs: { href: "/product-detail?work=" + value.id } },
+                  [
+                    value.product_images[0].image.indexOf("http") == -1
+                      ? _c("img", {
+                          staticClass: "img img-thumbnail",
+                          attrs: {
+                            src: "/storage/" + value.product_images[0].image
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    value.product_images[0].image.indexOf("http") != -1
+                      ? _c("img", {
+                          staticClass: "img img-thumbnail",
+                          attrs: { src: value.product_images[0].image }
+                        })
+                      : _vm._e()
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(value.title))
                 ])
               ])
-            }),
-            0
-          )
-        ])
+            ])
+          }),
+          0
+        )
       ])
     ])
   ])
@@ -108829,11 +108955,11 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _vm.display
       ? _c("div", [
-          _c(
-            "div",
-            { staticClass: "card flex-md-row mb-4 box-shadow h-md-250" },
-            [
-              _c("div", { staticClass: "thumbneil" }, [
+          _c("div", { staticClass: "card flex-md-row mt-5 mb-4 pt-4" }, [
+            _c(
+              "div",
+              { staticClass: "thumbneil ml-5" },
+              [
                 _vm.items[_vm.num].image.indexOf("http") == -1
                   ? _c("img", {
                       staticClass: "card-img-left flex-auto d-none d-md-block",
@@ -108851,10 +108977,13 @@ var render = function() {
                 _c("br"),
                 _vm._v(" "),
                 _c(
-                  "div",
-                  { staticClass: "d-flex" },
+                  "el-carousel",
+                  {
+                    attrs: { autoplay: false, type: "card", height: "150px" },
+                    on: { change: _vm.changeImage }
+                  },
                   _vm._l(_vm.items, function(item, key) {
-                    return _c("span", { key: key, staticClass: "images" }, [
+                    return _c("el-carousel-item", { key: key }, [
                       item.image.indexOf("http") == -1
                         ? _c("img", {
                             attrs: {
@@ -108873,75 +109002,129 @@ var render = function() {
                         : _vm._e()
                     ])
                   }),
-                  0
+                  1
                 )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "card-body d-flex flex-column align-items-start"
-                },
-                [
-                  _c("div", { staticClass: "row" }, [
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "card-body d-flex flex-column align-items-start pt-0",
+                staticStyle: { "margin-left": "48px" }
+              },
+              [
+                _c("h4", { staticClass: "mb-0" }, [
+                  _c("a", { staticClass: "text-dark", attrs: { href: "#" } }, [
+                    _vm._v(_vm._s(_vm.product.title))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "card-text mt-3 mb-auto",
+                    staticStyle: { "font-size": "0.8rem" }
+                  },
+                  [_vm._v(_vm._s(_vm.product.explain))]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "d-flex mt-5" }, [
+                  _c("div", [
+                    _vm.product.brands.logo_image.indexOf("http") == -1
+                      ? _c("img", {
+                          staticClass: "rounded-circle d-block border",
+                          staticStyle: { height: "76px", width: "76px" },
+                          attrs: {
+                            src: "/storage/" + _vm.product.brands.logo_image
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.product.brands.logo_image.indexOf("http") != -1
+                      ? _c("img", {
+                          staticClass: "rounded-circle d-block border",
+                          staticStyle: { height: "60px", width: "60px" },
+                          attrs: { src: _vm.product.brands.logo_image }
+                        })
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "ml-3" }, [
                     _c(
-                      "strong",
-                      { staticClass: "d-inline-block text-primary" },
+                      "div",
+                      { staticClass: "mb-3 d-flex justify-content-between" },
                       [
-                        _c("a", { attrs: { href: "" } }, [
+                        _c("strong", { staticClass: "mt-1" }, [
                           _vm._v(_vm._s(_vm.product.brands.name))
-                        ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary ml-3",
+                            staticStyle: { padding: "1px 9px" },
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("follow")]
+                        )
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(0)
-                  ]),
-                  _vm._v(" "),
-                  _c("h3", { staticClass: "mb-0" }, [
+                    _c(
+                      "p",
+                      {
+                        staticClass: "card-text mb-auto",
+                        staticStyle: { "font-size": "0.8rem" }
+                      },
+                      [
+                        _vm._v(
+                          "Specht Architects was founded on the vision of creating elegant, comfortable, and timeless buildings that are rooted in the unique environments in which they exist, and shaped by the character of the people who will inhabit them."
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
                     _c(
                       "a",
-                      { staticClass: "text-dark", attrs: { href: "#" } },
-                      [_vm._v(_vm._s(_vm.product.title))]
+                      {
+                        staticClass: "card-text mb-auto",
+                        attrs: { href: "product.brands.url" }
+                      },
+                      [_vm._v(_vm._s(_vm.product.brands.url))]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "mb-1 text-muted" }, [
-                    _vm._v("Nov 12")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "content container" }, [
-                    _c("p", { staticClass: "card-text mb-auto" }, [
-                      _vm._v(_vm._s(_vm.product.explain))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "btn-group d-block mx-auto" },
-                    _vm._l(_vm.product.tags, function(key) {
-                      return _c(
-                        "button",
-                        {
-                          key: key.id,
-                          staticClass: "btn btn-sm btn-outline-secondary",
-                          attrs: { type: "button", "data-toggle": "modal" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-tag" }),
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(key.name) +
-                              "\n                    "
-                          )
-                        ]
-                      )
-                    }),
-                    0
-                  )
-                ]
-              )
-            ]
-          )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "btn-group d-block mt-5" },
+                  _vm._l(_vm.product.tags, function(key) {
+                    return _c(
+                      "button",
+                      {
+                        key: key.id,
+                        staticClass: "btn btn-sm btn-outline-secondary",
+                        attrs: { type: "button", "data-toggle": "modal" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-tag" }),
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(key.name) +
+                            "\n                    "
+                        )
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
         ])
       : _vm._e()
   ])
@@ -108951,12 +109134,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-me-4" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("follow")]
-      )
+    return _c("div", { staticClass: "test ml-5" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex flex-row-reverse" }, [
+        _c("img", {
+          staticStyle: { width: "30%", height: "30%" },
+          attrs: { src: "/storage/test_contact.png", alt: "" }
+        })
+      ])
     ])
   }
 ]
@@ -108984,14 +109170,21 @@ var render = function() {
       { staticClass: "sidebar col-sm-3 hidden-xs" },
       [
         _c(
-          "el-button",
-          { attrs: { type: "primary" }, on: { click: _vm.setCheck } },
-          [_vm._v("検索")]
+          "div",
+          { staticClass: "mb-4" },
+          [
+            _c(
+              "el-button",
+              { attrs: { type: "primary" }, on: { click: _vm.setCheck } },
+              [_vm._v("検索")]
+            ),
+            _vm._v(" "),
+            _c("el-button", { on: { click: _vm.resetChecked } }, [
+              _vm._v("リセット")
+            ])
+          ],
+          1
         ),
-        _vm._v(" "),
-        _c("el-button", { on: { click: _vm.resetChecked } }, [
-          _vm._v("リセット")
-        ]),
         _vm._v(" "),
         _c("el-tree", {
           ref: "tree",
@@ -109015,41 +109208,37 @@ var render = function() {
           "div",
           { staticClass: "row" },
           _vm._l(_vm.filter, function(value) {
-            return _c(
-              "div",
-              { key: value.id, staticClass: "card m-2 shadow-sm" },
-              [
-                _c("div", { staticClass: "image" }, [
-                  _c(
-                    "a",
-                    { attrs: { href: "/project-detail?work=" + value.id } },
-                    [
-                      value.project_images[0].image.indexOf("http") == -1
-                        ? _c("img", {
-                            staticClass: "img img-thumbnail",
-                            attrs: {
-                              src: "/storage/" + value.project_images[0].image
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      value.project_images[0].image.indexOf("http") != -1
-                        ? _c("img", {
-                            staticClass: "img img-thumbnail",
-                            attrs: { src: value.project_images[0].image }
-                          })
-                        : _vm._e()
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(_vm._s(value.title))
-                  ])
+            return _c("div", { key: value.id, staticClass: "card m-2" }, [
+              _c("div", { staticClass: "image" }, [
+                _c(
+                  "a",
+                  { attrs: { href: "/project-detail?work=" + value.id } },
+                  [
+                    value.project_images[0].image.indexOf("http") == -1
+                      ? _c("img", {
+                          staticClass: "img img-thumbnail",
+                          attrs: {
+                            src: "/storage/" + value.project_images[0].image
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    value.project_images[0].image.indexOf("http") != -1
+                      ? _c("img", {
+                          staticClass: "img img-thumbnail",
+                          attrs: { src: value.project_images[0].image }
+                        })
+                      : _vm._e()
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(value.title))
                 ])
-              ]
-            )
+              ])
+            ])
           }),
           0
         )
@@ -123205,10 +123394,10 @@ window._ = __webpack_require__("./node_modules/lodash/lodash.js");
  */
 
 try {
-    window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
+  window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 
-    // require('bootstrap-sass');
-    __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
+  // require('bootstrap-sass');
+  __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
 
 /**
@@ -123230,9 +123419,9 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-    console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 /**

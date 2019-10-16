@@ -1,9 +1,13 @@
 <template>
     <div class="row">
+        <!-- 検索サイドバー -->
         <div class="sidebar col-sm-3 hidden-xs">
-            <el-button type="primary" @click="setCheck">検索</el-button>
-            <el-button @click="resetChecked">リセット</el-button>
-
+            <!-- 検索・リセットボタン -->
+            <div class="mb-4">
+                <el-button type="primary" @click="setCheck">検索</el-button>
+                <el-button @click="resetChecked">リセット</el-button>
+            </div>
+            <!-- 検索ツリー -->
             <el-tree
                 class="filter-tree"
                 :data="tags"
@@ -15,10 +19,11 @@
                 :check-strictly="true"
             ></el-tree>
         </div>
+        <!-- 画像表示 -->
         <div class="col-sm-9 offset-sm-3">
             <div class="album py-5">
                 <div class="row">
-                    <div class="card m-2 shadow-sm" v-for="value in filter" :key="value.id">
+                    <div class="card m-2" v-for="value in filter" :key="value.id">
                         <div class="image">
                             <a :href="'/project-detail?work='+value.id">
                                 <img
@@ -2200,7 +2205,7 @@ export default {
     },
 
     computed: {
-        // 検索機能
+        // タグ検索機能
         filter: function() {
             this.result = [];
             this.old_result = [];
@@ -2238,6 +2243,7 @@ export default {
         resetChecked() {
             this.$refs.tree.setCheckedKeys([]);
             this.check = [];
+
             // this.$refs.tree.setAttribute('default-expand-all') = false;
         },
         setCheck() {
