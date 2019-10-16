@@ -47,14 +47,27 @@ $('.js-trimmingBtn').on('click', function (ev) {
       url: "/image-crop",
       type: "POST",
       data: { "image": resp },
-      success: function (data) {
-        //   html = '<img src="' + resp + '" />';
-        //   $("#upload-demo-i").html(html);
-        $('#myModal').modal('hide');
-        $('.profile_image').attr('src', resp);
-
-      }
-    });
+    })
+      .done(function (data) {
+        if (data.errors) {
+          console.log(data.errors);
+          // $('.error-message').show();
+          $('.modal-title').css({
+            'color': 'red'
+          });
+          $('.modal-title').text(data.errors);
+          // $.each(data.errors, function (key, value) {
+          //   $('.error-message').text(value);
+          // })
+        }
+        else {
+          console.log(data.success)
+          //   html = '<img src="' + resp + '" />';
+          //   $("#upload-demo-i").html(html);
+          $('#myModal').modal('hide');
+          $('.profile_image').attr('src', resp);
+        }
+      })
   });
 });
 

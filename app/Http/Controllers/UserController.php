@@ -8,6 +8,8 @@ use App\User;
 use Image;
 use Validator;
 use Illuminate\Validation\Rule;
+use Storage;
+
 
 
 class UserController extends Controller
@@ -60,15 +62,17 @@ class UserController extends Controller
 
   public function photo(Request $request)
   {
-    // $validator = Validator::make($request->all(), [
-    //   'image' => 'required|image|max:1000',
-    // ]);
 
-    // if ($validator->fails()) {
+    $validator = Validator::make($request->all(), [
+      'image' => 'base64image'
+    ], ['image.base64image' => '画像ファイルを選択して下さい']);
 
-    //   // return $validator->errors();
-    //   return redirect('/mypage')->withErrors($validator)->withInput();
-    // }
+    if ($validator->fails()) {
+      // return $validator->errors();
+      return response()->json(['errors' => $validator->errors()->all()]);
+      // return back()->withErrors($validator->errors());
+      // return redirect('/mypage')->withErrors($validator->errors())->withInput();
+    }
 
     $user = Auth::user();
     //$dataの中身⇒data:image/png;base64,iVB・・・・
@@ -77,15 +81,16 @@ class UserController extends Controller
 
     //explode関数で;区切りで配列を作成、作成された配列をlist関数で変数($type,$data)に代入
     list($type, $data) = explode(';', $data);
+    //$type="data:image/png" $data="base64,iVB・・・・"
     list(, $data)      = explode(',', $data);
 
 
     $data = base64_decode($data);
-    $image_name = $user->id . '-' . time() . '.png';
-    $path = storage_path('app/public/upload/') . $image_name;
+    $image_name = $user->id . '_avatar' . '.png';
+    // $path = storage_path('app/public/upload/') . $user->id . '/' . $image_name;
 
-
-    file_put_contents($path, $data);
+    Storage::disk('public')->put('/upload/' . $user->id . '/' . $image_name, $data);
+    // file_put_contents($path, $data);
 
     $user->profile_image = $image_name;
     $user->save();

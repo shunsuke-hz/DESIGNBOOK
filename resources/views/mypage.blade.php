@@ -28,20 +28,16 @@
                         @if( Auth::user()->profile_image == null)
                         <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;  background-color: rgb(233, 236, 239);">140x140</span>
                         @else
-                        <img class="profile_image" src="storage/upload/{{ Auth::user()->profile_image }}" alt="" style="max-width: 100%;">
+                        <img class="profile_image" src="storage/upload/{{ Auth::user()->id }}/{{ Auth::user()->profile_image }}" alt="" style="max-width: 100%;">
                         @endif
                       </div>
                     </div>
                   </div>
                   <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                     <div class="text-center text-sm-left mb-2 mb-sm-0">
+
                       <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{ Auth::user()->account_name }}</h4>
                       <p class="mb-0">{{ Auth::user()->name }}</p>
-                      @if(count($errors)>0)
-                      @foreach($errors->all() as $error )
-                      <p>{{ $error }}</p>
-                      @endforeach
-                      @endif
                       <div class="text-muted"><small>Last seen 2 hours ago</small></div>
 
 
