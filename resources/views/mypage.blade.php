@@ -26,7 +26,7 @@
                     <div class="mx-auto" style="width: 140px;">
                       <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px;">
                         @if( Auth::user()->profile_image == null)
-                        <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;  background-color: rgb(233, 236, 239);">140x140</span>
+                        <img class="profile_image" src="storage/noimage.png" alt="" style="max-width: 100%;">
                         @else
                         <img class="profile_image" src="storage/upload/{{ Auth::user()->id }}/{{ Auth::user()->profile_image }}" alt="" style="max-width: 100%;">
                         @endif
