@@ -1,9 +1,13 @@
 <template>
     <div class="row">
+        <!-- 検索サイドバー -->
         <div class="sidebar col-sm-3 hidden-xs">
-            <el-button type="primary" @click="setCheck">検索</el-button>
-            <el-button @click="resetChecked">リセット</el-button>
-
+            <!-- 検索・リセットボタン -->
+            <div class="mb-4">
+                <el-button type="primary" @click="setCheck">検索</el-button>
+                <el-button @click="resetChecked">リセット</el-button>
+            </div>
+            <!-- 検索ツリー -->
             <el-tree
                 class="filter-tree"
                 :data="tags"
@@ -15,30 +19,27 @@
                 :check-strictly="true"
             ></el-tree>
         </div>
+        <!-- 画像表示 -->
         <div class="col-sm-9 offset-sm-3">
-            <div class="album py-5 bg-light">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4" v-for="value in filter" :key="value.id">
-                            <div class="card mb-4 shadow-sm">
-                                <div class="image">
-                                    <a :href="'/product-detail?work='+value.id">
-                                        <img
-                                            v-if="value.product_images[0].image.indexOf('http') == -1"
-                                            class="img img-thumbnail"
-                                            :src="'/storage/'+value.product_images[0].image"
-                                        />
-                                        <img
-                                            v-if="value.product_images[0].image.indexOf('http') != -1"
-                                            class="img img-thumbnail"
-                                            :src="value.product_images[0].image"
-                                        />
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text">{{ value.title }}</p>
-                                </div>
-                            </div>
+            <div class="album py-5">
+                <div class="row">
+                    <div class="card m-2" v-for="value in filter" :key="value.id">
+                        <div class="image">
+                            <a :href="'/product-detail?work='+value.id">
+                                <img
+                                    v-if="value.product_images[0].image.indexOf('http') == -1"
+                                    class="img img-thumbnail"
+                                    :src="'/storage/'+value.product_images[0].image"
+                                />
+                                <img
+                                    v-if="value.product_images[0].image.indexOf('http') != -1"
+                                    class="img img-thumbnail"
+                                    :src="value.product_images[0].image"
+                                />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ value.title }}</p>
                         </div>
                     </div>
                 </div>
@@ -1860,7 +1861,7 @@ export default {
         };
     },
     computed: {
-        // 検索機能
+        // タグ検索機能
         filter: function() {
             this.result = [];
             this.old_result = [];

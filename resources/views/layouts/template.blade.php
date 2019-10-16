@@ -33,7 +33,6 @@
       margin: 0;
     }
 
-
     .flex-center {
       align-items: center;
       display: flex;
@@ -71,6 +70,15 @@
     .m-b-md {
       margin-bottom: 30px;
     }
+
+    .navbar-brand{
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align:center;
+    margin: auto;
+    }
   </style>
 </head>
 
@@ -90,8 +98,8 @@
       </div>
 
       {{-- ロゴ画像 --}}
-      <div>
-        <a class="navbar-brand" href="/"><img src="/storage/Logo.png" width="80px"></a>
+      <div class="navbar-brand">
+        <a href="/"><img src="/storage/Logo.png" width="80px"></a>
       </div>
 
       {{-- 右側のメニュー項目 --}}
