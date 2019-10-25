@@ -1,13 +1,7 @@
-<template>
-    <el-tree class="filter-tree" :data="tags" show-checkbox node-key="id" ref="tree" accordion></el-tree>
-</template>
-
-<script>
-export default {
-    name: "project-tag",
-    data: function() {
-        return {
-            tags: [
+export const productTags = {
+  data() {
+		return {
+			tags: [
                 {
                     id: 489,
                     label: "内壁・天井",
@@ -1802,15 +1796,6 @@ export default {
                     ]
                 }
             ]
-        };
-    },
-    methods: {
-        resetChecked() {
-            this.$refs.tree.setCheckedKeys([]);
-        }
-    }
+		};
+  }
 };
-</script>
-
-<style>
-</style>
