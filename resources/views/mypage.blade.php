@@ -32,7 +32,9 @@
                         @endif
                       </div>
                     </div>
+
                   </div>
+
                   <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                     <div class="text-center text-sm-left mb-2 mb-sm-0">
 
@@ -92,15 +94,27 @@
                     </div>
                   </div>
                 </div>
-                <ul class="nav nav-tabs">
-                  <li class="nav-item"><a href="" class="active nav-link">プロフィール</a></li>
+                @if (session('my_status'))
+                <div class="row">
+                  <div class="container mt-2">
+                    <div class="alert alert-success">
+                      {{ session('my_status') }}
+                    </div>
+                  </div>
+                </div>
+                @endif
+                <ul class="nav nav-tabs" role="tablist" id="myTab">
+                  <li class="nav-item"><a href="#profile" class="nav-link active" role="tab" data-toggle="tab">プロフィール</a></li>
+                  <li class="nav-item"><a href="#brand" class="nav-link" role="tab" data-toggle="tab">ブランド</a></li>
+
                 </ul>
-                <div class="tab-content pt-3">
-                  <div class="tab-pane active">
+
+                <div class="tab-content pt-3" id="myTabContent">
+
+                  <div class="tab-pane active" role="tabpanel" id="profile">
 
                     <form method="POST" action="{{ route('users.edit') }}" class=" form">
                       {{ csrf_field() }}
-
 
                       <div class="row">
                         <div class="col">
@@ -145,7 +159,84 @@
                     </form>
 
                   </div>
+
+                  <div class="tab-pane fade" role="tabpanel" id="brand">
+                    @if(isset($brand))
+                    <img class="brand_image" src="storage/brand_icon/{{ $brand->id }}/{{ $brand->logo_image }}" alt="" style="width: 140px;">
+
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label>ブランド名</label>
+                          <p>{{ $brand->name }}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label>URL</label>
+                          <p><a href="{{ $brand->url }}">{{ $brand->url }}</a></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label>Zip</label>
+                          <p>{{ $brand->postal_code }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label>Address</label>
+                          <p>{{ $brand->address }}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label>Mail</label>
+                          <p>{{ $brand->mail_address }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label>TEL</label>
+                          <p>{{ $brand->phone_number }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label>Profile</label>
+                          <p>{{ $brand->profile }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    @component('components.btn-del')
+                    @slot('controller', 'user')
+                    @slot('route', 'users.secedeBrand')
+                    @slot('id', Auth::user()->id)
+                    @slot('name', $brand->name)
+                    @endcomponent
+
+                    @else
+                    <p>ブランドに加入していません。</p>
+                    <a class="btn btn-primary" href="{{ route('brand.index') }}">ブランドを作成</a>
+                    @endif
+                  </div>
+
                 </div>
+
               </div>
             </div>
           </div>

@@ -20,13 +20,13 @@ class UserController extends Controller
     $this->middleware('auth');
   }
 
-  public function edit(User $user)
+  public function edit()
   {
     $user = Auth::user();
     return view('users.edit', compact('user'));
   }
 
-  public function update(User $user, Request $request)
+  public function update(Request $request)
   {
     $data = $request->all();
     if ($data['birth_year'] && $data['birth_month'] && $data['birth_day']) {
@@ -96,40 +96,13 @@ class UserController extends Controller
     $user->save();
 
     return response()->json(['success' => 'done']);
+  }
 
-
-
-    // $str =  str_random(7);
-    // $path = storage_path('app/public/img/');
-    // // $crop =  value(function () use ($request, $str) {
-
-    // // Laravelの場合は public_path()ヘルパー関数、Facadeが使えます
-    // $image = Image::make($request->get('img_file'));
-    // // $image = $request->all();
-    // // return $image;
-    // $image->crop(
-    //   $request->get('image')['width'],
-    //   $request->get('image')['height'],
-    //   $request->get('image')['x'],
-    //   $request->get('image')['y']
-    // )
-    //   ->resize(256, 256) // 256 * 256にリサイズ
-    //   // 画像の保存
-    //   ->save($path . $str . '.jpg')
-    //   ->resize(128, 128) //サムネイル用にリサイズ
-    //   ->save($path . $str . '_t' . '.jpg');
-
-
-    // 必要があれば元のファイルも消す
-    /* Lumenの場合は bootstrap/app.phpに以下のコードを追加
-                      * class_alias('Illuminate\Support\Facades\File', 'File');
-                      */
-    // \File::delete('Your image File);
-
-    // return $image ?: false;
-    // });
-
-    // return $crop ? ['response' =>  true, 'img' => $str . '.jpg']
-    //   : ['response' => false];
+  public function secedeBrand(Request $request)
+  {
+    $user = User::find($request->user);
+    $user->brand_id = null;
+    $user->save();
+    return redirect()->route('mypage')->with('my_status', __('ブランドを脱会しました'));
   }
 }

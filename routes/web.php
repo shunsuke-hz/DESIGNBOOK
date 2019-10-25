@@ -18,7 +18,7 @@
 // ログインしないと見れないページ
 Route::group(['middleware' => 'auth'], function () {
   // （仮）マイページ
-  Route::get('/mypage', 'MypageController@index');
+  Route::get('/mypage', 'MypageController@index')->name('mypage');
 
   //  ユーザープロフィール編集
   Route::get('/users',  'UserController@edit')->name('users.edit');
@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
 
   // ユーザーアイコントリミング
   Route::post('/cropper', 'UserController@photo');
+  // ブランド脱会
+  Route::post('/users/secede-brand', 'UserController@secedeBrand')->name('users.secedeBrand');
 
   // プロジェクト投稿ページ
   Route::get('project-post', function () {
@@ -49,6 +51,11 @@ Route::get('/product-detail', 'ProductDetailController@index');
 
 // ブランド一覧ページ
 Route::get('/brands-list', 'BrandsListController@index');
+
+// ブランド作成ページ
+Route::get('/brand-post', 'BrandController@index')->name('brand.index');
+Route::post('/brand-post', 'BrandController@confirm')->name('brand.confirm');
+Route::post('/brand-create', 'BrandController@create')->name('brand.create');
 
 
 

@@ -20,7 +20,7 @@ class CreateBrandsTable extends Migration
       $table->string('postal_code', 45);
       $table->integer('prefecture');
       $table->string('address', 255);
-      $table->text('address_url', 9999);
+      $table->text('profile', 9999);
       $table->string('mail_address', 255);
       $table->string('phone_number', 45);
       $table->text('logo_image', 9999);
