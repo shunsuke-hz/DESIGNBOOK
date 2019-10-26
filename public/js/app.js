@@ -3173,60 +3173,67 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            brands: [],
-            keyword: "",
-            result: [],
-            old_result: []
-        };
-    },
+  data: function data() {
+    return {
+      brands: [],
+      keyword: "",
+      result: [],
+      old_result: []
+    };
+  },
 
-    computed: {
-        filter: function filter() {
-            this.result = [];
-            this.old_result = [];
-            for (var i in this.brands) {
-                var brand = this.brands[i];
-                if (brand.name.includes(this.keyword) == true) {
-                    if (this.old_result == brand) {} else {
-                        this.result.push(brand);
-                    }
-                    this.old_result = brand;
-                }
-            }
-            return this.result;
+  computed: {
+    filter: function filter() {
+      this.result = [];
+      this.old_result = [];
+      for (var i in this.brands) {
+        var brand = this.brands[i];
+        if (brand.name.includes(this.keyword) == true) {
+          if (this.old_result == brand) {} else {
+            this.result.push(brand);
+          }
+          this.old_result = brand;
         }
-    },
-    mounted: function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-            var _this = this;
+      }
+      return this.result;
+    }
+  },
+  mounted: function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      var _this = this;
 
-            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-                while (1) {
-                    switch (_context.prev = _context.next) {
-                        case 0:
-                            _context.next = 2;
-                            return axios.get("/api/brands-list/").then(function (response) {
-                                return _this.brands = response.data;
-                            });
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios.get("/api/brands-list/").then(function (response) {
+                return _this.brands = response.data;
+              });
 
-                        case 2:
-                        case "end":
-                            return _context.stop();
-                    }
-                }
-            }, _callee, this);
-        }));
-
-        function mounted() {
-            return _ref.apply(this, arguments);
+            case 2:
+            case "end":
+              return _context.stop();
+          }
         }
+      }, _callee, this);
+    }));
 
-        return mounted;
-    }()
+    function mounted() {
+      return _ref.apply(this, arguments);
+    }
+
+    return mounted;
+  }()
 });
 
 /***/ }),
@@ -10709,7 +10716,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.brand-image {\n    width: 50px;\n    height: 50px;\n}\n", ""]);
+exports.push([module.i, "\n.brand-image {\n  width: 50px;\n  height: 50px;\n}\n", ""]);
 
 // exports
 

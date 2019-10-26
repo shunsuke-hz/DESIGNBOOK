@@ -17,24 +17,24 @@
 
 // ログインしないと見れないページ
 Route::group(['middleware' => 'auth'], function () {
-  // （仮）マイページ
-  Route::get('/mypage', 'MypageController@index')->name('mypage');
+	// （仮）マイページ
+	Route::get('/mypage', 'MypageController@index')->name('mypage');
 
-  //  ユーザープロフィール編集
-  Route::get('/users',  'UserController@edit')->name('users.edit');
-  Route::post('/users/edit', 'UserController@update')->name('users.update');
+	//  ユーザープロフィール編集
+	Route::get('/users',  'UserController@edit')->name('users.edit');
+	Route::post('/users/edit', 'UserController@update')->name('users.update');
 
-  // ユーザーアイコントリミング
-  Route::post('/cropper', 'UserController@photo');
-  // ブランド脱会
-  Route::post('/users/secede-brand', 'UserController@secedeBrand')->name('users.secedeBrand');
+	// ユーザーアイコントリミング
+	Route::post('/cropper', 'UserController@photo');
+	// ブランド脱会
+	Route::post('/users/secede-brand', 'UserController@secedeBrand')->name('users.secedeBrand');
 
-  // プロジェクト投稿ページ
-  Route::get('project-post', function () {
-    return view('project_post');
-  });
+	// プロジェクト投稿ページ
+	Route::get('project-post', function () {
+		return view('project_post');
+	});
 
-  Route::post('project-post', 'ProjectController@create');
+	Route::post('project-post', 'ProjectController@create');
 });
 
 // TOPページ
@@ -83,3 +83,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
 
 Route::post('/image-crop', 'UserController@photo');
+
+// elasticsearchリクエスト
+Route::get('/project/search', function () {
+	return App\Project::search(\request('q'))->get();
+	// return App\Project::search(\request('q'))->paginate();
+});
