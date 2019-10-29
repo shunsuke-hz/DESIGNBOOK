@@ -4501,7 +4501,21 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__projectTags__ = __webpack_require__("./resources/assets/js/projectTags.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("./node_modules/babel-runtime/regenerator/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__projectTags__ = __webpack_require__("./resources/assets/js/projectTags.js");
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4566,9 +4580,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [__WEBPACK_IMPORTED_MODULE_0__projectTags__["a" /* projectTags */]],
+  mixins: [__WEBPACK_IMPORTED_MODULE_1__projectTags__["a" /* projectTags */]],
   components: {
-    projectTags: __WEBPACK_IMPORTED_MODULE_0__projectTags__["a" /* projectTags */]
+    projectTags: __WEBPACK_IMPORTED_MODULE_1__projectTags__["a" /* projectTags */]
   },
   data: function data() {
     return {
@@ -4577,7 +4591,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       images: [],
       check: [],
       result: [],
-      old_result: []
+      old_result: [],
+      elastic: []
     };
   },
 
@@ -4634,13 +4649,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     setCheck: function setCheck() {
       this.check = this.$refs.tree.getCheckedKeys();
-    }
+    },
+    keywordSearch: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var _this2 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("/project/search?q=" + this.keyword).then(function (response) {
+                  return _this2.elastic = response.data;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function keywordSearch() {
+        return _ref.apply(this, arguments);
+      }
+
+      return keywordSearch;
+    }()
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this3 = this;
 
     axios.get("/api/").then(function (response) {
-      return _this2.projects = response.data;
+      return _this3.projects = response.data;
     });
     // axios.get("/api/tags").then(response => (this.tags = response.data));
   }
@@ -10671,7 +10713,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\n  display: none;\n  margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    display: block;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n}\n.card {\n  width: 264px;\n  height: 264px;\n  border: none;\n  border-radius: 0;\n}\n.image {\n  overflow: hidden;\n  width: 264px;\n  height: 210px;\n}\n.image img {\n  display: block;\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n  height: 100%;\n  border: none;\n  margin: auto;\n}\n.image img:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n}\n.img-thumbnail {\n  padding: 0;\n  border-radius: 0;\n}\n.card-body {\n  width: 264px;\n  height: 54px;\n  padding: 0.5rem;\n}\n", ""]);
+exports.push([module.i, "\n.sidebar {\n  display: none;\n  margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    display: block;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n}\n.card {\n  width: 264px;\n  height: 264px;\n  border: none;\n  border-radius: 0;\n  margin: 1rem;\n}\n.image {\n  overflow: hidden;\n  width: 264px;\n  height: 210px;\n}\n.image img {\n  display: block;\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n  height: 100%;\n  border: none;\n  margin: auto;\n}\n.image img:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n}\n.img-thumbnail {\n  padding: 0;\n  border-radius: 0;\n}\n.card-body {\n  width: 264px;\n  height: 54px;\n  padding: 0.5rem;\n}\n", ""]);
 
 // exports
 
@@ -101844,46 +101886,78 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "col-sm-9 offset-sm-3" }, [
-      _c("div", { staticClass: "album py-5" }, [
-        _c(
-          "div",
-          { staticClass: "row" },
-          _vm._l(_vm.filter, function(value) {
-            return _c("div", { key: value.id, staticClass: "card m-2" }, [
-              _c("div", { staticClass: "image" }, [
-                _c(
-                  "a",
-                  { attrs: { href: "/project-detail?work=" + value.id } },
-                  [
-                    value.project_images[0].image.indexOf("http") == -1
-                      ? _c("img", {
-                          staticClass: "img img-thumbnail",
-                          attrs: {
-                            src: "/storage/" + value.project_images[0].image
-                          }
-                        })
-                      : _vm._e(),
-                    _vm._v(" "),
-                    value.project_images[0].image.indexOf("http") != -1
-                      ? _c("img", {
-                          staticClass: "img img-thumbnail",
-                          attrs: { src: value.project_images[0].image }
-                        })
-                      : _vm._e()
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v(_vm._s(value.title))
+      _c(
+        "div",
+        { staticClass: "album py-5" },
+        [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.keyword,
+                expression: "keyword"
+              }
+            ],
+            attrs: { type: "form" },
+            domProps: { value: _vm.keyword },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.keyword = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "el-button",
+            { attrs: { type: "primary" }, on: { click: _vm.keywordSearch } },
+            [_vm._v("検索")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.filter, function(value) {
+              return _c("div", { key: value.id, staticClass: "card m-2" }, [
+                _c("div", { staticClass: "image" }, [
+                  _c(
+                    "a",
+                    { attrs: { href: "/project-detail?work=" + value.id } },
+                    [
+                      value.project_images[0].image.indexOf("http") == -1
+                        ? _c("img", {
+                            staticClass: "img img-thumbnail",
+                            attrs: {
+                              src: "/storage/" + value.project_images[0].image
+                            }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      value.project_images[0].image.indexOf("http") != -1
+                        ? _c("img", {
+                            staticClass: "img img-thumbnail",
+                            attrs: { src: value.project_images[0].image }
+                          })
+                        : _vm._e()
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(value.title))
+                  ])
                 ])
               ])
-            ])
-          }),
-          0
-        )
-      ])
+            }),
+            0
+          )
+        ],
+        1
+      )
     ])
   ])
 }

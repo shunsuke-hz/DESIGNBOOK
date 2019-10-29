@@ -28,6 +28,14 @@
     <!-- 画像表示 -->
     <div class="col-sm-9 offset-sm-3">
       <div class="album py-5">
+        <input
+          type="form"
+          v-model="keyword"
+        >
+        <el-button
+          type="primary"
+          @click="keywordSearch"
+        >検索</el-button>
         <div class="row">
           <div
             class="card m-2"
@@ -73,7 +81,8 @@ export default {
       images: [],
       check: [],
       result: [],
-      old_result: []
+      old_result: [],
+      elastic: []
     };
   },
 
@@ -121,6 +130,12 @@ export default {
     },
     setCheck() {
       this.check = this.$refs.tree.getCheckedKeys();
+    },
+    async keywordSearch() {
+      await axios
+        .get("/project/search?q=" + this.keyword)
+        .then(response => (this.elastic = response.data));
+      // this.result = this.elastic;
     }
   },
   mounted: function() {

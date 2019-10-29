@@ -131,6 +131,7 @@ export default {
   height: 264px;
   border: none;
   border-radius: 0;
+  margin: 1rem;
 }
 
 .image {
