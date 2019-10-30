@@ -89,7 +89,7 @@
       {{-- 左側のメニュー項目 --}}
       <div class="collapse navbar-collapse" id="Navber">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item d-flex align-items-center"><a class="nav-link" href="/"><i class="fas fa-search fa-lg"></i></a></li>
+          <li class="nav-item d-flex align-items-center"><search-component /></li>
           <li class="nav-item"><a class="nav-link" href="/">プロジェクト</a></li>
           <li class="nav-item"><a class="nav-link" href="/product">製品</a></li>
           <li class="nav-item"><a class="nav-link" href="/brands-list">ブランド</a></li>

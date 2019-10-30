@@ -38,6 +38,10 @@ Vue.component(
   "brand-list-component",
   require("./components/BrandListComponent.vue")
 );
+Vue.component(
+  "search-component",
+  require("./components/SearchComopnent.vue")
+);
 
 Vue.component("create-post", require("./components/CreatePost.vue"));
 
