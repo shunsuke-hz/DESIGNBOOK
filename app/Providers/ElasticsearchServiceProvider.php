@@ -3,14 +3,24 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Laravel\Scout\EngineManager;
 use App\Scout\ElasticsearchEngine;
 use Elasticsearch\ClientBuilder;
+use Laravel\Scout\EngineManager;
 
 class ElasticsearchServiceProvider extends ServiceProvider
 {
 	/**
-	 * Bootstrap the application services.
+	 * Register services.
+	 *
+	 * @return void
+	 */
+	public function register()
+	{
+		//
+	}
+
+	/**
+	 * Bootstrap services.
 	 *
 	 * @return void
 	 */
@@ -24,15 +34,5 @@ class ElasticsearchServiceProvider extends ServiceProvider
 					->build()
 			);
 		});
-	}
-
-	/**
-	 * Register the application services.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		//
 	}
 }
