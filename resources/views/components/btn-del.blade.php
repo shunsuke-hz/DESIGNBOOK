@@ -30,7 +30,6 @@ $id_attr = 'modal-delete-' . $controller . '-' . $id;
         {{-- 削除用のアクションを実行させるフォーム --}}
         <!-- <form action="{{ url($controller . '/' . $id) }}" method="post"> -->
         <form action="{{ route($route) }}" method="post">
-          <input type="hidden" name="user" value="{{ $id }}">
 
           {{ csrf_field() }}
           <!-- @method('DELETE') -->

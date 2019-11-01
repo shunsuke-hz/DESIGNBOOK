@@ -131,4 +131,13 @@ class Brand extends Model
     $this->attributes['prefecture'] = array_search($pre, $prefs);
     // return array_get($prefs, $this->prefecture);
   }
+
+  public function projects()
+  {
+    return $this->hasMany('App\Project');
+  }
+  public function products()
+  {
+    return $this->hasMany('App\Product');
+  }
 }

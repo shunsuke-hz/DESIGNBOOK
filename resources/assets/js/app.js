@@ -39,6 +39,12 @@ Vue.component(
   require("./components/BrandListComponent.vue")
 );
 
+Vue.component(
+  "brand-detail-component",
+  require("./components/BrandDetailComponent.vue")
+);
+
+
 Vue.component("create-post", require("./components/CreatePost.vue"));
 
 const app = new Vue({

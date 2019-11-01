@@ -94,11 +94,20 @@
                     </div>
                   </div>
                 </div>
-                @if (session('my_status'))
+                @if (session('success'))
                 <div class="row">
                   <div class="container mt-2">
                     <div class="alert alert-success">
-                      {{ session('my_status') }}
+                      {{ session('success') }}
+                    </div>
+                  </div>
+                </div>
+                @endif
+                @if (session('error'))
+                <div class="row">
+                  <div class="container mt-2">
+                    <div class="alert alert-danger">
+                      {{ session('error') }}
                     </div>
                   </div>
                 </div>

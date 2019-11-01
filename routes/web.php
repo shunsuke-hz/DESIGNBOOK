@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth'], function () {
   Route::post('/cropper', 'UserController@photo');
   // ブランド脱会
   Route::post('/users/secede-brand', 'UserController@secedeBrand')->name('users.secedeBrand');
+  // ブランド加入
+  Route::post('/users/join-brand/{brand_id}', 'UserController@joinBrand')->name('users.joinBrand');
 
   // プロジェクト投稿ページ
   Route::get('project-post', function () {
@@ -51,6 +53,10 @@ Route::get('/product-detail', 'ProductDetailController@index');
 
 // ブランド一覧ページ
 Route::get('/brands-list', 'BrandsListController@index');
+
+// ブランド詳細ページ
+Route::get('/brand-detail/{brand}', 'BrandController@show');
+
 
 // ブランド作成ページ
 Route::get('/brand-post', 'BrandController@index')->name('brand.index');

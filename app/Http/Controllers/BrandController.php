@@ -8,16 +8,28 @@ use Illuminate\Support\Facades\Auth;
 use Storage;
 use App\User;
 use App\Brand;
+use App\Project;
 
 
 
 class BrandController extends Controller
 {
   //
+  public function show($brand)
+  {
+    // $brandData = Project::with(['project_images.tags'])->where('brand_id', $brand)->get();
+    $brand = Brand::with(['projects.project_images', 'products.product_images'])->find($brand);
+    // $brandData = json_encode($brand);
+    return view('brand_detail', compact('brand'));
+  }
+
   public function index()
   {
-
-    return view('brand_post');
+    if (Auth::user()->brand_id == null) {
+      return view('brand_post');
+    } else {
+      return redirect()->route('mypage')->with('error', ('既にブランドに加入しています。新しくブランドを作る場合は現在のブランドを脱会する必要があります。'));
+    }
   }
 
   public function confirm(BrandRequest $request)
@@ -36,7 +48,7 @@ class BrandController extends Controller
         'name' => $request->brand_name,
         'url' => $request->url,
         'postal_code' => $request->zip01,
-        'prefecture' => $request->pref01,
+        'prefecture_name' => $request->pref01,
         'address' => $request->pref01 . $request->addr01 . $request->address_line1 . $request->address_line2,
         'profile' => $request->belonging_to,
         'mail_address' => $request->email,
@@ -63,7 +75,7 @@ class BrandController extends Controller
 
       return view('brand_created');
     } else {
-      echo "既にブランドに加入しています";
+      return redirect()->route('mypage')->with('error', ('既にブランドに加入しています。新しくブランドを作る場合は現在のブランドを脱会する必要があります。'));
     }
   }
 }
