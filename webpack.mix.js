@@ -20,11 +20,11 @@ mix
   .version();
 mix.copy("node_modules/croppie/croppie.js", "public/js/croppie.js").version();
 
-mix.copy(
-  "node_modules/now-ui-kit/now-ui-kit.min.css",
-  "public/css/now-ui-kit.css"
-);
-mix.copy(
-  "node_modules/now-ui-kit/now-ui-kit.min.js",
-  "public/js/now-ui-kit.css"
-);
+// mix.copy(
+//   "node_modules/now-ui-kit/now-ui-kit.min.css",
+//   "public/css/now-ui-kit.css"
+// );
+// mix.copy(
+//   "node_modules/now-ui-kit/now-ui-kit.min.js",
+//   "public/js/now-ui-kit.css"
+// );

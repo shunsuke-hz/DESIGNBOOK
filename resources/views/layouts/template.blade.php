@@ -92,104 +92,77 @@
   @yield('pageCss')
 </head>
 
-<body>
+<body style="margin-top:78px">
   <div id="app">
-    
-      <nav class="navbar navbar-expand-lg bg-white fixed-top">
-        <div class="container">
-          <div class="logo">
-            <a href="/home" class="navbar-brand">
-              <img src="/storage/Logo.png" width="60px">
-            </a>
-          </div>
-          <div class="navbar-translate">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-bar top-bar"></span>
-              <span class="navbar-toggler-bar middle-bar"></span>
-              <span class="navbar-toggler-bar bottom-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item d-flex align-items-center">
-                <search-component />
-              </li>
-              <li class="nav-item py-2"><a class="nav-link" href="/">プロジェクト</a></li>
-              <li class="nav-item py-2"><a class="nav-link" href="/product">製品</a></li>
-              <li class="nav-item py-2"><a class="nav-link" href="/brands-list">ブランド</a></li>
-              <li class="nav-item py-2"><a class="nav-link" href="/project-post">投稿</a></li>
 
-
-              @auth
-              <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="/" data-toggle="tooltip" data-placement="top" title="新着はありません"><i class="far fa-bell fa-lg"></i></a></li>
-
-              <li class="nav-item dropdown d-flex align-items-center">
-
-                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
-                  <span>
-                    @if( Auth::user()->profile_image !== null)
-                    <img class="profile_image" src="storage/upload/{{ Auth::user()->id }}/{{ Auth::user()->profile_image }}" alt="" style="max-width: 30px;">
-                    @endif
-                  </span>
-                  <p>{{ Auth::user()->account_name }}</p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="nav-link " href="/mypage">
-                    <i class="far fa-user fa-lg" aria-hidden="true"></i>
-                    マイページ
-                  </a>
-                  <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
-                    ログアウト
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      {{ csrf_field() }}
-                    </form>
-                  </a>
-                </div>
-              </li>
-              @else
-              <a class="nav-link" href="{{ route('login') }}">
-                <button class="btn btn-outline-default m-0">login</button>
-              </a>
-              <a class="nav-link" href="{{ route('register') }}">
-                <button class="btn btn-outline-info m-0">Sign Up</button>
-              </a>
-              @endauth
-            </ul>
-          </div>
+    <nav class="navbar navbar-expand-lg bg-white fixed-top p-0">
+      <div class="container">
+        <div class="logo">
+          <a href="/home" class="navbar-brand">
+            <img src="/storage/Logo.png" width="60px">
+          </a>
         </div>
-      </nav>
+        <div class="navbar-translate">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar top-bar"></span>
+            <span class="navbar-toggler-bar middle-bar"></span>
+            <span class="navbar-toggler-bar bottom-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item d-flex align-items-center">
+              <search-component />
+            </li>
+            <li class="nav-item py-2"><a class="nav-link" href="/">プロジェクト</a></li>
+            <li class="nav-item py-2"><a class="nav-link" href="/product">製品</a></li>
+            <li class="nav-item py-2"><a class="nav-link" href="/brands-list">ブランド</a></li>
+            <li class="nav-item py-2"><a class="nav-link" href="/project-post">投稿</a></li>
 
 
+            @auth
+            <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="/" data-toggle="tooltip" data-placement="top" title="新着はありません"><i class="far fa-bell fa-lg"></i></a></li>
 
-      {{-- 保険で一応残しておきます --}}
-      {{-- <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-  <ul class="collapse navbar-collapse navbar-nav mr-auto" id="Navber">
-      <li class="nav-item d-flex align-items-center"><a class="nav-link" href="http://localhost/"><i class="fas fa-search fa-lg"></i></a></li>
-      <li class="nav-item"><a class="nav-link" href="http://localhost/">プロジェクト</a></li>
-      <li class="nav-item"><a class="nav-link" href="http://localhost/product">製品</a></li>
-      <li class="nav-item"><a class="nav-link" href="http://localhost/brands-list">ブランド</a></li>
-  </ul>
+            <li class="nav-item dropdown d-flex align-items-center">
 
-  <div class="navbar-brand ml-auto">
-      <a href="http://localhost/"><img src="/storage/Logo.png" width="80px"></a>
-  </div>
-
-  <ul class="navbar-nav ml-auto">
-      <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="http://localhost/"><i class="far fa-bell fa-lg"></i></a></li>
-      <li class="nav-item d-flex align-items-center"><a class="nav-link mx-2" href="http://localhost/mypage"><i class="far fa-user fa-lg"></i></a></li>
-      <li class="nav-item"><a class="nav-link" href="http://localhost/"><button class="btn btn-outline-dark my-2 my-sm-0">Sign in</button></a></li>
-      <li class="nav-item"><a class="nav-link" href="http://localhost/"><button class="btn btn-outline-primary my-2 my-sm-0">Sign Up Free</button></a></li>
-  </ul>
-
-  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
-      <span class="navbar-toggler-icon"></span>
-  </button>
-</nav>--}}
-
-      <div style="margin-top:96px">
-        @yield('content')
+              <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
+                <span>
+                  @if( Auth::user()->profile_image !== null)
+                  <img class="profile_image" src="storage/upload/{{ Auth::user()->id }}/{{ Auth::user()->profile_image }}" alt="" style="max-width: 30px;">
+                  @endif
+                </span>
+                <p>{{ Auth::user()->account_name }}</p>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <a class="nav-link " href="/mypage">
+                  <i class="far fa-user fa-lg" aria-hidden="true"></i>
+                  マイページ
+                </a>
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                  ログアウト
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                  </form>
+                </a>
+              </div>
+            </li>
+            @else
+            <a class="nav-link" href="{{ route('login') }}">
+              <button class="btn btn-outline-default m-0">login</button>
+            </a>
+            <a class="nav-link" href="{{ route('register') }}">
+              <button class="btn btn-outline-info m-0">Sign Up</button>
+            </a>
+            @endauth
+          </ul>
+        </div>
       </div>
+    </nav>
+
+    <div>
+      @yield('content')
+    </div>
 
   </div>
 

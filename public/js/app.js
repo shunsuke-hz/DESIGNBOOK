@@ -4156,21 +4156,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -11157,7 +11142,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .thumbneil img {\n  width: 320px;\n  height: 320px;\n} */\n\n/* .thumbneil .images img {\n    cursor: pointer;\n    width: 80px;\n    height: 80px;\n} */\n\n/* .el-carousel {\n  width: 100vw;\n} */\n.card-body p {\n  font-size: 1rem;\n}\n.el-carousel__container {\n  height: 700px;\n}\n.el-carousel__item:nth-child(2n) {\n  background-color: #99a9bf;\n}\n.el-carousel__item:nth-child(2n + 1) {\n  background-color: #d3dce6;\n}\n\n/* .el-carousel__item img {\n  width: 100%;\n  height: 100%;\n} */\n.carousel__img {\n  height: 100%;\n\n  background-size: cover;\n}\n.card {\n  border: none;\n}\n.album .card {\n  width: 264px;\n  height: 264px;\n  border: none;\n  border-radius: 0;\n  margin: 1rem;\n}\n.album .card img {\n  overflow: hidden;\n  width: 264px;\n  height: 210px;\n}\n.album img:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n}\n.album .card-body {\n  width: 264px;\n  height: 108px;\n  padding: 0.5rem;\n}\n.products-info img {\n  width: 250px;\n  height: 250px;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .thumbneil img {\r\n  width: 320px;\r\n  height: 320px;\r\n} */\r\n\r\n/* .thumbneil .images img {\r\n    cursor: pointer;\r\n    width: 80px;\r\n    height: 80px;\r\n} */\r\n\r\n/* .el-carousel {\r\n  width: 100vw;\r\n} */\n.card-body p {\r\n  font-size: 1rem;\n}\n.el-carousel__container {\r\n  height: 700px;\n}\n.el-carousel__item:nth-child(2n) {\r\n  background-color: #99a9bf;\n}\n.el-carousel__item:nth-child(2n + 1) {\r\n  background-color: #d3dce6;\n}\r\n\r\n/* .el-carousel__item img {\r\n  width: 100%;\r\n  height: 100%;\r\n} */\n.carousel__img {\r\n  height: 100%;\r\n\r\n  background-size: cover;\n}\n.card {\r\n  border: none;\n}\n.album .card {\r\n  width: 264px;\r\n  height: 264px;\r\n  border: none;\r\n  border-radius: 0;\r\n  margin: 1rem;\n}\n.album .card img {\r\n  overflow: hidden;\r\n  width: 264px;\r\n  height: 210px;\n}\n.album img:hover {\r\n  -webkit-transform: scale(1.1);\r\n          transform: scale(1.1);\r\n  -webkit-transition-duration: 0.3s;\r\n          transition-duration: 0.3s;\n}\n.album .card-body {\r\n  width: 264px;\r\n  height: 108px;\r\n  padding: 0.5rem;\n}\n.products-info img {\r\n  width: 250px;\r\n  height: 250px;\n}\r\n", ""]);
 
 // exports
 
@@ -11172,7 +11157,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\n  display: none;\n  margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    display: block;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n}\n.card {\n  width: 264px;\n  height: 264px;\n  border: none;\n  border-radius: 0;\n  margin: 1rem;\n}\n.image {\n  overflow: hidden;\n  width: 264px;\n  height: 210px;\n}\n.image img {\n  display: block;\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n  height: 100%;\n  border: none;\n  margin: auto;\n}\n.image img:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n}\n.img-thumbnail {\n  padding: 0;\n  border-radius: 0;\n}\n.card-body {\n  width: 264px;\n  height: 54px;\n  padding: 0.5rem;\n}\n", ""]);
+exports.push([module.i, "\n.sidebar {\r\n  display: none;\r\n  margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    display: block;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\n}\n}\n.card {\r\n  width: 264px;\r\n  height: 264px;\r\n  border: none;\r\n  border-radius: 0;\r\n  margin: 1rem;\n}\n.image {\r\n  overflow: hidden;\r\n  width: 264px;\r\n  height: 210px;\n}\n.image img {\r\n  display: block;\r\n  -webkit-transition-duration: 0.3s;\r\n          transition-duration: 0.3s;\r\n  height: 100%;\r\n  border: none;\r\n  margin: auto;\n}\n.image img:hover {\r\n  -webkit-transform: scale(1.1);\r\n          transform: scale(1.1);\r\n  -webkit-transition-duration: 0.3s;\r\n          transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n  padding: 0;\r\n  border-radius: 0;\n}\n.card-body {\r\n  width: 264px;\r\n  height: 54px;\r\n  padding: 0.5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -11187,7 +11172,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\n  display: none;\n  margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    display: block;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n}\n.card {\n  width: 264px;\n  height: 264px;\n  border: none;\n  border-radius: 0;\n  margin: 1rem;\n}\n.image {\n  overflow: hidden;\n  width: 264px;\n  height: 210px;\n}\n.image img {\n  display: block;\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n  height: 100%;\n  border: none;\n  margin: auto;\n}\n.image img:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n}\n.img-thumbnail {\n  padding: 0;\n  border-radius: 0;\n}\n.card-body {\n  width: 264px;\n  height: 54px;\n  padding: 0.5rem;\n}\np {\n  font-size: 1rem;\n}\n", ""]);
+exports.push([module.i, "\n.sidebar {\r\n  display: none;\r\n  margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    display: block;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\n}\n}\n.card {\r\n  width: 264px;\r\n  height: 264px;\r\n  border: none;\r\n  border-radius: 0;\r\n  margin: 1rem;\n}\n.image {\r\n  overflow: hidden;\r\n  width: 264px;\r\n  height: 210px;\n}\n.image img {\r\n  display: block;\r\n  -webkit-transition-duration: 0.3s;\r\n          transition-duration: 0.3s;\r\n  height: 100%;\r\n  border: none;\r\n  margin: auto;\n}\n.image img:hover {\r\n  -webkit-transform: scale(1.1);\r\n          transform: scale(1.1);\r\n  -webkit-transition-duration: 0.3s;\r\n          transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n  padding: 0;\r\n  border-radius: 0;\n}\n.card-body {\r\n  width: 264px;\r\n  height: 54px;\r\n  padding: 0.5rem;\n}\np {\r\n  font-size: 1rem;\n}\r\n", ""]);
 
 // exports
 
@@ -11202,7 +11187,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.cell-content {\n    min-height: 40px;\n    padding-left: 5px;\n    padding-top: 5px;\n    border: 1px solid transparent;\n}\n.edit-enabled-cell {\n    border: 1px dashed #409eff;\n}\n", ""]);
+exports.push([module.i, "\n.cell-content {\r\n    min-height: 40px;\r\n    padding-left: 5px;\r\n    padding-top: 5px;\r\n    border: 1px solid transparent;\n}\n.edit-enabled-cell {\r\n    border: 1px dashed #409eff;\n}\r\n", ""]);
 
 // exports
 
@@ -11217,7 +11202,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.el-upload {\n  border: 1px dashed #d9d9d9;\n  border-radius: 6px;\n  cursor: pointer;\n  position: relative;\n  overflow: hidden;\n}\n.el-upload:hover {\n  border-color: #409eff;\n}\n.edit-cell {\n  min-height: 35px;\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.el-upload {\r\n  border: 1px dashed #d9d9d9;\r\n  border-radius: 6px;\r\n  cursor: pointer;\r\n  position: relative;\r\n  overflow: hidden;\n}\n.el-upload:hover {\r\n  border-color: #409eff;\n}\n.edit-cell {\r\n  min-height: 35px;\r\n  cursor: pointer;\n}\r\n", ""]);
 
 // exports
 
@@ -11232,7 +11217,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.el-carousel__container {\n  height: 500px;\n}\n.carousel__img {\n  height: 500px;\n  width: 100%;\n  background-size: cover;\n}\n.carousel__text h2 {\n  color: white;\n}\n.carousel__text h5 {\n  width: 30%;\n  color: white;\n}\n.carousel__text a {\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\nbody {\r\n  margin-top: 58px !important;\n}\n.el-carousel__container {\r\n  height: 500px;\n}\n.carousel__img {\r\n  height: 500px;\r\n  width: 100%;\r\n  background-size: cover;\n}\n.carousel__text h2 {\r\n  color: white;\n}\n.carousel__text h5 {\r\n  width: 30%;\r\n  color: white;\n}\n.carousel__text a {\r\n  color: white;\n}\r\n", ""]);
 
 // exports
 
@@ -11247,7 +11232,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.brand-image {\n  width: 50px;\n  height: 50px;\n}\n", ""]);
+exports.push([module.i, "\n.brand-image {\r\n  width: 50px;\r\n  height: 50px;\n}\r\n", ""]);
 
 // exports
 
@@ -11262,7 +11247,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.nav-item button {\n  background-color: transparent;\n}\n", ""]);
+exports.push([module.i, "\n.nav-item button {\r\n  background-color: transparent;\n}\r\n", ""]);
 
 // exports
 
@@ -11277,7 +11262,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\n  width: 320px;\n  height: 320px;\n}\n.images img {\n  width: 100px;\n  height: 100px;\n}\n.card {\n  border: none;\n}\n.el-carousel__item:nth-child(2n) {\n  background-color: #99a9bf;\n}\n.el-carousel__item:nth-child(2n + 1) {\n  background-color: #d3dce6;\n}\n.el-carousel__item img {\n  cursor: pointer;\n  width: 160px;\n  height: 150px;\n}\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\r\n  width: 320px;\r\n  height: 320px;\n}\n.images img {\r\n  width: 100px;\r\n  height: 100px;\n}\n.card {\r\n  border: none;\n}\n.el-carousel__item:nth-child(2n) {\r\n  background-color: #99a9bf;\n}\n.el-carousel__item:nth-child(2n + 1) {\r\n  background-color: #d3dce6;\n}\n.el-carousel__item img {\r\n  cursor: pointer;\r\n  width: 160px;\r\n  height: 150px;\n}\r\n", ""]);
 
 // exports
 
@@ -11292,7 +11277,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\n  display: none;\n  margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    display: block;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n}\n.card {\n  width: 264px;\n  height: 264px;\n  border: none;\n  border-radius: 0;\n  margin: 1rem;\n}\n.image {\n  overflow: hidden;\n  width: 264px;\n  height: 210px;\n}\n.image img {\n  display: block;\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n  height: 100%;\n  border: none;\n  margin: auto;\n}\n.image img:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n}\n.img-thumbnail {\n  padding: 0;\n  border-radius: 0;\n}\n.card-body {\n  width: 264px;\n  height: 54px;\n  padding: 0.5rem;\n}\np {\n  font-size: 1rem;\n}\n", ""]);
+exports.push([module.i, "\n.sidebar {\r\n  display: none;\r\n  margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    display: block;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\n}\n}\n.card {\r\n  width: 264px;\r\n  height: 264px;\r\n  border: none;\r\n  border-radius: 0;\r\n  margin: 1rem;\n}\n.image {\r\n  overflow: hidden;\r\n  width: 264px;\r\n  height: 210px;\n}\n.image img {\r\n  display: block;\r\n  -webkit-transition-duration: 0.3s;\r\n          transition-duration: 0.3s;\r\n  height: 100%;\r\n  border: none;\r\n  margin: auto;\n}\n.image img:hover {\r\n  -webkit-transform: scale(1.1);\r\n          transform: scale(1.1);\r\n  -webkit-transition-duration: 0.3s;\r\n          transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n  padding: 0;\r\n  border-radius: 0;\n}\n.card-body {\r\n  width: 264px;\r\n  height: 54px;\r\n  padding: 0.5rem;\n}\np {\r\n  font-size: 1rem;\n}\r\n", ""]);
 
 // exports
 
@@ -102474,7 +102459,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticStyle: { "margin-top": "-16px" } },
     [
       _c(
         "el-carousel",
@@ -119762,10 +119746,10 @@ window._ = __webpack_require__("./node_modules/lodash/lodash.js");
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
+    window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 
-  // require('bootstrap-sass');
-  __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
+    // require('bootstrap-sass');
+    __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
 
 /**
@@ -119787,9 +119771,9 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+    window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+    console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 /**
