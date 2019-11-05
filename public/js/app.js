@@ -4269,6 +4269,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -11161,6 +11164,21 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0aa93548\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/js/components/BrandDetailComponent.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.sidebar {\n  display: none;\n  margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    display: block;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n}\n.card {\n  width: 264px;\n  height: 264px;\n  border: none;\n  border-radius: 0;\n  margin: 1rem;\n}\n.image {\n  overflow: hidden;\n  width: 264px;\n  height: 210px;\n}\n.image img {\n  display: block;\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n  height: 100%;\n  border: none;\n  margin: auto;\n}\n.image img:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n}\n.img-thumbnail {\n  padding: 0;\n  border-radius: 0;\n}\n.card-body {\n  width: 264px;\n  height: 54px;\n  padding: 0.5rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0efc3ff6\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/js/components/ProductComponent.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11184,7 +11202,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.cell-content {\r\n    min-height: 40px;\r\n    padding-left: 5px;\r\n    padding-top: 5px;\r\n    border: 1px solid transparent;\n}\n.edit-enabled-cell {\r\n    border: 1px dashed #409eff;\n}\r\n", ""]);
+exports.push([module.i, "\n.cell-content {\n    min-height: 40px;\n    padding-left: 5px;\n    padding-top: 5px;\n    border: 1px solid transparent;\n}\n.edit-enabled-cell {\n    border: 1px dashed #409eff;\n}\n", ""]);
 
 // exports
 
@@ -11199,7 +11217,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.el-upload {\r\n  border: 1px dashed #d9d9d9;\r\n  border-radius: 6px;\r\n  cursor: pointer;\r\n  position: relative;\r\n  overflow: hidden;\n}\n.el-upload:hover {\r\n  border-color: #409eff;\n}\n.edit-cell {\r\n  min-height: 35px;\r\n  cursor: pointer;\n}\r\n", ""]);
+exports.push([module.i, "\n.el-upload {\n  border: 1px dashed #d9d9d9;\n  border-radius: 6px;\n  cursor: pointer;\n  position: relative;\n  overflow: hidden;\n}\n.el-upload:hover {\n  border-color: #409eff;\n}\n.edit-cell {\n  min-height: 35px;\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -11229,7 +11247,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.brand-image {\r\n  width: 50px;\r\n  height: 50px;\n}\r\n", ""]);
+exports.push([module.i, "\n.brand-image {\n  width: 50px;\n  height: 50px;\n}\n", ""]);
 
 // exports
 
@@ -11259,7 +11277,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.thumbneil img {\r\n  width: 320px;\r\n  height: 320px;\n}\n.images img {\r\n  width: 100px;\r\n  height: 100px;\n}\n.card {\r\n  border: none;\n}\n.el-carousel__item:nth-child(2n) {\r\n  background-color: #99a9bf;\n}\n.el-carousel__item:nth-child(2n + 1) {\r\n  background-color: #d3dce6;\n}\n.el-carousel__item img {\r\n  cursor: pointer;\r\n  width: 160px;\r\n  height: 150px;\n}\r\n", ""]);
+exports.push([module.i, "\n.thumbneil img {\n  width: 320px;\n  height: 320px;\n}\n.images img {\n  width: 100px;\n  height: 100px;\n}\n.card {\n  border: none;\n}\n.el-carousel__item:nth-child(2n) {\n  background-color: #99a9bf;\n}\n.el-carousel__item:nth-child(2n + 1) {\n  background-color: #d3dce6;\n}\n.el-carousel__item img {\n  cursor: pointer;\n  width: 160px;\n  height: 150px;\n}\n", ""]);
 
 // exports
 
@@ -119744,10 +119762,10 @@ window._ = __webpack_require__("./node_modules/lodash/lodash.js");
  */
 
 try {
-    window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
+  window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 
-    // require('bootstrap-sass');
-    __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
+  // require('bootstrap-sass');
+  __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
 
 /**
@@ -119769,9 +119787,9 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-    console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 /**
