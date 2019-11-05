@@ -26,11 +26,7 @@
     <div class="col-sm-9 offset-sm-3">
       <div class="album">
         <div class="row">
-          <div
-            class="card m-2"
-            v-for="value in filter"
-            :key="value.id"
-          >
+          <div class="card m-2" v-for="value in filter" :key="value.id">
             <div class="image">
               <a :href="'/product-detail?work='+value.id">
                 <img

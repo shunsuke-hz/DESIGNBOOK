@@ -43,6 +43,12 @@ Vue.component(
 );
 Vue.component("search-component", require("./components/SearchComopnent.vue"));
 
+Vue.component(
+  "brand-detail-component",
+  require("./components/BrandDetailComponent.vue")
+);
+
+
 Vue.component("create-post", require("./components/CreatePost.vue"));
 
 const app = new Vue({

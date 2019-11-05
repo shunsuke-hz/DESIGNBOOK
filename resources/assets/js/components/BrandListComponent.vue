@@ -1,34 +1,29 @@
 <template>
-  <div>
-    <div>
-      <input
-        type="text"
-        v-model="keyword"
-      />
+  <div class="wrapper">
+    <div class="row justify-content-center">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="ブランド名で検索" v-model="keyword" />
+      </div>
     </div>
+
     <table class="table table-hover">
       <tbody>
-        <tr
-          v-for="value in filter"
-          :key="value.id"
-        >
+        <tr v-for="value in filter" :key="value.id">
           <td class="align-middle">
             <img
               :src="'/storage/'+value.logo_image"
-              class="rounded-circle d-block mx-auto brand-image"
+              class="rounded-circle d-block mx-auto brand-image border"
             />
           </td>
           <td class="align-middle m-auto">
-            <h5 class="font-weight-bold m-auto text-center">{{ value.name}}</h5>
+            <a
+              :href="'/brand-detail/'+value.id"
+              style="text-decoration: none;color:black;display: block;width: 100%;height: 100%;"
+            >{{ value.name}}</a>
           </td>
-          <td class="d-flex align-items-center m-auto">
-            <p class="m-auto text-center d-flex align-items-center">{{ value.prefecture_name }}</p>
-          </td>
-          <td class="align-middle">
-            <button
-              type="button"
-              class="btn btn-primary d-block mx-auto"
-            >follow</button>
+          <td class="align-middle m-auto">{{ value.prefecture_name }}</td>
+          <td class="align-middle m-auto">
+            <button type="button" class="btn btn-info btn-round">follow</button>
           </td>
         </tr>
       </tbody>

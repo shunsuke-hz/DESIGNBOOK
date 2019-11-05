@@ -20,12 +20,14 @@ class UserController extends Controller
     $this->middleware('auth');
   }
 
+  // ユーザープロフィールの編集画面
   public function edit()
   {
     $user = Auth::user();
     return view('users.edit', compact('user'));
   }
 
+  // ユーザープロフィールの更新
   public function update(Request $request)
   {
     $data = $request->all();
@@ -60,6 +62,7 @@ class UserController extends Controller
     return view('users.uploaded');
   }
 
+  // ユーザーアイコンの編集
   public function photo(Request $request)
   {
 
@@ -98,11 +101,22 @@ class UserController extends Controller
     return response()->json(['success' => 'done']);
   }
 
+  // ブランド脱会
   public function secedeBrand(Request $request)
   {
-    $user = User::find($request->user);
+    $user = Auth::user();
     $user->brand_id = null;
     $user->save();
-    return redirect()->route('mypage')->with('my_status', __('ブランドを脱会しました'));
+    return back()->with('success', ('ブランドを脱会しました'));
+  }
+
+  // ブランド加入
+  public function joinBrand($brand_id)
+  {
+    $user = Auth::user();
+    $user->brand_id = $brand_id;
+    $user->save();
+    return back();
+    // return redirect()->route('mypage')->with('success', ('ブランドを脱会しました'));
   }
 }
