@@ -3385,11 +3385,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -4056,13 +4051,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__productTags__ = __webpack_require__("./resources/assets/js/productTags.js");
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -10938,7 +10926,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.sidebar {\n  display: none;\n  margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    display: block;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n}\n.card {\n  width: 264px;\n  height: 264px;\n  border: none;\n  border-radius: 0;\n  margin: 1rem;\n}\n.image {\n  overflow: hidden;\n  width: 264px;\n  height: 210px;\n}\n.image img {\n  display: block;\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n  height: 100%;\n  border: none;\n  margin: auto;\n}\n.image img:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition-duration: 0.3s;\n          transition-duration: 0.3s;\n}\n.img-thumbnail {\n  padding: 0;\n  border-radius: 0;\n}\n.card-body {\n  width: 264px;\n  height: 54px;\n  padding: 0.5rem;\n}\n", ""]);
+exports.push([module.i, "\n.sidebar {\r\n  display: none;\r\n  margin-top: 5rem;\n}\n@media screen and (min-width: 768px) {\n.sidebar {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    display: block;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\n}\n}\n.card {\r\n  width: 264px;\r\n  height: 264px;\r\n  border: none;\r\n  border-radius: 0;\r\n  margin: 1rem;\n}\n.image {\r\n  overflow: hidden;\r\n  width: 264px;\r\n  height: 210px;\n}\n.image img {\r\n  display: block;\r\n  -webkit-transition-duration: 0.3s;\r\n          transition-duration: 0.3s;\r\n  height: 100%;\r\n  border: none;\r\n  margin: auto;\n}\n.image img:hover {\r\n  -webkit-transform: scale(1.1);\r\n          transform: scale(1.1);\r\n  -webkit-transition-duration: 0.3s;\r\n          transition-duration: 0.3s;\n}\n.img-thumbnail {\r\n  padding: 0;\r\n  border-radius: 0;\n}\n.card-body {\r\n  width: 264px;\r\n  height: 54px;\r\n  padding: 0.5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -10983,7 +10971,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.brand-image {\n  width: 50px;\n  height: 50px;\n}\n", ""]);
+exports.push([module.i, "\n.brand-image {\r\n  width: 50px;\r\n  height: 50px;\n}\r\n", ""]);
 
 // exports
 
@@ -102226,28 +102214,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.keyword,
-            expression: "keyword"
-          }
-        ],
-        attrs: { type: "text" },
-        domProps: { value: _vm.keyword },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+  return _c("div", { staticClass: "wrapper" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.keyword,
+              expression: "keyword"
             }
-            _vm.keyword = $event.target.value
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", placeholder: "ブランド名で検索" },
+          domProps: { value: _vm.keyword },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.keyword = $event.target.value
+            }
           }
-        }
-      })
+        })
+      ])
     ]),
     _vm._v(" "),
     _c("table", { staticClass: "table table-hover" }, [
@@ -102257,7 +102248,8 @@ var render = function() {
           return _c("tr", { key: value.id }, [
             _c("td", { staticClass: "align-middle" }, [
               _c("img", {
-                staticClass: "rounded-circle d-block mx-auto brand-image",
+                staticClass:
+                  "rounded-circle d-block mx-auto brand-image border",
                 attrs: { src: "/storage/" + value.logo_image }
               })
             ]),
@@ -102275,22 +102267,12 @@ var render = function() {
                   },
                   attrs: { href: "/brand-detail/" + value.id }
                 },
-                [
-                  _c(
-                    "h5",
-                    { staticClass: "font-weight-bold m-auto text-center" },
-                    [_vm._v(_vm._s(value.name))]
-                  )
-                ]
+                [_vm._v(_vm._s(value.name))]
               )
             ]),
             _vm._v(" "),
-            _c("td", { staticClass: "d-flex align-items-center m-auto" }, [
-              _c(
-                "p",
-                { staticClass: "m-auto text-center d-flex align-items-center" },
-                [_vm._v(_vm._s(value.prefecture_name))]
-              )
+            _c("td", { staticClass: "align-middle m-auto" }, [
+              _vm._v(_vm._s(value.prefecture_name))
             ]),
             _vm._v(" "),
             _vm._m(0, true)
@@ -102306,13 +102288,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "align-middle" }, [
+    return _c("td", { staticClass: "align-middle m-auto" }, [
       _c(
         "button",
-        {
-          staticClass: "btn btn-primary d-block mx-auto",
-          attrs: { type: "button" }
-        },
+        { staticClass: "btn btn-info btn-round", attrs: { type: "button" } },
         [_vm._v("follow")]
       )
     ])

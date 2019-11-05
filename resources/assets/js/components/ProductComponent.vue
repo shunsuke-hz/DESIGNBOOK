@@ -4,10 +4,7 @@
     <div class="sidebar col-sm-3 hidden-xs">
       <!-- 検索・リセットボタン -->
       <div class="mb-4">
-        <el-button
-          type="primary"
-          @click="setCheck"
-        >検索</el-button>
+        <el-button type="primary" @click="setCheck">検索</el-button>
         <el-button @click="resetChecked">リセット</el-button>
       </div>
       <!-- 検索ツリー -->
@@ -26,11 +23,7 @@
     <div class="col-sm-9 offset-sm-3">
       <div class="album py-5">
         <div class="row">
-          <div
-            class="card m-2"
-            v-for="value in filter"
-            :key="value.id"
-          >
+          <div class="card m-2" v-for="value in filter" :key="value.id">
             <div class="image">
               <a :href="'/product-detail?work='+value.id">
                 <img

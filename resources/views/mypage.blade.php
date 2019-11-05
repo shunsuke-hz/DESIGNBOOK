@@ -45,7 +45,7 @@
 
                       <div class="mt-2">
                         <label>
-                          <span class="btn btn-primary">
+                          <span class="btn btn-info">
                             <i class="fa fa-fw fa-camera"></i>
                             プロフィール画像の変更
                             <input type="file" accept="image/*" capture="camera" id="upload" class="__input js-imageFile" style="display:none">
@@ -277,10 +277,6 @@
 </div>
 
 
-@endsection
-
-@section('pageCss')
-<!-- <link rel="stylesheet" href=" {{ asset('css/test.css') }} "> -->
 @endsection
 
 @section('pageJs')

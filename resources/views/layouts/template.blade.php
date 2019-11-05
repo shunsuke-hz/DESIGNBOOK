@@ -11,6 +11,8 @@
   <title>DESIGN BOOK</title>
   <link rel="icon" type="image/gif" href="/storage/Logo.png">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/now-ui-kit.min.css') }}" rel="stylesheet">
+
 
 
 
@@ -19,7 +21,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
   <link href="{{ mix('css/croppie.css') }}" rel="stylesheet">
 
-  @yield('pageCss')
+
 
   <!-- Styles -->
   <style>
@@ -54,13 +56,13 @@
     }
 
     .title {
-      font-size: 84px;
+      /* font-size: 84px; */
     }
 
     .links>a {
       color: #636b6f;
       padding: 0 25px;
-      font-size: 12px;
+      /* font-size: 12px; */
       font-weight: 600;
       letter-spacing: .1rem;
       text-decoration: none;
@@ -71,15 +73,16 @@
       margin-bottom: 30px;
     }
 
-    .navbar-brand{
-    z-index: -1;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align:center;
-    margin: auto;
+    .navbar-brand {
+      z-index: -1;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      text-align: center;
+      margin: auto;
     }
   </style>
+  @yield('pageCss')
 </head>
 
 <body style="padding-top:5rem;">
@@ -124,7 +127,7 @@
           </li>
 
           @else
-          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"><button class="btn btn-outline-dark my-2 my-sm-0">Sign in</button></a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"><button class="btn btn-outline-info my-2 my-sm-0">Sign in</button></a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('register') }}"><button class="btn btn-outline-primary my-2 my-sm-0">Sign Up Free</button></a></li>
           @endauth
         </ul>
@@ -173,6 +176,7 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src=" {{ mix('js/app.js') }} "></script>
   <script src="{{ mix('js/croppie.js') }}"></script>
+  <script src="{{ asset('js/now-ui-kit.min.js') }}"></script>
 
 
   @yield('pageJs')

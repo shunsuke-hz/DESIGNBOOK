@@ -19,8 +19,9 @@ class BrandController extends Controller
   {
     // $brandData = Project::with(['project_images.tags'])->where('brand_id', $brand)->get();
     $brand = Brand::with(['projects.project_images', 'products.product_images'])->find($brand);
+    $user = Auth::user();
     // $brandData = json_encode($brand);
-    return view('brand_detail', compact('brand'));
+    return view('brand_detail', compact('brand', 'user'));
   }
 
   public function index()

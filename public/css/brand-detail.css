@@ -1,0 +1,110 @@
+body{
+  background-color: transparent;
+}
+
+.button-container,
+.blog-post .button-container {
+  text-align: center;
+  margin-top: -112px;
+  position: relative;
+  z-index: 100;
+}
+
+.profile-container {
+  color: #FFFFFF;
+}
+
+.photo-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.category {
+  text-align: center;
+}
+
+h5.description {
+  max-width: 700px;
+  margin: 20px auto 75px;
+}
+
+.nav-align-center {
+  margin-top: 30px;
+}
+
+.info-horizontal {
+  padding: 15px 0 0;
+}
+
+.content {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.content .social-description {
+  display: inline-block;
+  max-width: 150px;
+  width: 145px;
+  text-align: center;
+  margin: 15px 0 0px;
+}
+
+.content .social-description h2 {
+  margin-bottom: 5px;
+}
+
+.collections img {
+  margin-bottom: 30px;
+}
+
+.gallery {
+  margin-top: 45px;
+  padding-bottom: 50px;
+}
+
+.card {
+  width: 264px;
+  height: 264px;
+  border: none;
+  border-radius: 0;
+  margin: 1rem;
+}
+
+.image {
+  overflow: hidden;
+  width: 264px;
+  height: 210px;
+}
+
+.image img {
+  display: block;
+  transition-duration: 0.3s;
+  height: 100%;
+  border: none;
+  margin: auto;
+}
+
+.image img:hover {
+  transform: scale(1.1);
+  transition-duration: 0.3s;
+}
+
+.img-thumbnail {
+  padding: 0;
+  border-radius: 0;
+}
+
+.card-body {
+  width: 264px;
+  height: 54px;
+  padding: 0.5rem;
+}
