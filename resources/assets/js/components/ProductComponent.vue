@@ -3,7 +3,7 @@
     <!-- 検索サイドバー -->
     <div class="sidebar col-sm-3 hidden-xs">
       <!-- 検索・リセットボタン -->
-      <div class="mb-4">
+      <div class="mb-4  mt-3">
         <el-button
           type="primary"
           @click="setCheck"
@@ -24,7 +24,7 @@
     </div>
     <!-- 画像表示 -->
     <div class="col-sm-9 offset-sm-3">
-      <div class="album py-5">
+      <div class="album">
         <div class="row">
           <div
             class="card m-2"
@@ -162,5 +162,9 @@ export default {
   width: 264px;
   height: 54px;
   padding: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
 }
 </style>

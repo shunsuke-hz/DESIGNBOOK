@@ -1,11 +1,6 @@
 <template>
   <div>
 
-    <a
-      class="nav-link"
-      href="/"
-    ></a>
-
     <el-popover
       placement="top-start"
       title="プロジェクト検索"
@@ -30,6 +25,7 @@
       <el-button
         slot="reference"
         style="border:none"
+        class="m-0"
       ><i class="fas fa-search fa-lg"></i></el-button>
     </el-popover>
 
@@ -45,27 +41,32 @@ export default {
     projectTags
   },
   data: function() {
-    return {};
+    return {
+      check: []
+    };
   },
   methods: {
+    setCheck() {
+      this.check = this.$refs.tree.getCheckedKeys();
+      app.$emit("bus-event", this.check);
+    },
     resetChecked() {
       this.$refs.tree.setCheckedKeys([]);
       this.check = [];
-
       // this.$refs.tree.setAttribute('default-expand-all') = false;
-    },
-    setCheck() {
-      this.check = this.$refs.tree.getCheckedKeys();
-    },
-    async keywordSearch() {
-      await axios
-        .get("/project/search?q=" + this.keyword)
-        .then(response => (this.elastic = response.data));
-      // this.result = this.elastic;
     }
+    // async keywordSearch() {
+    //   await axios
+    //     .get("/project/search?q=" + this.keyword)
+    //     .then(response => (this.elastic = response.data));
+    //   // this.result = this.elastic;
+    // }
   }
 };
 </script>
 
 <style>
+.nav-item button {
+  background-color: transparent;
+}
 </style>

@@ -256,7 +256,7 @@
         <button
           type="button"
           @click="createPost"
-          class="btn btn-success"
+          class="btn btn-success ml-4"
         >{{ isCreatingPost ? '投稿中...' : '投稿' }}</button>
       </div>
     </div>

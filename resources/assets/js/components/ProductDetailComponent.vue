@@ -110,39 +110,61 @@
         </div>
       </div>
 
-      <!-- <div class="test ml-5 d-flex">
-                
-                <div class="recommend">
-                    <p>関連商品</p>
-                    <div class="col m-0 d-flex">
-                        <div class="card m-2">
-                            <div class="image">
-                                <img src="/storage/test.jpg" style="width:160px; height:150px;" />
-                            </div>
-                            <div class="card-body p-1">
-                                <p class="m-0" style="font-size:0.8rem;">サンゲツ㈱</p>
-                                <p class="text-center" style="font-size:0.8rem;">〇〇〇〇</p>
-                            </div>
-                        </div>
-                        <div class="card m-2">
-                            <div class="image">
-                                <img src="/storage/test2.jpg" style="width:160px; height:150px;" />
-                            </div>
-                            <div class="card-body p-1">
-                                <p class="m-0" style="font-size:0.8rem;">サンゲツ㈱</p>
-                                <p class="text-center" style="font-size:0.8rem;">〇〇〇〇</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p>お問い合わせ</p>
-                    <div class="d-flex flex-row-reverse">
-                        
-                        <img src="/storage/test_contact.png" alt style="width:60%; height:90%;" />
-                    </div>
-                </div>
-            </div>-->
+      <div class="test ml-5 d-flex">
+
+        <div class="recommend">
+          <p>関連商品</p>
+          <div class="col m-0 d-flex">
+            <div class="card m-2">
+              <div class="image">
+                <img
+                  src="/storage/test.jpg"
+                  style="width:160px; height:150px;"
+                />
+              </div>
+              <div class="card-body p-1">
+                <p
+                  class="m-0"
+                  style="font-size:0.8rem;"
+                >サンゲツ㈱</p>
+                <p
+                  class="text-center"
+                  style="font-size:0.8rem;"
+                >〇〇〇〇</p>
+              </div>
+            </div>
+            <div class="card m-2">
+              <div class="image">
+                <img
+                  src="/storage/test2.jpg"
+                  style="width:160px; height:150px;"
+                />
+              </div>
+              <div class="card-body p-1">
+                <p
+                  class="m-0"
+                  style="font-size:0.8rem;"
+                >サンゲツ㈱</p>
+                <p
+                  class="text-center"
+                  style="font-size:0.8rem;"
+                >〇〇〇〇</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <p>お問い合わせ</p>
+          <div class="d-flex flex-row-reverse">
+
+            <img
+              src="/storage/test_contact.png"
+              alt
+              style="width:60%; height:90%;"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

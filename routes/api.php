@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-  return $request->user();
+	return $request->user();
 });
 
 // TopページのAPI
@@ -32,3 +32,6 @@ Route::get('/product-detail/{product_id}', 'ProductDetailController@select');
 
 // brands-listページのAPI
 Route::get('/brands-list', 'BrandsListController@show');
+
+// HomeページのAPI
+Route::get('/home', 'HomeController@show');

@@ -2,7 +2,8 @@
 
   <div
     v-if="display"
-    class="container-fluid"
+    class="container-fluid p-0"
+    style="margin-top:-16px"
   >
     <div class="mb-4">
 
@@ -29,18 +30,19 @@
             v-for="(item,key) in items"
             :key="key"
           >
-            <img
+
+            <div
+              class="carousel__img"
               v-if="item.image.indexOf('http') == -1"
-              @click="changeImage"
-              :src="'/storage/'+item.image"
-              :value="key"
+              :style="{'backgroundImage':'url(/storage/'+ item.image +')'}"
             />
-            <img
+
+            <div
+              class="carousel__img"
               v-if="item.image.indexOf('http') != -1"
-              @click="changeImage"
-              :src="item.image"
-              :value="key"
+              :style="{'backgroundImage':'url('+ item.image +')'}"
             />
+
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -93,19 +95,19 @@
                   v-if="project.brands.logo_image.indexOf('http') == -1"
                   :src="'/storage/'+project.brands.logo_image"
                   class="rounded-circle d-block border"
-                  style="height:76px; width:76px"
+                  style="width:76px"
                 />
                 <img
                   v-if="project.brands.logo_image.indexOf('http') != -1"
                   :src="project.brands.logo_image"
                   class="rounded-circle d-block border"
-                  style="height:60px; width:60px"
+                  style="width:76px"
                 />
               </div>
 
               <!-- ブランド詳細 -->
               <div class="ml-3">
-                <div class="mb-3 d-flex justify-content-between">
+                <div class="mt-2">
                   <strong class="mt-1">{{ project.brands.name}}</strong>
                   <button
                     type="button"
@@ -190,12 +192,12 @@
           <div class="image">
             <div v-if="product.product_images.length !== 0">
               <img
-                v-if="product.product_images[0].image.indexOf('http') == -1"
-                :src="'/storage/'+product.product_images[0].image "
+                v-if="product.product_images[num].image.indexOf('http') == -1"
+                :src="'/storage/'+product.product_images[num].image "
               />
               <img
-                v-if="product.product_images[0].image.indexOf('http') != -1"
-                :src="product.product_images[0].image "
+                v-if="product.product_images[num].image.indexOf('http') != -1"
+                :src="product.product_images[num].image "
               />
             </div>
           </div>
@@ -235,19 +237,19 @@ export default {
   },
 
   methods: {
-    // サムネイル切り替え
-    changeImage: function() {
-      setTimeout(
-        function() {
-          let getValue = document
-            .getElementsByClassName("el-carousel__item is-active")[0]
-            .getElementsByTagName("img")[0]
-            .getAttribute("value");
-          this.num = getValue;
-        }.bind(this),
-        10
-      );
-    }
+    // // サムネイル切り替え
+    // changeImage: function() {
+    //   setTimeout(
+    //     function() {
+    //       let getValue = document
+    //         .getElementsByClassName("el-carousel__item is-active")[0]
+    //         .getElementsByTagName("img")[0]
+    //         .getAttribute("value");
+    //       this.num = getValue;
+    //     }.bind(this),
+    //     10
+    //   );
+    // }
   },
 
   mounted: async function() {
@@ -280,8 +282,12 @@ export default {
   width: 100vw;
 } */
 
+.card-body p {
+  font-size: 1rem;
+}
+
 .el-carousel__container {
-  height: 100vh;
+  height: 700px;
 }
 
 .el-carousel__item:nth-child(2n) {
@@ -292,9 +298,15 @@ export default {
   background-color: #d3dce6;
 }
 
-.el-carousel__item img {
+/* .el-carousel__item img {
   width: 100%;
   height: 100%;
+} */
+
+.carousel__img {
+  height: 100%;
+
+  background-size: cover;
 }
 
 .card {

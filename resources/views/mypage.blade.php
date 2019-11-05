@@ -26,9 +26,9 @@
                     <div class="mx-auto" style="width: 140px;">
                       <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px;">
                         @if( Auth::user()->profile_image == null)
-                        <img class="profile_image" src="storage/noimage.png" alt="" style="max-width: 100%;">
+                        <img class="profile_image mt-5" src="storage/noimage.png" alt="" style="max-width: 100%;">
                         @else
-                        <img class="profile_image" src="storage/upload/{{ Auth::user()->id }}/{{ Auth::user()->profile_image }}" alt="" style="max-width: 100%;">
+                        <img class="profile_image mt-5" src="storage/upload/{{ Auth::user()->id }}/{{ Auth::user()->profile_image }}" alt="" style="max-width: 100%;">
                         @endif
                       </div>
                     </div>
