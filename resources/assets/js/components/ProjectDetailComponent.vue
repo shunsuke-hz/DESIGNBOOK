@@ -1,28 +1,15 @@
 <template>
-  <div class="container">
-    <div v-if="display">
-      <div class="row">
-        <div class="mx-auto">
 
-          <!-- タブ切り替え -->
-          <el-tabs v-model="tab">
-            <el-tab-pane
-              label="プロジェクト"
-              name="0"
-            ></el-tab-pane>
-            <el-tab-pane
-              label="プロダクト詳細"
-              name="1"
-            ></el-tab-pane>
-          </el-tabs>
-        </div>
-      </div>
-      <br />
-      <div class="card flex-md-row mb-4">
+  <div
+    v-if="display"
+    class="container-fluid p-0"
+    style="margin-top:-16px"
+  >
+    <div class="mb-4">
 
-        <!-- 画面左側 -->
-        <div class="thumbneil ml-5">
-          <img
+      <!-- 画面左側 -->
+      <div class="thumbneil">
+        <!-- <img
             v-if="items[num].image.indexOf('http') == -1"
             class="card-img-left flex-auto d-none d-md-block"
             :src="'/storage/'+items[num].image"
@@ -32,195 +19,205 @@
             class="card-img-left flex-auto d-none d-md-block"
             :src="items[num].image"
           />
-          <br />
+          <br /> -->
 
-          <!-- project_image切り替え -->
-          <el-carousel
-            :autoplay="false"
-            type="card"
-            height="150px"
-            @change="changeImage"
-          >
-            <el-carousel-item
-              v-for="(item,key) in items"
-              :key="key"
-            >
-              <img
-                v-if="item.image.indexOf('http') == -1"
-                @click="changeImage"
-                :src="'/storage/'+item.image"
-                :value="key"
-              />
-              <img
-                v-if="item.image.indexOf('http') != -1"
-                @click="changeImage"
-                :src="item.image"
-                :value="key"
-              />
-            </el-carousel-item>
-          </el-carousel>
-        </div>
-
-        <!-- 画面右側 -->
-        <div
-          class="card-body d-flex flex-column align-items-start pt-0"
-          style="margin-left:48px"
+        <!-- project_image切り替え -->
+        <el-carousel
+          :autoplay="false"
+          arrow="always"
         >
-          <div
-            class="tab-content"
-            style="width:100%"
+          <el-carousel-item
+            v-for="(item,key) in items"
+            :key="key"
           >
-            <h4 class="mb-0">
-              <a
-                class="text-dark"
-                href="#"
-              >{{project.title}}</a>
-            </h4>
 
-            <!-- プロジェクトタブ -->
             <div
-              v-if="tab == 0"
-              class="project-tab"
-            >
-              <p
-                class="card-text mt-3 mb-auto"
-                style="font-size:0.8rem"
-              >{{project.explain }}</p>
-              <div
-                v-if="tab ==0"
-                class="d-flex mt-5"
-              >
-                <div>
-                  <img
-                    v-if="project.brands.logo_image.indexOf('http') == -1"
-                    :src="'/storage/'+project.brands.logo_image"
-                    class="rounded-circle d-block border"
-                    style="height:76px; width:76px"
-                  />
-                  <img
-                    v-if="project.brands.logo_image.indexOf('http') != -1"
-                    :src="project.brands.logo_image"
-                    class="rounded-circle d-block border"
-                    style="height:60px; width:60px"
-                  />
-                </div>
+              class="carousel__img"
+              v-if="item.image.indexOf('http') == -1"
+              :style="{'backgroundImage':'url(/storage/'+ item.image +')'}"
+            />
 
-                <!-- ブランド詳細 -->
-                <div class="ml-3">
-                  <div class="mb-3 d-flex justify-content-between">
-                    <strong class="mt-1">{{ project.brands.name}}</strong>
-                    <button
-                      type="button"
-                      class="btn btn-primary ml-3"
-                      style="padding: 1px 9px"
-                    >follow</button>
-                  </div>
-                  <p
-                    class="card-text mb-auto"
-                    style="font-size: 0.8rem;
-"
-                  >Specht Architects was founded on the vision of creating elegant, comfortable, and timeless buildings that are rooted in the unique environments in which they exist, and shaped by the character of the people who will inhabit them.</p>
-                  <a
-                    class="card-text mb-auto"
-                    href="project.brands.url"
-                  >{{ project.brands.url }}</a>
+            <div
+              class="carousel__img"
+              v-if="item.image.indexOf('http') != -1"
+              :style="{'backgroundImage':'url('+ item.image +')'}"
+            />
+
+          </el-carousel-item>
+        </el-carousel>
+      </div>
+    </div>
+    <div class="container">
+      <!-- 画面下側 -->
+      <div class="d-flex flex-column align-items-start pt-0">
+        <div
+          class="tab-content"
+          style="width:100%"
+        >
+          <h4 class="mb-0">
+            <a
+              class="text-dark"
+              href="#"
+            >{{project.title}}</a>
+          </h4>
+          <div class="row">
+            <div class="mx-auto">
+
+              <!-- タブ切り替え -->
+              <el-tabs v-model="tab">
+                <el-tab-pane
+                  label="プロジェクト"
+                  name="0"
+                ></el-tab-pane>
+                <el-tab-pane
+                  label="プロダクト詳細"
+                  name="1"
+                ></el-tab-pane>
+              </el-tabs>
+            </div>
+            <br />
+          </div>
+          <!-- プロジェクトタブ -->
+          <div
+            v-if="tab == 0"
+            class="project-tab"
+          >
+            <p
+              class="card-text mt-3 mb-auto"
+              style="font-size:0.8rem"
+            >{{project.explain }}</p>
+            <div
+              v-if="tab ==0"
+              class="d-flex mt-5"
+            >
+              <div>
+                <img
+                  v-if="project.brands.logo_image.indexOf('http') == -1"
+                  :src="'/storage/'+project.brands.logo_image"
+                  class="rounded-circle d-block border"
+                  style="width:76px"
+                />
+                <img
+                  v-if="project.brands.logo_image.indexOf('http') != -1"
+                  :src="project.brands.logo_image"
+                  class="rounded-circle d-block border"
+                  style="width:76px"
+                />
+              </div>
+
+              <!-- ブランド詳細 -->
+              <div class="ml-3">
+                <div class="mt-2">
+                  <strong class="mt-1">{{ project.brands.name}}</strong>
+                  <button
+                    type="button"
+                    class="btn btn-primary ml-3"
+                    style="padding: 1px 9px"
+                  >follow</button>
                 </div>
+                <p
+                  class="card-text mb-auto"
+                  style="font-size: 0.8rem;
+"
+                >Specht Architects was founded on the vision of creating elegant, comfortable, and timeless buildings that are rooted in the unique environments in which they exist, and shaped by the character of the people who will inhabit them.</p>
+                <a
+                  class="card-text mb-auto"
+                  href="project.brands.url"
+                >{{ project.brands.url }}</a>
               </div>
             </div>
-
-            <!-- プロダクトタブ -->
-            <div
-              v-if="tab == 1"
-              class="product-tab"
-            >
-
-              <!-- プロダクトテーブル -->
-              <el-table
-                :data="items[num].products"
-                stripe="stripe"
-              >
-                <el-table-column
-                  prop="tags[0].name"
-                  label="カテゴリ"
-                  contenteditable="true"
-                ></el-table-column>
-                <el-table-column
-                  prop="title"
-                  label="製品名"
-                  contenteditable="true"
-                ></el-table-column>
-                <el-table-column
-                  prop="brands.name"
-                  label="ブランド"
-                  contenteditable="true"
-                ></el-table-column>
-                <el-table-column
-                  prop="model_number"
-                  label="品番"
-                  contenteditable="true"
-                ></el-table-column>
-              </el-table>
-            </div>
           </div>
 
-          <!-- タグ一覧 -->
-          <div class="btn-group d-block mt-5">
-            <button
-              type="button"
-              class="btn btn-sm btn-outline-secondary"
-              data-toggle="modal"
-              v-for="key in items[num].tags"
-              :key="key.id"
-            >
-              <i class="fas fa-tag"></i>
-              {{ key.name }}
-            </button>
+          <!-- プロダクトタブ -->
+          <div
+            v-if="tab == 1"
+            class="product-tab"
+          >
+
+            <!-- プロダクトテーブル -->
+            <el-table :data="items[num].products">
+              <el-table-column
+                prop="tags[0].name"
+                label="カテゴリ"
+                contenteditable="true"
+              ></el-table-column>
+              <el-table-column
+                prop="title"
+                label="製品名"
+                contenteditable="true"
+              ></el-table-column>
+              <el-table-column
+                prop="brands.name"
+                label="ブランド"
+                contenteditable="true"
+              ></el-table-column>
+              <el-table-column
+                prop="model_number"
+                label="品番"
+                contenteditable="true"
+              ></el-table-column>
+            </el-table>
           </div>
+        </div>
+
+        <!-- タグ一覧 -->
+        <div class="btn-group d-block mt-5">
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-secondary"
+            data-toggle="modal"
+            v-for="key in items[num].tags"
+            :key="key.id"
+          >
+            <i class="fas fa-tag"></i>
+            {{ key.name }}
+          </button>
         </div>
       </div>
+    </div>
 
-      <br />
+    <br />
 
-      <!-- 使用プロダクト一覧 -->
-      <div
-        v-if="tab == 1"
-        class="album"
-      >
-        <div class="col row text-center justify-content-center m-0">
-          <div
-            v-for="product in items[num].products"
-            :key="product.id"
-            class="card m-2"
-          >
-            <div class="image">
-              <div v-if="product.product_images.length !== 0">
-                <img
-                  v-if="product.product_images[0].image.indexOf('http') == -1"
-                  :src="'/storage/'+product.product_images[0].image "
-                />
-                <img
-                  v-if="product.product_images[0].image.indexOf('http') != -1"
-                  :src="product.product_images[0].image "
-                />
-              </div>
+    <!-- 使用プロダクト一覧 -->
+    <div
+      v-if="tab == 1"
+      class="album"
+    >
+      <div class="col row text-center justify-content-center m-0">
+        <div
+          v-for="product in items[num].products"
+          :key="product.id"
+          class="card m-2"
+        >
+          <div class="image">
+            <div v-if="product.product_images.length !== 0">
+              <img
+                v-if="product.product_images[num].image.indexOf('http') == -1"
+                :src="'/storage/'+product.product_images[num].image "
+              />
+              <img
+                v-if="product.product_images[num].image.indexOf('http') != -1"
+                :src="product.product_images[num].image "
+              />
             </div>
-            <div class="card-body">
-              <p>{{ product.title }}</p>
-              <p class="mb-0">{{ product.brands.name }}</p>
-              <a
-                href="product.brands.url"
-                style="color:#636B6E;"
-              >{{ product.brands.url }}</a>
-              <br />
-              <a
-                v-if="product.product_images.length !== 0"
-                :href="'../product-detail?work='+product.id"
-              >この製品の詳細へ</a>
-            </div>
+          </div>
+          <div class="card-body">
+            <p>{{ product.title }}</p>
+            <p class="mb-0">{{ product.brands.name }}</p>
+            <a
+              href="product.brands.url"
+              style="color:#636B6E;"
+            >{{ product.brands.url }}</a>
+            <br />
+            <a
+              v-if="product.product_images.length !== 0"
+              :href="'../product-detail?work='+product.id"
+            >この製品の詳細へ</a>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -240,19 +237,19 @@ export default {
   },
 
   methods: {
-    // サムネイル切り替え
-    changeImage: function() {
-      setTimeout(
-        function() {
-          let getValue = document
-            .getElementsByClassName("el-carousel__item is-active")[0]
-            .getElementsByTagName("img")[0]
-            .getAttribute("value");
-          this.num = getValue;
-        }.bind(this),
-        10
-      );
-    }
+    // // サムネイル切り替え
+    // changeImage: function() {
+    //   setTimeout(
+    //     function() {
+    //       let getValue = document
+    //         .getElementsByClassName("el-carousel__item is-active")[0]
+    //         .getElementsByTagName("img")[0]
+    //         .getAttribute("value");
+    //       this.num = getValue;
+    //     }.bind(this),
+    //     10
+    //   );
+    // }
   },
 
   mounted: async function() {
@@ -270,16 +267,47 @@ export default {
 </script>
 
 <style>
-.thumbneil img {
+/* .thumbneil img {
   width: 320px;
   height: 320px;
-}
+} */
 
 /* .thumbneil .images img {
     cursor: pointer;
     width: 80px;
     height: 80px;
 } */
+
+/* .el-carousel {
+  width: 100vw;
+} */
+
+.card-body p {
+  font-size: 1rem;
+}
+
+.el-carousel__container {
+  height: 700px;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+}
+
+/* .el-carousel__item img {
+  width: 100%;
+  height: 100%;
+} */
+
+.carousel__img {
+  height: 100%;
+
+  background-size: cover;
+}
 
 .card {
   border: none;
@@ -313,19 +341,5 @@ export default {
 .products-info img {
   width: 250px;
   height: 250px;
-}
-
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
-}
-
-.el-carousel__item img {
-  cursor: pointer;
-  width: 160px;
-  height: 150px;
 }
 </style>

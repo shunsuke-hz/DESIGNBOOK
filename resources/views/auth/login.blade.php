@@ -41,9 +41,14 @@
                         <div class="form-group row">
                             <div class="col-md-8 ml-auto">
                                 <div class="form-check">
-                                    <label class="form-check-label">
+                                    {{-- <label class="form-check-label">
                                         <input class="form-check-input" type="checkbox"> ログイン状態を保存する
-                                    </label>
+																		</label> --}}
+																		<label class="form-check-label">
+																			<input class="form-check-input" type="checkbox">
+																			<span class="form-check-sign"></span>
+																			ログイン状態を保持
+																		</label>
                                 </div>
                             </div>
                         </div>

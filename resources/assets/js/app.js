@@ -11,9 +11,10 @@ window.Vue = require("vue");
 import store from "./store/index";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import VueRouter from "vue-router";
 
 Vue.use(ElementUI);
-Vue.use(require("vue-scrollto"));
+Vue.use(VueRouter);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -21,6 +22,8 @@ Vue.use(require("vue-scrollto"));
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// Vue.component("body-component", require("./components/BodyComponent.vue"));
+Vue.component("home-component", require("./components/HomeComponent.vue"));
 Vue.component("top-component", require("./components/TopComponent.vue"));
 Vue.component(
   "project-detail-component",
@@ -38,6 +41,7 @@ Vue.component(
   "brand-list-component",
   require("./components/BrandListComponent.vue")
 );
+Vue.component("search-component", require("./components/SearchComopnent.vue"));
 
 Vue.component(
   "brand-detail-component",
@@ -51,3 +55,5 @@ const app = new Vue({
   store,
   el: "#app"
 });
+
+const bus = new Vue();
