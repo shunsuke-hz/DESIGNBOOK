@@ -94,7 +94,7 @@
 
 <body>
   <div id="app">
-    <body-component>
+    
       <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="container">
           <div class="logo">
@@ -192,7 +192,7 @@
       </div>
 
   </div>
-  </body-component>
+
   {{-- 時間のあるときにFooter作らなきゃ --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src=" {{ mix('js/app.js') }} "></script>
