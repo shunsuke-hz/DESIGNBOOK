@@ -305,7 +305,6 @@ export default {
 
 .carousel__img {
   height: 100%;
-
   background-size: cover;
 }
 

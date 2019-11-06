@@ -21,14 +21,13 @@
           <el-carousel
             :autoplay="false"
             type="card"
-            height="150px"
             @change="changeImage"
           >
             <el-carousel-item
               v-for="(item,key) in items"
               :key="key"
             >
-              <img
+              <!-- <img
                 v-if="item.image.indexOf('http') == -1"
                 @click="changeImage"
                 :src="'/storage/'+item.image"
@@ -39,6 +38,17 @@
                 @click="changeImage"
                 :src="item.image"
                 :value="key"
+              /> -->
+              <div
+                class="carousel__img"
+                v-if="item.image.indexOf('http') == -1"
+                :style="{'backgroundImage':'url(/storage/'+ item.image +')'}"
+              />
+
+              <div
+                class="carousel__img"
+                v-if="item.image.indexOf('http') != -1"
+                :style="{'backgroundImage':'url('+ item.image +')'}"
               />
             </el-carousel-item>
           </el-carousel>
@@ -238,5 +248,14 @@ export default {
   cursor: pointer;
   width: 160px;
   height: 150px;
+}
+
+.el-carousel__container {
+  height: 700px;
+}
+
+.carousel__img {
+  height: 100%;
+  background-size: cover;
 }
 </style>
