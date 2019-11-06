@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="card mt-4">
+    <div class="card">
       <div class="card-header">プロジェクトの作成</div>
       <div class="card-body">
         <div
@@ -74,7 +74,7 @@
                   >
                     <el-table-column
                       label="製品名"
-                      min-width="180"
+                      min-width="160"
                     >
                       <editable-cell
                         slot-scope="{row}"
@@ -87,7 +87,7 @@
 
                     <el-table-column
                       label="ブランド"
-                      min-width="180"
+                      min-width="160"
                     >
                       <editable-cell
                         slot-scope="{row}"
@@ -100,7 +100,19 @@
 
                     <el-table-column
                       label="品番"
-                      min-width="180"
+                      min-width="160"
+                    >
+                      <editable-cell
+                        slot-scope="{row}"
+                        :can-edit="editModeEnabled"
+                        v-model="row.model_number"
+                      >
+                        <span slot="content">{{row.model_number}}</span>
+                      </editable-cell>
+                    </el-table-column>
+                    <el-table-column
+                      label="URL"
+                      min-width="160"
                     >
                       <editable-cell
                         slot-scope="{row}"
@@ -185,7 +197,7 @@
                       >
                         <el-table-column
                           label="製品名"
-                          min-width="180"
+                          min-width="160"
                         >
                           <editable-cell
                             slot-scope="{row}"
@@ -198,7 +210,7 @@
 
                         <el-table-column
                           label="ブランド"
-                          min-width="180"
+                          min-width="160"
                         >
                           <editable-cell
                             slot-scope="{row}"
@@ -211,7 +223,19 @@
 
                         <el-table-column
                           label="品番"
-                          min-width="180"
+                          min-width="160"
+                        >
+                          <editable-cell
+                            slot-scope="{row}"
+                            :can-edit="editModeEnabled"
+                            v-model="row.model_number"
+                          >
+                            <span slot="content">{{row.model_number}}</span>
+                          </editable-cell>
+                        </el-table-column>
+                        <el-table-column
+                          label="URL"
+                          min-width="160"
                         >
                           <editable-cell
                             slot-scope="{row}"

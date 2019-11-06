@@ -1,7 +1,15 @@
 <template>
   <div class="row">
     <!-- 検索サイドバー -->
-    <div class="sidebar col-sm-3 hidden-xs">
+    <!-- <div class="sidebar col-sm-3 hidden-xs"> -->
+
+    <el-popover
+      placement="top-start"
+      title="プロジェクト検索"
+      width="350"
+      trigger="hover"
+      style="position:fixed"
+    >
       <!-- 検索・リセットボタン -->
       <div class="mb-4 mt-3">
         <el-button
@@ -21,8 +29,18 @@
         check-on-click-node
         :check-strictly="true"
       ></el-tree>
+      <el-button
+        slot="reference"
+        style="border:none"
+        class="m-0"
+      ><i
+          class="fas fa-search fa-lg"
+          style="position:fixed"
+        ></i></el-button>
+    </el-popover>
 
-    </div>
+    <!-- </div> -->
+
     <!-- 画像表示 -->
     <div class="col-sm-9 container-fluid">
       <div class="album">
@@ -46,8 +64,11 @@
                 />
               </a>
             </div>
-            <div class="card-body">
-              <p class="card-text">{{ value.title }}</p>
+            <div class="card-body d-flex align-items-center justify-content-center">
+              <p
+                class="card-text"
+                style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"
+              >{{ value.title }}</p>
             </div>
           </div>
         </div>

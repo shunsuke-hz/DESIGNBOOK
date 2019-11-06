@@ -54,7 +54,7 @@
           class="tab-content"
           style="width:100%"
         >
-          <h4 class="mb-0">
+          <h4 class="my-0">
             <a
               class="text-dark"
               href="#"
@@ -161,10 +161,10 @@
         </div>
 
         <!-- タグ一覧 -->
-        <div class="btn-group d-block mt-5">
+        <div class="btn-group d-block mt-5 mx-auto">
           <button
             type="button"
-            class="btn btn-sm btn-outline-secondary"
+            class="btn btn-sm btn-outline-default"
             data-toggle="modal"
             v-for="key in items[num].tags"
             :key="key.id"
@@ -190,19 +190,24 @@
           class="card m-2"
         >
           <div class="image">
-            <div v-if="product.product_images.length !== 0">
-              <img
-                v-if="product.product_images[num].image.indexOf('http') == -1"
-                :src="'/storage/'+product.product_images[num].image "
-              />
-              <img
-                v-if="product.product_images[num].image.indexOf('http') != -1"
-                :src="product.product_images[num].image "
-              />
+            <div
+              style="overflow:hidden"
+              v-if="product.product_images.length !== 0"
+            >
+              <a :href="'../product-detail?work='+product.id">
+                <img
+                  v-if="product.product_images[num].image.indexOf('http') == -1"
+                  :src="'/storage/'+product.product_images[num].image "
+                />
+                <img
+                  v-if="product.product_images[num].image.indexOf('http') != -1"
+                  :src="product.product_images[num].image "
+                />
+              </a>
             </div>
           </div>
           <div class="card-body">
-            <p>{{ product.title }}</p>
+            <p style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{ product.title }}</p>
             <p class="mb-0">{{ product.brands.name }}</p>
             <a
               href="product.brands.url"
@@ -282,20 +287,24 @@ export default {
   width: 100vw;
 } */
 
+body {
+  margin-top: 58px !important;
+}
+
 .card-body p {
   font-size: 1rem;
 }
 
 .el-carousel__container {
-  height: 700px;
+  height: 600px;
 }
 
 .el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
+  background-color: #ffffff;
 }
 
 .el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
+  background-color: #ffffff;
 }
 
 /* .el-carousel__item img {
@@ -305,7 +314,9 @@ export default {
 
 .carousel__img {
   height: 100%;
-  background-size: cover;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .card {
@@ -321,7 +332,6 @@ export default {
 }
 
 .album .card img {
-  overflow: hidden;
   width: 264px;
   height: 210px;
 }

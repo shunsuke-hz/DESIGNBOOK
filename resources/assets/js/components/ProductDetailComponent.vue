@@ -2,18 +2,18 @@
   <div class="container">
     <div v-if="display">
       <!-- 画面左側 -->
-      <div class="card flex-md-row mt-5 mb-4 pt-4">
+      <div class="card flex-md-row">
         <div class="thumbneil ml-5">
-          <img
+          <div
+            class="thumbneil__img"
             v-if="items[num].image.indexOf('http') == -1"
-            class="card-img-left flex-auto d-none d-md-block"
-            :src="'/storage/'+items[num].image"
+            :style="{'backgroundImage':'url(/storage/'+ items[num].image +')'}"
           />
-          <img
-            v-if="items[num].image.indexOf('http') 
-                    != -1"
-            class="card-img-left flex-auto d-none d-md-block"
-            :src="items[num].image"
+
+          <div
+            class="thumbneil__img"
+            v-if="items[num].image.indexOf('http') != -1"
+            :style="{'backgroundImage':'url('+ items[num].image +')'}"
           />
 
           <br />
@@ -27,18 +27,7 @@
               v-for="(item,key) in items"
               :key="key"
             >
-              <!-- <img
-                v-if="item.image.indexOf('http') == -1"
-                @click="changeImage"
-                :src="'/storage/'+item.image"
-                :value="key"
-              />
-              <img
-                v-if="item.image.indexOf('http') != -1"
-                @click="changeImage"
-                :src="item.image"
-                :value="key"
-              /> -->
+
               <div
                 class="carousel__img"
                 v-if="item.image.indexOf('http') == -1"
@@ -120,12 +109,12 @@
         </div>
       </div>
 
-      <div class="test ml-5 d-flex">
+      <div class="test ">
 
-        <div class="recommend">
-          <p>関連商品</p>
+        <div class="card recommend">
+          <p class="ml-4 mt-3">関連商品</p>
           <div class="col m-0 d-flex">
-            <div class="card m-2">
+            <div class="card m-2 col-2">
               <div class="image">
                 <img
                   src="/storage/test.jpg"
@@ -143,7 +132,7 @@
                 >〇〇〇〇</p>
               </div>
             </div>
-            <div class="card m-2">
+            <div class="card m-2 col-2">
               <div class="image">
                 <img
                   src="/storage/test2.jpg"
@@ -163,16 +152,101 @@
             </div>
           </div>
         </div>
-        <div class="text-center">
-          <p>お問い合わせ</p>
-          <div class="d-flex flex-row-reverse">
+        <div class="">
 
-            <img
-              src="/storage/test_contact.png"
-              alt
-              style="width:60%; height:90%;"
-            />
+          <div class="card card-contact col-4">
+            <form
+              role="form"
+              id="contact-form1"
+              method="post"
+            >
+              <div class="card-header text-center">
+                <h4 class="card-title">お問い合わせ</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6 pr-2">
+                    <label>性</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="First Name..."
+                        aria-label="First Name..."
+                        autocomplete="given-name"
+                      >
+                    </div>
+                  </div>
+                  <div class="col-md-6 pl-2">
+                    <div class="form-group">
+                      <label>名</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Last Name..."
+                          aria-label="Last Name..."
+                          autocomplete="family-name"
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Emailアドレス</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></span>
+                    </div>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email Here..."
+                      autocomplete="email"
+                    >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>メッセージ</label>
+                  <textarea
+                    name="message"
+                    class="form-control"
+                    id="message"
+                    rows="6"
+                  ></textarea>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                        >
+                        <span class="form-check-sign"></span>
+                        ロボットではありません
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-round pull-right"
+                    >送信</button>
+                  </div>
+                </div>
+              </div>
+
+            </form>
           </div>
+          <!-- ここまで -->
         </div>
       </div>
     </div>
@@ -181,6 +255,11 @@
 
 <script>
 export default {
+  props: {
+    user: {
+      type: Object
+    }
+  },
   data: function() {
     return {
       display: false,
@@ -222,9 +301,14 @@ export default {
 </script>
 
 <style>
-.thumbneil img {
-  width: 320px;
-  height: 320px;
+body {
+  margin-top: 58px !important;
+}
+
+.thumbneil__img {
+  height: 600px;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .images img {
@@ -251,7 +335,7 @@ export default {
 }
 
 .el-carousel__container {
-  height: 700px;
+  height: 150px;
 }
 
 .carousel__img {

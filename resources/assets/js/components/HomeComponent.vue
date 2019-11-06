@@ -1,7 +1,13 @@
 <template>
   <div>
-    <el-carousel :interval="3000" arrow="always">
-      <el-carousel-item v-for="(item,key) in top.project_images" :key="key">
+    <el-carousel
+      :interval="3000"
+      arrow="always"
+    >
+      <el-carousel-item
+        v-for="(item,key) in top.project_images"
+        :key="key"
+      >
         <div
           class="carousel__img"
           v-if="item.image.indexOf('http') == -1"
@@ -11,7 +17,10 @@
           <div class="carousel__text ml-5 pt-5">
             <h2>{{item.title}}</h2>
             <h3>{{top.explain}}</h3>
-            <a class="btn btn-outline-info" href="/project-detail?work=1">more</a>
+            <a
+              class="btn btn-outline-info"
+              href="/project-detail?work=1"
+            >more</a>
           </div>
         </div>
         <div
@@ -23,7 +32,10 @@
           <div class="carousel__text ml-5 pt-5">
             <h2>{{item.title}}</h2>
             <h5>{{top.explain}}</h5>
-            <a class="btn btn-outline-info" href="/project-detail?work=1">more</a>
+            <a
+              class="btn btn-outline-info"
+              href="/project-detail?work=1"
+            >more</a>
           </div>
         </div>
       </el-carousel-item>
@@ -34,7 +46,10 @@
         <p>The latest projects, products and exclusive articles</p>
         <div class="col-md-12">
           <!-- １枚目 -->
-          <div class="card mb-3" style="max-width: 540px;">
+          <div
+            class="card mb-3"
+            style="max-width: 540px;"
+          >
             <div class="row no-gutters">
               <div class="col-md-4">
                 <svg
@@ -52,9 +67,7 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">{{response[1].title}}</h5>
-                  <p
-                    class="card-text"
-                  >This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   <p class="card-text">
                     <small class="text-muted">Last updated 3 mins ago</small>
                   </p>
@@ -63,14 +76,15 @@
             </div>
           </div>
           <!-- ２枚目 -->
-          <div class="card mb-3" style="max-width: 540px;">
+          <div
+            class="card mb-3"
+            style="max-width: 540px;"
+          >
             <div class="row no-gutters">
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">{{response[2].title}}</h5>
-                  <p
-                    class="card-text"
-                  >This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   <p class="card-text">
                     <small class="text-muted">Last updated 3 mins ago</small>
                   </p>

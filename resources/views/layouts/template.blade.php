@@ -111,9 +111,6 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item d-flex align-items-center">
-              <search-component />
-            </li>
             <li class="nav-item py-2"><a class="nav-link" href="/">プロジェクト</a></li>
             <li class="nav-item py-2"><a class="nav-link" href="/product">製品</a></li>
             <li class="nav-item py-2"><a class="nav-link" href="/brands-list">ブランド</a></li>

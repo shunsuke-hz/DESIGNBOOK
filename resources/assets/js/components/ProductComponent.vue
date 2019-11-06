@@ -1,8 +1,15 @@
 <template>
   <div class="row">
     <!-- 検索サイドバー -->
-    <div class="sidebar col-sm-3 hidden-xs">
-      <!-- 検索・リセットボタン -->
+    <!-- <div class="sidebar col-sm-3 hidden-xs"> -->
+    <!-- 検索・リセットボタン -->
+    <el-popover
+      placement="top-start"
+      title="プロジェクト検索"
+      width="350"
+      trigger="hover"
+      style="position:fixed"
+    >
       <div class="mb-4  mt-3">
         <el-button
           type="primary"
@@ -21,12 +28,25 @@
         check-on-click-node
         :check-strictly="true"
       ></el-tree>
-    </div>
+      <el-button
+        slot="reference"
+        style="border:none"
+        class="m-0"
+      ><i
+          class="fas fa-search fa-lg"
+          style="position:fixed"
+        ></i></el-button>
+    </el-popover>
+    <!-- </div> -->
     <!-- 画像表示 -->
-    <div class="col-sm-9 offset-sm-3">
+    <div class="col-sm-9 container-fluid">
       <div class="album">
         <div class="row">
-          <div class="card m-2" v-for="value in filter" :key="value.id">
+          <div
+            class="card m-2"
+            v-for="value in filter"
+            :key="value.id"
+          >
             <div class="image">
               <a :href="'/product-detail?work='+value.id">
                 <img
@@ -41,8 +61,11 @@
                 />
               </a>
             </div>
-            <div class="card-body">
-              <p class="card-text">{{ value.title }}</p>
+            <div class="card-body card-body d-flex align-items-center justify-content-center">
+              <p
+                class="card-text"
+                style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"
+              >{{ value.title }}</p>
             </div>
           </div>
         </div>
