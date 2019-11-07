@@ -11420,7 +11420,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.brand-image {\r\n  width: 50px;\r\n  height: 50px;\n}\r\n", ""]);
+exports.push([module.i, "\n.brand-image {\r\n  width: 50px;\r\n  height: 50px;\n}\nimg {\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\r\n", ""]);
 
 // exports
 
