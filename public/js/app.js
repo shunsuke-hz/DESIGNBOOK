@@ -4982,79 +4982,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -11403,7 +11330,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .thumbneil img {\r\n  width: 320px;\r\n  height: 320px;\r\n} */\r\n\r\n/* .thumbneil .images img {\r\n    cursor: pointer;\r\n    width: 80px;\r\n    height: 80px;\r\n} */\r\n\r\n/* .el-carousel {\r\n  width: 100vw;\r\n} */\nbody {\r\n  margin-top: 58px !important;\n}\n.card-body p {\r\n  font-size: 1rem;\n}\n.el-carousel__container {\r\n  height: 600px;\n}\n.el-carousel__item:nth-child(2n) {\r\n  background-color: #ffffff;\n}\n.el-carousel__item:nth-child(2n + 1) {\r\n  background-color: #ffffff;\n}\r\n\r\n/* .el-carousel__item img {\r\n  width: 100%;\r\n  height: 100%;\r\n} */\n.carousel__img {\r\n  height: 100%;\r\n  background-size: contain;\r\n  background-position: center center;\r\n  background-repeat: no-repeat;\n}\n.card {\r\n  border: none;\n}\n.album .card {\r\n  width: 264px;\r\n  height: 264px;\r\n  border: none;\r\n  border-radius: 0;\r\n  margin: 1rem;\n}\n.album .card img {\r\n  width: 264px;\r\n  height: 210px;\n}\n.album img:hover {\r\n  -webkit-transform: scale(1.1);\r\n          transform: scale(1.1);\r\n  -webkit-transition-duration: 0.3s;\r\n          transition-duration: 0.3s;\n}\n.album .card-body {\r\n  width: 264px;\r\n  height: 108px;\r\n  padding: 0.5rem;\n}\n.products-info img {\r\n  width: 250px;\r\n  height: 250px;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .thumbneil img {\r\n  width: 320px;\r\n  height: 320px;\r\n} */\r\n\r\n/* .thumbneil .images img {\r\n    cursor: pointer;\r\n    width: 80px;\r\n    height: 80px;\r\n} */\r\n\r\n/* .el-carousel {\r\n  width: 100vw;\r\n} */\nbody {\r\n  margin-top: 58px !important;\n}\n.card-body p {\r\n  font-size: 1rem;\n}\n.el-carousel__container {\r\n  height: 600px;\n}\n.el-carousel__item:nth-child(2n) {\r\n  background-color: #ffffff;\n}\n.el-carousel__item:nth-child(2n + 1) {\r\n  background-color: #ffffff;\n}\r\n\r\n/* .el-carousel__item img {\r\n  width: 100%;\r\n  height: 100%;\r\n} */\n.carousel__img {\r\n  height: 100%;\r\n  background-size: contain;\r\n  background-position: center center;\r\n  background-repeat: no-repeat;\n}\n.card {\r\n  border: none;\n}\n.album .card {\r\n  width: 264px;\r\n  height: 264px;\r\n  border: none;\r\n  border-radius: 0;\r\n  margin: 1rem;\n}\n.album .card img {\r\n  width: 264px;\r\n  height: 210px;\n}\n.album img:hover {\r\n  -webkit-transform: scale(1.1);\r\n          transform: scale(1.1);\r\n  -webkit-transition-duration: 0.3s;\r\n          transition-duration: 0.3s;\n}\n.album .card-body {\r\n  width: 264px;\r\n  height: 108px;\r\n  padding: 0.5rem;\n}\n.products-info img {\r\n  width: 250px;\r\n  height: 250px;\n}\r\n", ""]);
 
 // exports
 
@@ -101350,6 +101277,7 @@ var render = function() {
                           _c(
                             "p",
                             {
+                              staticClass: "mt-1 px-3",
                               staticStyle: {
                                 overflow: "hidden",
                                 "text-overflow": "ellipsis",
@@ -101359,7 +101287,7 @@ var render = function() {
                             [_vm._v(_vm._s(product.title))]
                           ),
                           _vm._v(" "),
-                          _c("p", { staticClass: "mb-0" }, [
+                          _c("p", { staticClass: "mb-0 pt-3" }, [
                             _vm._v(_vm._s(product.brands.name))
                           ]),
                           _vm._v(" "),
@@ -101378,6 +101306,7 @@ var render = function() {
                             ? _c(
                                 "a",
                                 {
+                                  staticClass: "pb-5",
                                   attrs: {
                                     href: "../product-detail?work=" + product.id
                                   }
