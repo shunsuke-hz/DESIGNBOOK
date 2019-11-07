@@ -5229,6 +5229,20 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -104070,7 +104084,7 @@ var render = function() {
                     _c(
                       "p",
                       {
-                        staticClass: "card-text px-3",
+                        staticClass: "card-text px-3 m-0",
                         staticStyle: {
                           overflow: "hidden",
                           "text-overflow": "ellipsis",

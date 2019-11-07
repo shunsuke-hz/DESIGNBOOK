@@ -12,7 +12,10 @@
     >
       <!-- 検索・リセットボタン -->
       <div class="mb-4 mt-3">
-        <el-button type="primary" @click="setCheck">検索</el-button>
+        <el-button
+          type="primary"
+          @click="setCheck"
+        >検索</el-button>
         <el-button @click="resetChecked">リセット</el-button>
       </div>
       <!-- 検索ツリー -->
@@ -26,8 +29,15 @@
         check-on-click-node
         :check-strictly="true"
       ></el-tree>
-      <el-button slot="reference" style="border:none" class="m-0">
-        <i class="fas fa-search fa-lg" style="position:fixed"></i>
+      <el-button
+        slot="reference"
+        style="border:none"
+        class="m-0"
+      >
+        <i
+          class="fas fa-search fa-lg"
+          style="position:fixed"
+        ></i>
       </el-button>
     </el-popover>
 
@@ -37,7 +47,11 @@
     <div class="col-sm-9 container-fluid">
       <div class="album">
         <div class="row">
-          <div class="card m-2 mx-auto" v-for="value in filter" :key="value.id">
+          <div
+            class="card m-2 mx-auto"
+            v-for="value in filter"
+            :key="value.id"
+          >
             <div class="image">
               <a :href="'/project-detail?work='+value.id">
                 <img
@@ -54,7 +68,7 @@
             </div>
             <div class="card-body">
               <p
-                class="card-text px-3"
+                class="card-text px-3 m-0"
                 style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"
               >{{ value.title }}</p>
 
