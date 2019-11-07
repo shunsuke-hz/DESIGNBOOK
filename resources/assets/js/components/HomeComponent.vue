@@ -1,7 +1,13 @@
 <template>
   <div>
-    <el-carousel :interval="3000" arrow="always">
-      <el-carousel-item v-for="(item,key) in top.project_images" :key="key">
+    <el-carousel
+      :interval="3000"
+      arrow="always"
+    >
+      <el-carousel-item
+        v-for="(item,key) in top.project_images"
+        :key="key"
+      >
         <div
           class="carousel__img"
           v-if="item.image.indexOf('http') == -1"
@@ -11,7 +17,10 @@
           <div class="carousel__text ml-5 pt-5">
             <h2>{{item.title}}</h2>
             <h3>{{top.explain}}</h3>
-            <a class="btn btn-outline-info" href="/project-detail?work=1">more</a>
+            <a
+              class="btn btn-outline-info"
+              href="/project-detail?work=1"
+            >more</a>
           </div>
         </div>
         <div
@@ -34,7 +43,10 @@
         <p>The latest projects, products and exclusive articles</p>
         <div class="col-md-12">
           <!-- １枚目 -->
-          <div class="card mb-3" style="max-width: 540px;">
+          <div
+            class="card mb-3"
+            style="max-width: 540px;"
+          >
             <div class="row no-gutters">
               <div class="col-md-4">
                 <svg
@@ -63,7 +75,10 @@
             </div>
           </div>
           <!-- ２枚目 -->
-          <div class="card mb-3" style="max-width: 540px;">
+          <div
+            class="card mb-3"
+            style="max-width: 540px;"
+          >
             <div class="row no-gutters">
               <div class="col-md-4 order-md-2">
                 <svg
