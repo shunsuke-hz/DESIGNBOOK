@@ -4994,7 +4994,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -11442,7 +11441,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.brand-image {\n  width: 50px;\n  height: 50px;\n}\n", ""]);
+exports.push([module.i, "\n.brand-image {\n  width: 50px;\n  height: 50px;\n}\nimg {\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n", ""]);
 
 // exports
 
