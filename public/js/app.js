@@ -103704,7 +103704,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "image" }, [
                 _c("img", {
                   staticStyle: { width: "160px", height: "150px" },
-                  attrs: { src: "/storage/office3.jpg" }
+                  attrs: { src: "/storage/tajima1.jpg" }
                 })
               ]),
               _vm._v(" "),
@@ -103733,7 +103733,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "image" }, [
                 _c("img", {
                   staticStyle: { width: "160px", height: "150px" },
-                  attrs: { src: "/storage/shop1.jpg" }
+                  attrs: { src: "/storage/tajima2.jpg" }
                 })
               ]),
               _vm._v(" "),
@@ -103762,7 +103762,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "image" }, [
                 _c("img", {
                   staticStyle: { width: "160px", height: "150px" },
-                  attrs: { src: "/storage/office2.jpg" }
+                  attrs: { src: "/storage/tajima3.jpg" }
                 })
               ]),
               _vm._v(" "),
@@ -103791,7 +103791,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "image" }, [
                 _c("img", {
                   staticStyle: { width: "160px", height: "150px" },
-                  attrs: { src: "/storage/office1.jpg" }
+                  attrs: { src: "/storage/tajima4.jpg" }
                 })
               ]),
               _vm._v(" "),

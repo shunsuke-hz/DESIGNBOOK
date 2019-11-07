@@ -115,7 +115,7 @@
             <div class="col m-0 d-flex">
               <div class="card m-2 col-2">
                 <div class="image">
-                  <img src="/storage/office3.jpg" style="width:160px; height:150px;" />
+                  <img src="/storage/tajima1.jpg" style="width:160px; height:150px;" />
                 </div>
                 <div class="card-body p-1">
                   <p class="m-0" style="font-size:0.8rem;">㈱デザインブック</p>
@@ -124,7 +124,7 @@
               </div>
               <div class="card m-2 col-2">
                 <div class="image">
-                  <img src="/storage/shop1.jpg" style="width:160px; height:150px;" />
+                  <img src="/storage/tajima2.jpg" style="width:160px; height:150px;" />
                 </div>
                 <div class="card-body p-1">
                   <p class="m-0" style="font-size:0.8rem;">山田商店</p>
@@ -133,7 +133,7 @@
               </div>
               <div class="card m-2 col-2">
                 <div class="image">
-                  <img src="/storage/office2.jpg" style="width:160px; height:150px;" />
+                  <img src="/storage/tajima3.jpg" style="width:160px; height:150px;" />
                 </div>
                 <div class="card-body p-1">
                   <p class="m-0" style="font-size:0.8rem;">㈱チャイテック</p>
@@ -142,7 +142,7 @@
               </div>
               <div class="card m-2 col-2">
                 <div class="image">
-                  <img src="/storage/office1.jpg" style="width:160px; height:150px;" />
+                  <img src="/storage/tajima4.jpg" style="width:160px; height:150px;" />
                 </div>
                 <div class="card-body p-1">
                   <p class="m-0" style="font-size:0.8rem;">㈱デザインブック</p>
