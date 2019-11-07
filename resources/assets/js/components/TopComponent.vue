@@ -52,11 +52,20 @@
                 />
               </a>
             </div>
-            <div class="card-body d-flex align-items-center justify-content-center">
+            <div class="card-body">
               <p
                 class="card-text px-3"
                 style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"
               >{{ value.title }}</p>
+
+              <div
+                class="image_link text-right"
+                v-if="value.project_images[0].image.indexOf('http') != -1"
+              >
+                <a :href="value.project_images[0].image">
+                  <i class="fas fa-link"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -188,6 +197,24 @@ export default {
   transform: scale(1.1);
   transition-duration: 0.3s;
 }
+
+/* .caption {
+  font-size: 130%;
+  text-align: center;
+  padding-top: 80px;
+  color: #fff;
+}
+.mask {
+  width: 100%;
+  height: 100%;
+  position: absolute; 
+  top: 0;
+  left: 0;
+  opacity: 0; 
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+} */
 
 .img-thumbnail {
   padding: 0;

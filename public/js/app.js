@@ -3762,6 +3762,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -4766,10 +4768,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     };
   },
   methods: {
-    // ホバーでサムネイル切り替え
+    // サムネイル切り替え
     changeImage: function changeImage() {
       setTimeout(function () {
-        var getValue = document.getElementsByClassName("el-carousel__item is-active")[0].getElementsByTagName("img")[0].getAttribute("value");
+        var getValue = document.getElementsByClassName("el-carousel__item is-active")[0].getElementsByTagName("div")[0].getAttribute("value");
+        console.log(getValue);
         this.num = getValue;
       }.bind(this), 10);
     }
@@ -101129,7 +101132,10 @@ var render = function() {
                             "p",
                             {
                               staticClass: "card-text mt-3 mb-auto",
-                              staticStyle: { "font-size": "0.8rem" }
+                              staticStyle: {
+                                "font-size": "0.8rem",
+                                "word-wrap": "break-word"
+                              }
                             },
                             [_vm._v(_vm._s(_vm.project.explain))]
                           ),
@@ -102104,7 +102110,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-header" }, [_vm._v("プロジェクトの作成")]),
+      _c("div", { staticClass: "card-header" }),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _vm.status_msg
@@ -102124,6 +102130,10 @@ var render = function() {
         _vm._v(" "),
         _c("form", [
           _c("div", { staticClass: "form-group" }, [
+            _c("p", { staticStyle: { "font-weight": "350" } }, [
+              _vm._v("プロジェクトの作成")
+            ]),
+            _vm._v(" "),
             _c("label", { attrs: { for: "exampleFormControlInput1" } }, [
               _vm._v("タイトル")
             ]),
@@ -102850,7 +102860,7 @@ var render = function() {
         _c(
           "button",
           {
-            staticClass: "btn btn-success ml-4",
+            staticClass: "btn btn-primary ml-4",
             attrs: { type: "button" },
             on: { click: _vm.createPost }
           },
@@ -124188,19 +124198,11 @@ var debug = "development" !== "production";
 
 /***/ }),
 
-/***/ "./resources/assets/sass/now-ui-kit.scss":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__("./resources/assets/js/app.js");
-__webpack_require__("./resources/assets/sass/app.scss");
-module.exports = __webpack_require__("./resources/assets/sass/now-ui-kit.scss");
+module.exports = __webpack_require__("./resources/assets/sass/app.scss");
 
 
 /***/ })

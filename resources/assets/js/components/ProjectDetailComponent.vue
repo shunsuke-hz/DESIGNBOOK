@@ -84,7 +84,7 @@
           >
             <p
               class="card-text mt-3 mb-auto"
-              style="font-size:0.8rem"
+              style="font-size:0.8rem;word-wrap: break-word;"
             >{{project.explain }}</p>
             <div
               v-if="tab ==0"

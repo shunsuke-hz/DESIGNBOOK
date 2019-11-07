@@ -261,14 +261,15 @@ export default {
     };
   },
   methods: {
-    // ホバーでサムネイル切り替え
+    // サムネイル切り替え
     changeImage: function() {
       setTimeout(
         function() {
           let getValue = document
             .getElementsByClassName("el-carousel__item is-active")[0]
-            .getElementsByTagName("img")[0]
+            .getElementsByTagName("div")[0]
             .getAttribute("value");
+          console.log(getValue);
           this.num = getValue;
         }.bind(this),
         10
@@ -310,14 +311,6 @@ body {
   border: none;
 }
 
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
-}
-
 .el-carousel__item img {
   cursor: pointer;
   width: 160px;
@@ -330,6 +323,8 @@ body {
 
 .carousel__img {
   height: 100%;
-  background-size: cover;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 </style>

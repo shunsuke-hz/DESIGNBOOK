@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="card-header">プロジェクトの作成</div>
+      <div class="card-header">
+      </div>
       <div class="card-body">
         <div
           v-if="status_msg"
@@ -11,6 +12,7 @@
         >{{ status_msg }}</div>
         <form>
           <div class="form-group">
+            <p style="font-weight:350">プロジェクトの作成</p>
             <label for="exampleFormControlInput1">タイトル</label>
             <input
               v-model="title"
@@ -280,7 +282,7 @@
         <button
           type="button"
           @click="createPost"
-          class="btn btn-success ml-4"
+          class="btn btn-primary ml-4"
         >{{ isCreatingPost ? '投稿中...' : '投稿' }}</button>
       </div>
     </div>
