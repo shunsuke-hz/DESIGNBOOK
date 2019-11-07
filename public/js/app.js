@@ -4641,16 +4641,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -103368,8 +103358,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "test " }, [
-      _c("div", { staticClass: "card recommend" }, [
+    return _c("div", { staticClass: "test" }, [
+      _c("div", { staticClass: "card recommend pb-4" }, [
         _c("p", { staticClass: "ml-4 mt-3" }, [_vm._v("関連商品")]),
         _vm._v(" "),
         _c("div", { staticClass: "col m-0 d-flex" }, [
@@ -103427,7 +103417,133 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", {}, [
+      _c("div", [
+        _c("div", { staticClass: "card recommend pb-4" }, [
+          _c("p", { staticClass: "ml-4 mt-3" }, [
+            _vm._v("使用したデザイン事例")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col m-0 d-flex" }, [
+            _c("div", { staticClass: "card m-2 col-2" }, [
+              _c("div", { staticClass: "image" }, [
+                _c("img", {
+                  staticStyle: { width: "160px", height: "150px" },
+                  attrs: { src: "/storage/office3.jpg" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body p-1" }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "m-0",
+                    staticStyle: { "font-size": "0.8rem" }
+                  },
+                  [_vm._v("㈱デザインブック")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "text-center",
+                    staticStyle: { "font-size": "0.8rem" }
+                  },
+                  [_vm._v("〇〇〇〇")]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card m-2 col-2" }, [
+              _c("div", { staticClass: "image" }, [
+                _c("img", {
+                  staticStyle: { width: "160px", height: "150px" },
+                  attrs: { src: "/storage/shop1.jpg" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body p-1" }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "m-0",
+                    staticStyle: { "font-size": "0.8rem" }
+                  },
+                  [_vm._v("山田商店")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "text-center",
+                    staticStyle: { "font-size": "0.8rem" }
+                  },
+                  [_vm._v("〇〇〇〇")]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card m-2 col-2" }, [
+              _c("div", { staticClass: "image" }, [
+                _c("img", {
+                  staticStyle: { width: "160px", height: "150px" },
+                  attrs: { src: "/storage/office2.jpg" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body p-1" }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "m-0",
+                    staticStyle: { "font-size": "0.8rem" }
+                  },
+                  [_vm._v("㈱チャイテック")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "text-center",
+                    staticStyle: { "font-size": "0.8rem" }
+                  },
+                  [_vm._v("〇〇〇〇")]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card m-2 col-2" }, [
+              _c("div", { staticClass: "image" }, [
+                _c("img", {
+                  staticStyle: { width: "160px", height: "150px" },
+                  attrs: { src: "/storage/office1.jpg" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body p-1" }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "m-0",
+                    staticStyle: { "font-size": "0.8rem" }
+                  },
+                  [_vm._v("㈱デザインブック")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "text-center",
+                    staticStyle: { "font-size": "0.8rem" }
+                  },
+                  [_vm._v("〇〇〇〇")]
+                )
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", [
         _c("div", { staticClass: "card card-contact col-4" }, [
           _c(
             "form",
