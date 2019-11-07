@@ -4156,6 +4156,124 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -102502,9 +102620,13 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "carousel__text ml-5 pt-5" }, [
-                      _c("h2", [_vm._v(_vm._s(item.title))]),
+                      _c("h2", [_vm._v("Company Office")]),
                       _vm._v(" "),
-                      _c("h5", [_vm._v(_vm._s(_vm.top.explain))]),
+                      _c("h5", [
+                        _vm._v(
+                          "This is an office renovation plan for an AI startup company. Divide the whole into three zones: quiet forest, forest square, and forest lounge. The floor is mainly made of flooring, and the green wall grows on the wall on the corridor side, creating the feeling of the whole forest. We will create a bar counter on the north side, a desk and diner seats for large collaboration in the center, and a personal zone where you can concentrate..."
+                        )
+                      ]),
                       _vm._v(" "),
                       _c(
                         "a",
@@ -102559,19 +102681,82 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
+                  _vm._m(0)
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "card mb-3",
+                staticStyle: { "max-width": "540px" }
+              },
+              [
+                _c("div", { staticClass: "row no-gutters" }, [
+                  _c("div", { staticClass: "col-md-4 order-md-2" }, [
+                    _c("svg", {
+                      staticClass: "bd-placeholder-img",
+                      staticStyle: {
+                        backgroundImage: "url(/storage/外観_R.jpg)",
+                        "background-size": "cover"
+                      },
+                      attrs: {
+                        width: "100%",
+                        height: "250",
+                        preserveAspectRatio: "xMidYMid slice",
+                        focusable: "false",
+                        role: "img",
+                        "aria-label": "Placeholder: Image"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "card mb-3",
+                staticStyle: { "max-width": "540px" }
+              },
+              [
+                _c("div", { staticClass: "row no-gutters" }, [
+                  _c("div", { staticClass: "col-md-4" }, [
+                    _c("svg", {
+                      staticClass: "bd-placeholder-img",
+                      staticStyle: {
+                        backgroundImage:
+                          "url('https://www.interoffice.co.jp/cms-wp/wp-content/uploads/office-with-a-patio_20180520_186-Edit_180622_fin_w1500px_72ppi_q80_s-rgb_v03.jpg')",
+                        "background-size": "cover"
+                      },
+                      attrs: {
+                        width: "100%",
+                        height: "250",
+                        preserveAspectRatio: "xMidYMid slice",
+                        focusable: "false",
+                        role: "img",
+                        "aria-label": "Placeholder: Image"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
                   _c("div", { staticClass: "col-md-8" }, [
                     _c("div", { staticClass: "card-body" }, [
                       _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(_vm.response[1].title))
+                        _vm._v(_vm._s(_vm.response[3].title))
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "card-text" }, [
                         _vm._v(
-                          "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+                          "An office relocation project for an advertising production company in Minato-ku, Tokyo. At the interoffice, I was in charge of furniture and..."
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(0)
+                      _vm._m(2)
                     ])
                   ])
                 ])
@@ -102586,28 +102771,12 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "row no-gutters" }, [
-                  _c("div", { staticClass: "col-md-8" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(_vm.response[2].title))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(
-                          "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(1)
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-4" }, [
+                  _c("div", { staticClass: "col-md-4 order-md-2" }, [
                     _c("svg", {
                       staticClass: "bd-placeholder-img",
                       staticStyle: {
                         backgroundImage:
-                          "url('https://d6pmnsnqga8dz.cloudfront.net/wp/wp-content/uploads/2019/09/20190523_G1X0098-pano-Edit-1500x1883.jpg')",
+                          "url('https://d6pmnsnqga8dz.cloudfront.net/wp/wp-content/uploads/2019/03/000-House-of-Wind-and-Light_PHOTO_credit_Ichiro-Mishima_01.jpg')",
                         "background-size": "cover"
                       },
                       attrs: {
@@ -102619,7 +102788,101 @@ var render = function() {
                         "aria-label": "Placeholder: Image"
                       }
                     })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-8 order-md-1" }, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(_vm.response[4].title))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(
+                          "Houses originally reflect the social environment, and rooms and traffic lines are composed of the values, behaviors, and lifestyles of that..."
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3)
+                    ])
                   ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "card mb-3",
+                staticStyle: { "max-width": "540px" }
+              },
+              [
+                _c("div", { staticClass: "row no-gutters" }, [
+                  _c("div", { staticClass: "col-md-4" }, [
+                    _c("svg", {
+                      staticClass: "bd-placeholder-img",
+                      staticStyle: {
+                        backgroundImage:
+                          "url('https://static.wixstatic.com/media/047852_4401cddf05984efeb7ac26e797c3b466~mv2.png/v1/fill/w_955,h_667,al_c,q_90/047852_4401cddf05984efeb7ac26e797c3b466~mv2.webp')",
+                        "background-size": "cover"
+                      },
+                      attrs: {
+                        width: "100%",
+                        height: "250",
+                        preserveAspectRatio: "xMidYMid slice",
+                        focusable: "false",
+                        role: "img",
+                        "aria-label": "Placeholder: Image"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-8" }, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(_vm.response[5].title))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(
+                          "Thisisanofficewedesignedforamusiclabel,occupyinganentirefloorofabuildingShibuyawhereMiyamasuzaka,aslopingstreettraversingShibuyastation,andRoute246..."
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(4)
+                    ])
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "card mb-3",
+                staticStyle: { "max-width": "540px" }
+              },
+              [
+                _c("div", { staticClass: "row no-gutters" }, [
+                  _c("div", { staticClass: "col-md-4 order-md-2" }, [
+                    _c("svg", {
+                      staticClass: "bd-placeholder-img",
+                      staticStyle: {
+                        backgroundImage:
+                          "url('http://schemata.jp/wordpress/wp-content/uploads/02_180310_0638.jpg')",
+                        "background-size": "cover"
+                      },
+                      attrs: {
+                        width: "100%",
+                        height: "250",
+                        preserveAspectRatio: "xMidYMid slice",
+                        focusable: "false",
+                        role: "img",
+                        "aria-label": "Placeholder: Image"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(5)
                 ])
               ]
             )
@@ -102635,9 +102898,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "card-text" }, [
-      _c("small", { staticClass: "text-muted" }, [
-        _vm._v("Last updated 3 mins ago")
+    return _c("div", { staticClass: "col-md-8" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [_vm._v("Higashimatsuyama")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v(
+            "LocatedinSaitama,HigashimatsuyamaHousewasdesignedforacouplewhosefamilieslivedonthesiteforgenerationsforover300years..."
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _c("small", { staticClass: "text-muted" }, [
+            _vm._v("Last updated 30 mins ago")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-8 order-md-1" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [
+          _vm._v("Mr.Sasanuma's House")
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v(
+            "There is a plan to include a dedicated house and two rental houses in one building. The site is a flagpole site, with 2 to 3 floors of houses and..."
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _c("small", { staticClass: "text-muted" }, [
+            _vm._v("Last updated 1 hours ago")
+          ])
+        ])
       ])
     ])
   },
@@ -102647,7 +102946,49 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "card-text" }, [
       _c("small", { staticClass: "text-muted" }, [
-        _vm._v("Last updated 3 mins ago")
+        _vm._v("Last updated 2 hours ago")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "card-text" }, [
+      _c("small", { staticClass: "text-muted" }, [
+        _vm._v("Last updated 4 hours ago")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "card-text" }, [
+      _c("small", { staticClass: "text-muted" }, [
+        _vm._v("Last updated 2 hours ago")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-8 order-md-1" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [_vm._v("Toy’sFactory")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v(
+            "ArchitecturefirmBIGhasmoveditsNewYorkofficefromtheFinancialDistricttoBrooklyn,allowingthestudiotoexpanditsworkshopandenjoyaprivatepatiooverlookingManhattan..."
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _c("small", { staticClass: "text-muted" }, [
+            _vm._v("Last updated 4 hours ago")
+          ])
+        ])
       ])
     ])
   }
@@ -123247,11 +123588,19 @@ var debug = "development" !== "production";
 
 /***/ }),
 
+/***/ "./resources/assets/sass/now-ui-kit.scss":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__("./resources/assets/js/app.js");
-module.exports = __webpack_require__("./resources/assets/sass/app.scss");
+__webpack_require__("./resources/assets/sass/app.scss");
+module.exports = __webpack_require__("./resources/assets/sass/now-ui-kit.scss");
 
 
 /***/ })

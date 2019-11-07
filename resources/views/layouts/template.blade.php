@@ -11,7 +11,7 @@
   <title>DESIGN BOOK</title>
   <link rel="icon" type="image/gif" href="/storage/Logo.png">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/now-ui-kit.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/now-ui-kit.css') }}" rel="stylesheet">
 
 
 
