@@ -4706,7 +4706,8 @@ fieldset[disabled]
   color: #ff3636;
 }
 
-.has-success .form-control-feedback, .has-success .control-label {
+.has-success .form-control-feedback,
+.has-success .control-label {
   color: #18ce0f;
 }
 

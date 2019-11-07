@@ -10,11 +10,8 @@
       trigger="hover"
       style="position:fixed"
     >
-      <div class="mb-4  mt-3">
-        <el-button
-          type="primary"
-          @click="setCheck"
-        >検索</el-button>
+      <div class="mb-4 mt-3">
+        <el-button type="primary" @click="setCheck">検索</el-button>
         <el-button @click="resetChecked">リセット</el-button>
       </div>
       <!-- 検索ツリー -->
@@ -28,25 +25,16 @@
         check-on-click-node
         :check-strictly="true"
       ></el-tree>
-      <el-button
-        slot="reference"
-        style="border:none"
-        class="m-0"
-      ><i
-          class="fas fa-search fa-lg"
-          style="position:fixed"
-        ></i></el-button>
+      <el-button slot="reference" style="border:none" class="m-0">
+        <i class="fas fa-search fa-lg" style="position:fixed"></i>
+      </el-button>
     </el-popover>
     <!-- </div> -->
     <!-- 画像表示 -->
     <div class="col-sm-9 container-fluid">
       <div class="album">
         <div class="row">
-          <div
-            class="card m-2"
-            v-for="value in filter"
-            :key="value.id"
-          >
+          <div class="card m-2" v-for="value in filter" :key="value.id">
             <div class="image">
               <a :href="'/product-detail?work='+value.id">
                 <img
@@ -63,7 +51,7 @@
             </div>
             <div class="card-body card-body d-flex align-items-center justify-content-center">
               <p
-                class="card-text"
+                class="card-text px-3"
                 style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"
               >{{ value.title }}</p>
             </div>
@@ -162,9 +150,11 @@ export default {
 .image img {
   display: block;
   transition-duration: 0.3s;
+  width: 100%;
   height: 100%;
   border: none;
   margin: auto;
+  object-fit: cover;
 }
 
 .image img:hover {
