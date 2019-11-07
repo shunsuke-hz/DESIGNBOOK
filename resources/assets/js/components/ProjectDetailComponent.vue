@@ -1,12 +1,6 @@
 <template>
-
-  <div
-    v-if="display"
-    class="container-fluid p-0"
-    style="margin-top:-16px"
-  >
+  <div v-if="display" class="container-fluid p-0" style="margin-top:-16px">
     <div class="mb-4">
-
       <!-- 画面左側 -->
       <div class="thumbneil">
         <!-- <img
@@ -19,18 +13,11 @@
             class="card-img-left flex-auto d-none d-md-block"
             :src="items[num].image"
           />
-          <br /> -->
+        <br />-->
 
         <!-- project_image切り替え -->
-        <el-carousel
-          :autoplay="false"
-          arrow="always"
-        >
-          <el-carousel-item
-            v-for="(item,key) in items"
-            :key="key"
-          >
-
+        <el-carousel :autoplay="false" arrow="always">
+          <el-carousel-item v-for="(item,key) in items" :key="key">
             <div
               class="carousel__img"
               v-if="item.image.indexOf('http') == -1"
@@ -42,7 +29,6 @@
               v-if="item.image.indexOf('http') != -1"
               :style="{'backgroundImage':'url('+ item.image +')'}"
             />
-
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -50,29 +36,16 @@
     <div class="container">
       <!-- 画面下側 -->
       <div class="d-flex flex-column align-items-start pt-0">
-        <div
-          class="tab-content"
-          style="width:100%"
-        >
+        <div class="tab-content" style="width:100%">
           <h4 class="my-0">
-            <a
-              class="text-dark"
-              href="#"
-            >{{project.title}}</a>
+            <a class="text-dark" href="#">{{project.title}}</a>
           </h4>
           <div class="row">
             <div class="mx-auto">
-
               <!-- タブ切り替え -->
               <el-tabs v-model="tab">
-                <el-tab-pane
-                  label="プロジェクト"
-                  name="0"
-                ></el-tab-pane>
-                <el-tab-pane
-                  label="プロダクト詳細"
-                  name="1"
-                ></el-tab-pane>
+                <el-tab-pane label="プロジェクト" name="0"></el-tab-pane>
+                <el-tab-pane label="プロダクト詳細" name="1"></el-tab-pane>
               </el-tabs>
             </div>
             <br />
@@ -109,53 +82,26 @@
               <div class="ml-3">
                 <div class="mt-2">
                   <strong class="mt-1">{{ project.brands.name}}</strong>
-                  <button
-                    type="button"
-                    class="btn btn-primary ml-3"
-                    style="padding: 1px 9px"
-                  >follow</button>
+                  <button type="button" class="btn btn-primary ml-3" style="padding: 1px 9px">follow</button>
                 </div>
                 <p
                   class="card-text mb-auto"
                   style="font-size: 0.8rem;
 "
                 >Specht Architects was founded on the vision of creating elegant, comfortable, and timeless buildings that are rooted in the unique environments in which they exist, and shaped by the character of the people who will inhabit them.</p>
-                <a
-                  class="card-text mb-auto"
-                  href="project.brands.url"
-                >{{ project.brands.url }}</a>
+                <a class="card-text mb-auto" href="project.brands.url">{{ project.brands.url }}</a>
               </div>
             </div>
           </div>
 
           <!-- プロダクトタブ -->
-          <div
-            v-if="tab == 1"
-            class="product-tab"
-          >
-
+          <div v-if="tab == 1" class="product-tab">
             <!-- プロダクトテーブル -->
             <el-table :data="items[num].products">
-              <el-table-column
-                prop="tags[0].name"
-                label="カテゴリ"
-                contenteditable="true"
-              ></el-table-column>
-              <el-table-column
-                prop="title"
-                label="製品名"
-                contenteditable="true"
-              ></el-table-column>
-              <el-table-column
-                prop="brands.name"
-                label="ブランド"
-                contenteditable="true"
-              ></el-table-column>
-              <el-table-column
-                prop="model_number"
-                label="品番"
-                contenteditable="true"
-              ></el-table-column>
+              <el-table-column prop="tags[0].name" label="カテゴリ" contenteditable="true"></el-table-column>
+              <el-table-column prop="title" label="製品名" contenteditable="true"></el-table-column>
+              <el-table-column prop="brands.name" label="ブランド" contenteditable="true"></el-table-column>
+              <el-table-column prop="model_number" label="品番" contenteditable="true"></el-table-column>
             </el-table>
           </div>
         </div>
@@ -179,21 +125,11 @@
     <br />
 
     <!-- 使用プロダクト一覧 -->
-    <div
-      v-if="tab == 1"
-      class="album"
-    >
+    <div v-if="tab == 1" class="album">
       <div class="col row text-center justify-content-center m-0">
-        <div
-          v-for="product in items[num].products"
-          :key="product.id"
-          class="card m-2"
-        >
+        <div v-for="product in items[num].products" :key="product.id" class="card m-2">
           <div class="image">
-            <div
-              style="overflow:hidden"
-              v-if="product.product_images.length !== 0"
-            >
+            <div style="overflow:hidden" v-if="product.product_images.length !== 0">
               <a :href="'../product-detail?work='+product.id">
                 <img
                   v-if="product.product_images[num].image.indexOf('http') == -1"
@@ -207,22 +143,22 @@
             </div>
           </div>
           <div class="card-body">
-            <p style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{ product.title }}</p>
-            <p class="mb-0">{{ product.brands.name }}</p>
-            <a
-              href="product.brands.url"
-              style="color:#636B6E;"
-            >{{ product.brands.url }}</a>
+            <p
+              style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"
+              class="mt-1 px-3"
+            >{{ product.title }}</p>
+            <p class="mb-0 pt-3">{{ product.brands.name }}</p>
+            <a href="product.brands.url" style="color:#636B6E;">{{ product.brands.url }}</a>
             <br />
             <a
               v-if="product.product_images.length !== 0"
               :href="'../product-detail?work='+product.id"
+              class="pb-5"
             >この製品の詳細へ</a>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
